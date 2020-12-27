@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+    <!-- FORMAT DEFINITION: Start        -->
+
+    <!-- SimpleTYPE: APPLICATION TYPE  -->
+    <xsd:simpleType name="applicationTypeFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="WFM"/>
+            <xsd:enumeration value="SeqEditor"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: DECISION TYPE (Decision Task) -->
+    <xsd:simpleType name="containerFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="list"/>
+            <xsd:enumeration value="value"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: DATE -->
+    <xsd:simpleType name="dateFormat">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                The data Type must be in this format: dd-mm-YYYY
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(0[1-9]|[12][0-9]|3[01])\-(0[1-9]|1[012])\-(19|20)\d\d"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: LOCATION CONTENT (Dataobject) -->
+    <xsd:simpleType name="contentFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="model"/>
+            <xsd:enumeration value="seqdb-match"/>
+            <xsd:enumeration value="wf-instance"/>
+            <xsd:enumeration value="seq-data-stats"/>
+            <xsd:enumeration value="polymer-linkage-distances"/>
+            <xsd:enumeration value="seq-assign"/>
+            <xsd:enumeration value="none"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+    <!-- SimpleTYPE: DECISION TYPE (Decision Task) -->
+    <xsd:simpleType name="decisionFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AUTO"/>
+            <xsd:enumeration value="MANUAL"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: ID (Data, Task and other) -->
+    <xsd:simpleType name="ID">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="(W|D|T|J|E){1}(A|F|L|P|D|M|W|X){0,1}[0-9]{0,1}[0-9]{0,1}"></xsd:pattern>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: LOCATION (WHERE)-->
+    <xsd:simpleType name="locationWhereFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="wf-instance"/>
+            <xsd:enumeration value="archive"/>
+            <xsd:enumeration value="workflow"/>
+            <xsd:enumeration value="constant"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: LOCATION (FORMAT)-->
+    <xsd:simpleType name="locationformatFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="pdbx"/>
+            <xsd:enumeration value="pdb"/>
+            <xsd:enumeration value="cif"/>
+            <xsd:enumeration value="pdbml"/>
+            <xsd:enumeration value="nmr-star"/>
+            <xsd:enumeration value="mtz"/>
+            <xsd:enumeration value="jpg"/>
+            <xsd:enumeration value="png"/>
+            <xsd:enumeration value="gif"/>
+            <xsd:enumeration value="sdf"/>
+            <xsd:enumeration value="ccp4"/>
+            <xsd:enumeration value="nrc2000"/>
+            <xsd:enumeration value="pic"/>
+            <xsd:enumeration value="any"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+
+    <!-- SimpleTYPE: LOGIC -->
+    <xsd:simpleType name="logicFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AND"/>
+            <xsd:enumeration value="OR"/>
+            <xsd:enumeration value="XOR"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: LONG DESCRIPTION -->
+    <xsd:simpleType name="longDescriptionFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="250"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: MAJOR -->
+    <xsd:simpleType name="majorFormat">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                'major' defines the version of workflow file:
+                -First number identify the major release;
+                -Second number identify the minor release;
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="([0-9][0-9])\.([0-9][0-9])"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: MODE -->
+    <xsd:simpleType name="modeFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="input"/>
+            <xsd:enumeration value="output"/>
+            <xsd:enumeration value="both"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: processDetailWhere -->
+    <xsd:simpleType name="processDetailWhere">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="api"/>
+            <xsd:enumeration value="wfe"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: NAMESPACE -->
+    <xsd:simpleType name="namespaceFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="mmCIF-tag-name"/>
+            <xsd:enumeration value="Alignment"/>
+            <xsd:enumeration value="MutationRate"/>
+            <xsd:enumeration value="DataMatch"/>
+            <xsd:enumeration value="AUTHS"/>
+            <xsd:enumeration value="COORD"/>
+            <xsd:enumeration value="CS"/> <!-- Coordinate Sequence -->
+            <xsd:enumeration value="DBREF"/> <!-- DB REference -->
+            <xsd:enumeration value="SA"/> <!-- Seq Align -->
+                <!-- !TO ADD!  -->
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: OBJECT TYPE  !TODO!-->
+    <xsd:simpleType name="objectTypeFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Integer"/>
+            <xsd:enumeration value="String"/>
+            <xsd:enumeration value="Object"/>
+            <xsd:enumeration value="Double"/>
+            <xsd:enumeration value="Complex"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: SHORT DESCRIPTION -->
+    <xsd:simpleType name="shortDescriptionFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="50"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: DECISION TYPE (Decision Task) -->
+    <xsd:simpleType name="typeFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="string"/>
+            <xsd:enumeration value="boolean"/>
+            <xsd:enumeration value="integer"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: TIME (HH:mm:ss)-->
+    <xsd:simpleType name="timeFormat">
+        <xsd:restriction base="xsd:string">
+            <!--<xsd:pattern value="^(0){2}\:(0){2}\:(0){2}"/>-->
+            <!-- (([0-9][0-9])\:([0-9][0-9])\:([0-9][0-9])) | -->
+            <xsd:pattern value="([0-9][0-9])\:([0-9][0-9])\:([0-9][0-9])"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- SimpleTYPE: LOCATION TAG (VERSION) -->
+    <xsd:simpleType name="versionFormat">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="next|latest|current|first|(/^-?\d+$/)"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>

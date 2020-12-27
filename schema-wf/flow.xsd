@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+   <xsd:include schemaLocation="elementDef.xsd"/>
+
+    <!-- WORKFLOW DEFINITION: Start -->
+
+    <!-- complexTYPE: (workflow)DEFINITION -->
+    <!-- Workflow definition rules:
+        WF must have:
+        * 1 Entry point
+        * 1 Exit Point
+        * 1...n Tasks
+
+    -->
+    <xsd:complexType name="flowTag">
+        <xsd:sequence>
+            <xsd:element name="entryPoint" type="this:entryPointElement" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="tasks" type="this:taskList" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="exitPoint" type="this:commonInfoTaskTag" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="exception" type="this:exceptionTag" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: ENTRYPOINT -->
+    <xsd:complexType name="entryPointElement">
+        <xsd:complexContent>
+            <xsd:extension base="this:commonInfoTaskTag">
+                <xsd:attribute name="nextTask" type="this:ID" use="required" />
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- complexTYPE: COMMON INFO (task) -->
+    <xsd:complexType name="commonInfoTaskTag">
+        <xsd:sequence>
+            <xsd:element name="description" type="this:longDescriptionFormat" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="taskID" type="this:ID" use="required"/>
+        <xsd:attribute name="exceptionID" type="this:ID" use="optional"/>
+        <xsd:attribute name="breakpoint" type="xsd:boolean" default ="false" use="optional"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: TASKLIST (Workflow definition) -->
+    <xsd:complexType name="taskList">
+        <xsd:sequence>
+            <xsd:element ref="this:task" minOccurs="1" maxOccurs="unbounded"/>
+            <xsd:element ref="this:join" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: TASK (definition -->
+    <!-- Task TAG RULE:
+        A task can be one (and only one) of this type:
+        * PROCESS task;
+        * DECISION task;
+        * MANUAL task;
+        * JOIN task;
+        It also has common task's information
+    -->
+    <xsd:complexType name="taskTag">
+        <xsd:complexContent>
+            <xsd:extension base="this:commonInfoTaskTag">
+                <xsd:choice minOccurs="0" maxOccurs="1">
+                        <xsd:element ref="this:process" />
+                        <xsd:element ref="this:decision" />
+                        <xsd:element ref="this:manual" />
+                        <xsd:element ref="this:workflow"/>
+                        <xsd:element ref="this:loop"/>
+                </xsd:choice>
+                <xsd:attribute name="nextTask" type="this:ID" use="required" />
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+
+
+    <!-- TASK TYPE  -->
+
+    <!-- complexTYPE: PROCESS (Task) -->
+    <xsd:complexType name="processTask">
+        <xsd:sequence>
+            <xsd:element name="detail" type="this:processDetail" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="dataObjectsLocation" type="this:dataObjectList" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="runTime" type="this:timeFormat" use="required"/>
+        <xsd:attribute name="failTime" type="this:timeFormat" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: DETAIL (Process (Task) )-->
+    <xsd:complexType name="processDetail">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="action" type="xsd:string" use="required"/>
+        <xsd:attribute name="where" type="this:processDetailWhere" use="required"/>
+        <xsd:attribute name="parameter" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: PARAMETER LIST (Process (Task) )-->
+    <xsd:complexType name="dataObjectList">
+        <xsd:sequence>
+            <xsd:element name="location" type="this:dataObjectParamType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: PARAMETER (Process (Task) )-->
+    <xsd:complexType name="dataObjectParamType">
+        <xsd:attribute name="dataID" type="this:ID" use="required"/>
+        <xsd:attribute name="type" type="this:modeFormat" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: JOIN (Task)-->
+    <xsd:complexType name="joinTag">
+        <xsd:complexContent>
+            <xsd:extension base="this:commonInfoTaskTag">
+                <xsd:attribute name="logic" type="this:logicFormat" use="required"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- complexTYPE: NEXT TASK LIST (auto) -->
+    <xsd:complexType name="nextTaskListAuto">
+        <xsd:sequence>
+            <xsd:element name="nextTask" type="this:nextTaskAuto" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: NEXT TASK (auto decision) -->
+    <xsd:complexType name="nextTaskAuto">
+        <xsd:sequence>
+            <xsd:element name="function" type="this:functionType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="taskID" type="this:ID" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: FUNCTION (Decision (Output (Task) ) )-->
+    <xsd:complexType name="functionType">
+        <xsd:attribute name="dataID" type="this:ID" use="required"/>
+        <xsd:attribute name="boolean" type="xsd:boolean" use="optional"/>
+        <xsd:attribute name="gte" type="xsd:integer" use="optional"/>
+        <xsd:attribute name="less" type="xsd:integer" use="optional"/>
+        <xsd:attribute name="eq" type="xsd:integer" use="optional"/>
+        <xsd:attribute name="neq" type="xsd:integer" use="optional"/>
+    </xsd:complexType>
+
+
+    <!-- complexTYPE: NEXT TASK LIST (manual) -->
+    <xsd:complexType name="nextTaskListManual">
+        <xsd:sequence>
+            <xsd:element name="nextTask" type="this:nextTaskManual" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: next Task (manual decision)  -->
+    <xsd:complexType name="nextTaskManual">
+        <xsd:attribute name="taskID" type="this:ID"/>
+        <xsd:attribute name="label" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: AUTO DECISION (Task)-->
+    <xsd:complexType name="decisionTask">
+        <xsd:sequence>
+            <xsd:element name="dataObjectsLocation" type="this:dataObjectList" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="nextTasks" type="this:nextTaskListAuto" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="type" type="this:decisionFormat" use="required"/>
+        <xsd:attribute name="application" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+        <!-- complexTYPE: Loop (Task)-->
+    <xsd:complexType name="loopTask">
+        <xsd:attribute name="iterator" type="this:ID" use="required"/>
+        <xsd:attribute name="value" type="this:ID" use="required"/>
+        <xsd:attribute name="exitTask" type="this:ID" use="required"/>
+    </xsd:complexType>
+
+
+    <!-- complexTYPE: MANUAL (Manual (Task) )-->
+    <xsd:complexType name="manualTask">
+        <xsd:sequence>
+            <xsd:element name="parameter" type="this:manualParameter" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="dataObjectsLocation" type="this:dataObjectList" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="nextTasks" type="this:nextTaskListManual" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="application" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: PARAMETER (Manual (Task) )-->
+    <xsd:complexType name="manualParameter">
+        <xsd:sequence>
+             <xsd:element name="write" type="this:writeType" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: WRITE (Manual (Task) )-->
+    <xsd:complexType name="writeType">
+       <xsd:sequence>
+           <xsd:element name="comment" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+           <xsd:element name="objects" type="this:writeObjectList" minOccurs="1" maxOccurs="1"/>
+       </xsd:sequence>
+       <xsd:attribute name="title" type="xsd:string" use="required"/>
+       <xsd:attribute name="question" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexTYPE: WRITE OBJECT LIST (Manual (Task) )-->
+    <xsd:complexType name="writeObjectList">
+        <xsd:sequence>
+            <xsd:element name="object" minOccurs="1" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:attribute name="ID" type="this:ID"/>
+                    <xsd:attribute name="format" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: WORKFLOW (Task)-->
+    <xsd:complexType name="workflowTask">
+        <xsd:attribute name="classID" type="xsd:string" use="required"/>
+        <xsd:attribute name="file" type="xsd:string" use="required"/>
+        <xsd:attribute name="runTime" type="this:timeFormat" use="required"/>
+        <xsd:attribute name="failTime" type="this:timeFormat" use="required"/>
+
+    </xsd:complexType>
+
+
+    <!-- complexTYPE: Handles (Exception)-->
+    <xsd:complexType name="handler">
+        <xsd:attribute name="warning" type="xsd:string" use="required"/>
+        <xsd:attribute name="nextTask" type="this:ID" use="required"/>
+        <xsd:attribute name="select" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+
+    <!-- complexTYPE: Exception (Exception Tag) -->
+    <xsd:complexType name="exceptionTag">
+        <xsd:sequence>
+            <xsd:element name="description" type="this:longDescriptionFormat" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="handler" type="this:handler" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="taskID" type="this:ID" use="required"/>
+        <xsd:attribute name="nextTask" type="this:ID" use="optional"/>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,2697 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- XSD type schema generated on 2020-11-10 -->
+<!-- Schema file: http://pdbml.pdb.org/schema/mmcif_biosync-v0.7.xsd -->
+<!-- Please direct questions or comments to John Westbrook (jwest@rcsb.rutgers.edu) -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:biosync="http://pdbml.pdb.org/schema/mmcif_biosync.xsd"
+   targetNamespace="http://pdbml.pdb.org/schema/mmcif_biosync.xsd"
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+   <xsd:complexType name="bsync_admin_applicationsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the APPLICATIONS category describe the
+application procedure to obtain beamtime at a
+given beamline.
+
+    Example 1 -
+&lt;biosync:bsync_admin_applicationsCategory&gt;
+   &lt;biosync:bsync_admin_applications beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:beamline_name&gt;d1&lt;/biosync:beamline_name&gt;
+   &lt;/biosync:bsync_admin_applications&gt;
+&lt;/biosync:bsync_admin_applicationsCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_admin_applications" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is a short beamline identifier.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="deadlines" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+deadline for beamtime applications 
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="procedure" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+procedure for applications
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+url for applications.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="url_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+name of the url for applications.
+                                 Procedure for obtaining Beam Time 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in
+ the BSYNC_BEAMLINE  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_admin_contactType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the BSYNC_ADMIN_CONTACT category describe the
+adiministrative, logistical, contact and travel 
+infomtion in preparing a trip to a synchrotron. 
+
+    Example 1 -
+&lt;biosync:bsync_admin_contactCategory&gt;
+   &lt;biosync:bsync_admin_contact beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:beamline_name&gt;d1&lt;/biosync:beamline_name&gt;
+      &lt;biosync:for_technical_email&gt;smith@synchrotron.edu&lt;/biosync:for_technical_email&gt;
+      &lt;biosync:for_technical_name&gt;Joe Smith&lt;/biosync:for_technical_name&gt;
+   &lt;/biosync:bsync_admin_contact&gt;
+&lt;/biosync:bsync_admin_contactCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_admin_contact" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is a short beamline identifier.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="contact_address" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Address of beamline contact person.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="for_beamtime_email" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Email of beamline contact person.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="for_beamtime_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of contact person for proposal information 
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="for_beamtime_phone" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Phone number of beamline contact person.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="for_technical_email" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Email of beamline contact person.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="for_technical_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of beamline contact person for technical information.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="for_technical_phone" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Phone number of beamline contact person.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="shipping_address" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The shipping address of beamline facilities.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="website" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Website with staff contacts.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in
+ the BSYNC_BEAMLINE  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_admin_logosType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the BSYNC_ADMIN_LOGOS category describe the
+logo associated with each beamline and
+synchrotron.
+
+    Example 1
+&lt;biosync:bsync_admin_logosCategory&gt;
+   &lt;biosync:bsync_admin_logos beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:crystallography&gt;hbar_pxssrl.gif&lt;/biosync:crystallography&gt;
+      &lt;biosync:synchrotron&gt;hbar_ssrl.gif&lt;/biosync:synchrotron&gt;
+   &lt;/biosync:bsync_admin_logos&gt;
+&lt;/biosync:bsync_admin_logosCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_admin_logos" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a short identifier for the beamline.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="crystallography" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The logo for the cat or prt or crystallography
+group that operates the beamline.
+hbar_pxssrl.gif
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="synchrotron" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The logo for the synchrotron facility
+hbar_ssrl.gif
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in the
+ BSYNC_BEAMLINE category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_admin_schedulesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the SCHEDULES category describe the
+application procedure to obtain beamtime at a
+given beamline.
+
+    Example 1 -
+&lt;biosync:bsync_admin_schedulesCategory&gt;
+   &lt;biosync:bsync_admin_schedules beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:beamline_name&gt;d1&lt;/biosync:beamline_name&gt;
+   &lt;/biosync:bsync_admin_schedules&gt;
+&lt;/biosync:bsync_admin_schedulesCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_admin_schedules" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+beamline schedules 
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is a short beamline identifier.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="long_term" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+long term operating schedule for the synchrotron.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ring_status" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+current ring status 
+                                 Procedure for obtaining Beam Time 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in
+ the BSYNC_BEAMLINE  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_beamlineType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+You must press the &quot;Save General Beamline Information&quot; button to save changes.
+Then, Use the &quot;UPDATE PROFILE&quot; button at the top of this page to have the changes
+appear on the BioSync web site.
+
+    Example 1 -
+&lt;biosync:bsync_beamlineCategory&gt;
+   &lt;biosync:bsync_beamline facility_id=&quot;aps&quot; id=&quot;19_ID&quot;&gt;
+      &lt;biosync:experiments&gt;MAD&lt;/biosync:experiments&gt;
+      &lt;biosync:owner&gt;SBC-CAT&lt;/biosync:owner&gt;
+   &lt;/biosync:bsync_beamline&gt;
+&lt;/biosync:bsync_beamlineCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_beamline" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the beamline.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of special aspects of the beamline.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="experiments" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the experiments which can be performed on this beamline.
+                                MAD 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="general_user" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Percentage of beamtime available to general user. 
+25
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The name of the beamline.
+XB11
+18-ID
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operational" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Beamtime is available to the general user.              
+yes
+                                 no, beamline is being commisioned
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="owner" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The name of the owners of the beamline.
+                                 SBC-CAT 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="owner_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for the website of the owner of the beamline.
+  http://www.sbc.anl.gov/  
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="schedule_URL" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Website with current beamline operating schedule           
+http://www.x8c.nsls.bnl.gov/schedule.html
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="source_type" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute type in category bsync_diffrn_source in
+ the BSYNC_DIFFRN_SOURCE  category.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="template" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the beamline template.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for the beamline website. 
+ http://www.sbc.anl.gov/Facilities/beamline_19-ID.html 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="facility_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_facility in the 
+ BSYNC_FACILITY  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+A unique identifier for the beamline within a facility.
+1
+2
+3
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_diffrn_detectorType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the DETECTORS category describe the 
+detector to measure the scattered radiation, including
+any analyser and post-sample collimation.
+
+    Example 1 -
+&lt;biosync:bsync_diffrn_detectorCategory&gt;
+   &lt;biosync:bsync_diffrn_detector beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:beamline_name&gt;d1&lt;/biosync:beamline_name&gt;
+      &lt;biosync:detector&gt;multiwire&lt;/biosync:detector&gt;
+      &lt;biosync:type&gt;Siemens&lt;/biosync:type&gt;
+   &lt;/biosync:bsync_diffrn_detector&gt;
+&lt;/biosync:bsync_diffrn_detectorCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_diffrn_detector" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is a short beamline identifier.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of special aspects of the radiation detector.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="detector" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The general class of the radiation detector.
+photographic film
+scintillation counter
+CCD plate
+BF~3~ counter
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="type" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The make, model or name of the detector device used.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in 
+ the BSYNC_BEAMLINE  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_diffrn_labType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the LAB category describe the
+laboratory facilities and biohazard capabilities at the beamline
+
+    Example 1 -
+&lt;biosync:bsync_diffrn_labCategory&gt;
+   &lt;biosync:bsync_diffrn_lab beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:beamline_name&gt;A1&lt;/biosync:beamline_name&gt;
+      &lt;biosync:biohazard&gt;P2&lt;/biosync:biohazard&gt;
+      &lt;biosync:lab_facilities&gt;cold room and biochemistry&lt;/biosync:lab_facilities&gt;
+   &lt;/biosync:bsync_diffrn_lab&gt;
+&lt;/biosync:bsync_diffrn_labCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_diffrn_lab" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is a short beamline identifier.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="biohazard" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Biohazard level allowed at the beamline 
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="lab_facilities" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Lab Facilities at the beamline. 
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Lab name.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in
+ the BSYNC_BEAMLINE  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_diffrn_measurementType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the MEASUREMENT category record
+details about data measurement and the manner in which  
+the diffraction data are measured.
+
+    Example 1 - 
+&lt;biosync:bsync_diffrn_measurementCategory&gt;
+   &lt;biosync:bsync_diffrn_measurement beamline_id=&quot;1&quot; device=&quot;3-circle camera&quot;&gt;
+      &lt;biosync:beamline_name&gt;bxk1&lt;/biosync:beamline_name&gt;
+      &lt;biosync:device_details&gt; detector distance 12 cm&lt;/biosync:device_details&gt;
+      &lt;biosync:device_type&gt;Supper model x&lt;/biosync:device_type&gt;
+      &lt;biosync:method&gt;omega scan&lt;/biosync:method&gt;
+   &lt;/biosync:bsync_diffrn_measurement&gt;
+&lt;/biosync:bsync_diffrn_measurementCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_diffrn_measurement" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a short identifier for the beamline.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="cryo" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Cryo capability 
+                                 Oxford Instruments Cryojet  
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="device_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of special aspects of the device used to measure
+the diffraction intensities.
+                                 Need new example here.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="device_pinlength" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The range of pin lengths. 
+        total height of mounting pin (or capillary) 
+         and goniometer head should be between 53 mm 
+         and 63 mm 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="device_type" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The make, model or name of the measurement device
+(goniometer) used.
+Supper model q
+Huber model r
+Enraf-Nonius model s
+homemade
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="distance" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The range of crystal to detector distances. 
+                                50-1000 mm 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="method" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Method used to measure intensities.
+profile data from theta/2theta scans
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="other_instrumentation" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Additional instrumentation available for use during data collection.
+  Motorized optical rail, slits, sample alignment stages, grazing incidence instrument.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="restrictions" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Restrictions due to possible collision.   
+                               omega: +/-25 (depends on detector distance), 
+                                 chi +/-95, phi no limits.  
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="special_capabilities" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Capabilities for special data collection.
+  Facilities for measurement at S K/Cl K edge region for biological samples. 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="twotheta" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+2theta range 
+                                vertical movement of -5 to 35  
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in the 
+ BSYNC_BEAMLINE category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+               <xsd:attribute name="device" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The general class of  goniometer or device used to support and
+orient the specimen.
+3-circle camera
+4-circle camera
+kappa-geometry camera
+oscillation camera
+precession camera
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_diffrn_radiationType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the RADIATION category describe
+the radiation used in measuring diffraction intensities,
+its collimation and monochromatisation before the sample.
+
+    Example 1 - based on PDB entry 5HVP and laboratory records for the
+                structure corresponding to PDB entry 5HVP
+&lt;biosync:bsync_diffrn_radiationCategory&gt;
+   &lt;biosync:bsync_diffrn_radiation beamline_id=&quot;1&quot; monochromator=&quot;graphite&quot;&gt;
+      &lt;biosync:beamline_name&gt;b1&lt;/biosync:beamline_name&gt;
+      &lt;biosync:collimation&gt;0.3 mm double pinhole&lt;/biosync:collimation&gt;
+   &lt;/biosync:bsync_diffrn_radiation&gt;
+&lt;/biosync:bsync_diffrn_radiationCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_diffrn_radiation" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a short identifier for the beamline.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="collimation" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The collimation or focusing applied to the radiation.
+0.3 mm double-pinhole
+0.5 mm
+focusing mirrors
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="divergence" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Divergence definition needed.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="0.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="energy_range" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Energy range.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="filter_edge" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Absorption edge in angstroms of the radiation filter used.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="0.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="flux" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Flux definition needed
+    1x10E(10) p/s through 0.2 mm aperture
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="flux_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Additional details about radiation flux.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="inhomogeneity" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Half-width in millimetres of the incident beam in the
+direction perpendicular to the diffraction plane.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="0.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mirror_cutoff" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The energy cuttoff (KeV) for the mirror system.
+                       11.25
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="KeV" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="mirrors" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A system of optical mirrors used to focus the incident beam as it
+leaves the source
+
+                       bent cylinder, Pt-coated Si (1:1 demagnifcation)               
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="monochromator_crystal" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The type of crystal(s) in the monochromator  The indices of the 
+Bragg reflection used for the filtering is specified.
+
+                                 Si(111) or W/B4C multilayers, water cooled.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="optics" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+a general description of the optics including collimation
+and monochromator. 
+              2-crystal monochromator, Si111, 1m long Rh coated bent 
+               cylindrical mirror for horizontal and vertical focussing 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="probe" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of the type of radiation used. It is strongly encouraged
+that this field be specified so that the probe radiation
+can be simply determined.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="x-ray" />
+                           <xsd:enumeration value="neutron" />
+                           <xsd:enumeration value="electron" />
+                           <xsd:enumeration value="gamma" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="resolving_power" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Resolving power of ... 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="0.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="wavelength_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Additional details about the wavelength
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="wavelength_max" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The maximum radiation wavelength in angstroms or zero if single wavelength.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="0.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="wavelength_min" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The minimum radiation wavelength in angstroms or the radiation 
+wavelength if a single wavelength.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="0.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="wavelength_range" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The range of wavelength in angstroms.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in the 
+ BSYNC_BEAMLINE category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+               <xsd:attribute name="monochromator" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The method used to obtain monochromatic radiation. If a mono-
+chromator crystal is used the material and the indices of the
+Bragg reflection are specified.
+Zr filter
+Ge 220
+none
+equatorial mounted graphite
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_diffrn_sourceType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the SOURCE category record details of
+the source of radiation.
+
+    Example 1
+&lt;biosync:bsync_diffrn_sourceCategory&gt;
+   &lt;biosync:bsync_diffrn_source beamline_id=&quot;1&quot; type=&quot;Rigaku RU-200&quot;&gt;
+      &lt;biosync:beamline_name&gt;s1&lt;/biosync:beamline_name&gt;
+      &lt;biosync:power&gt;50 kw, 180 mA&lt;/biosync:power&gt;
+      &lt;biosync:source&gt;rotating anode&lt;/biosync:source&gt;
+   &lt;/biosync:bsync_diffrn_source&gt;
+&lt;/biosync:bsync_diffrn_sourceCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_diffrn_source" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beam_lifetime" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+average beam lifetime 
+                                40 hrs (75 mA average over 24 hr fill period)  
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a short identifier for the beamline.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="current" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The current in milliamperes at which the radiation source
+was operated. 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="milliamperes" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of special aspects of the radiation source used.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="power" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The power in kilowatts at which the radiation source
+was operated.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="kilowatts" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="size" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The dimensions of the source as viewed from the sample.
+8mm x 0.4 mm fine-focus
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="source" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The general class of the radiation source.
+undulator
+bending magnet
+wiggler
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="voltage" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The voltage in kilovolts at which the radiation source was
+operated. 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="kilovolts" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in the
+ BSYNC_BEAMLINE category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+               <xsd:attribute name="type" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The make, model or name of the source of radiation.
+NSLS beamline X8C
+Rigaku RU200
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_facilityType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+You must press the &quot;Save General Synchrotron Information&quot; button to save changes.
+Then, Use the &quot;UPDATE PROFILE&quot; button at the top of this page to have the changes
+appear on the BioSync web site. 
+
+    Example 1 -
+&lt;biosync:bsync_facilityCategory&gt;
+   &lt;biosync:bsync_facility id=&quot;aps&quot;&gt;
+      &lt;biosync:details&gt;  3rd generation light source ...&lt;/biosync:details&gt;
+      &lt;biosync:name&gt;Advanced Photon Source&lt;/biosync:name&gt;
+      &lt;biosync:operation&gt;Argonne National Lab&lt;/biosync:operation&gt;
+   &lt;/biosync:bsync_facility&gt;
+&lt;/biosync:bsync_facilityCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_facility" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of special aspects of the facility.
+                                3rd generation light source 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="location" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The location of the synchrotron facility.  City, State
+                                Argonne,IL 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="location_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A more detailed description of the location of the synchrotron facility. 
+                                Argonne,IL
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The full name of the synchrotron facility
+                                 Advanced Photon Source.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operation" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The lab or university which operates the synchrotron. 
+                                 Brookhaven National Lab 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="organization" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A paragraph describing the organization of the synchrotron. 
+                                 Participating Research Teams.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="street1" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The street address of the synchrotron facility.  
+                  1 Cyclotron Road 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="street2" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The street address of the synchrotron facility.
+                  1 Cyclotron Road
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="website_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Site location (URL)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="zip" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The zip code address of the synchrotron facility.
+                  1 Cyclotron Road
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The synchrotron name, acronym. 
+aps
+ssrl
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_facility_crystallographyType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the BSYNC_FACILITY_CRYSTALLOGRAPHY category record 
+details about any special crystallography facility, organization,
+or website.
+
+    Example 1 - SSRL
+&lt;biosync:bsync_facility_crystallographyCategory&gt;
+   &lt;biosync:bsync_facility_crystallography facility_id=&quot;ssrl&quot; name=&quot; Structural Molecular Biology&quot;&gt;
+      &lt;biosync:url&gt;http://smb.slac.stanford.edu/&lt;/biosync:url&gt;
+   &lt;/biosync:bsync_facility_crystallography&gt;
+&lt;/biosync:bsync_facility_crystallographyCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_facility_crystallography" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="category" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The category for the structural biology
+organization - structural genomics, crystallography group 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="Structural Genomics" />
+                           <xsd:enumeration value="Crystallography" />
+                           <xsd:enumeration value="Other" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A brief description of the specialized organization or facility within the
+synchrotron organization that operates beamlines for crystallography
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+More details about the specialized organization or facility within the
+synchrotron organization that operates beamlines for crystallography
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="logo" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Logo for the crystallography facility or 
+website. 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Website for the organization 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="facility_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_facility in the
+ BSYNC_FACILITY  category.
+                               APS 
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Name of specialized organization or facility within the
+synchrotron organization that operates beamlines for crystallography 
+                                SBC-CAT 
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_facility_newsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the BSYNC_FACILITY_NEWS category record details
+meetings, workshops, applications deadlines, news and
+announcements.
+
+    Example 1 - SSRL
+&lt;biosync:bsync_facility_newsCategory&gt;
+   &lt;biosync:bsync_facility_news facility_id=&quot;ssrl&quot;&gt;
+      &lt;biosync:details&gt;summer school for crystallographers&lt;/biosync:details&gt;
+      &lt;biosync:url&gt;http://www-ssrl.slac.stanford.edu/welcome.html&lt;/biosync:url&gt;
+   &lt;/biosync:bsync_facility_news&gt;
+&lt;/biosync:bsync_facility_newsCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_facility_news" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="date" minOccurs="1" maxOccurs="1" type="xsd:date">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A date for the news item.  The date format is
+yyyy-mm-dd.
+1990-07-12
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+News or announcement description.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="title" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Title of news or announcement.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Site location (URL) for more information
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="facility_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_facility in the
+ BSYNC_FACILITY  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_facility_websiteType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the BSYNC_FACILITY_WEBSITE category record details 
+about hyperlinks and desciptions of those links to the 
+synchrotron facility website.  This category forms the  basis 
+of the BioSync Web portal. 
+
+
+    Example 1 - SSRL
+&lt;biosync:bsync_facility_websiteCategory&gt;
+   &lt;biosync:bsync_facility_website facility_id=&quot;ssrl&quot;&gt;
+      &lt;biosync:facility_map_url&gt;http://www-ssrl.slac.stanford.edu/welcome.html&lt;/biosync:facility_map_url&gt;
+   &lt;/biosync:bsync_facility_website&gt;
+&lt;/biosync:bsync_facility_websiteCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_facility_website" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="accomodation" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the url for accomodations at the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="accomodation_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for accomodations at the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="directions" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the url for directions to the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="directions_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for directions to the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="facility_map" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the url for the facility map 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="facility_map_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for a map of the synchrotron facility 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operation_schedule" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the url for long term operation of the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operation_schedule_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for long term operation of the facility 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="publications" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the url for crystallography publications from research at
+the  facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="publications_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for crystallography publications from research at
+the  facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ring_status" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the url for the current ring status
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ring_status_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for the current ring status 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="safety_training" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of safety training at the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="safety_training_url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The url for info. on safety training at the facility
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="facility_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_facility in the
+ BSYNC_FACILITY  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_hardwareType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the HARDWARE category record details about
+the hardware available for data collection and structure 
+determination and for data back-up.
+
+
+
+    Example 1 -
+&lt;biosync:bsync_hardwareCategory&gt;
+   &lt;biosync:bsync_hardware beamline_id=&quot;1&quot;&gt;
+      &lt;biosync:backup&gt;FireWire and USB disk drives&lt;/biosync:backup&gt;
+   &lt;/biosync:bsync_hardware&gt;
+&lt;/biosync:bsync_hardwareCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_hardware" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="backup" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Backup hardware.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a short identifier for the beamline.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The name of the hardware.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in the
+ BSYNC_BEAMLINE category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_linksType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the BSYNC_LINKS category record details 
+about hyperlinks and desciptions of those links to the 
+synchrotron facility website.  This category forms the  basis 
+of the BioSync Web portal. 
+
+
+    Example 1 - SSRL
+&lt;biosync:bsync_linksCategory&gt;
+   &lt;biosync:bsync_links facility_id=&quot;ssrl&quot; name=&quot;Stanford Synchrotron Radiation Laboratory (SSRL)&quot;&gt;
+      &lt;biosync:description&gt;welcome page for all beamlines&lt;/biosync:description&gt;
+      &lt;biosync:url&gt;http://www-ssrl.slac.stanford.edu/welcome.html&lt;/biosync:url&gt;
+   &lt;/biosync:bsync_links&gt;
+&lt;/biosync:bsync_linksCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_links" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="category" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The category for the link based on the BioSync
+Web site, contacts, travel, publications, schedules 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="Travel" />
+                           <xsd:enumeration value="Publications" />
+                           <xsd:enumeration value="Calendars" />
+                           <xsd:enumeration value="Training" />
+                           <xsd:enumeration value="Beam time" />
+                           <xsd:enumeration value="Maps" />
+                           <xsd:enumeration value="Operations" />
+                           <xsd:enumeration value="Staff" />
+                           <xsd:enumeration value="Synchrotron and Crystallography Orgs" />
+                           <xsd:enumeration value="Synchrotron and Organizations" />
+                           <xsd:enumeration value="General Information" />
+                           <xsd:enumeration value="Shipping" />
+                           <xsd:enumeration value="Beam time, xtal beamlines" />
+                           <xsd:enumeration value="Beam time, other beamlines" />
+                           <xsd:enumeration value="Beam time, X-ray absorption spectrocopy" />
+                           <xsd:enumeration value="Beam Time - crystallography" />
+                           <xsd:enumeration value="Beam Time - saxs &amp; xas" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the website 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="url" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Site location (URL) for the link
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="facility_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_facility in the
+ BSYNC_FACILITY  category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Site name for the link.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="bsync_softwareType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the SOFTWARE category record details about 
+the software available for data collection and structure determination. 
+
+
+    Example 1 - 
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="bsync_software" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beamline_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a short identifier for the beamline.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="classification" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The classification of the program according to its
+major function.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="data collection" />
+                           <xsd:enumeration value="data reduction" />
+                           <xsd:enumeration value="phasing" />
+                           <xsd:enumeration value="model building" />
+                           <xsd:enumeration value="refinement" />
+                           <xsd:enumeration value="validation" />
+                           <xsd:enumeration value="other" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="compiler_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The compiler used to compile the software.
+Convex Fortran
+gcc
+DEC C
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="compiler_version" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The version of the compiler used to compile the software.
+3.1
+2.1 alpha
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="contact_author" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The recognized contact author of the software. This could be 
+the original author, modifier of the code, or maintainer, but
+should be the individual most commonly associated with the
+code.
+T. Alwyn Jones
+Axel Brunger
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="contact_author_email" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The email address of the attribute contact_author in category bsync_software. 
+bourne@sdsc.edu
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="date" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The date the software was released. 
+1991-10-01
+1990-04-30
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dependencies" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Any prerequisite software required to run attribute name in category bsync_software. 
+PDBlib class library
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Description of the software.              
+Uses method of restrained least squares
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="hardware" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The hardware upon which the software was run.
+Sun Sparc 10 model 41
+Dec Alpha 3000 model 500S
+Silicon Graphics Elan
+Compaq PC 486/66
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="language" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The major computing language in which the software is 
+coded.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="Ada" />
+                           <xsd:enumeration value="assembler" />
+                           <xsd:enumeration value="Awk" />
+                           <xsd:enumeration value="Basic" />
+                           <xsd:enumeration value="C++" />
+                           <xsd:enumeration value="C" />
+                           <xsd:enumeration value="csh" />
+                           <xsd:enumeration value="Fortran" />
+                           <xsd:enumeration value="Java" />
+                           <xsd:enumeration value="ksh" />
+                           <xsd:enumeration value="Pascal" />
+                           <xsd:enumeration value="Perl" />
+                           <xsd:enumeration value="Python" />
+                           <xsd:enumeration value="sh" />
+                           <xsd:enumeration value="Tcl" />
+                           <xsd:enumeration value="Other" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="location" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+An Internet address in the form of a URL describing
+where details of the software can be found.
+http://rosebud.sdsc.edu/projects/pb/IUCr/software.html
+ftp://ftp.sdsc.edu/pub/sdsc/biology/
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="mods" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Any noteworthy modifications to the base software, if applicable.
+Added support for space group F432
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="os" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The name of the operating system under which the software
+runs.
+Ultrix
+OpenVMS
+DOS
+Windows 95
+Windows NT
+Irix
+HPUX
+DEC Unix
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="os_version" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The version of the operating system under which the software
+runs.
+3.1
+4.2.1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="type" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The classification of the software according to the most
+common types.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="program" />
+                           <xsd:enumeration value="library" />
+                           <xsd:enumeration value="package" />
+                           <xsd:enumeration value="filter" />
+                           <xsd:enumeration value="jiffy" />
+                           <xsd:enumeration value="other" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="beamline_id" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is a pointer to attribute id in category bsync_beamline in the
+ BSYNC_BEAMLINE category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="1" />
+                        <xsd:enumeration value="2" />
+                        <xsd:enumeration value="3" />
+                        <xsd:enumeration value="4" />
+                        <xsd:enumeration value="5" />
+                        <xsd:enumeration value="6" />
+                        <xsd:enumeration value="7" />
+                        <xsd:enumeration value="8" />
+                        <xsd:enumeration value="9" />
+                        <xsd:enumeration value="10" />
+                        <xsd:enumeration value="11" />
+                        <xsd:enumeration value="12" />
+                        <xsd:enumeration value="13" />
+                        <xsd:enumeration value="14" />
+                        <xsd:enumeration value="15" />
+                        <xsd:enumeration value="16" />
+                        <xsd:enumeration value="17" />
+                        <xsd:enumeration value="18" />
+                        <xsd:enumeration value="19" />
+                        <xsd:enumeration value="20" />
+                        <xsd:enumeration value="21" />
+                        <xsd:enumeration value="22" />
+                        <xsd:enumeration value="23" />
+                        <xsd:enumeration value="24" />
+                        <xsd:enumeration value="25" />
+                        <xsd:enumeration value="26" />
+                        <xsd:enumeration value="27" />
+                        <xsd:enumeration value="28" />
+                        <xsd:enumeration value="29" />
+                        <xsd:enumeration value="30" />
+                        <xsd:enumeration value="31" />
+                        <xsd:enumeration value="32" />
+                        <xsd:enumeration value="33" />
+                        <xsd:enumeration value="34" />
+                        <xsd:enumeration value="35" />
+                        <xsd:enumeration value="36" />
+                        <xsd:enumeration value="37" />
+                        <xsd:enumeration value="38" />
+                        <xsd:enumeration value="39" />
+                        <xsd:enumeration value="40" />
+                        <xsd:enumeration value="41" />
+                        <xsd:enumeration value="42" />
+                        <xsd:enumeration value="43" />
+                        <xsd:enumeration value="44" />
+                        <xsd:enumeration value="45" />
+                        <xsd:enumeration value="46" />
+                        <xsd:enumeration value="47" />
+                        <xsd:enumeration value="48" />
+                        <xsd:enumeration value="49" />
+                        <xsd:enumeration value="50" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The name of the software.
+Merlot
+O
+Xengen
+X-plor
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="version" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The version of the software.
+v1.0
+beta
+3.1-2
+unknown
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="datablockType">
+      <xsd:all>
+         <xsd:element name="bsync_admin_applicationsCategory" type="biosync:bsync_admin_applicationsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_admin_contactCategory" type="biosync:bsync_admin_contactType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_admin_logosCategory" type="biosync:bsync_admin_logosType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_admin_schedulesCategory" type="biosync:bsync_admin_schedulesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_beamlineCategory" type="biosync:bsync_beamlineType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_diffrn_detectorCategory" type="biosync:bsync_diffrn_detectorType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_diffrn_labCategory" type="biosync:bsync_diffrn_labType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_diffrn_measurementCategory" type="biosync:bsync_diffrn_measurementType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_diffrn_radiationCategory" type="biosync:bsync_diffrn_radiationType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_diffrn_sourceCategory" type="biosync:bsync_diffrn_sourceType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_facilityCategory" type="biosync:bsync_facilityType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_facility_crystallographyCategory" type="biosync:bsync_facility_crystallographyType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_facility_newsCategory" type="biosync:bsync_facility_newsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_facility_websiteCategory" type="biosync:bsync_facility_websiteType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_hardwareCategory" type="biosync:bsync_hardwareType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_linksCategory" type="biosync:bsync_linksType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="bsync_softwareCategory" type="biosync:bsync_softwareType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+      </xsd:all>
+      <xsd:attribute name="datablockName" type="xsd:string" use="optional" />
+   </xsd:complexType>
+   <xsd:element name="datablock" type="biosync:datablockType">
+      <xsd:key name="bsync_admin_applicationsKey_0">
+         <xsd:selector xpath="biosync:bsync_admin_applicationsCategory/biosync:bsync_admin_applications" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_admin_contactKey_0">
+         <xsd:selector xpath="biosync:bsync_admin_contactCategory/biosync:bsync_admin_contact" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_admin_logosKey_0">
+         <xsd:selector xpath="biosync:bsync_admin_logosCategory/biosync:bsync_admin_logos" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_admin_schedulesKey_0">
+         <xsd:selector xpath="biosync:bsync_admin_schedulesCategory/biosync:bsync_admin_schedules" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_beamlineKey_0">
+         <xsd:selector xpath="biosync:bsync_beamlineCategory/biosync:bsync_beamline" />
+         <xsd:field xpath="@facility_id" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="bsync_diffrn_detectorKey_0">
+         <xsd:selector xpath="biosync:bsync_diffrn_detectorCategory/biosync:bsync_diffrn_detector" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_diffrn_labKey_0">
+         <xsd:selector xpath="biosync:bsync_diffrn_labCategory/biosync:bsync_diffrn_lab" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_diffrn_measurementKey_0">
+         <xsd:selector xpath="biosync:bsync_diffrn_measurementCategory/biosync:bsync_diffrn_measurement" />
+         <xsd:field xpath="@beamline_id" />
+         <xsd:field xpath="@device" />
+      </xsd:key>
+      <xsd:key name="bsync_diffrn_radiationKey_0">
+         <xsd:selector xpath="biosync:bsync_diffrn_radiationCategory/biosync:bsync_diffrn_radiation" />
+         <xsd:field xpath="@beamline_id" />
+         <xsd:field xpath="@monochromator" />
+      </xsd:key>
+      <xsd:key name="bsync_diffrn_sourceKey_0">
+         <xsd:selector xpath="biosync:bsync_diffrn_sourceCategory/biosync:bsync_diffrn_source" />
+         <xsd:field xpath="@beamline_id" />
+         <xsd:field xpath="@type" />
+      </xsd:key>
+      <xsd:key name="bsync_facilityKey_0">
+         <xsd:selector xpath="biosync:bsync_facilityCategory/biosync:bsync_facility" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="bsync_facilityKeyref_0_0_0_0" refer="biosync:bsync_facilityKey_0">
+         <xsd:selector xpath="biosync:bsync_beamlineCategory/biosync:bsync_beamline" />
+         <xsd:field xpath="@facility_id" />
+      </xsd:keyref>
+      <xsd:keyref name="bsync_facilityKeyref_0_0_1_0" refer="biosync:bsync_facilityKey_0">
+         <xsd:selector xpath="biosync:bsync_facility_websiteCategory/biosync:bsync_facility_website" />
+         <xsd:field xpath="@facility_id" />
+      </xsd:keyref>
+      <xsd:key name="bsync_facility_crystallographyKey_0">
+         <xsd:selector xpath="biosync:bsync_facility_crystallographyCategory/biosync:bsync_facility_crystallography" />
+         <xsd:field xpath="@facility_id" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="bsync_facility_newsKey_0">
+         <xsd:selector xpath="biosync:bsync_facility_newsCategory/biosync:bsync_facility_news" />
+         <xsd:field xpath="@facility_id" />
+      </xsd:key>
+      <xsd:key name="bsync_facility_websiteKey_0">
+         <xsd:selector xpath="biosync:bsync_facility_websiteCategory/biosync:bsync_facility_website" />
+         <xsd:field xpath="@facility_id" />
+      </xsd:key>
+      <xsd:key name="bsync_hardwareKey_0">
+         <xsd:selector xpath="biosync:bsync_hardwareCategory/biosync:bsync_hardware" />
+         <xsd:field xpath="@beamline_id" />
+      </xsd:key>
+      <xsd:key name="bsync_linksKey_0">
+         <xsd:selector xpath="biosync:bsync_linksCategory/biosync:bsync_links" />
+         <xsd:field xpath="@facility_id" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="bsync_softwareKey_0">
+         <xsd:selector xpath="biosync:bsync_softwareCategory/biosync:bsync_software" />
+         <xsd:field xpath="@beamline_id" />
+         <xsd:field xpath="@name" />
+         <xsd:field xpath="@version" />
+      </xsd:key>
+   </xsd:element>
+</xsd:schema>

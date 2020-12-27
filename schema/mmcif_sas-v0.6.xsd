@@ -1,0 +1,2648 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- XSD type schema generated on 2020-11-10 -->
+<!-- Schema file: http://pdbml.pdb.org/schema/mmcif_sas-v0.6.xsd -->
+<!-- Please direct questions or comments to John Westbrook (jwest@rcsb.rutgers.edu) -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:mmcif_sas="http://pdbml.pdb.org/schema/mmcif_sas.xsd"
+   targetNamespace="http://pdbml.pdb.org/schema/mmcif_sas.xsd"
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+   <xsd:complexType name="audit_conformType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the AUDIT_CONFORM category describe the
+dictionary versions against which the data names appearing in
+the current data block are conformant.
+
+    Example 1 - any file conforming to the current CIF core dictionary.
+&lt;mmcif_sas:audit_conformCategory&gt;
+   &lt;mmcif_sas:audit_conform dict_name=&quot;mmcif_sas.dic&quot; dict_version=&quot;1.2.3&quot;&gt;
+      &lt;mmcif_sas:dict_location&gt;http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_sas_v123.dic&lt;/mmcif_sas:dict_location&gt;
+   &lt;/mmcif_sas:audit_conform&gt;
+&lt;/mmcif_sas:audit_conformCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="audit_conform" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="dict_location" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A file name or uniform resource locator (URL) for the
+dictionary to which the current data block conforms.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="dict_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The string identifying the highest-level dictionary defining
+data names used in this file.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="dict_version" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The version number of the dictionary to which the current
+data block conforms.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="entityType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Data items in the ENTITY category record details (such as
+chemical composition, name and source) about the molecular
+entities that are present in the crystallographic structure.
+
+Items in the various ENTITY subcategories provide a full
+chemical description of these molecular entities.
+
+Entities are of three types:  polymer, non-polymer and water.
+Note that the water category includes only water;  ordered
+solvent such as sulfate ion or acetone would be described as
+individual non-polymer entities.
+
+The ENTITY category is specific to macromolecular CIF
+applications and replaces the function of the CHEMICAL category
+in the CIF core.
+
+It is important to remember that the ENTITY data are not the
+result of the crystallographic experiment;  those results are
+represented by the ATOM_SITE data items. ENTITY data items
+describe the chemistry of the molecules under investigation
+and can most usefully be thought of as the ideal groups to which
+the structure is restrained or constrained during refinement.
+
+It is also important to remember that entities do not correspond
+directly to the enumeration of the contents of the asymmetric
+unit. Entities are described only once, even in those structures
+that contain multiple observations of an entity. The
+STRUCT_ASYM data items, which reference the entity list,
+describe and label the contents of the asymmetric unit.
+
+    Example 1 - based on PDB entry 5HVP and laboratory records for the
+                structure corresponding to PDB entry 5HVP.
+&lt;mmcif_sas:entityCategory&gt;
+   &lt;mmcif_sas:entity id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:details&gt;              The enzymatically competent form of HIV
+protease is a dimer. This entity
+corresponds to one monomer of an active dimer.&lt;/mmcif_sas:details&gt;
+      &lt;mmcif_sas:formula_weight&gt;10916&lt;/mmcif_sas:formula_weight&gt;
+      &lt;mmcif_sas:type&gt;polymer&lt;/mmcif_sas:type&gt;
+   &lt;/mmcif_sas:entity&gt;
+   &lt;mmcif_sas:entity id=&quot;2&quot;&gt;
+      &lt;mmcif_sas:details xsi:nil=&quot;true&quot; /&gt;
+      &lt;mmcif_sas:formula_weight&gt;762&lt;/mmcif_sas:formula_weight&gt;
+      &lt;mmcif_sas:type&gt;non-polymer&lt;/mmcif_sas:type&gt;
+   &lt;/mmcif_sas:entity&gt;
+   &lt;mmcif_sas:entity id=&quot;3&quot;&gt;
+      &lt;mmcif_sas:details xsi:nil=&quot;true&quot; /&gt;
+      &lt;mmcif_sas:formula_weight&gt;18&lt;/mmcif_sas:formula_weight&gt;
+      &lt;mmcif_sas:type&gt;water&lt;/mmcif_sas:type&gt;
+   &lt;/mmcif_sas:entity&gt;
+&lt;/mmcif_sas:entityCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="entity" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of special aspects of the entity.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="formula_weight" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Formula mass in daltons of the entity.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:decimal">
+                           <xsd:minInclusive value="1.0" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="src_method" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The method by which the sample for the entity was produced.
+Entities isolated directly from natural sources (tissues, soil
+samples etc.) are expected to have further information in the
+ENTITY_SRC_NAT category. Entities isolated from genetically
+manipulated sources are expected to have further information in
+the ENTITY_SRC_GEN category.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="nat" />
+                           <xsd:enumeration value="man" />
+                           <xsd:enumeration value="syn" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="type" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Defines the type of the entity.
+
+Polymer entities are expected to have corresponding
+ENTITY_POLY and associated entries.
+
+Non-polymer entities are expected to have corresponding
+CHEM_COMP and associated entries.
+
+Water entities are not expected to have corresponding
+entries in the ENTITY category.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="polymer" />
+                           <xsd:enumeration value="non-polymer" />
+                           <xsd:enumeration value="macrolide" />
+                           <xsd:enumeration value="water" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The value of attribute id in category entity must uniquely identify a record in the
+ ENTITY list.
+
+Note that this item need not be a number; it can be any unique
+identifier.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_authorType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Lists the author(s) of the SAS data
+Example showing SAS responsible author
+&lt;mmcif_sas:sas_authorCategory&gt;
+   &lt;mmcif_sas:sas_author id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:name&gt;Bloggs,&lt;/mmcif_sas:name&gt;
+      &lt;mmcif_sas:orcid&gt;0000-0001-0002-0003&lt;/mmcif_sas:orcid&gt;
+      &lt;mmcif_sas:result_id&gt;1&lt;/mmcif_sas:result_id&gt;
+   &lt;/mmcif_sas:sas_author&gt;
+&lt;/mmcif_sas:sas_authorCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_author" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of the person
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="orcid" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Unique global ID for the author, based on the ORCID system
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="result_id" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Result for which this author is responsible
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="role" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Role that the author played in the generation of the data and writing of accompanying articles
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Unique ID for the sas_author entry
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_beamType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Items in this category give information about the beam.
+
+    Example   - Hypothetical example to illustrate the description of a
+                beam geometry.
+&lt;mmcif_sas:sas_beamCategory&gt;
+   &lt;mmcif_sas:sas_beam id=&quot;X_ray&quot;&gt;
+      &lt;mmcif_sas:shape&gt;Rectangular&lt;/mmcif_sas:shape&gt;
+   &lt;/mmcif_sas:sas_beam&gt;
+&lt;/mmcif_sas:sas_beamCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_beam" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="chopper_frequency" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Frequency of the choppers in Hz
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="reciprocal_seconds" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="collimation_slit_size_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The width of the collimation slits in the _x direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="collimation_slit_size_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The width of the collimation slits in the _y direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="dist_mono_to_spec" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+the distance in millimetres from the monochromator to the specimen
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="dist_src_to_mono" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The distance in millimetres from the radiation source to the monochromator.
+For synchrotron radiation, the source is a bending magnet or insertion
+device.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="dist_src_to_spec" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+the distance in millimetres from the source to the sample
+For synchrotron radiation, the source is a bending magnet or insertion
+device.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="divergence_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The beam divergence in the _x direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="radians" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="divergence_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The beam divergence in the _y
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="radians" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="instrument_city" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+City where the beamline is located
+Hamburg
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="instrument_country" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Country where the beamline is located
+Germany
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="instrument_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of the beamline
+PETRA III P12
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="monochromator_takeoff" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is two times the Bragg angle (2 theta) of the monochromator.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="polarization_direction" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Direction of the polarization in degrees relative to the x axis
+The positive direction is counterclockwise when facing the source.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="polarizer_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the device used to polarize the beam
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="radiation_pulse_duration" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+pulse duration for neutron time of flight measurements
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="seconds" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="radiation_wavelength" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The wavelength of the incident beam in Angstroms.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="angstroms" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="radiation_wavelength_width" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The halfwidth of the distribution of wavelengths present in the incident
+beam
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="angstroms" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="shape" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Shape of the beam profile if not rectangular, e.g., circular
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="type_of_source" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Type of source
+Synchrotron
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="velocity_selector_orientation" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Angle between the rotation axis of the velocity selector
+and the primary beam direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="velocity_selector_speed" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Rotation speed of the velocity selector in rpm
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="rpm" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="width_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The width of the beam at the sample in the _x direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="width_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The width of the beam at the sample in the_y direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+The value of attribute id in category sas_beam must uniquely identify
+ the beam setup used to measure the scattered intensities.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_bufferType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Description of the buffer used in the sample
+Example 1
+&lt;mmcif_sas:sas_bufferCategory&gt;
+   &lt;mmcif_sas:sas_buffer id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:comment&gt;Prepared on 03.10.14&lt;/mmcif_sas:comment&gt;
+      &lt;mmcif_sas:name&gt;HEPES&lt;/mmcif_sas:name&gt;
+      &lt;mmcif_sas:pH&gt;7.5&lt;/mmcif_sas:pH&gt;
+   &lt;/mmcif_sas:sas_buffer&gt;
+&lt;/mmcif_sas:sas_bufferCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_buffer" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="D2O_content" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Volume fraction of D2O in the buffer in &#37;
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="comment" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Comments on the buffer
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Buffer name
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="pH" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+pH of the buffer
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Buffer identifier
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_detcType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Gives information about the detector.
+Extension for the items used in SAS.
+
+    Example   - Hypothetical example to illustrate the description of a
+                detector.
+&lt;mmcif_sas:sas_detcCategory&gt;
+   &lt;mmcif_sas:sas_detc id=&quot;2D&quot;&gt;
+      &lt;mmcif_sas:pixsize_x&gt;0.01&lt;/mmcif_sas:pixsize_x&gt;
+      &lt;mmcif_sas:pixsize_y&gt;0.01&lt;/mmcif_sas:pixsize_y&gt;
+      &lt;mmcif_sas:sector_orientation&gt;22.5&lt;/mmcif_sas:sector_orientation&gt;
+   &lt;/mmcif_sas:sas_detc&gt;
+&lt;/mmcif_sas:sas_detcCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_detc" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beam_position_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The position of the beam center on the detector in
+_x direction in the detector coordinate system.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="beam_position_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The position of the beam center on the detector in
+_y direction.
+The axis system is given by attribute axis.id in category sas_detc. 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="beamstop_shadow_position_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The x coordinate in pixels of the centre of the
+beamstop shadow on the detector measured using the
+detector coordinates.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:integer">
+                              <xsd:attribute fixed="pixels" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="beamstop_shadow_position_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The y coordinate of the centre of the shadow of the beamstop on the
+detector measured in the detector coordinate system
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:integer">
+                              <xsd:attribute fixed="pixels" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="beamstop_shadow_size_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the maximum dimension of the beamstop shadow on the detector
+in the _x direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="beamstop_shadow_size_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the maximum dimension of the beamstop shadow on the detector
+in the _y direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="beamstop_shape" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Shape of the beamstop (circular, rectangular etc)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dist_spec_to_detc" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+the distance in millimetres from the sample to the detector
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="merge_number" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The number n of channels (pixels) merged together (1D-detector)
+to decrease the statistical error by a factor of SQRT(n).
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of the detector
+2D Photon Counting
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="orientation_alpha" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the Euler alpha angle of the normal to
+the detector plane
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="orientation_beta" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the Euler beta angle of the normal to
+the detector plane
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="orientation_gamma" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the Euler gamma angle of the normal to
+the detector plane
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="pixnum_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The number of detector pixels in the x direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:integer">
+                              <xsd:attribute fixed="pixels" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="pixnum_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The number of detector pixels in the y direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:integer">
+                              <xsd:attribute fixed="pixels" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="pixsize_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The pixel size in mm in the x direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="pixsize_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The pixel size in mm in the y direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="sector_angular_width" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The angular width of the binning sector of the 2D-detector:
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="sector_orientation" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This is the angular coordinate of the binning sector
+in a 2D-detector
+It is the angle between the central line of the
+sector and the x direction
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="sector_radial_width" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The radial width of the binnng sector of the 2D-detector.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="type" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Type of the detector
+MAR Image Plate
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The value of attribute id in category sas_detc must uniquely identify
+ the detector used to measure the scattered intensities .
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_modelType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Description of the fitted model
+Example 1
+&lt;mmcif_sas:sas_modelCategory&gt;
+   &lt;mmcif_sas:sas_model id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:comment&gt;Clustered&lt;/mmcif_sas:comment&gt;
+      &lt;mmcif_sas:fitting_id&gt;1&lt;/mmcif_sas:fitting_id&gt;
+      &lt;mmcif_sas:radius&gt;1.3&lt;/mmcif_sas:radius&gt;
+      &lt;mmcif_sas:software&gt;DAMMIF&lt;/mmcif_sas:software&gt;
+      &lt;mmcif_sas:symmetry&gt;P1&lt;/mmcif_sas:symmetry&gt;
+      &lt;mmcif_sas:type_of_model&gt;dummy&lt;/mmcif_sas:type_of_model&gt;
+      &lt;mmcif_sas:version&gt;6.0&lt;/mmcif_sas:version&gt;
+   &lt;/mmcif_sas:sas_model&gt;
+&lt;/mmcif_sas:sas_modelCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_model" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="comment" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Comments on the model
+Clustered
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="fitting_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A pointer to _fitting_id of the model
+1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="radius" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Radius of dummy atoms in Angstroms (for ab initio models)
+1.3
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="software" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Software used to create the model
+DAMMIF
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="symmetry" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Symmetry of the model
+P1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="type_of_model" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Type of the model
+dummy
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="version" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Version of software used
+6.0
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Model identifier
+1
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_model_fittingType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Model fitting data
+Example 1
+&lt;mmcif_sas:sas_model_fittingCategory&gt;
+   &lt;mmcif_sas:sas_model_fitting ordinal=&quot;1&quot;&gt;
+      &lt;mmcif_sas:fit&gt;27665.9&lt;/mmcif_sas:fit&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+      &lt;mmcif_sas:intensity&gt;10188.6&lt;/mmcif_sas:intensity&gt;
+      &lt;mmcif_sas:momentum_transfer&gt;0.0685743&lt;/mmcif_sas:momentum_transfer&gt;
+   &lt;/mmcif_sas:sas_model_fitting&gt;
+   &lt;mmcif_sas:sas_model_fitting ordinal=&quot;2&quot;&gt;
+      &lt;mmcif_sas:fit&gt;25913.1&lt;/mmcif_sas:fit&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+      &lt;mmcif_sas:intensity&gt;10275.7&lt;/mmcif_sas:intensity&gt;
+      &lt;mmcif_sas:momentum_transfer&gt;0.0712083&lt;/mmcif_sas:momentum_transfer&gt;
+   &lt;/mmcif_sas:sas_model_fitting&gt;
+   &lt;mmcif_sas:sas_model_fitting ordinal=&quot;3&quot;&gt;
+      &lt;mmcif_sas:fit&gt;24310.&lt;/mmcif_sas:fit&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+      &lt;mmcif_sas:intensity&gt;10285.1&lt;/mmcif_sas:intensity&gt;
+      &lt;mmcif_sas:momentum_transfer&gt;0.0738423&lt;/mmcif_sas:momentum_transfer&gt;
+   &lt;/mmcif_sas:sas_model_fitting&gt;
+   &lt;mmcif_sas:sas_model_fitting ordinal=&quot;4&quot;&gt;
+      &lt;mmcif_sas:fit&gt;22706.9&lt;/mmcif_sas:fit&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+      &lt;mmcif_sas:intensity&gt;10029.4&lt;/mmcif_sas:intensity&gt;
+      &lt;mmcif_sas:momentum_transfer&gt;0.0764763&lt;/mmcif_sas:momentum_transfer&gt;
+   &lt;/mmcif_sas:sas_model_fitting&gt;
+&lt;/mmcif_sas:sas_model_fittingCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_model_fitting" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="fit" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The theoretical scattering intensity
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Fit identifier
+1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The scattering intensity used for fitting theoretical scattering
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="momentum_transfer" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Momentum transfer values
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="ordinal" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Fit ordinal identifier
+1
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_model_fitting_detailsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Model fitting details
+Example 1
+&lt;mmcif_sas:sas_model_fitting_detailsCategory&gt;
+   &lt;mmcif_sas:sas_model_fitting_details id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:chi_square&gt;1.44&lt;/mmcif_sas:chi_square&gt;
+      &lt;mmcif_sas:p-value&gt;1.2&lt;/mmcif_sas:p-value&gt;
+      &lt;mmcif_sas:result_id&gt;1&lt;/mmcif_sas:result_id&gt;
+      &lt;mmcif_sas:unit&gt;nanometre&lt;/mmcif_sas:unit&gt;
+   &lt;/mmcif_sas:sas_model_fitting_details&gt;
+&lt;/mmcif_sas:sas_model_fitting_detailsCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_model_fitting_details" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="chi_square" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Chi square value
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="p-value" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+p-value
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="result_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A pointer to _result_id corresponding to the fit
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="unit" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units of momentum transfer
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Fit identifier
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_p_of_RType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+The distance distribution function P(R)
+Example 1
+&lt;mmcif_sas:sas_p_of_RCategory&gt;
+   &lt;mmcif_sas:sas_p_of_R ordinal=&quot;1&quot;&gt;
+      &lt;mmcif_sas:P&gt;0.&lt;/mmcif_sas:P&gt;
+      &lt;mmcif_sas:P_error&gt;0.&lt;/mmcif_sas:P_error&gt;
+      &lt;mmcif_sas:R&gt;0.&lt;/mmcif_sas:R&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+   &lt;/mmcif_sas:sas_p_of_R&gt;
+   &lt;mmcif_sas:sas_p_of_R ordinal=&quot;2&quot;&gt;
+      &lt;mmcif_sas:P&gt;2.276&lt;/mmcif_sas:P&gt;
+      &lt;mmcif_sas:P_error&gt;0.05545&lt;/mmcif_sas:P_error&gt;
+      &lt;mmcif_sas:R&gt;0.1034&lt;/mmcif_sas:R&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+   &lt;/mmcif_sas:sas_p_of_R&gt;
+   &lt;mmcif_sas:sas_p_of_R ordinal=&quot;3&quot;&gt;
+      &lt;mmcif_sas:P&gt;5.953&lt;/mmcif_sas:P&gt;
+      &lt;mmcif_sas:P_error&gt;0.08992&lt;/mmcif_sas:P_error&gt;
+      &lt;mmcif_sas:R&gt;0.2068&lt;/mmcif_sas:R&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+   &lt;/mmcif_sas:sas_p_of_R&gt;
+   &lt;mmcif_sas:sas_p_of_R ordinal=&quot;1010&quot;&gt;
+      &lt;mmcif_sas:P&gt;2.941&lt;/mmcif_sas:P&gt;
+      &lt;mmcif_sas:P_error&gt;0.1673&lt;/mmcif_sas:P_error&gt;
+      &lt;mmcif_sas:R&gt;10.24&lt;/mmcif_sas:R&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+   &lt;/mmcif_sas:sas_p_of_R&gt;
+   &lt;mmcif_sas:sas_p_of_R ordinal=&quot;1011&quot;&gt;
+      &lt;mmcif_sas:P&gt;0.&lt;/mmcif_sas:P&gt;
+      &lt;mmcif_sas:P_error&gt;0.&lt;/mmcif_sas:P_error&gt;
+      &lt;mmcif_sas:R&gt;10.34&lt;/mmcif_sas:R&gt;
+      &lt;mmcif_sas:id&gt;1&lt;/mmcif_sas:id&gt;
+   &lt;/mmcif_sas:sas_p_of_R&gt;
+&lt;/mmcif_sas:sas_p_of_RCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_p_of_R" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="P" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Values of distance distribution function P(R)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="P_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Errors of P(R) values
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="R" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Values of intramolecular distances R
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="id" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+P(R) identifier
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="ordinal" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Ordinal index for the P(R) function
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_p_of_R_detailsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Description of the distance distribution function P(R)
+Example 1
+&lt;mmcif_sas:sas_p_of_R_detailsCategory&gt;
+   &lt;mmcif_sas:sas_p_of_R_details id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:Rmax&gt;10.2&lt;/mmcif_sas:Rmax&gt;
+      &lt;mmcif_sas:Rmin&gt;0&lt;/mmcif_sas:Rmin&gt;
+      &lt;mmcif_sas:number_of_points&gt;1096&lt;/mmcif_sas:number_of_points&gt;
+      &lt;mmcif_sas:p_of_R_point_max&gt;1100&lt;/mmcif_sas:p_of_R_point_max&gt;
+      &lt;mmcif_sas:p_of_R_point_min&gt;5&lt;/mmcif_sas:p_of_R_point_min&gt;
+      &lt;mmcif_sas:qmax&gt;4.2&lt;/mmcif_sas:qmax&gt;
+      &lt;mmcif_sas:qmin&gt;0.04&lt;/mmcif_sas:qmin&gt;
+      &lt;mmcif_sas:result_id&gt;1&lt;/mmcif_sas:result_id&gt;
+      &lt;mmcif_sas:software_p_of_R&gt;GNOM 4.6&lt;/mmcif_sas:software_p_of_R&gt;
+   &lt;/mmcif_sas:sas_p_of_R_details&gt;
+&lt;/mmcif_sas:sas_p_of_R_detailsCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_p_of_R_details" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="Rmax" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Maximal value of intramolecular distances R
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Rmin" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Minimal value of intramolecular distances R
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="number_of_points" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of intensity points used in P(R) calculation
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="p_of_R_point_max" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of the last point of intensity used to calculate P(R)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="p_of_R_point_min" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of the first point of intensity used to calculate P(R)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="qmax" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Maximal value of momentum transfer used for calculation of P(R)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="qmin" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Minimal value of momentum transfer used for calculation of P(R)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="result_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A pointer to attribute id in category sas_result 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="software_p_of_R" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Software used for the calculation of
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+P(R) identifier
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_p_of_R_extrapolatedType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+The extrapolated quantities backcalculated from the P(R) using inverse Fourier transformation
+Example 1
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_p_of_R_extrapolated" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="id" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+P(R) identifier
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity_reg" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Extrapolated regularized arized intensity backcalculated from P(R) using inverse Fourier transformation
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="momentum_transfer" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Extrapolated momentum transfer values for calculation of extrapolated intensity
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ordinal" minOccurs="1" maxOccurs="1" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Ordinal index for extrapoated value list
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="ordinal" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Ordinal index for the P(R) function
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_resultType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Results of small-angle scattering measurement
+Example 1
+&lt;mmcif_sas:sas_resultCategory&gt;
+   &lt;mmcif_sas:sas_result id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:Dmax&gt;10.3&lt;/mmcif_sas:Dmax&gt;
+      &lt;mmcif_sas:Dmax_error&gt;0.2&lt;/mmcif_sas:Dmax_error&gt;
+      &lt;mmcif_sas:Guinier_point_max&gt;23&lt;/mmcif_sas:Guinier_point_max&gt;
+      &lt;mmcif_sas:Guinier_point_min&gt;5&lt;/mmcif_sas:Guinier_point_min&gt;
+      &lt;mmcif_sas:I0_from_Guinier&gt;10128&lt;/mmcif_sas:I0_from_Guinier&gt;
+      &lt;mmcif_sas:I0_from_Guinier_error&gt;184&lt;/mmcif_sas:I0_from_Guinier_error&gt;
+      &lt;mmcif_sas:I0_from_PR&gt;10203&lt;/mmcif_sas:I0_from_PR&gt;
+      &lt;mmcif_sas:I0_from_PR_error&gt;195&lt;/mmcif_sas:I0_from_PR_error&gt;
+      &lt;mmcif_sas:MW_Porod&gt;49&lt;/mmcif_sas:MW_Porod&gt;
+      &lt;mmcif_sas:MW_Porod_error&gt;0.3&lt;/mmcif_sas:MW_Porod_error&gt;
+      &lt;mmcif_sas:MW_standard&gt;55&lt;/mmcif_sas:MW_standard&gt;
+      &lt;mmcif_sas:Porod_volume&gt;82&lt;/mmcif_sas:Porod_volume&gt;
+      &lt;mmcif_sas:Porod_volume_error&gt;7&lt;/mmcif_sas:Porod_volume_error&gt;
+      &lt;mmcif_sas:Rg_from_Guinier&gt;3.4&lt;/mmcif_sas:Rg_from_Guinier&gt;
+      &lt;mmcif_sas:Rg_from_Guinier_error&gt;0.2&lt;/mmcif_sas:Rg_from_Guinier_error&gt;
+      &lt;mmcif_sas:Rg_from_PR&gt;3.5&lt;/mmcif_sas:Rg_from_PR&gt;
+      &lt;mmcif_sas:Rg_from_PR_error&gt;0.3&lt;/mmcif_sas:Rg_from_PR_error&gt;
+      &lt;mmcif_sas:SASBDB_code&gt;SASDA85&lt;/mmcif_sas:SASBDB_code&gt;
+      &lt;mmcif_sas:comments&gt;No signs of aggregation&lt;/mmcif_sas:comments&gt;
+      &lt;mmcif_sas:estimated_volume&gt;74&lt;/mmcif_sas:estimated_volume&gt;
+      &lt;mmcif_sas:estimated_volume_error&gt;5&lt;/mmcif_sas:estimated_volume_error&gt;
+      &lt;mmcif_sas:estimated_volume_method&gt;Ab initio model&lt;/mmcif_sas:estimated_volume_method&gt;
+      &lt;mmcif_sas:experimental_MW&gt;55&lt;/mmcif_sas:experimental_MW&gt;
+      &lt;mmcif_sas:experimental_MW_error&gt;0.1&lt;/mmcif_sas:experimental_MW_error&gt;
+      &lt;mmcif_sas:standard&gt;BSA&lt;/mmcif_sas:standard&gt;
+      &lt;mmcif_sas:type_of_curve&gt;Merged&lt;/mmcif_sas:type_of_curve&gt;
+   &lt;/mmcif_sas:sas_result&gt;
+&lt;/mmcif_sas:sas_resultCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_result" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="Dmax" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Maximum dimension of the particle (in nm)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Dmax_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of Dmax
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Guinier_point_max" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of the last point of the guinier region
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Guinier_point_min" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of the first point of the guinier region
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I0_from_Guinier" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Forward scattering determined with Guinier approximation
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I0_from_Guinier_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of Guinier approximation forward scattering
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I0_from_PR" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Forward scattering determined from distance distribution function
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="I0_from_PR_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of P(R) forward scattering
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="MW_Porod" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Molecular weight derived from the Porod volume (in kDa)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="MW_Porod_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of Porod molecular weight
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="MW_standard" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Molecular weight of the sample determined by comparison to the sample forward scattering with that from a standard (in kDa)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Porod_volume" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Porod volume (excluded volume of the hydrated particle) (in nm3)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Porod_volume_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of Porod volume
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Rg_from_Guinier" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Radius of gyration determined with Guinier approximation (in nm)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Rg_from_Guinier_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of Guinier approximation radius of gyration
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Rg_from_PR" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Radius of gyration determined from distance distribution function (in nm)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="Rg_from_PR_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of P(R) radius of gyration
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="SASBDB_code" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Code in the SASBDB
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="comments" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Comments on the results
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="estimated_volume" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Volume estimated from scattering curve using any other method than Porod volume calculation (in nm3)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="estimated_volume_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of estimated volume
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="estimated_volume_method" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Method used to estimate volume
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="experimental_MW" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Molecular weight of the sample determined by any experimental method (in kDa)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="experimental_MW_error" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Error of experimental molecular weight
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity_units" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units for the I0 items in _sas_result
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="au" />
+                           <xsd:enumeration value="e/cm" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="length_units" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units for the Rg and Dmax items in _sas_result
+The volume items have units equal to this unit cubed
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="nm" />
+                           <xsd:enumeration value="AA" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="standard" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of the substance used as a standard
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="type_of_curve" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Type of the curve used in analysis
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+Result identifier
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_sampleType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Gives information about the sample and how it is mounted.
+The sample is assumed to consist of the specimen to be
+analysed and a matrix or buffer.
+
+    Example   - Hypothetical example to illustrate the description of a
+                Sample.
+&lt;mmcif_sas:sas_sampleCategory&gt;
+   &lt;mmcif_sas:sas_sample id=&quot;Lysozyme_sample&quot;&gt;
+      &lt;mmcif_sas:details&gt;Chicken egg white lysozyme in solution&lt;/mmcif_sas:details&gt;
+      &lt;mmcif_sas:sample_transmission&gt;0.6&lt;/mmcif_sas:sample_transmission&gt;
+      &lt;mmcif_sas:specimen_concentration&gt;15&lt;/mmcif_sas:specimen_concentration&gt;
+      &lt;mmcif_sas:thickness&gt;0.2&lt;/mmcif_sas:thickness&gt;
+   &lt;/mmcif_sas:sas_sample&gt;
+&lt;/mmcif_sas:sas_sampleCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_sample" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="buffer_id" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A pointer to attribute id in category sas_buffer in the Buffer category 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="calibration_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the calibration used for normalization
+of the scattering intensity.
+Black carbon
+Ionisation chamber
+Water
+Standard protein (BSA) 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="cell_temperature" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Temperature at which the sample measurement were performed (in C)
+20.0
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="concentration_method" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Method of concentration determination
+Nanodrop
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the sample such as the source of the sample,
+identification of standards, mixtures, etc.
+The sample is assumed to consist of a specimen which is
+actually analysed and a matrix or buffer.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="disk_orientation" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The angle between the normal to the planar sample and
+the incident beam.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="dry_vol" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Dry volume of the sample
+53
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="entity_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A pointer to _entity_id (molecule) which the sample contains
+1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="ext_coefficient" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Extinction coefficient of the sample
+43.824
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="fibre_orientation" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The angle between the fibre direction of the sample and
+the principal detector axis.  In the case of two-dimentsional
+detectors this is the direction that changes most rapidly
+in the detector output.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="degrees" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="length_unstressed" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The length of the unstressed sample along the direction of stress.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="position_x" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Defines the sample position in the _x direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="position_y" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the sample position in the _y direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="position_z" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the sample position in the _z direction.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="preparation_date" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:date">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The date of preparation of the sample, i.e., the date when
+the sample was assembled into a form suitable for measuring
+small angle scatterng.  The date is given in the format yyyy-mm-dd
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="purity_method" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Method of purity determination
+DLS
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="sample_transmission" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The transmission factor Ts of the sample calculated or measured as
+
+intensity of beam transmitted through the sample
+------------------------------------------------
+intensity of incident beam
+
+The sample is assumed to consist of the specimen that is actually
+analyzed and a matrix or buffer.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="shape" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+defines the shape of the sample. The sample is assumed to
+consist of a specimen which is actually analysed and
+a matrix or buffer.
+fibre
+disk
+Unknown
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="specific_vol" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Specific volume of the sample
+0.724
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="specimen_concentration" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The sample is assumed to consist of the specimen which is
+actually analysed and a matrix or buffer.
+This item gives the concentration of the specimen in the sample.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="mg_per_ml" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="storage_temperature" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Temperature at which the sample was stored prior to measurement (in C)
+10.0
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="strain" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The extension of the stressed sample, divided by the
+original length (or volume).
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="stress_description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the stress applied to the sample.
+uniaxial extension
+uniaxial compression
+fibers under dead-loading
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="support" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A description of the sample holder
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="thickness" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The thickness of the irradiated volume of the sample measured
+perpendicular to the incident x-ray beam.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="millimetres" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The value of attribute id in category sas_sample must uniquely identify
+ the sample whose scattered intensity was measured.
+The sample is assumed to consist of a specimen
+which is actually analysed and a matrix or buffer.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_sample_entitiesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Lists the molecular entities present in each sample, together with properties such as deuteration
+ This example shows two samples with two and three entities respectively
+&lt;mmcif_sas:sas_sample_entitiesCategory&gt;
+   &lt;mmcif_sas:sas_sample_entities id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:concentration&gt;1.2&lt;/mmcif_sas:concentration&gt;
+      &lt;mmcif_sas:entity_id&gt;BSA&lt;/mmcif_sas:entity_id&gt;
+      &lt;mmcif_sas:sample_id&gt;1&lt;/mmcif_sas:sample_id&gt;
+   &lt;/mmcif_sas:sas_sample_entities&gt;
+   &lt;mmcif_sas:sas_sample_entities id=&quot;2&quot;&gt;
+      &lt;mmcif_sas:concentration&gt;0.7&lt;/mmcif_sas:concentration&gt;
+      &lt;mmcif_sas:entity_id&gt;LYZ&lt;/mmcif_sas:entity_id&gt;
+      &lt;mmcif_sas:sample_id&gt;1&lt;/mmcif_sas:sample_id&gt;
+   &lt;/mmcif_sas:sas_sample_entities&gt;
+   &lt;mmcif_sas:sas_sample_entities id=&quot;3&quot;&gt;
+      &lt;mmcif_sas:concentration&gt;3.3&lt;/mmcif_sas:concentration&gt;
+      &lt;mmcif_sas:entity_id&gt;BSA&lt;/mmcif_sas:entity_id&gt;
+      &lt;mmcif_sas:sample_id&gt;2&lt;/mmcif_sas:sample_id&gt;
+   &lt;/mmcif_sas:sas_sample_entities&gt;
+   &lt;mmcif_sas:sas_sample_entities id=&quot;3&quot;&gt;
+      &lt;mmcif_sas:concentration xsi:nil=&quot;true&quot; /&gt;
+      &lt;mmcif_sas:entity_id&gt;HGF&lt;/mmcif_sas:entity_id&gt;
+      &lt;mmcif_sas:sample_id&gt;2&lt;/mmcif_sas:sample_id&gt;
+   &lt;/mmcif_sas:sas_sample_entities&gt;
+   &lt;mmcif_sas:sas_sample_entities id=&quot;3&quot;&gt;
+      &lt;mmcif_sas:concentration&gt;0.1&lt;/mmcif_sas:concentration&gt;
+      &lt;mmcif_sas:entity_id&gt;EPO&lt;/mmcif_sas:entity_id&gt;
+      &lt;mmcif_sas:sample_id&gt;2&lt;/mmcif_sas:sample_id&gt;
+   &lt;/mmcif_sas:sas_sample_entities&gt;
+&lt;/mmcif_sas:sas_sample_entitiesCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_sample_entities" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="concentration" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Concentration of the entity in the sample
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="concentration_range_max" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The highest concentration in a concentration series (for a
+sas_result derived from merging / extrapolating curves from
+several concentrations).
+
+If this is present then .concentration_range_min should also be
+present, and .concentration should not be.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="concentration_range_min" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The lowest concentration in a concentration series (for a
+sas_result derived from merging / extrapolating curves from
+several concentrations).
+
+If this is present then .concentration_range_max should also be
+present, and .concentration should not be.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="concentration_units" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units for attribute concentration,
+ in category sas_sample_entities .concentration_range_max and .concentration_range_min
+When absent, assume mg/ml
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="mg/ml" />
+                           <xsd:enumeration value="mmol" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="contrast" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Contrast of this entity in this sample
+Accounting for sample deuteration and for buffer composition
+3.047
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="deuteration" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Percentage of non-exchangeable 2H of the entity (molecule)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="entity_id" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Identifies the entity
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="sample_MW" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Molecular weight of the entity in kDa
+Adjusted for deuteration if necessary
+53.5
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="sample_id" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Identifies the sample in which the entity is present
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is the category key and must be unique to each scan
+reported in the datablock.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_scanType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Describes the properties of the different scans reported in sas_scan_intensity.
+ This example shows how the beam, detector and sample are specified for a each scan.  In addition, the nature of the intensities measured
+  during the scan is shown.  This example should be read in conjuntion with the example in sas_scan_intensity.  No filenames are given for
+  the first three items as the intensities for these scans are found in the current datablock.
+&lt;mmcif_sas:sas_scanCategory&gt;
+   &lt;mmcif_sas:sas_scan id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:beam_id&gt;2007-10-12&lt;/mmcif_sas:beam_id&gt;
+      &lt;mmcif_sas:detc_id&gt;2&lt;/mmcif_sas:detc_id&gt;
+      &lt;mmcif_sas:filename&gt;sample&lt;/mmcif_sas:filename&gt;
+      &lt;mmcif_sas:measurement_date&gt;sample1&lt;/mmcif_sas:measurement_date&gt;
+      &lt;mmcif_sas:sample_id&gt;1&lt;/mmcif_sas:sample_id&gt;
+      &lt;mmcif_sas:title&gt;1&lt;/mmcif_sas:title&gt;
+      &lt;mmcif_sas:type&gt;1&lt;/mmcif_sas:type&gt;
+   &lt;/mmcif_sas:sas_scan&gt;
+   &lt;mmcif_sas:sas_scan id=&quot;matrix&quot;&gt;
+      &lt;mmcif_sas:beam_id&gt;1&lt;/mmcif_sas:beam_id&gt;
+      &lt;mmcif_sas:detc_id&gt;background1&lt;/mmcif_sas:detc_id&gt;
+      &lt;mmcif_sas:filename&gt;1&lt;/mmcif_sas:filename&gt;
+      &lt;mmcif_sas:measurement_date&gt;3&lt;/mmcif_sas:measurement_date&gt;
+      &lt;mmcif_sas:sample_id&gt;2007-10-10&lt;/mmcif_sas:sample_id&gt;
+      &lt;mmcif_sas:title xsi:nil=&quot;true&quot; /&gt;
+      &lt;mmcif_sas:type&gt;2&lt;/mmcif_sas:type&gt;
+   &lt;/mmcif_sas:sas_scan&gt;
+   &lt;mmcif_sas:sas_scan id=&quot;1&quot;&gt;
+      &lt;mmcif_sas:beam_id&gt;c/detector/response.cif&lt;/mmcif_sas:beam_id&gt;
+      &lt;mmcif_sas:detc_id&gt;5&lt;/mmcif_sas:detc_id&gt;
+      &lt;mmcif_sas:filename&gt;2007-10-15&lt;/mmcif_sas:filename&gt;
+      &lt;mmcif_sas:measurement_date&gt;detector&lt;/mmcif_sas:measurement_date&gt;
+      &lt;mmcif_sas:sample_id&gt;1&lt;/mmcif_sas:sample_id&gt;
+      &lt;mmcif_sas:title xsi:nil=&quot;true&quot; /&gt;
+      &lt;mmcif_sas:type&gt;processed1&lt;/mmcif_sas:type&gt;
+   &lt;/mmcif_sas:sas_scan&gt;
+   &lt;mmcif_sas:sas_scan id=&quot;2&quot;&gt;
+      &lt;mmcif_sas:beam_id&gt;processed&lt;/mmcif_sas:beam_id&gt;
+      &lt;mmcif_sas:detc_id&gt;c/scan//processed.cif&lt;/mmcif_sas:detc_id&gt;
+      &lt;mmcif_sas:measurement_date&gt;1&lt;/mmcif_sas:measurement_date&gt;
+      &lt;mmcif_sas:title&gt;1&lt;/mmcif_sas:title&gt;
+   &lt;/mmcif_sas:sas_scan&gt;
+&lt;/mmcif_sas:sas_scanCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_scan" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="beam_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This item is a child of attribute id in category sas_beam and identifies the beam
+ configuration used in making the scan.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="calibration_factor" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The measured intensity should be multiplied by this factor
+to get normalized intensity
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="detc_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This item is a child of attribute id in category sas_detc and identifies the detector used
+ in recording the scan.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="exposure_time" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Time interval used to accumulate the counts in each of the values
+included in attribute intensity in category sas_scan_intensity 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="seconds" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="filename" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Name of the file in which the scan intensity is stored on the machine
+where the primary data processing is done
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity_units" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units for the intensity and intensity_su_* columns
+of the corresponding _sas_scan_intensity category
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="au" />
+                           <xsd:enumeration value="e/cm" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="measurement_date" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:date">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The date on which this scan was made.  The format is yyyy-mm-dd
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="momentum_transfer_units" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units for the momentum_transfer column
+of the corresponding _sas_scan_intensity category
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="1/nm" />
+                           <xsd:enumeration value="1/AA" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="number_of_frames" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of frames taken during the exposure
+50
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="result_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A pointer to _result_id corresponding to the intensity
+1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="sample_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This item is is a child of attribute id in category sas_sample and identifies the sample
+ used in this scan.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="title" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Title for this scan.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="type" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+If the type is &quot;processed&quot;, the intensity Ip is corrected for background,
+detector response etc. as follows:
+Ip = (Is - Im - Ib(Tm-Ts) )/( Id*C*ds*Ts)
+where
+Is = the intensity measured with the mounted specimen
+Im = the intensity measured with the matrix alone
+Ib = the measured background intensity
+Id = the detector response
+(the above four quantities are found in attribute intensity in category sas_scan_intensity depending
+ on the flag given in this item.  See the enumeration list for this item.)
+Ts = transmission coefficient of the specimen = sas_sample.specimen_transmission
+Tm = transmission coefficient of the matrix = attribute matrix_transmission
+ in category sas_sample C = concentration of the specimen = attribute specimen_concentration
+ in category sas_sample ds = thickness of the sample = attribute thickness
+ in category sas_sample The detector response is the intensity measured by the detector from
+a uniform scatterer (e.g. a Fe55 radioactive source for X-rays
+or water for neutrons).
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="processed" />
+                           <xsd:enumeration value="sample" />
+                           <xsd:enumeration value="matrix" />
+                           <xsd:enumeration value="background" />
+                           <xsd:enumeration value="detector" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is the category key and must be unique to each scan
+reported in the datablock.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sas_scan_intensityType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+This category gives the measured and processed intensities
+and the corresponding momentum transfers.
+  This example shows the intensity as a function of momentum transfer for the cases given in the sas_scan category example, showing how each of the different scans can be reported in a single file though they can also be reported in different files if so desired
+&lt;mmcif_sas:sas_scan_intensityCategory&gt;
+   &lt;mmcif_sas:sas_scan_intensity id=&quot;transfer&quot;&gt;
+      &lt;mmcif_sas:resolution_width&gt;1&lt;/mmcif_sas:resolution_width&gt;
+   &lt;/mmcif_sas:sas_scan_intensity&gt;
+&lt;/mmcif_sas:sas_scan_intensityCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sas_scan_intensity" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="group_factor" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Number of pixels contributing to the value reported in .intensity.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Intensity measured or processed at the given momentum transfer
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity_su_counting" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Standard uncertainty determined from the counting statistics of the
+intensity reported in .intensity
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="intensity_su_systematic" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Estimated standard uncertainty from sources other than counting
+statistics. e.g. from radial average, incoherent background etc...
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="momentum_transfer" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Momentum transfer values
+4*PI*sin(theta)/lambda  in A^-1
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="reciprocal_angstroms" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="momentum_transfer_su" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Uncertainty in the momentum transfer (e.g. case for
+scanning instruments)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:complexType>
+                        <xsd:simpleContent>
+                           <xsd:extension base="xsd:decimal">
+                              <xsd:attribute fixed="reciprocal_angstroms" name="units" type="xsd:string" use="optional" />
+                           </xsd:extension>
+                        </xsd:simpleContent>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="qmax" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Maximal momentum transfer value
+6.5
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="qmin" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Minimal momentum transfer value
+0.03
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="resolution_width" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Width of the Gaussian resolution function defined
+by Pedersen et al, (1990) J. Appl. Cryst., 23, 321
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="scan_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+This data item is a child of attribute id in category sas_scan. It serves to relate the
+ current intensity measurement with the conditions given for this scan in
+sas_scan.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="unit" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Units of momentum transfer
+nanometre
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This data item is the category key and must have a unique value for each
+intensity measurement.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="datablockType">
+      <xsd:all>
+         <xsd:element name="audit_conformCategory" type="mmcif_sas:audit_conformType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="entityCategory" type="mmcif_sas:entityType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_authorCategory" type="mmcif_sas:sas_authorType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_beamCategory" type="mmcif_sas:sas_beamType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_bufferCategory" type="mmcif_sas:sas_bufferType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_detcCategory" type="mmcif_sas:sas_detcType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_modelCategory" type="mmcif_sas:sas_modelType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_model_fittingCategory" type="mmcif_sas:sas_model_fittingType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_model_fitting_detailsCategory" type="mmcif_sas:sas_model_fitting_detailsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_p_of_RCategory" type="mmcif_sas:sas_p_of_RType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_p_of_R_detailsCategory" type="mmcif_sas:sas_p_of_R_detailsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_p_of_R_extrapolatedCategory" type="mmcif_sas:sas_p_of_R_extrapolatedType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_resultCategory" type="mmcif_sas:sas_resultType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_sampleCategory" type="mmcif_sas:sas_sampleType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_sample_entitiesCategory" type="mmcif_sas:sas_sample_entitiesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_scanCategory" type="mmcif_sas:sas_scanType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sas_scan_intensityCategory" type="mmcif_sas:sas_scan_intensityType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+      </xsd:all>
+      <xsd:attribute name="datablockName" type="xsd:string" use="optional" />
+   </xsd:complexType>
+   <xsd:element name="datablock" type="mmcif_sas:datablockType">
+      <xsd:key name="audit_conformKey_0">
+         <xsd:selector xpath="mmcif_sas:audit_conformCategory/mmcif_sas:audit_conform" />
+         <xsd:field xpath="@dict_name" />
+         <xsd:field xpath="@dict_version" />
+      </xsd:key>
+      <xsd:key name="entityKey_0">
+         <xsd:selector xpath="mmcif_sas:entityCategory/mmcif_sas:entity" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="entityKeyref_0_0_0_0" refer="mmcif_sas:entityKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_sample_entitiesCategory/mmcif_sas:sas_sample_entities" />
+         <xsd:field xpath="mmcif_sas:entity_id" />
+      </xsd:keyref>
+      <xsd:key name="sas_authorKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_authorCategory/mmcif_sas:sas_author" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_beamKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_beamCategory/mmcif_sas:sas_beam" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_bufferKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_bufferCategory/mmcif_sas:sas_buffer" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="sas_bufferKeyref_0_0_0_0" refer="mmcif_sas:sas_bufferKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_sampleCategory/mmcif_sas:sas_sample" />
+         <xsd:field xpath="mmcif_sas:buffer_id" />
+      </xsd:keyref>
+      <xsd:key name="sas_detcKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_detcCategory/mmcif_sas:sas_detc" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_modelKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_modelCategory/mmcif_sas:sas_model" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_model_fittingKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_model_fittingCategory/mmcif_sas:sas_model_fitting" />
+         <xsd:field xpath="@ordinal" />
+      </xsd:key>
+      <xsd:key name="sas_model_fitting_detailsKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_model_fitting_detailsCategory/mmcif_sas:sas_model_fitting_details" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_p_of_RKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_p_of_RCategory/mmcif_sas:sas_p_of_R" />
+         <xsd:field xpath="@ordinal" />
+      </xsd:key>
+      <xsd:key name="sas_p_of_R_detailsKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_p_of_R_detailsCategory/mmcif_sas:sas_p_of_R_details" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="sas_p_of_R_detailsKeyref_0_0_0_0" refer="mmcif_sas:sas_p_of_R_detailsKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_p_of_RCategory/mmcif_sas:sas_p_of_R" />
+         <xsd:field xpath="mmcif_sas:id" />
+      </xsd:keyref>
+      <xsd:keyref name="sas_p_of_R_detailsKeyref_0_0_1_0" refer="mmcif_sas:sas_p_of_R_detailsKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_p_of_R_extrapolatedCategory/mmcif_sas:sas_p_of_R_extrapolated" />
+         <xsd:field xpath="mmcif_sas:id" />
+      </xsd:keyref>
+      <xsd:key name="sas_p_of_R_extrapolatedKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_p_of_R_extrapolatedCategory/mmcif_sas:sas_p_of_R_extrapolated" />
+         <xsd:field xpath="mmcif_sas:ordinal" />
+      </xsd:key>
+      <xsd:key name="sas_resultKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_resultCategory/mmcif_sas:sas_result" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="sas_resultKeyref_0_0_0_0" refer="mmcif_sas:sas_resultKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_authorCategory/mmcif_sas:sas_author" />
+         <xsd:field xpath="mmcif_sas:result_id" />
+      </xsd:keyref>
+      <xsd:key name="sas_sampleKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_sampleCategory/mmcif_sas:sas_sample" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="sas_sampleKeyref_0_0_0_0" refer="mmcif_sas:sas_sampleKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_sample_entitiesCategory/mmcif_sas:sas_sample_entities" />
+         <xsd:field xpath="mmcif_sas:sample_id" />
+      </xsd:keyref>
+      <xsd:key name="sas_sample_entitiesKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_sample_entitiesCategory/mmcif_sas:sas_sample_entities" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_scanKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_scanCategory/mmcif_sas:sas_scan" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sas_scan_intensityKey_0">
+         <xsd:selector xpath="mmcif_sas:sas_scan_intensityCategory/mmcif_sas:sas_scan_intensity" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+   </xsd:element>
+</xsd:schema>

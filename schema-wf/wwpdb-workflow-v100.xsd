@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+    <!-- SCHEMA Included -->
+    <xsd:include schemaLocation="metadata.xsd"/>
+    <xsd:include schemaLocation="workflow.xsd"/>
+
+    <!--        MAIN ELEMENT: Start        -->
+    <xsd:element name="wwPDBworkflow" type="this:wwPDBworkflowTag"/>
+
+    <!-- Metadata and workflow: mandatory items -->
+    <xsd:complexType name="wwPDBworkflowTag">
+        <xsd:sequence>
+            <xsd:element name="metadata" type="this:metadataTag" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="workflow" type="this:workflowTag" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!--        MAIN ELEMENT: End          -->
+
+</xsd:schema>

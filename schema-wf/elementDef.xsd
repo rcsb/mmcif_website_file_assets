@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+    <!-- SCHEMA Included -->
+    <xsd:include schemaLocation="workflow.xsd"/>
+
+    <!-- ELEMENTS DEFINITION: Start -->
+    <xsd:element name="decision" type="this:decisionTask"/>
+    <xsd:element name="manual" type="this:manualTask"/>
+    <xsd:element name="process" type="this:processTask"/>
+    <xsd:element name="workflow" type="this:workflowTask"/>
+    <xsd:element name="task" type="this:taskTag"/>
+    <xsd:element name="join" type="this:joinTag"/>
+    <xsd:element name="loop" type="this:loopTask"/>
+    <!-- ELEMENTS DEFINITION: End -->
+
+
+</xsd:schema>

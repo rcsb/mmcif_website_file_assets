@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+    <!-- SCHEMA Included -->
+    <xsd:include schemaLocation="formatDefinition.xsd"/>
+
+    <!-- ComplexTYPE: METADATA -->
+    <xsd:complexType name="metadataTag" >
+        <xsd:sequence>
+            <xsd:element name="version" type="this:versionTag" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="description" type="this:mtdDescriptionTag" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- ComplexTYPE: VERSION -->
+    <xsd:complexType name="versionTag">
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="author" type="xsd:string" use="required"/>
+        <xsd:attribute name="major" type="this:majorFormat" use="required"/>
+        <xsd:attribute name="date" type="this:dateFormat" use="required"/>
+    </xsd:complexType>
+
+    <!-- ComplexTYPE: DESCRIPTION -->
+    <xsd:complexType name="mtdDescriptionTag">
+        <xsd:sequence>
+            <xsd:element name="short" type="this:shortDescriptionFormat"/>
+            <xsd:element name="subtext" type="this:longDescriptionFormat"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

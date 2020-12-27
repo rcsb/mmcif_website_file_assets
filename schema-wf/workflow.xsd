@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+    <!-- SCHEMA Included -->
+    <xsd:include schemaLocation="dataObject.xsd"/>
+    <xsd:include schemaLocation="flow.xsd"/>
+
+
+<!--        WORKFLOW GENERAL INFORMATION: Start      -->
+
+    <!-- complexTYPE: WORKFLOW-->
+    <xsd:complexType name="workflowTag">
+        <xsd:sequence minOccurs="1" maxOccurs="1">
+            <xsd:element name="dataObjects" type="this:dataObjectsList" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="flow" type="this:flowTag" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+<!--        WORKFLOW INFORMATION: End       -->
+
+
+</xsd:schema>

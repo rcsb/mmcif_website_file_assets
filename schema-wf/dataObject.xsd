@@ -1,0 +1,48 @@
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pdbml.wwpdb.org/schema-wf"
+    xmlns:this="http://pdbml.wwpdb.org/schema-wf"
+    elementFormDefault="qualified"
+    version="1.0" >
+
+    <!-- SCHEMA Included -->
+    <xsd:include schemaLocation="formatDefinition.xsd"/>
+
+    <!-- complexType: DATAOBJECT (List) -->
+    <xsd:complexType name="dataObjectsList">
+        <xsd:sequence>
+            <xsd:element  name="dataObject" type="this:dataObjectType" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- complexTYPE: DATAOBJECT (Definition)-->
+    <xsd:complexType name="dataObjectType">
+        <xsd:sequence>
+            <xsd:element name="description" type="this:longDescriptionFormat" nillable="true"/>
+            <xsd:element name="location" type="this:locationTag" maxOccurs="1"/>
+        </xsd:sequence>
+        <xsd:attribute name="dataID" type="this:ID" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="this:typeFormat" use="required"/>
+        <xsd:attribute name="mutable" type="xsd:boolean" default="true" use="optional"/>
+        <xsd:attribute name="container" type="this:containerFormat" use="required"/>
+    </xsd:complexType>
+
+    <!-- complexType: LOCATION -->
+    <xsd:complexType name="locationTag">
+        <xsd:attribute name="where" type="this:locationWhereFormat" use="required"/>
+        <xsd:attribute name="content" type="this:contentFormat" use="required"/>
+        <xsd:attribute name="format" type="this:locationformatFormat" use="required"/>
+        <xsd:attribute name="version" type="this:versionFormat" use="required"/>
+
+        <xsd:attribute name="partitionNumber" type="xsd:string" use="optional"/>
+        <xsd:attribute name="selectCategory" type="xsd:string" use="optional"/>
+        <xsd:attribute name="selectAttribute" type="xsd:string" use="optional"/>
+        <xsd:attribute name="referenceType" type="xsd:string" use="optional"/>
+
+
+        <xsd:attribute name="value" type="xsd:string" use="optional"/>
+    </xsd:complexType>
+
+
+</xsd:schema>

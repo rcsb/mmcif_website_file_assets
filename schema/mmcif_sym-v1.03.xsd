@@ -1,0 +1,1562 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- XSD type schema generated on 2020-11-10 -->
+<!-- Schema file: http://pdbml.pdb.org/schema/mmcif_sym-v1.03.xsd -->
+<!-- Please direct questions or comments to John Westbrook (jwest@rcsb.rutgers.edu) -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:mmcif_sym="http://pdbml.pdb.org/schema/mmcif_sym.xsd"
+   targetNamespace="http://pdbml.pdb.org/schema/mmcif_sym.xsd"
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+   <xsd:complexType name="space_groupType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Contains all the data items that refer to the space group as a
+whole, such as its name, Laue group etc.  It may be looped, for
+example, in a list of space groups and their properties.
+
+Space group types are identified by their International Tables
+for Crystallography Vol A number or Schoenflies symbol.  
+Specific settings of the space groups can be identified by
+their Hall symbol, by specifying their symmetry operations or
+generators, or by giving the transformation that relates the
+specific setting to the reference setting based on
+International Tables for Crystallography Vol. A and stored in
+this dictionary.
+
+The commonly-used Hermann-Mauguin symbol determines the
+space group type uniquely but several different Hermann-Mauguin
+symbols may refer to the same space group type. It contains
+information on the choice of the basis, but not on the
+choice of origin.
+&lt;mmcif_sym:space_groupCategory&gt;
+   &lt;mmcif_sym:space_group id=&quot;1&quot;&gt;
+      &lt;mmcif_sym:IT_number&gt;15&lt;/mmcif_sym:IT_number&gt;
+      &lt;mmcif_sym:Laue_class&gt;2/m&lt;/mmcif_sym:Laue_class&gt;
+      &lt;mmcif_sym:Patterson_name_H-M&gt;C 2/m&lt;/mmcif_sym:Patterson_name_H-M&gt;
+      &lt;mmcif_sym:centring_type&gt;C&lt;/mmcif_sym:centring_type&gt;
+      &lt;mmcif_sym:crystal_system&gt;monoclinic&lt;/mmcif_sym:crystal_system&gt;
+      &lt;mmcif_sym:name_Hall&gt;-C 2yc&lt;/mmcif_sym:name_Hall&gt;
+      &lt;mmcif_sym:name_Schoenflies&gt;C2h.6&lt;/mmcif_sym:name_Schoenflies&gt;
+   &lt;/mmcif_sym:space_group&gt;
+&lt;/mmcif_sym:space_groupCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="space_group" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="IT_coordinate_system_code" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A qualifier taken from the enumeration list identifying which
+setting in International Tables for Crystallography (3rd Edn)
+Vol. A (IT) is used.  See IT Table 4.3.1 Section 2.16,
+Table 2.16.1 Section 2.16.(i) and Fig. 2.6.4.  This item is
+not computer interpretable and cannot be used to define the
+coordinate system. Use attribute transform_* in category space_group instead. 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="b1" />
+                           <xsd:enumeration value="b2" />
+                           <xsd:enumeration value="b3" />
+                           <xsd:enumeration value="-b1" />
+                           <xsd:enumeration value="-b2" />
+                           <xsd:enumeration value="-b3" />
+                           <xsd:enumeration value="c1" />
+                           <xsd:enumeration value="c2" />
+                           <xsd:enumeration value="c3" />
+                           <xsd:enumeration value="-c1" />
+                           <xsd:enumeration value="-c2" />
+                           <xsd:enumeration value="-c3" />
+                           <xsd:enumeration value="a1" />
+                           <xsd:enumeration value="a2" />
+                           <xsd:enumeration value="a3" />
+                           <xsd:enumeration value="-a1" />
+                           <xsd:enumeration value="-a2" />
+                           <xsd:enumeration value="-a3" />
+                           <xsd:enumeration value="abc" />
+                           <xsd:enumeration value="ba-c" />
+                           <xsd:enumeration value="cab" />
+                           <xsd:enumeration value="-cba" />
+                           <xsd:enumeration value="bca" />
+                           <xsd:enumeration value="a-cb" />
+                           <xsd:enumeration value="1abc" />
+                           <xsd:enumeration value="1ba-c" />
+                           <xsd:enumeration value="1cab" />
+                           <xsd:enumeration value="1-cba" />
+                           <xsd:enumeration value="1bca" />
+                           <xsd:enumeration value="1a-cb" />
+                           <xsd:enumeration value="2abc" />
+                           <xsd:enumeration value="2ba-c" />
+                           <xsd:enumeration value="2cab" />
+                           <xsd:enumeration value="2-cba" />
+                           <xsd:enumeration value="2bca" />
+                           <xsd:enumeration value="2a-cb" />
+                           <xsd:enumeration value="1" />
+                           <xsd:enumeration value="2" />
+                           <xsd:enumeration value="h" />
+                           <xsd:enumeration value="r" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="IT_number" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The number as assigned in International Tables for
+Crystallography Vol A, specifying the proper affine class (i.e.
+the orientation preserving affine class) of space groups
+(crystallographic space group type) to which the space group
+belongs.  This number defines the space group type but not
+the coordinate system in which it is expressed.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                           <xsd:minInclusive value="1" />
+                           <xsd:maxInclusive value="230" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="Laue_class" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Hermann-Mauguin symbol of the geometric crystal class of the
+point group of the space group where a center of inversion is
+added if not already present.
+
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="-1" />
+                           <xsd:enumeration value="2/m" />
+                           <xsd:enumeration value="mmm" />
+                           <xsd:enumeration value="4/m" />
+                           <xsd:enumeration value="4/mmm" />
+                           <xsd:enumeration value="-3" />
+                           <xsd:enumeration value="-3m" />
+                           <xsd:enumeration value="6/m" />
+                           <xsd:enumeration value="6/mmm" />
+                           <xsd:enumeration value="m-3" />
+                           <xsd:enumeration value="m-3m" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="Patterson_name_H-M" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Hermann-Mauguin symbol of the type of that centrosymmetric
+symmorphic space group to which the Patterson function belongs,
+see Table 2.5.1 in International Tables for Crystallography 
+Vol A (1995).
+A space separates each symbol referring to different axes.
+Underscores may replace the spaces but this use is discouraged. 
+Subscripts should appear without special symbols.  
+Bars should be given as negative signs before the number 
+to which they apply.
+P -1
+P 2/m
+C 2/m
+P m m m
+C m m m
+I m m m
+F m m m
+P 4/m
+I 4/m
+P 4/m m m
+I 4/m m m
+P -3
+R -3
+P -3 m 1
+R -3 m
+P -3 1 m
+P 6/m
+P 6/m m m
+P m -3
+I m -3
+F m -3
+P m -3 m
+I m -3 m
+F m -3 m
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="bravais_type" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The symbol denoting the lattice type(Bravais type) to which the
+translational subgroup (vector lattice) of the space group
+belongs. It consisting of a lower case letter indicating the
+crystal system followed by an upper case letter indicating
+the lattice centring. The setting-independent symbol mS
+replaces the setting-dependent symbols mB and mC, and the
+setting-independent symbol oS replaces the setting-dependent
+symbols oA, oB and oC (see International Tables for
+Crystallography A 1995 edition p.13).
+triclinic (anorthic) primitive lattice
+aP
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="aP" />
+                           <xsd:enumeration value="mP" />
+                           <xsd:enumeration value="mS" />
+                           <xsd:enumeration value="oP" />
+                           <xsd:enumeration value="oS" />
+                           <xsd:enumeration value="oI" />
+                           <xsd:enumeration value="oF" />
+                           <xsd:enumeration value="tP" />
+                           <xsd:enumeration value="tI" />
+                           <xsd:enumeration value="hP" />
+                           <xsd:enumeration value="hR" />
+                           <xsd:enumeration value="cP" />
+                           <xsd:enumeration value="cI" />
+                           <xsd:enumeration value="cF" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="centring_type" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Symbol for the lattice centring.  This symbol may be dependent
+on the coordinate system chosen.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="P" />
+                           <xsd:enumeration value="A" />
+                           <xsd:enumeration value="B" />
+                           <xsd:enumeration value="C" />
+                           <xsd:enumeration value="F" />
+                           <xsd:enumeration value="I" />
+                           <xsd:enumeration value="R" />
+                           <xsd:enumeration value="Rrev" />
+                           <xsd:enumeration value="H" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="crystal_system" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The name of the system of geometric crystal classes of space
+groups (crystal system) to which the space group belongs.
+Note that crystals with the hR lattice type belong to the
+trigonal system.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="triclinic" />
+                           <xsd:enumeration value="monoclinic" />
+                           <xsd:enumeration value="orthorhombic" />
+                           <xsd:enumeration value="tetragonal" />
+                           <xsd:enumeration value="trigonal" />
+                           <xsd:enumeration value="hexagonal" />
+                           <xsd:enumeration value="cubic" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="name_H-M_alt" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+*.name_H-M_alt allows for an alternative Hermann-Mauguin symbol
+to be given.  The way in which this item is used is determined
+by the user and should be described in the item
+attribute name_H-M_alt_description in category space_group. It may, for example, be
+ used to give one of the extended Hermann-Mauguin symbols given
+in Table 4.3.1 of International Tables for Crystallography
+Vol A (1995) or a full Hermann-Mauguin symbol for an
+unconventional setting.  
+Each component of the space group name is separated by a 
+space or an underscore.  The use of space is strongly
+recommended.  The underscore is only retained because it
+was used in earlier archived files.  It should not be 
+used in new CIFs.  Subscripts should appear
+without special symbols. Bars should be given as negative
+signs before the numbers to which they apply. The commonly
+used Hermann-Mauguin symbol determines the space group type
+uniquely but a given space group type may be described by
+more than one Hermann-Mauguin symbol. The space group type
+is best described using the *.IT_number or *.name_Schoenflies.
+The Hermann-Mauguin symbol may contain information on the
+choice of basis though not on the choice of origin. To
+define the setting uniquely use *.name_Hall, list the
+symmetry operations or generators, or give the transformation
+that relates the setting to the reference setting defined
+in this dictionary under *.reference_setting.
+three examples for the space group number 63.
+
+     loop_
+    _space_group.name_H-M_alt
+    _space_group.name_H-M_alt_description
+     &apos;C m c m(b n n)&apos;    &apos;Extended Hermann-Mauguin symbol&apos;
+     &apos;C 2/c 2/m 21/m&apos;    &apos;Full unconventional Hermann-Mauguin symbol&apos;
+     &apos;A m a m&apos;        &apos;Hermann-Mauguin symbol corresponding to setting used&apos;
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name_H-M_alt_description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A free text description of the code appearing in
+attribute name_H-M_alt in category space_group 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name_H-M_full" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Full International Hermann-Mauguin space group symbol as
+defined in Section 2.3 and given as the second item of the 
+second line of one of the Space Group Tables of Section 7 of
+International Tables for Crystallography Vol. A (1995). 
+Each component of the space group name is separated by a 
+space or an underscore.  The use of space is strongly
+recommended.  The underscore is only retained because it
+was used in earlier archived files.  It should not be 
+used in new CIFs. 
+Subscripts should appear without special symbols. Bars should
+be given as negative signs before the numbers to which they
+apply. The commonly used Hermann-Mauguin symbol determines the
+space group type uniquely but a given space group type may
+be described by more than one Hermann-Mauguin symbol. The
+space group type is best described using the *.IT_number
+or *.name_Schoenflies. The Full International Hermann-Mauguin
+symbol contains information about the choice of basis for
+monoclinic and orthorhombic space groups but does not give
+information about the choice of origin. To define the setting
+uniquely use *.name_Hall, list the symmetry operations
+or generators, or give the transformation relating
+the setting used to the reference setting defined in this
+dictionary under *.reference_setting.
+full symbol for Pnma
+P 21/n 21/m 21/a
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name_H-M_ref" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Short International Hermann-Mauguin space group symbol as
+defined in Section 2.3 and given as the first item of each
+Space Group Table in Section 7 of International Tables
+for Crystallography Vol.A (1995). 
+Each component of the space group name is separated by a 
+space or an underscore.  The use of space is strongly
+recommended.  The underscore is only retained because it
+was used in earlier archived files.  It should not be 
+used in new CIFs. 
+Subscripts should appear without special symbols. Bars
+should be given as negative signs before the numbers to which
+they apply.  The Short International Hermann-Mauguin symbol
+determines the space group type uniquely.  However, the space
+group type is better described using the *.IT_number or
+*.name_Schoenflies.  The Short International Hermann-Mauguin
+symbol contains no information on the choice of basis or
+origin. To define the setting uniquely use *.name_Hall, list
+the symmetry operations or generators, or give the
+transformation that relates the setting to the reference
+setting defined in this dictionary under *.reference_setting.
+attribute name_H-M_alt in category space_group may be used to give the Hermann-
+ Mauguin symbol corresponding to the setting used.
+P 21/c
+P m n a
+P -1
+F m -3 m
+P 63/m m m
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="P 1" />
+                           <xsd:enumeration value="P -1" />
+                           <xsd:enumeration value="P 2" />
+                           <xsd:enumeration value="P 21" />
+                           <xsd:enumeration value="C 2" />
+                           <xsd:enumeration value="P m" />
+                           <xsd:enumeration value="P c" />
+                           <xsd:enumeration value="C m" />
+                           <xsd:enumeration value="C c" />
+                           <xsd:enumeration value="P 2/m" />
+                           <xsd:enumeration value="P 21/m" />
+                           <xsd:enumeration value="C 2/m" />
+                           <xsd:enumeration value="P 2/c" />
+                           <xsd:enumeration value="P 21/c" />
+                           <xsd:enumeration value="C 2/c" />
+                           <xsd:enumeration value="P 2 2 2" />
+                           <xsd:enumeration value="P 2 2 21" />
+                           <xsd:enumeration value="P 21 21 2" />
+                           <xsd:enumeration value="P 21 21 21" />
+                           <xsd:enumeration value="C 2 2 21" />
+                           <xsd:enumeration value="C 2 2 2" />
+                           <xsd:enumeration value="F 2 2 2" />
+                           <xsd:enumeration value="I 2 2 2" />
+                           <xsd:enumeration value="I 21 21 21" />
+                           <xsd:enumeration value="P m m 2" />
+                           <xsd:enumeration value="P m c 21" />
+                           <xsd:enumeration value="P c c 2" />
+                           <xsd:enumeration value="P m a 2" />
+                           <xsd:enumeration value="P c a 21" />
+                           <xsd:enumeration value="P n c 2" />
+                           <xsd:enumeration value="P m n 21" />
+                           <xsd:enumeration value="P b a 2" />
+                           <xsd:enumeration value="P n a 21" />
+                           <xsd:enumeration value="P n n 2" />
+                           <xsd:enumeration value="C m m 2" />
+                           <xsd:enumeration value="C m c 21" />
+                           <xsd:enumeration value="C c c 2" />
+                           <xsd:enumeration value="A m m 2" />
+                           <xsd:enumeration value="A e m 2" />
+                           <xsd:enumeration value="A m a 2" />
+                           <xsd:enumeration value="A e a 2" />
+                           <xsd:enumeration value="F m m 2" />
+                           <xsd:enumeration value="F d d 2" />
+                           <xsd:enumeration value="I m m 2" />
+                           <xsd:enumeration value="I b a 2" />
+                           <xsd:enumeration value="I m a 2" />
+                           <xsd:enumeration value="P m m m" />
+                           <xsd:enumeration value="P n n n" />
+                           <xsd:enumeration value="P c c m" />
+                           <xsd:enumeration value="P b a n" />
+                           <xsd:enumeration value="P m m a" />
+                           <xsd:enumeration value="P n n a" />
+                           <xsd:enumeration value="P m n a" />
+                           <xsd:enumeration value="P c c a" />
+                           <xsd:enumeration value="P b a m" />
+                           <xsd:enumeration value="P c c n" />
+                           <xsd:enumeration value="P b c m" />
+                           <xsd:enumeration value="P n n m" />
+                           <xsd:enumeration value="P m m n" />
+                           <xsd:enumeration value="P b c n" />
+                           <xsd:enumeration value="P b c a" />
+                           <xsd:enumeration value="P n m a" />
+                           <xsd:enumeration value="C m c m" />
+                           <xsd:enumeration value="C m c e" />
+                           <xsd:enumeration value="C m m m" />
+                           <xsd:enumeration value="C c c m" />
+                           <xsd:enumeration value="C m m e" />
+                           <xsd:enumeration value="C c c e" />
+                           <xsd:enumeration value="F m m m" />
+                           <xsd:enumeration value="F d d d" />
+                           <xsd:enumeration value="I m m m" />
+                           <xsd:enumeration value="I b a m" />
+                           <xsd:enumeration value="I b c a" />
+                           <xsd:enumeration value="I m m a" />
+                           <xsd:enumeration value="P 4" />
+                           <xsd:enumeration value="P 41" />
+                           <xsd:enumeration value="P 42" />
+                           <xsd:enumeration value="P 43" />
+                           <xsd:enumeration value="I 4" />
+                           <xsd:enumeration value="I 41" />
+                           <xsd:enumeration value="P -4" />
+                           <xsd:enumeration value="I -4" />
+                           <xsd:enumeration value="P 4/m" />
+                           <xsd:enumeration value="P 42/m" />
+                           <xsd:enumeration value="P 4/n" />
+                           <xsd:enumeration value="P 42/n" />
+                           <xsd:enumeration value="I 4/m" />
+                           <xsd:enumeration value="I 41/a" />
+                           <xsd:enumeration value="P 4 2 2" />
+                           <xsd:enumeration value="P 4 21 2" />
+                           <xsd:enumeration value="P 41 2 2" />
+                           <xsd:enumeration value="P 41 21 2" />
+                           <xsd:enumeration value="P 42 2 2" />
+                           <xsd:enumeration value="P 42 21 2" />
+                           <xsd:enumeration value="P 43 2 2" />
+                           <xsd:enumeration value="P 43 21 2" />
+                           <xsd:enumeration value="I 4 2 2" />
+                           <xsd:enumeration value="I 41 2 2" />
+                           <xsd:enumeration value="P 4 m m" />
+                           <xsd:enumeration value="P 4 b m" />
+                           <xsd:enumeration value="P 42 c m" />
+                           <xsd:enumeration value="P 42 n m" />
+                           <xsd:enumeration value="P 4 c c" />
+                           <xsd:enumeration value="P 4 n c" />
+                           <xsd:enumeration value="P 42 m c" />
+                           <xsd:enumeration value="P 42 b c" />
+                           <xsd:enumeration value="I 4 m m" />
+                           <xsd:enumeration value="I 4 c m" />
+                           <xsd:enumeration value="I 41 m d" />
+                           <xsd:enumeration value="I 41 c d" />
+                           <xsd:enumeration value="P -4 2 m" />
+                           <xsd:enumeration value="P -4 2 c" />
+                           <xsd:enumeration value="P -4 21 m" />
+                           <xsd:enumeration value="P -4 21 c" />
+                           <xsd:enumeration value="P -4 m 2" />
+                           <xsd:enumeration value="P -4 c 2" />
+                           <xsd:enumeration value="P -4 b 2" />
+                           <xsd:enumeration value="P -4 n 2" />
+                           <xsd:enumeration value="I -4 m 2" />
+                           <xsd:enumeration value="I -4 c 2" />
+                           <xsd:enumeration value="I -4 2 m" />
+                           <xsd:enumeration value="I -4 2 d" />
+                           <xsd:enumeration value="P 4/m m m" />
+                           <xsd:enumeration value="P 4/m c c" />
+                           <xsd:enumeration value="P 4/n b m" />
+                           <xsd:enumeration value="P 4/n n c" />
+                           <xsd:enumeration value="P 4/m b m" />
+                           <xsd:enumeration value="P 4/m n c" />
+                           <xsd:enumeration value="P 4/n m m" />
+                           <xsd:enumeration value="P 4/n c c" />
+                           <xsd:enumeration value="P 42/m m c" />
+                           <xsd:enumeration value="P 42/m c m" />
+                           <xsd:enumeration value="P 42/n b c" />
+                           <xsd:enumeration value="P 42/n n m" />
+                           <xsd:enumeration value="P 42/m b c" />
+                           <xsd:enumeration value="P 42/m n m" />
+                           <xsd:enumeration value="P 42/n m c" />
+                           <xsd:enumeration value="P 42/n c m" />
+                           <xsd:enumeration value="I 4/m m m" />
+                           <xsd:enumeration value="I 4/m c m" />
+                           <xsd:enumeration value="I 41/a m d" />
+                           <xsd:enumeration value="I 41/a c d" />
+                           <xsd:enumeration value="P 3" />
+                           <xsd:enumeration value="P 31" />
+                           <xsd:enumeration value="P 32" />
+                           <xsd:enumeration value="R 3" />
+                           <xsd:enumeration value="P -3" />
+                           <xsd:enumeration value="R -3" />
+                           <xsd:enumeration value="P 3 1 2" />
+                           <xsd:enumeration value="P 3 2 1" />
+                           <xsd:enumeration value="P 31 1 2" />
+                           <xsd:enumeration value="P 31 2 1" />
+                           <xsd:enumeration value="P 32 1 2" />
+                           <xsd:enumeration value="P 32 2 1" />
+                           <xsd:enumeration value="R 3 2" />
+                           <xsd:enumeration value="P 3 m 1" />
+                           <xsd:enumeration value="P 3 1 m" />
+                           <xsd:enumeration value="P 3 c 1" />
+                           <xsd:enumeration value="P 3 1 c" />
+                           <xsd:enumeration value="R 3 m" />
+                           <xsd:enumeration value="R 3 c" />
+                           <xsd:enumeration value="P -3 1 m" />
+                           <xsd:enumeration value="P -3 1 c" />
+                           <xsd:enumeration value="P -3 m 1" />
+                           <xsd:enumeration value="P -3 c 1" />
+                           <xsd:enumeration value="R -3 m" />
+                           <xsd:enumeration value="R -3 c" />
+                           <xsd:enumeration value="P 6" />
+                           <xsd:enumeration value="P 61" />
+                           <xsd:enumeration value="P 65" />
+                           <xsd:enumeration value="P 62" />
+                           <xsd:enumeration value="P 64" />
+                           <xsd:enumeration value="P 63" />
+                           <xsd:enumeration value="P -6" />
+                           <xsd:enumeration value="P 6/m " />
+                           <xsd:enumeration value="P 63/m" />
+                           <xsd:enumeration value="P 6 2 2" />
+                           <xsd:enumeration value="P 61 2 2" />
+                           <xsd:enumeration value="P 65 2 2" />
+                           <xsd:enumeration value="P 62 2 2" />
+                           <xsd:enumeration value="P 64 2 2" />
+                           <xsd:enumeration value="P 63 2 2" />
+                           <xsd:enumeration value="P 6 m m" />
+                           <xsd:enumeration value="P 6 c c" />
+                           <xsd:enumeration value="P 63 c m" />
+                           <xsd:enumeration value="P 63 m c" />
+                           <xsd:enumeration value="P -6 m 2" />
+                           <xsd:enumeration value="P -6 c 2" />
+                           <xsd:enumeration value="P -6 2 m" />
+                           <xsd:enumeration value="P -6 2 c" />
+                           <xsd:enumeration value="P 6/m m m" />
+                           <xsd:enumeration value="P 6/m c c" />
+                           <xsd:enumeration value="P 63/m c m" />
+                           <xsd:enumeration value="P 63/m m c" />
+                           <xsd:enumeration value="P 2 3" />
+                           <xsd:enumeration value="F 2 3" />
+                           <xsd:enumeration value="I 2 3" />
+                           <xsd:enumeration value="P 21 3" />
+                           <xsd:enumeration value="I 21 3" />
+                           <xsd:enumeration value="P m -3" />
+                           <xsd:enumeration value="P n -3" />
+                           <xsd:enumeration value="F m -3" />
+                           <xsd:enumeration value="F d -3" />
+                           <xsd:enumeration value="I m -3" />
+                           <xsd:enumeration value="P a -3" />
+                           <xsd:enumeration value="I a -3" />
+                           <xsd:enumeration value="P 4 3 2" />
+                           <xsd:enumeration value="P 42 3 2" />
+                           <xsd:enumeration value="F 4 3 2" />
+                           <xsd:enumeration value="F 41 3 2" />
+                           <xsd:enumeration value="I 4 3 2" />
+                           <xsd:enumeration value="P 43 3 2" />
+                           <xsd:enumeration value="P 41 3 2" />
+                           <xsd:enumeration value="I 41 3 2" />
+                           <xsd:enumeration value="P -4 3 m" />
+                           <xsd:enumeration value="F -4 3 m" />
+                           <xsd:enumeration value="I -4 3 m" />
+                           <xsd:enumeration value="P -4 3 n" />
+                           <xsd:enumeration value="F -4 3 c" />
+                           <xsd:enumeration value="I -4 3 d" />
+                           <xsd:enumeration value="P m -3 m" />
+                           <xsd:enumeration value="P n -3 n" />
+                           <xsd:enumeration value="P m -3 n" />
+                           <xsd:enumeration value="P n -3 m" />
+                           <xsd:enumeration value="F m -3 m" />
+                           <xsd:enumeration value="F m -3 c" />
+                           <xsd:enumeration value="F d -3 m" />
+                           <xsd:enumeration value="F d -3 c" />
+                           <xsd:enumeration value="I m -3 m" />
+                           <xsd:enumeration value="I a -3 d" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="name_Hall" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Space group symbol defined by Hall (Acta Cryst. (1981) A37,
+517-525) (See also International Tables for Crystallography
+Vol.B (1993) 1.4 Appendix B). 
+Each component of the space group name is separated by a 
+space or an underscore.  The use of space is strongly
+recommended.  The underscore is only retained because it
+was used in earlier archived files.  It should not be 
+used in new CIFs. 
+attribute name_Hall in category space_group uniquely defines the space group and
+ its reference to a particular coordinate system.
+Equivalent to Pca21
+P 2c -2ac
+Equivalent to Ia3d
+-I 4bd 2ab 3
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name_Schoenflies" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Schoenflies symbol as listed in International Tables for
+Crystallography Vol. A denoting the proper affine class (i.e.
+orientation preserving affine class) of space groups (space
+group type) to which the space group belongs.  This symbol
+defines the space group type independently of the coordinate
+system in which the space group is expressed.
+
+The symbol is given with a period, &apos;.&apos;, separating the 
+Schoenflies point group and the superscript.
+Schoenflies symbol for space group 14
+C2h^5
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="C1.1" />
+                           <xsd:enumeration value="Ci.1" />
+                           <xsd:enumeration value="C2.1" />
+                           <xsd:enumeration value="C2.2" />
+                           <xsd:enumeration value="C2.3" />
+                           <xsd:enumeration value="Cs.1" />
+                           <xsd:enumeration value="Cs.2" />
+                           <xsd:enumeration value="Cs.3" />
+                           <xsd:enumeration value="Cs.4" />
+                           <xsd:enumeration value="C2h.1" />
+                           <xsd:enumeration value="C2h.2" />
+                           <xsd:enumeration value="C2h.3" />
+                           <xsd:enumeration value="C2h.4" />
+                           <xsd:enumeration value="C2h.5" />
+                           <xsd:enumeration value="C2h.6" />
+                           <xsd:enumeration value="D2.1" />
+                           <xsd:enumeration value="D2.2" />
+                           <xsd:enumeration value="D2.3" />
+                           <xsd:enumeration value="D2.4" />
+                           <xsd:enumeration value="D2.5" />
+                           <xsd:enumeration value="D2.6" />
+                           <xsd:enumeration value="D2.7" />
+                           <xsd:enumeration value="D2.8" />
+                           <xsd:enumeration value="D2.9" />
+                           <xsd:enumeration value="C2v.1" />
+                           <xsd:enumeration value="C2v.2" />
+                           <xsd:enumeration value="C2v.3" />
+                           <xsd:enumeration value="C2v.4" />
+                           <xsd:enumeration value="C2v.5" />
+                           <xsd:enumeration value="C2v.6" />
+                           <xsd:enumeration value="C2v.7" />
+                           <xsd:enumeration value="C2v.8" />
+                           <xsd:enumeration value="C2v.9" />
+                           <xsd:enumeration value="C2v.10" />
+                           <xsd:enumeration value="C2v.11" />
+                           <xsd:enumeration value="C2v.12" />
+                           <xsd:enumeration value="C2v.13" />
+                           <xsd:enumeration value="C2v.14" />
+                           <xsd:enumeration value="C2v.15" />
+                           <xsd:enumeration value="C2v.16" />
+                           <xsd:enumeration value="C2v.17" />
+                           <xsd:enumeration value="C2v.18" />
+                           <xsd:enumeration value="C2v.19" />
+                           <xsd:enumeration value="C2v.20" />
+                           <xsd:enumeration value="C2v.21" />
+                           <xsd:enumeration value="C2v.22" />
+                           <xsd:enumeration value="D2h.1" />
+                           <xsd:enumeration value="D2h.2" />
+                           <xsd:enumeration value="D2h.3" />
+                           <xsd:enumeration value="D2h.4" />
+                           <xsd:enumeration value="D2h.5" />
+                           <xsd:enumeration value="D2h.6" />
+                           <xsd:enumeration value="D2h.7" />
+                           <xsd:enumeration value="D2h.8" />
+                           <xsd:enumeration value="D2h.9" />
+                           <xsd:enumeration value="D2h.10" />
+                           <xsd:enumeration value="D2h.11" />
+                           <xsd:enumeration value="D2h.12" />
+                           <xsd:enumeration value="D2h.13" />
+                           <xsd:enumeration value="D2h.14" />
+                           <xsd:enumeration value="D2h.15" />
+                           <xsd:enumeration value="D2h.16" />
+                           <xsd:enumeration value="D2h.17" />
+                           <xsd:enumeration value="D2h.18" />
+                           <xsd:enumeration value="D2h.19" />
+                           <xsd:enumeration value="D2h.20" />
+                           <xsd:enumeration value="D2h.21" />
+                           <xsd:enumeration value="D2h.22" />
+                           <xsd:enumeration value="D2h.23" />
+                           <xsd:enumeration value="D2h.24" />
+                           <xsd:enumeration value="D2h.25" />
+                           <xsd:enumeration value="D2h.26" />
+                           <xsd:enumeration value="D2h.27" />
+                           <xsd:enumeration value="D2h.28" />
+                           <xsd:enumeration value="C4.1" />
+                           <xsd:enumeration value="C4.2" />
+                           <xsd:enumeration value="C4.3" />
+                           <xsd:enumeration value="C4.4" />
+                           <xsd:enumeration value="C4.5" />
+                           <xsd:enumeration value="C4.6" />
+                           <xsd:enumeration value="S4.1" />
+                           <xsd:enumeration value="S4.2" />
+                           <xsd:enumeration value="C4h.1" />
+                           <xsd:enumeration value="C4h.2" />
+                           <xsd:enumeration value="C4h.3" />
+                           <xsd:enumeration value="C4h.4" />
+                           <xsd:enumeration value="C4h.5" />
+                           <xsd:enumeration value="C4h.6" />
+                           <xsd:enumeration value="D4.1" />
+                           <xsd:enumeration value="D4.2" />
+                           <xsd:enumeration value="D4.3" />
+                           <xsd:enumeration value="D4.4" />
+                           <xsd:enumeration value="D4.5" />
+                           <xsd:enumeration value="D4.6" />
+                           <xsd:enumeration value="D4.7" />
+                           <xsd:enumeration value="D4.8" />
+                           <xsd:enumeration value="D4.9" />
+                           <xsd:enumeration value="D4.10" />
+                           <xsd:enumeration value="C4v.1" />
+                           <xsd:enumeration value="C4v.2" />
+                           <xsd:enumeration value="C4v.3" />
+                           <xsd:enumeration value="C4v.4" />
+                           <xsd:enumeration value="C4v.5" />
+                           <xsd:enumeration value="C4v.6" />
+                           <xsd:enumeration value="C4v.7" />
+                           <xsd:enumeration value="C4v.8" />
+                           <xsd:enumeration value="C4v.9" />
+                           <xsd:enumeration value="C4v.10" />
+                           <xsd:enumeration value="C4v.11" />
+                           <xsd:enumeration value="C4v.12" />
+                           <xsd:enumeration value="D2d.1" />
+                           <xsd:enumeration value="D2d.2" />
+                           <xsd:enumeration value="D2d.3" />
+                           <xsd:enumeration value="D2d.4" />
+                           <xsd:enumeration value="D2d.5" />
+                           <xsd:enumeration value="D2d.6" />
+                           <xsd:enumeration value="D2d.7" />
+                           <xsd:enumeration value="D2d.8" />
+                           <xsd:enumeration value="D2d.9" />
+                           <xsd:enumeration value="D2d.10" />
+                           <xsd:enumeration value="D2d.11" />
+                           <xsd:enumeration value="D2d.12" />
+                           <xsd:enumeration value="D4h.1" />
+                           <xsd:enumeration value="D4h.2" />
+                           <xsd:enumeration value="D4h.3" />
+                           <xsd:enumeration value="D4h.4" />
+                           <xsd:enumeration value="D4h.5" />
+                           <xsd:enumeration value="D4h.6" />
+                           <xsd:enumeration value="D4h.7" />
+                           <xsd:enumeration value="D4h.8" />
+                           <xsd:enumeration value="D4h.9" />
+                           <xsd:enumeration value="D4h.10" />
+                           <xsd:enumeration value="D4h.11" />
+                           <xsd:enumeration value="D4h.12" />
+                           <xsd:enumeration value="D4h.13" />
+                           <xsd:enumeration value="D4h.14" />
+                           <xsd:enumeration value="D4h.15" />
+                           <xsd:enumeration value="D4h.16" />
+                           <xsd:enumeration value="D4h.17" />
+                           <xsd:enumeration value="D4h.18" />
+                           <xsd:enumeration value="D4h.19" />
+                           <xsd:enumeration value="D4h.20" />
+                           <xsd:enumeration value="C3.1" />
+                           <xsd:enumeration value="C3.2" />
+                           <xsd:enumeration value="C3.3" />
+                           <xsd:enumeration value="C3.4" />
+                           <xsd:enumeration value="C3i.1" />
+                           <xsd:enumeration value="C3i.2" />
+                           <xsd:enumeration value="D3.1" />
+                           <xsd:enumeration value="D3.2" />
+                           <xsd:enumeration value="D3.3" />
+                           <xsd:enumeration value="D3.4" />
+                           <xsd:enumeration value="D3.5" />
+                           <xsd:enumeration value="D3.6" />
+                           <xsd:enumeration value="D3.7" />
+                           <xsd:enumeration value="C3v.1" />
+                           <xsd:enumeration value="C3v.2" />
+                           <xsd:enumeration value="C3v.3" />
+                           <xsd:enumeration value="C3v.4" />
+                           <xsd:enumeration value="C3v.5" />
+                           <xsd:enumeration value="C3v.6" />
+                           <xsd:enumeration value="D3d.1" />
+                           <xsd:enumeration value="D3d.2" />
+                           <xsd:enumeration value="D3d.3" />
+                           <xsd:enumeration value="D3d.4" />
+                           <xsd:enumeration value="D3d.5" />
+                           <xsd:enumeration value="D3d.6" />
+                           <xsd:enumeration value="C6.1" />
+                           <xsd:enumeration value="C6.2" />
+                           <xsd:enumeration value="C6.3" />
+                           <xsd:enumeration value="C6.4" />
+                           <xsd:enumeration value="C6.5" />
+                           <xsd:enumeration value="C6.6" />
+                           <xsd:enumeration value="C3h.1" />
+                           <xsd:enumeration value="C6h.1" />
+                           <xsd:enumeration value="C6h.2" />
+                           <xsd:enumeration value="D6.1" />
+                           <xsd:enumeration value="D6.2" />
+                           <xsd:enumeration value="D6.3" />
+                           <xsd:enumeration value="D6.4" />
+                           <xsd:enumeration value="D6.5" />
+                           <xsd:enumeration value="D6.6" />
+                           <xsd:enumeration value="C6v.1" />
+                           <xsd:enumeration value="C6v.2" />
+                           <xsd:enumeration value="C6v.3" />
+                           <xsd:enumeration value="C6v.4" />
+                           <xsd:enumeration value="D3h.1" />
+                           <xsd:enumeration value="D3h.2" />
+                           <xsd:enumeration value="D3h.3" />
+                           <xsd:enumeration value="D3h.4" />
+                           <xsd:enumeration value="D6h.1" />
+                           <xsd:enumeration value="D6h.2" />
+                           <xsd:enumeration value="D6h.3" />
+                           <xsd:enumeration value="D6h.4" />
+                           <xsd:enumeration value="T.1" />
+                           <xsd:enumeration value="T.2" />
+                           <xsd:enumeration value="T.3" />
+                           <xsd:enumeration value="T.4" />
+                           <xsd:enumeration value="T.5" />
+                           <xsd:enumeration value="Th.1" />
+                           <xsd:enumeration value="Th.2" />
+                           <xsd:enumeration value="Th.3" />
+                           <xsd:enumeration value="Th.4" />
+                           <xsd:enumeration value="Th.5" />
+                           <xsd:enumeration value="Th.6" />
+                           <xsd:enumeration value="Th.7" />
+                           <xsd:enumeration value="O.1" />
+                           <xsd:enumeration value="O.2" />
+                           <xsd:enumeration value="O.3" />
+                           <xsd:enumeration value="O.4" />
+                           <xsd:enumeration value="O.5" />
+                           <xsd:enumeration value="O.6" />
+                           <xsd:enumeration value="O.7" />
+                           <xsd:enumeration value="O.8" />
+                           <xsd:enumeration value="Td.1" />
+                           <xsd:enumeration value="Td.2" />
+                           <xsd:enumeration value="Td.3" />
+                           <xsd:enumeration value="Td.4" />
+                           <xsd:enumeration value="Td.5" />
+                           <xsd:enumeration value="Td.6" />
+                           <xsd:enumeration value="Oh.1" />
+                           <xsd:enumeration value="Oh.2" />
+                           <xsd:enumeration value="Oh.3" />
+                           <xsd:enumeration value="Oh.4" />
+                           <xsd:enumeration value="Oh.5" />
+                           <xsd:enumeration value="Oh.6" />
+                           <xsd:enumeration value="Oh.7" />
+                           <xsd:enumeration value="Oh.8" />
+                           <xsd:enumeration value="Oh.9" />
+                           <xsd:enumeration value="Oh.10" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="point_group_H-M" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Hermann-Mauguin symbol denoting the geometric crystal
+class of space groups to which the space group belongs, and
+the geometric crystal class of point groups to which the
+point group of the space group belongs.
+-4
+4/m
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="reference_setting" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The reference setting of a given space group is the setting
+chosen by the International Union of Crystallography as a
+unique setting to which other settings can be referred
+using the transformation matrix column pair given in
+*.transform_Pp_abc and *.transform_Qq_xyz.
+
+The settings are given in the enumeration list in the form
+&apos;_space_group.it_number:_space_group.name_Hall&apos;. The
+space group number defines the space group type and the
+Hall symbol specifies the symmetry generators referred to
+the reference coordinate system.
+
+The 230 reference settings chosen are identical to the settings
+listed in International Tables for Crystallography Vol. A 
+(1995).  For the space groups where more than one setting is
+given in International Tables, the following choices have 
+been made.
+
+For monoclinic space groups: unique axis b and cell choice 1.
+
+For space groups with two origins: origin choice 2 (origin at
+inversion center indicated by adding :2 to the Hermann-Mauguin
+symbol in the enumeration list).
+
+For rhombohedral space groups: hexagonal axes (indicated by
+adding :h to the Hermann-Mauguin symbol in the enumeration list.
+
+(Based on http://xtal.crystal.uwa.edu.au/, (select &apos;Docs&apos;,
+select &apos;space-Group Symbols&apos;) Symmetry table of Ralf W.
+Grosse-Kunstleve, ETH, Zurich.)
+
+The enumeration list may be extracted from the dictionary
+and stored as a separate CIF that can be referred to as
+required.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="001:P 1" />
+                           <xsd:enumeration value="002:-P 1" />
+                           <xsd:enumeration value="003:P 2y" />
+                           <xsd:enumeration value="004:P 2yb" />
+                           <xsd:enumeration value="005:C 2y" />
+                           <xsd:enumeration value="006:P -2y" />
+                           <xsd:enumeration value="007:P -2yc" />
+                           <xsd:enumeration value="008:C -2y" />
+                           <xsd:enumeration value="009:C -2yc" />
+                           <xsd:enumeration value="010:-P 2y" />
+                           <xsd:enumeration value="011:-P 2yb" />
+                           <xsd:enumeration value="012:-C 2y" />
+                           <xsd:enumeration value="013:-P 2yc" />
+                           <xsd:enumeration value="014:-P 2ybc" />
+                           <xsd:enumeration value="015:-C 2yc" />
+                           <xsd:enumeration value="016:P 2 2" />
+                           <xsd:enumeration value="017:P 2c 2" />
+                           <xsd:enumeration value="018:P 2 2ab" />
+                           <xsd:enumeration value="019:P 2ac 2ab" />
+                           <xsd:enumeration value="020:C 2c 2" />
+                           <xsd:enumeration value="021:C 2 2" />
+                           <xsd:enumeration value="022:F 2 2" />
+                           <xsd:enumeration value="023:I 2 2" />
+                           <xsd:enumeration value="024:I 2b 2c" />
+                           <xsd:enumeration value="025:P 2 -2" />
+                           <xsd:enumeration value="026:P 2c -2" />
+                           <xsd:enumeration value="027:P 2 -2c" />
+                           <xsd:enumeration value="028:P 2 -2a" />
+                           <xsd:enumeration value="029:P 2c -2ac" />
+                           <xsd:enumeration value="030:P 2 -2bc" />
+                           <xsd:enumeration value="031:P 2ac -2" />
+                           <xsd:enumeration value="032:P 2 -2ab" />
+                           <xsd:enumeration value="033:P 2c -2n" />
+                           <xsd:enumeration value="034:P 2 -2n" />
+                           <xsd:enumeration value="035:C 2 -2" />
+                           <xsd:enumeration value="036:C 2c -2" />
+                           <xsd:enumeration value="037:C 2 -2c" />
+                           <xsd:enumeration value="038:A 2 -2" />
+                           <xsd:enumeration value="039:A 2 -2b" />
+                           <xsd:enumeration value="040:A 2 -2a" />
+                           <xsd:enumeration value="041:A 2 -2ab" />
+                           <xsd:enumeration value="042:F 2 -2" />
+                           <xsd:enumeration value="043:F 2 -2d" />
+                           <xsd:enumeration value="044:I 2 -2" />
+                           <xsd:enumeration value="045:I 2 -2c" />
+                           <xsd:enumeration value="046:I 2 -2a" />
+                           <xsd:enumeration value="047:-P 2 2" />
+                           <xsd:enumeration value="048:-P 2ab 2bc" />
+                           <xsd:enumeration value="049:-P 2 2c" />
+                           <xsd:enumeration value="050:-P 2ab 2b" />
+                           <xsd:enumeration value="051:-P 2a 2a" />
+                           <xsd:enumeration value="052:-P 2a 2bc" />
+                           <xsd:enumeration value="053:-P 2ac 2" />
+                           <xsd:enumeration value="054:-P 2a 2ac" />
+                           <xsd:enumeration value="055:-P 2 2ab" />
+                           <xsd:enumeration value="056:-P 2ab 2ac" />
+                           <xsd:enumeration value="057:-P 2c 2b" />
+                           <xsd:enumeration value="058:-P 2 2n" />
+                           <xsd:enumeration value="059:-P 2ab 2a" />
+                           <xsd:enumeration value="060:-P 2n 2ab" />
+                           <xsd:enumeration value="061:-P 2ac 2ab" />
+                           <xsd:enumeration value="062:-P 2ac 2n" />
+                           <xsd:enumeration value="063:-C 2c 2" />
+                           <xsd:enumeration value="064:-C 2ac 2" />
+                           <xsd:enumeration value="065:-C 2 2" />
+                           <xsd:enumeration value="066:-C 2 2c" />
+                           <xsd:enumeration value="067:-C 2a 2" />
+                           <xsd:enumeration value="068:-C 2a 2ac" />
+                           <xsd:enumeration value="069:-F 2 2" />
+                           <xsd:enumeration value="070:-F 2uv 2vw" />
+                           <xsd:enumeration value="071:-I 2 2" />
+                           <xsd:enumeration value="072:-I 2 2c" />
+                           <xsd:enumeration value="073:-I 2b 2c" />
+                           <xsd:enumeration value="074:-I 2b 2" />
+                           <xsd:enumeration value="075:P 4" />
+                           <xsd:enumeration value="076:P 4w" />
+                           <xsd:enumeration value="077:P 4c" />
+                           <xsd:enumeration value="078:P 4cw" />
+                           <xsd:enumeration value="079:I 4" />
+                           <xsd:enumeration value="080:I 4bw" />
+                           <xsd:enumeration value="081:P -4" />
+                           <xsd:enumeration value="082:I -4" />
+                           <xsd:enumeration value="083:-P 4" />
+                           <xsd:enumeration value="084:-P 4c" />
+                           <xsd:enumeration value="085:-P 4a" />
+                           <xsd:enumeration value="086:-P 4bc" />
+                           <xsd:enumeration value="087:-I 4" />
+                           <xsd:enumeration value="088:-I 4ad" />
+                           <xsd:enumeration value="089:P 4 2" />
+                           <xsd:enumeration value="090:P 4ab 2ab" />
+                           <xsd:enumeration value="091:P 4w 2c" />
+                           <xsd:enumeration value="092:P 4abw 2nw" />
+                           <xsd:enumeration value="093:P 4c 2" />
+                           <xsd:enumeration value="094:P 4n 2n" />
+                           <xsd:enumeration value="095:P 4cw 2c" />
+                           <xsd:enumeration value="096:P 4nw 2abw" />
+                           <xsd:enumeration value="097:I 4 2" />
+                           <xsd:enumeration value="098:I 4bw 2bw" />
+                           <xsd:enumeration value="099:P 4 -2" />
+                           <xsd:enumeration value="100:P 4 -2ab" />
+                           <xsd:enumeration value="101:P 4c -2c" />
+                           <xsd:enumeration value="102:P 4n -2n" />
+                           <xsd:enumeration value="103:P 4 -2c" />
+                           <xsd:enumeration value="104:P 4 -2n" />
+                           <xsd:enumeration value="105:P 4c -2" />
+                           <xsd:enumeration value="106:P 4c -2ab" />
+                           <xsd:enumeration value="107:I 4 -2" />
+                           <xsd:enumeration value="108:I 4 -2c" />
+                           <xsd:enumeration value="109:I 4bw -2" />
+                           <xsd:enumeration value="110:I 4bw -2c" />
+                           <xsd:enumeration value="111:P -4 2" />
+                           <xsd:enumeration value="112:P -4 2c" />
+                           <xsd:enumeration value="113:P -4 2ab" />
+                           <xsd:enumeration value="114:P -4 2n" />
+                           <xsd:enumeration value="115:P -4 -2" />
+                           <xsd:enumeration value="116:P -4 -2c" />
+                           <xsd:enumeration value="117:P -4 -2ab" />
+                           <xsd:enumeration value="118:P -4 -2n" />
+                           <xsd:enumeration value="119:I -4 -2" />
+                           <xsd:enumeration value="120:I -4 -2c" />
+                           <xsd:enumeration value="121:I -4 2" />
+                           <xsd:enumeration value="122:I -4 2bw" />
+                           <xsd:enumeration value="123:-P 4 2" />
+                           <xsd:enumeration value="124:-P 4 2c" />
+                           <xsd:enumeration value="125:-P 4a 2b" />
+                           <xsd:enumeration value="126:-P 4a 2bc" />
+                           <xsd:enumeration value="127:-P 4 2ab" />
+                           <xsd:enumeration value="128:-P 4 2n" />
+                           <xsd:enumeration value="129:-P 4a 2a" />
+                           <xsd:enumeration value="130:-P 4a 2ac" />
+                           <xsd:enumeration value="131:-P 4c 2" />
+                           <xsd:enumeration value="132:-P 4c 2c" />
+                           <xsd:enumeration value="133:-P 4ac 2b" />
+                           <xsd:enumeration value="134:-P 4ac 2bc" />
+                           <xsd:enumeration value="135:-P 4c 2ab" />
+                           <xsd:enumeration value="136:-P 4n 2n" />
+                           <xsd:enumeration value="137:-P 4ac 2a" />
+                           <xsd:enumeration value="138:-P 4ac 2ac" />
+                           <xsd:enumeration value="139:-I 4 2" />
+                           <xsd:enumeration value="140:-I 4 2c" />
+                           <xsd:enumeration value="141:-I 4bd 2" />
+                           <xsd:enumeration value="142:-I 4bd 2c" />
+                           <xsd:enumeration value="143:P 3" />
+                           <xsd:enumeration value="144:P 31" />
+                           <xsd:enumeration value="145:P 32" />
+                           <xsd:enumeration value="146:R 3" />
+                           <xsd:enumeration value="147:-P 3" />
+                           <xsd:enumeration value="148:-R 3" />
+                           <xsd:enumeration value="149:P 3 2" />
+                           <xsd:enumeration value="150:P 3 2&quot;" />
+                           <xsd:enumeration value="151:P 31 2 (0 0 4)" />
+                           <xsd:enumeration value="152:P 31 2&quot;" />
+                           <xsd:enumeration value="153:P 32 2 (0 0 2)" />
+                           <xsd:enumeration value="154:P 32 2&quot;" />
+                           <xsd:enumeration value="155:R 3 2&quot;" />
+                           <xsd:enumeration value="156:P 3 -2&quot;" />
+                           <xsd:enumeration value="157:P 3 -2" />
+                           <xsd:enumeration value="158:P 3 -2&quot;c" />
+                           <xsd:enumeration value="159:P 3 -2c" />
+                           <xsd:enumeration value="160:R 3 -2&quot;" />
+                           <xsd:enumeration value="161:R 3 -2&quot;c" />
+                           <xsd:enumeration value="162:-P 3 2" />
+                           <xsd:enumeration value="163:-P 3 2c" />
+                           <xsd:enumeration value="164:-P 3 2&quot;" />
+                           <xsd:enumeration value="165:-P 3 2&quot;c" />
+                           <xsd:enumeration value="166:-R 3 2&quot;" />
+                           <xsd:enumeration value="167:-R 3 2&quot;c" />
+                           <xsd:enumeration value="168:P 6" />
+                           <xsd:enumeration value="169:P 61" />
+                           <xsd:enumeration value="170:P 65" />
+                           <xsd:enumeration value="171:P 62" />
+                           <xsd:enumeration value="172:P 64" />
+                           <xsd:enumeration value="173:P 6c" />
+                           <xsd:enumeration value="174:P -6" />
+                           <xsd:enumeration value="175:-P 6" />
+                           <xsd:enumeration value="176:-P 6c" />
+                           <xsd:enumeration value="177:P 6 2" />
+                           <xsd:enumeration value="178:P 61 2 (0 0 5)" />
+                           <xsd:enumeration value="179:P 65 2 (0 0 1)" />
+                           <xsd:enumeration value="180:P 62 2 (0 0 4)" />
+                           <xsd:enumeration value="181:P 64 2 (0 0 2)" />
+                           <xsd:enumeration value="182:P 6c 2c" />
+                           <xsd:enumeration value="183:P 6 -2" />
+                           <xsd:enumeration value="184:P 6 -2c" />
+                           <xsd:enumeration value="185:P 6c -2" />
+                           <xsd:enumeration value="186:P 6c -2c" />
+                           <xsd:enumeration value="187:P -6 2" />
+                           <xsd:enumeration value="188:P -6c 2" />
+                           <xsd:enumeration value="189:P -6 -2" />
+                           <xsd:enumeration value="190:P -6c -2c" />
+                           <xsd:enumeration value="191:-P 6 2" />
+                           <xsd:enumeration value="192:-P 6 2c" />
+                           <xsd:enumeration value="193:-P 6c 2" />
+                           <xsd:enumeration value="194:-P 6c 2c" />
+                           <xsd:enumeration value="195:P 2 2 3" />
+                           <xsd:enumeration value="196:F 2 2 3" />
+                           <xsd:enumeration value="197:I 2 2 3" />
+                           <xsd:enumeration value="198:P 2ac 2ab 3" />
+                           <xsd:enumeration value="199:I 2b 2c 3" />
+                           <xsd:enumeration value="200:-P 2 2 3" />
+                           <xsd:enumeration value="201:-P 2ab 2bc 3" />
+                           <xsd:enumeration value="202:-F 2 2 3" />
+                           <xsd:enumeration value="203:-F 2uv 2vw 3" />
+                           <xsd:enumeration value="204:-I 2 2 3" />
+                           <xsd:enumeration value="205:-P 2ac 2ab 3" />
+                           <xsd:enumeration value="206:-I 2b 2c 3" />
+                           <xsd:enumeration value="207:P 4 2 3" />
+                           <xsd:enumeration value="208:P 4n 2 3" />
+                           <xsd:enumeration value="209:F 4 2 3" />
+                           <xsd:enumeration value="210:F 4d 2 3" />
+                           <xsd:enumeration value="211:I 4 2 3" />
+                           <xsd:enumeration value="212:P 4acd 2ab 3" />
+                           <xsd:enumeration value="213:P 4bd 2ab 3" />
+                           <xsd:enumeration value="214:I 4bd 2c 3" />
+                           <xsd:enumeration value="215:P -4 2 3" />
+                           <xsd:enumeration value="216:F -4 2 3" />
+                           <xsd:enumeration value="217:I -4 2 3" />
+                           <xsd:enumeration value="218:P -4n 2 3" />
+                           <xsd:enumeration value="219:F -4a 2 3" />
+                           <xsd:enumeration value="220:I -4bd 2c 3" />
+                           <xsd:enumeration value="221:-P 4 2 3" />
+                           <xsd:enumeration value="222:-P 4a 2bc 3" />
+                           <xsd:enumeration value="223:-P 4n 2 3" />
+                           <xsd:enumeration value="224:-P 4bc 2bc 3" />
+                           <xsd:enumeration value="225:-F 4 2 3" />
+                           <xsd:enumeration value="226:-F 4a 2 3" />
+                           <xsd:enumeration value="227:-F 4vw 2vw 3" />
+                           <xsd:enumeration value="228:-F 4ud 2vw 3" />
+                           <xsd:enumeration value="229:-I 4 2 3" />
+                           <xsd:enumeration value="230:-I 4bd 2c 3" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="transform_Pp_abc" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+This item specifies the transformation (P,p) of the basis vectors 
+from the setting used in the CIF (a,b,c) to the reference setting
+given in attribute reference_setting in category space_group (a&apos;,b&apos;,c&apos;). The value is
+ given in Jones-Faithful notation corresponding to the rotational
+matrix P combined with the origin shift vector p in the expression:
+
+(a&apos;,b&apos;,c&apos;) = (a,b,c)P + p
+
+P is a post-multiplication matrix of a row (a,b,c) of column 
+vectors. It is related to the inverse transformation (Q,q) by:
+
+P = Q^-1^
+p = Pq = -(Q^-1^)q 
+
+These transformations are applied as follows:
+
+atomic coordinates  (x&apos;,y&apos;,z&apos;) = Q(x,y,z) + q
+Miller indices      (h&apos;,k&apos;,l&apos;) = (h,k,l)P
+symmetry operations         W&apos; = (Q,q)W(P,p)
+basis vectors       (a&apos;,b&apos;,c&apos;) = (a,b,c)P + p
+
+This item is given as a character string involving the characters 
+a, b and c with commas separating the expressions for the a&apos;, b&apos; 
+and c&apos; vectors.  The numeric values may be given as integers,
+fractions or real numbers.  Multiplication is implicit, division 
+must be explicit.  White space within the string is optional.
+R3:r to R3:h
+-b+c, a+c, -a+b+c
+Pnnn:1 to Pnnn:2
+a-1/4, b-1/4, c-1/4
+Bbab:1 to Ccca:2
+b-1/2, c-1/2, a-1/2
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="transform_Qq_xyz" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+This item specifies the transformation (Q,q) of the atomic
+coordinates from the setting used in the CIF [(x,y,z) referred 
+to the basis vectors (a,b,c)] to the reference setting given in
+attribute reference_setting in category space_group [(x&apos;,y&apos;,z&apos;) referred to the 
+ basis vectors (a&apos;,b&apos;,c&apos;)].
+
+The value given in Jones-Faithful notation corresponds to the
+rotational matrix Q combined with the origin shift vector q in 
+the expression:
+
+(x&apos;,y&apos;,z&apos;) = Q(x,y,z) + q
+
+Q is a premultiplication matrix of the column vector (x,y,z).  
+It is related to the inverse transformation (P,p) by:
+
+P = Q^-1^
+p = Pq = -(Q^-1^)q 
+
+where the P and Q transformations are applied as follows:
+
+atomic coordinates  (x&apos;,y&apos;,z&apos;) = Q(x,y,z) + q
+Miller indices      (h&apos;,k&apos;,l&apos;) = (h,k,l)P
+symmetry operations         W&apos; = (Q,q)W(P,p)
+basis vectors       (a&apos;,b&apos;,c&apos;) = (a,b,c)P + p
+
+This item is given as a character string involving the characters 
+x, y and z with commas separating the expressions for the  
+x&apos;, y&apos; and z&apos; components.  The numeric values may be given as
+integers, fractions or real numbers.  Multiplication is implicit,
+division must be explicit.  White space within the string is
+optional.
+R3:r to R3:h
+-x/3+2y/3-z/3, -2x/3+y/3+z/3, x/3+y/3+z/3
+Pnnn:1 to Pnnn2
+x+1/4,y+1/4,z+1/4
+Bbab:1 to Ccca:2
+z+1/2,x+1/2,y+1/2
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+This is an identifier needed if _space_group_* items are looped.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="space_group_WyckoffType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Contains information about Wyckoff positions of a space group.
+Only one site can be given for each special position but the
+remainder can be generated by applying the symmetry operations
+stored in attribute operation_xyz in category space_group_symop. 
+
+    This example is taken from the space group F_d_-3_c (number 228
+    origin choice 2).  For brevity only a selection of special positions
+    are listed.  The coordinates of only one site per special position can
+    be given in this item, but coordinates of the other sites can be
+    generated using the symmetry operations given in the SPACE_GROUP_SYMOP
+    category.
+&lt;mmcif_sym:space_group_WyckoffCategory&gt;
+   &lt;mmcif_sym:space_group_Wyckoff id=&quot;1&quot;&gt;
+      &lt;mmcif_sym:letter&gt;h&lt;/mmcif_sym:letter&gt;
+      &lt;mmcif_sym:multiplicity&gt;192&lt;/mmcif_sym:multiplicity&gt;
+      &lt;mmcif_sym:site_symmetry&gt;1&lt;/mmcif_sym:site_symmetry&gt;
+   &lt;/mmcif_sym:space_group_Wyckoff&gt;
+   &lt;mmcif_sym:space_group_Wyckoff id=&quot;2&quot;&gt;
+      &lt;mmcif_sym:letter&gt;g&lt;/mmcif_sym:letter&gt;
+      &lt;mmcif_sym:multiplicity&gt;96&lt;/mmcif_sym:multiplicity&gt;
+      &lt;mmcif_sym:site_symmetry&gt;..2&lt;/mmcif_sym:site_symmetry&gt;
+   &lt;/mmcif_sym:space_group_Wyckoff&gt;
+   &lt;mmcif_sym:space_group_Wyckoff id=&quot;3&quot;&gt;
+      &lt;mmcif_sym:letter&gt;f&lt;/mmcif_sym:letter&gt;
+      &lt;mmcif_sym:multiplicity&gt;96&lt;/mmcif_sym:multiplicity&gt;
+      &lt;mmcif_sym:site_symmetry&gt;2..&lt;/mmcif_sym:site_symmetry&gt;
+   &lt;/mmcif_sym:space_group_Wyckoff&gt;
+   &lt;mmcif_sym:space_group_Wyckoff id=&quot;4&quot;&gt;
+      &lt;mmcif_sym:letter&gt;b&lt;/mmcif_sym:letter&gt;
+      &lt;mmcif_sym:multiplicity&gt;32&lt;/mmcif_sym:multiplicity&gt;
+      &lt;mmcif_sym:site_symmetry&gt;.32&lt;/mmcif_sym:site_symmetry&gt;
+   &lt;/mmcif_sym:space_group_Wyckoff&gt;
+&lt;/mmcif_sym:space_group_WyckoffCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="space_group_Wyckoff" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="coords_xyz" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Coordinates of one site of a Wyckoff position expressed in
+terms of its fractional coordinates (x,y,z) in the unit cell.
+To generate the coordinates of all sites of this Wyckoff
+position it is necessary to multiply these coordinates by the
+symmetry operations stored in space_group_symop.operation_xyz.
+Coordinates of a Wyckoff site with 2.. symmetry
+x,1/2,0
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="letter" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The Wyckoff letter as given in International Tables for
+Crystallography Vol. A associated with this position.  The
+enumeration value &apos;\a&apos; corresponds to the Greek letter &apos;alpha&apos; 
+used in International Tables.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="a" />
+                           <xsd:enumeration value="b" />
+                           <xsd:enumeration value="c" />
+                           <xsd:enumeration value="d" />
+                           <xsd:enumeration value="e" />
+                           <xsd:enumeration value="f" />
+                           <xsd:enumeration value="g" />
+                           <xsd:enumeration value="h" />
+                           <xsd:enumeration value="i" />
+                           <xsd:enumeration value="j" />
+                           <xsd:enumeration value="k" />
+                           <xsd:enumeration value="l" />
+                           <xsd:enumeration value="m" />
+                           <xsd:enumeration value="n" />
+                           <xsd:enumeration value="o" />
+                           <xsd:enumeration value="p" />
+                           <xsd:enumeration value="q" />
+                           <xsd:enumeration value="r" />
+                           <xsd:enumeration value="s" />
+                           <xsd:enumeration value="t" />
+                           <xsd:enumeration value="u" />
+                           <xsd:enumeration value="v" />
+                           <xsd:enumeration value="w" />
+                           <xsd:enumeration value="x" />
+                           <xsd:enumeration value="y" />
+                           <xsd:enumeration value="z" />
+                           <xsd:enumeration value="\a" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="multiplicity" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The multiplicity of this Wyckoff position as given in
+International Tables Vol A.  It is the number of equivalent
+sites per conventional unit cell.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                           <xsd:minInclusive value="1" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="sg_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A child of attribute id in category space_group allowing the Wyckoff position
+ to be identified with a particular space group.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="site_symmetry" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+The subgroup of the space group that leaves the point fixed.
+It is isomorphic to a subgroup of the point group of the
+space group. The site symmetry symbol indicates the symmetry
+in the symmetry direction determined by the Hermann-Mauguin
+symbol of the space group (see International Tables for
+Crystallography Vol A Section 2.12).
+Position 2b in space group number 94, P 42 21 2
+2.22
+Position 6b in space group number 222, P n -3 n
+42.2
+              Site symmetry for the Wyckoff position 96f in space group 228,
+               F d -3 c.  The site symmetry group is isomorphic to the point
+               group 2 with the 2-fold axis along one of the {100} directions.
+2..
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+An arbitrary identifier that is unique to a particular Wyckoff
+position.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="space_group_symopType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+Contains information about the symmetry operations of the
+space group.
+
+    The symmetry operations for the space group P21/c
+&lt;mmcif_sym:space_group_symopCategory&gt;
+   &lt;mmcif_sym:space_group_symop id=&quot;1&quot;&gt;
+      &lt;mmcif_sym:operation_description&gt;identity mapping&lt;/mmcif_sym:operation_description&gt;
+      &lt;mmcif_sym:operation_xyz&gt;x,y,z&lt;/mmcif_sym:operation_xyz&gt;
+   &lt;/mmcif_sym:space_group_symop&gt;
+   &lt;mmcif_sym:space_group_symop id=&quot;2&quot;&gt;
+      &lt;mmcif_sym:operation_description&gt;inversion&lt;/mmcif_sym:operation_description&gt;
+      &lt;mmcif_sym:operation_xyz&gt;-x,-y,-z&lt;/mmcif_sym:operation_xyz&gt;
+   &lt;/mmcif_sym:space_group_symop&gt;
+   &lt;mmcif_sym:space_group_symop id=&quot;3&quot;&gt;
+      &lt;mmcif_sym:operation_description&gt;2-fold screw rotation with axis in (0,y,1/4)&lt;/mmcif_sym:operation_description&gt;
+      &lt;mmcif_sym:operation_xyz&gt;-x,1/2+y,1/2-z&lt;/mmcif_sym:operation_xyz&gt;
+   &lt;/mmcif_sym:space_group_symop&gt;
+   &lt;mmcif_sym:space_group_symop id=&quot;4&quot;&gt;
+      &lt;mmcif_sym:operation_description&gt;c glide reflection through the plane (x,1/4,y)&lt;/mmcif_sym:operation_description&gt;
+      &lt;mmcif_sym:operation_xyz&gt;x,1/2-y,1/2+z&lt;/mmcif_sym:operation_xyz&gt;
+   &lt;/mmcif_sym:space_group_symop&gt;
+&lt;/mmcif_sym:space_group_symopCategory&gt;
+
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="space_group_symop" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="generator_xyz" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A parsable string giving one of the symmetry generators of the
+space group in algebraic form.  If W is a matrix representation
+of the rotational part of the generator defined by the positions
+and signs of x, y and z, and w is a column of translations
+defined by the fractions, an equivalent position X&apos; is
+generated from a given position X by the equation:
+
+X&apos; = WX + w
+
+(Note: X is used to represent bold_italics_x in International
+Tables for Crystallography Vol. A, Section 5)
+When a list of symmetry generators is given, it is assumed
+that the complete list of symmetry operations of the space
+group (including the identity operator) can be generated
+through repeated multiplication of the generators, that is,
+(W3, w3) is an operation of the space group if (W2,w2) and
+(W1,w1) (where (W1,w1) is applied first) are either operators
+or generators and:
+
+W3 = W2 x W1
+w3 = W2 x w1 + w2
+              c glide reflection through the plane (x,1/4,z) chosen as
+               one of the generators of the space group
+x,1/2-y,1/2+z
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operation_description" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+An optional text description of a particular symmetry operation
+of the space group.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operation_xyz" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A parsable string giving one of the symmetry operations of the
+space group in algebraic form.  If W is a matrix representation
+of the rotational part of the symmetry operation defined by the
+positions and signs of x, y and z, and w is a column of
+translations defined by the fractions, an equivalent position
+X&apos; is generated from a given position X by the equation:
+
+X&apos; = WX + w
+
+(Note: X is used to represent bold_italics_x in International
+Tables for Crystallography Vol. A, Section 5)
+
+When a list of symmetry operations is given, it is assumed
+that the list contains all the operations of the space
+group (including the identity operation) as given by the
+representatives of the general position in International
+Tables for Crystallography Vol. A.
+c glide reflection through the plane (x,1/4,z)
+x,1/2-y,1/2+z
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="sg_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+A child of attribute id in category space_group allowing the symmetry operator
+ to be identified with a particular space group.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+An arbitrary identifier that uniquely labels each symmetry
+operation in the list.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="datablockType">
+      <xsd:all>
+         <xsd:element name="space_groupCategory" type="mmcif_sym:space_groupType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="space_group_WyckoffCategory" type="mmcif_sym:space_group_WyckoffType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="space_group_symopCategory" type="mmcif_sym:space_group_symopType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+      </xsd:all>
+      <xsd:attribute name="datablockName" type="xsd:string" use="optional" />
+   </xsd:complexType>
+   <xsd:element name="datablock" type="mmcif_sym:datablockType">
+      <xsd:key name="space_groupKey_0">
+         <xsd:selector xpath="mmcif_sym:space_groupCategory/mmcif_sym:space_group" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="space_group_WyckoffKey_0">
+         <xsd:selector xpath="mmcif_sym:space_group_WyckoffCategory/mmcif_sym:space_group_Wyckoff" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="space_group_symopKey_0">
+         <xsd:selector xpath="mmcif_sym:space_group_symopCategory/mmcif_sym:space_group_symop" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+   </xsd:element>
+</xsd:schema>

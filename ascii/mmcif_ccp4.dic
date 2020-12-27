@@ -1,0 +1,1715 @@
+###########################################################################
+#
+# File:  mmcif_ccp4.dic
+# Date:  Tue Nov 10 12:40:59 EST 2020
+#
+# Created from files in CVS module dict-mmcif_ccp4.dic unless noted:
+#        mmcif_ccp4-header.dic   
+#        mmcif_ccp4-data.dic   
+#        mmcif_ccp4-def-1.dic   
+#        mmcif_ccp4-def-ilg.dic   
+#
+###########################################################################
+ 
+ 
+###########################################################################
+#
+# File:  mmcif_ccp4-header.dic                                             
+# 
+#                       CCP4 Extension Data Dictionary                 
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items required to describe the details of the
+#     structure determination using the CCP4 program system.
+#
+#     This supplement was created by Kim Henrick at Molecular Structure 
+#     Database (MSD) Group/EBI and the CCP4 development group.
+#                                                                           
+#                                                                           
+#                               Header Section 
+#                                                                           
+##############################################################################
+
+data_mmcif_ccp4.dic
+
+    _datablock.id                          mmcif_ccp4.dic
+    _datablock.description
+;
+     This data block holds the CCP4 Extension Data Dictionary
+;
+
+    _dictionary.title           mmcif_ccp4.dic
+    _dictionary.version         1.00
+    _dictionary.datablock_id    mmcif_ccp4.dic
+
+########################
+## DICTIONARY_HISTORY ##
+########################
+
+     loop_
+    _dictionary_history.version
+    _dictionary_history.update
+    _dictionary_history.revision
+   1.00   2001-04-18   'Initial version'
+
+
+### EOF mmcif_ccp4-header.dic
+
+###########################################################################
+#
+# File:  mmcif_ccp4-data.dic                                             
+# 
+#                       CCP4 Extension Data Dictionary                 
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items required to describe the details of the
+#     structure determination using the CCP4 program system.
+#
+#     This supplement was created by Kim Henrick at Molecular Structure 
+#     Database (MSD) Group/EBI and the CCP4 development group.
+#                                                                           
+#                                                                           
+#                               Data Section 
+#                                                                           
+##############################################################################
+
+####################
+## ITEM_TYPE_LIST ##
+####################
+#
+#
+#  The regular expressions defined here are not compliant
+#  with the POSIX 1003.2 standard as they include the
+#  '\n' and '\t' special characters.  These regular expressions
+#  have been tested using the version 0.12 of Richard Stallman's
+#  GNU regular expression libary in POSIX mode.
+#
+     loop_
+    _item_type_list.code
+    _item_type_list.primitive_code
+    _item_type_list.construct
+    _item_type_list.detail
+               code      char
+               '[_,.;:"&<>/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words ...
+;
+               ucode      uchar
+               '[_,.;:"&<>()/\{}'`~!@#$%A-Za-z0-9*|+-]*'
+;              code item types/single words  (case insensitive) ...
+;
+               text      char
+                '[][ \n\t()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
+;              text item types / multi-line text ...
+;
+               int       numb
+               '-?[0-9]+'
+;              int item types are the subset of numbers that are the negative
+               or positive integers.
+;
+               float     numb
+               '-?(([0-9]+)|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?'
+;              int item types are the subset of numbers that are the floating
+               numbers.
+;
+
+
+
+#####################
+## ITEM_UNITS_LIST ##
+#####################
+
+     loop_
+    _item_units_list.code
+    _item_units_list.detail
+     'angstroms'              'angstroms   (meters * 10^(-10))'
+     'angstroms_squared'      'angstroms squared  (meters * 10^(-10))^2'
+     'degrees'                'degrees (of arc)'
+     'angstroms_degrees'      'angstroms x degrees'
+     'degrees_squared'        'degrees squared'
+
+#########################
+## CATEGORY_GROUP_LIST ##
+#########################
+
+loop_
+_category_group_list.id
+_category_group_list.parent_id
+_category_group_list.description
+             'inclusive_group'
+             .
+;             All categories
+;
+             'refine_group'
+             'inclusive_group'
+;             Categories which pertain to refinement
+;
+
+### EOF  mmcif_ccp4-data.dic###########################################################################
+#
+# File:  mmcif_ccp4-header.dic                                             
+# 
+#                       CCP4 Extension Data Dictionary                 
+#
+#     This dictionary supplements the contents of the mmCIF data dictionary 
+#     with additional data items required to describe the details of the
+#     structure determination using the CCP4 program system.
+#
+#     This supplement was created by Kim Henrick at Molecular Structure 
+#     Database (MSD) Group/EBI and the CCP4 development group.
+#                                                                           
+#                                                                           
+#                            Definition Section 1
+#                                                                           
+##############################################################################
+
+
+
+save_ccp4_refine_tls
+    _category.description
+;              Data items in the REFINE_TLS category record details about 
+               TLS parameters used in structure refinement. Note that the
+               intention is primarily to describe directly refined TLS
+               parameters, although other methods of obtaining TLS parameters
+               may be covered, see item _ccp4_refine_tls.method
+;
+    _category.id                  ccp4_refine_tls
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_ccp4_refine_tls.id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'refine_group'
+
+   
+     save_
+
+save__ccp4_refine_tls.id
+    _item_description.description
+;              The value of _ccp4_refine_tls.id must uniquely identify a record in
+               the CCP4_REFINE_TLS list.
+               Note that this item need not be a number; it can be any unique
+               identifier.
+;
+
+    _item.name                  '_ccp4_refine_tls.id'                   
+    _item.category_id             ccp4_refine_tls        
+    _item.mandatory_code          yes
+               
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.refine_tls_id'  '_ccp4_refine_tls.id'
+
+    _item_type.code               code
+
+     loop_
+    _item_examples.case         1
+                                A
+
+     save_
+
+save__ccp4_refine_tls.details 
+    _item_description.description
+;              A description of the TLS group, such as a domain name or a 
+               chemical group name.
+;
+    _item.name                  '_ccp4_refine_tls.details'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               text
+
+     loop_
+    _item_examples.case         'Chain A catalytic domain'
+                                'Chain A Tyr 56 side chain'
+
+     save_
+
+save__ccp4_refine_tls.method
+    _item_description.description
+;              The method by which the TLS parameters were obtained.
+;
+    _item.name                  '_ccp4_refine_tls.method'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      refined
+;                                 TLS parameters refined directly
+                                  against crystallographic residual
+;
+                                  fitted 
+;                                 TLS parameters fitted to previously
+                                  refined anisotropic displacement
+                                  parameters
+;
+
+     save_
+
+save__ccp4_refine_tls.origin_x
+    _item_description.description
+;              The x coordinate in angstroms of the origin to which the
+               TLS parameters are referred, specified according to
+               a set of orthogonal Cartesian axes related to the cell axes as
+               given in _atom_sites.Cartn_transform_axes.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.origin_x'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+    _item_units.code              angstroms
+
+     loop_
+    _item_dependent.dependent_name  
+               '_ccp4_refine_tls.origin_y'
+               '_ccp4_refine_tls.origin_z'
+
+     save_
+
+save__ccp4_refine_tls.origin_y
+    _item_description.description
+;              The y coordinate in angstroms of the origin to which the
+               TLS parameters are referred, specified according to
+               a set of orthogonal Cartesian axes related to the cell axes as
+               given in _atom_sites.Cartn_transform_axes.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.origin_y'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+    _item_units.code              angstroms
+
+     loop_
+    _item_dependent.dependent_name  
+               '_ccp4_refine_tls.origin_x'
+               '_ccp4_refine_tls.origin_z'
+
+     save_
+
+save__ccp4_refine_tls.origin_z
+    _item_description.description
+;              The z coordinate in angstroms of the origin to which the
+               TLS parameters are referred, specified according to
+               a set of orthogonal Cartesian axes related to the cell axes as
+               given in _atom_sites.Cartn_transform_axes.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.origin_z'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+    _item_units.code              angstroms
+
+     loop_
+    _item_dependent.dependent_name  
+               '_ccp4_refine_tls.origin_x'
+               '_ccp4_refine_tls.origin_y'
+
+     save_
+
+save__ccp4_refine_tls.T[1][1]
+    _item_description.description
+;             The [1][1] element of the translation tensor T. This should
+              be given in the same coordinate frame and units as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.T[1][1]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[1][1]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.T[1][1]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.T[1][1].
+;
+    _item.name                  '_ccp4_refine_tls.T[1][1]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[1][1]'
+                                  associated_value
+
+    _item_units.code              angstroms_squared
+
+     save_
+
+save__ccp4_refine_tls.T[1][2]
+    _item_description.description
+;             The [1][2] element of the translation tensor T. This should
+              be given in the same coordinate frame and units as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.T[1][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[1][2]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.T[1][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.T[1][2].
+;
+    _item.name                  '_ccp4_refine_tls.T[1][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[1][2]'
+                                  associated_value
+
+    _item_units.code              angstroms_squared
+
+     save_
+
+save__ccp4_refine_tls.T[1][3]
+    _item_description.description
+;             The [1][3] element of the translation tensor T. This should
+              be given in the same coordinate frame and units as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.T[1][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[1][3]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.T[1][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.T[1][3].
+;
+    _item.name                  '_ccp4_refine_tls.T[1][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[1][3]'
+                                  associated_value
+
+    _item_units.code              angstroms_squared
+
+     save_
+
+save__ccp4_refine_tls.T[2][2]
+    _item_description.description
+;             The [2][2] element of the translation tensor T. This should
+              be given in the same coordinate frame and units as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.T[2][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[2][2]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.T[2][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.T[2][2].
+;
+    _item.name                  '_ccp4_refine_tls.T[2][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[2][2]'
+                                  associated_value
+
+    _item_units.code              angstroms_squared
+
+     save_
+
+save__ccp4_refine_tls.T[2][3]
+    _item_description.description
+;             The [2][3] element of the translation tensor T. This should
+              be given in the same coordinate frame and units as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.T[2][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[2][3]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.T[2][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.T[2][3].
+;
+    _item.name                  '_ccp4_refine_tls.T[2][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[2][3]'
+                                  associated_value
+
+    _item_units.code              angstroms_squared
+
+     save_
+
+save__ccp4_refine_tls.T[3][3]
+    _item_description.description
+;             The [3][3] element of the translation tensor T. This should
+              be given in the same coordinate frame and units as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.T[3][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[3][3]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.T[3][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.T[3][3].
+;
+    _item.name                  '_ccp4_refine_tls.T[3][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.T[3][3]'
+                                  associated_value
+
+    _item_units.code              angstroms_squared
+
+     save_
+
+save__ccp4_refine_tls.L[1][1]
+    _item_description.description
+;             The [1][1] element of the libration tensor L. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.L[1][1]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[1][1]_esd'
+                                  associated_esd
+
+    _item_units.code              degrees_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.L[1][1]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.L[1][1].
+;
+    _item.name                  '_ccp4_refine_tls.L[1][1]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[1][1]'
+                                  associated_value
+
+    _item_units.code              degrees_squared
+
+     save_
+
+save__ccp4_refine_tls.L[1][2]
+    _item_description.description
+;             The [1][2] element of the libration tensor L. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.L[1][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[1][2]_esd'
+                                  associated_esd
+
+    _item_units.code              degrees_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.L[1][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.L[1][2].
+;
+    _item.name                  '_ccp4_refine_tls.L[1][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[1][2]'
+                                  associated_value
+
+    _item_units.code              degrees_squared
+
+     save_
+
+save__ccp4_refine_tls.L[1][3]
+    _item_description.description
+;             The [1][3] element of the libration tensor L. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.L[1][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[1][3]_esd'
+                                  associated_esd
+
+    _item_units.code              degrees_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.L[1][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.L[1][3].
+;
+    _item.name                  '_ccp4_refine_tls.L[1][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[1][3]'
+                                  associated_value
+
+    _item_units.code              degrees_squared
+
+     save_
+
+save__ccp4_refine_tls.L[2][2]
+    _item_description.description
+;             The [2][2] element of the libration tensor L. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.L[2][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[2][2]_esd'
+                                  associated_esd
+
+    _item_units.code              degrees_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.L[2][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.L[2][2].
+;
+    _item.name                  '_ccp4_refine_tls.L[2][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[2][2]'
+                                  associated_value
+
+    _item_units.code              degrees_squared
+
+     save_
+
+save__ccp4_refine_tls.L[2][3]
+    _item_description.description
+;             The [2][3] element of the libration tensor L. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.L[2][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[2][3]_esd'
+                                  associated_esd
+
+    _item_units.code              degrees_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.L[2][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.L[2][3].
+;
+    _item.name                  '_ccp4_refine_tls.L[2][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[2][3]'
+                                  associated_value
+
+    _item_units.code              degrees_squared
+
+     save_
+
+save__ccp4_refine_tls.L[3][3]
+    _item_description.description
+;             The [3][3] element of the libration tensor L. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+;
+    _item.name                  '_ccp4_refine_tls.L[3][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[3][3]_esd'
+                                  associated_esd
+
+    _item_units.code              degrees_squared
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.L[3][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.L[3][3].
+;
+    _item.name                  '_ccp4_refine_tls.L[3][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.L[3][3]'
+                                  associated_value
+
+    _item_units.code              degrees_squared
+
+     save_
+
+save__ccp4_refine_tls.S[1][1]
+    _item_description.description
+;             The [1][1] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+              The trace of S is indeterminate by crystallography, and should
+              be set to zero.
+;
+    _item.name                  '_ccp4_refine_tls.S[1][1]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[1][1]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[1][1]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[1][1].
+;
+    _item.name                  '_ccp4_refine_tls.S[1][1]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[1][1]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[1][2]
+    _item_description.description
+;             The [1][2] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.S[1][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[1][2]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[1][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[1][2].
+;
+    _item.name                  '_ccp4_refine_tls.S[1][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[1][2]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[1][3]
+    _item_description.description
+;             The [1][3] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.S[1][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[1][3]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[1][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[1][3].
+;
+    _item.name                  '_ccp4_refine_tls.S[1][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[1][3]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[2][1]
+    _item_description.description
+;             The [2][1] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.S[2][1]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[2][1]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[2][1]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[2][1].
+;
+    _item.name                  '_ccp4_refine_tls.S[2][1]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[2][1]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[2][2]
+    _item_description.description
+;             The [2][2] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+              The trace of S is indeterminate by crystallography, and should
+              be set to zero.
+;
+    _item.name                  '_ccp4_refine_tls.S[2][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[2][2]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[2][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[2][2].
+;
+    _item.name                  '_ccp4_refine_tls.S[2][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[2][2]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[2][3]
+    _item_description.description
+;             The [2][3] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.S[2][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[2][3]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[2][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[2][3].
+;
+    _item.name                  '_ccp4_refine_tls.S[2][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[2][3]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[3][1]
+    _item_description.description
+;             The [3][1] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.S[3][1]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[3][1]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[3][1]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[3][1].
+;
+    _item.name                  '_ccp4_refine_tls.S[3][1]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[3][1]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[3][2]
+    _item_description.description
+;             The [3][2] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+               If the origin is omitted, it is assumed to be the centre of
+               reaction of the group, in which case S must be symmetric
+;
+    _item.name                  '_ccp4_refine_tls.S[3][2]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[3][2]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[3][2]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[3][2].
+;
+    _item.name                  '_ccp4_refine_tls.S[3][2]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[3][2]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save__ccp4_refine_tls.S[3][3]
+    _item_description.description
+;             The [3][3] element of the screw-rotation tensor S. This should
+              be given in the same coordinate frame as the
+              corresponding anisotropic displacement parameters.
+
+              The trace of S is indeterminate by crystallography, and should
+              be set to zero.
+;
+    _item.name                  '_ccp4_refine_tls.S[3][3]'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[3][3]_esd'
+                                  associated_esd
+
+    _item_units.code              angstroms_degrees
+    _item_type_conditions.code    esd
+
+     save_
+
+save__ccp4_refine_tls.S[3][3]_esd
+    _item_description.description
+;              The estimated standard deviation of _ccp4_refine_tls.S[3][3].
+;
+    _item.name                  '_ccp4_refine_tls.S[3][3]_esd'
+    _item.category_id             ccp4_refine_tls
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_default.value           0.0
+
+     loop_
+    _item_related.related_name
+    _item_related.function_code '_ccp4_refine_tls.S[3][3]'
+                                  associated_value
+
+    _item_units.code              angstroms_degrees
+
+     save_
+
+save_ccp4_refine_tls_group
+    _category.description
+;              Data items in the CCP4_REFINE_TLS_GROUP category record details about
+               a fragment of a TLS group.
+
+               Properties of the TLS group are recorded in CCP4_REFINE_TLS
+;
+    _category.id                  ccp4_refine_tls_group
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_ccp4_refine_tls_group.id'
+
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'refine_group'
+
+     save_
+
+save__ccp4_refine_tls_group.id
+    _item_description.description
+;              The value of _ccp4_refine_tls_group.id must uniquely identify 
+               a record in the REFINE_TLS_GROUP list.
+               Note that this item need not be a number; it can be any unique
+               identifier.
+;
+    _item.name                  '_ccp4_refine_tls_group.id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+
+     loop_
+    _item_examples.case           1
+                                  A
+
+     save_
+
+save__ccp4_refine_tls_group.refine_tls_id
+    _item_description.description
+;              This data item is a pointer to _ccp4_refine_tls.id in the
+               REFINE_TLS category.
+;
+    _item.name                  '_ccp4_refine_tls_group.refine_tls_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__ccp4_refine_tls_group.beg_label_asym_id  
+    _item_description.description
+;             A component of the identifier for the residue at which the
+              TLS fragment range begins.
+
+              This data item is a pointer to _atom_site.label_asym_id in the
+              ATOM_SITE category.
+;
+    _item.name                  '_ccp4_refine_tls_group.beg_label_asym_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.beg_label_asym_id'  '_atom_site.label_asym_id'
+
+     loop_
+    _item_examples.case           O
+                                  2B3
+
+     save_
+
+save__ccp4_refine_tls_group.beg_label_seq_id  
+    _item_description.description
+;             A component of the identifier for the residue at which the
+              TLS fragment range begins.
+
+              This data item is a pointer to _atom_site.label_seq_id in the
+              ATOM_SITE category.
+;
+    _item.name                  '_ccp4_refine_tls_group.beg_label_seq_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.beg_label_seq_id'  '_atom_site.label_seq_id'
+
+     loop_
+    _item_examples.case           1
+                                  303
+
+     save_
+
+save__ccp4_refine_tls_group.beg_auth_seq_id  
+    _item_description.description
+;             A component of the identifier for the residue at which the
+              TLS fragment range begins.
+
+              This data item is a pointer to _atom_site.auth_seq_id in the
+              ATOM_SITE category.
+;
+    _item.name                  '_ccp4_refine_tls_group.beg_auth_seq_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.beg_auth_seq_id'  '_atom_site.auth_seq_id'
+
+     loop_
+    _item_examples.case           1
+                                  5A
+
+     save_
+
+save__ccp4_refine_tls_group.end_label_asym_id  
+    _item_description.description
+;             A component of the identifier for the residue at which the
+              TLS fragment range ends.
+
+              This data item is a pointer to _atom_site.label_asym_id in the
+              ATOM_SITE category.
+;
+    _item.name                  '_ccp4_refine_tls_group.end_label_asym_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.end_label_asym_id'  '_atom_site.label_asym_id'
+
+     loop_
+    _item_examples.case           O
+                                  2B3
+
+     save_
+
+save__ccp4_refine_tls_group.end_label_seq_id   
+    _item_description.description
+;             A component of the identifier for the residue at which the
+              TLS fragment range ends.
+
+              This data item is a pointer to _atom_site.label_seq_id in the
+              ATOM_SITE category.
+;
+    _item.name                  '_ccp4_refine_tls_group.end_label_seq_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.end_label_seq_id'  '_atom_site.label_seq_id'
+
+     loop_
+    _item_examples.case           1
+                                  303
+
+     save_
+
+save__ccp4_refine_tls_group.end_auth_seq_id   
+    _item_description.description
+;             A component of the identifier for the residue at which the
+              TLS fragment range ends.
+
+              This data item is a pointer to _atom_site.auth_seq_id in the
+              ATOM_SITE category.
+;
+    _item.name                  '_ccp4_refine_tls_group.end_auth_seq_id'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+     loop_
+    _item_linked.child_name
+    _item_linked.parent_name
+               '_ccp4_refine_tls_group.end_auth_seq_id'  '_atom_site.auth_seq_id'
+
+     loop_
+    _item_examples.case           1
+                                  5A
+
+     save_
+
+save__ccp4_refine_tls_group.selection  
+    _item_description.description
+;              A description of the subset of atoms in the specified
+               range included in the TLS fragment.
+;
+    _item.name                  '_ccp4_refine_tls_group.selection'
+    _item.category_id             ccp4_refine_tls_group
+    _item.mandatory_code          no
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      all
+;                                 all atoms in specified range
+;
+                                  mnc
+;                                 main chain atoms only
+;
+                                  sdc
+;                                 side chain atoms only
+;
+
+     save_
+
+#
+save__refine.ccp4_solvent_vdw_probe_radii
+    _item_description.description
+;              CCP4 solvent proble van der Waals radii 
+;
+    _item.name                  '_refine.ccp4_solvent_vdw_probe_radii'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+
+     save_
+
+save__refine.ccp4_solvent_ion_probe_radii
+    _item_description.description
+;              CCP4 solvent ion proble radii 
+;
+    _item.name                  '_refine.ccp4_solvent_ion_probe_radii'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+
+     save_
+
+save__refine.ccp4_solvent_shrinkage_radii
+    _item_description.description
+;              CCP4 solvent shrinkage radii 
+;
+    _item.name                  '_refine.ccp4_solvent_shrinkage_radii'
+    _item.category_id             refine
+    _item.mandatory_code          no
+    _item_type.code               float
+    _item_units.code              angstroms
+
+     save_
+
+#-----------------------------------------------------------
+save__refln.ccp4_SAD_phase_anom
+     _item_description.description
+;  The anomalous difference amplitude
+;
+     _item.name                  '_refln.ccp4_SAD_phase_anom'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_SAD_phase_anom_sigma'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_SAD_phase_anom_sigma
+     _item_description.description
+; The standard uncertainty (e.s.d.) of _refln.ccp4_SAD_phase_anom
+;
+     _item.name                  '_refln.ccp4_SAD_phase_anom_sigma'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name  '_refln.ccp4_SAD_phase_anom'
+     _item_related.function_code  associated_value
+     _item_type.code               float
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_SAD_F_meas_plus_au
+     _item_description.description
+;  The measured value of the structure factor in arbitrary units
+    for hkl.
+;
+     _item.name                  '_refln.ccp4_SAD_F_meas_plus_au'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_SAD_F_meas_plus_sigma_au'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_SAD_F_meas_plus_sigma_au
+     _item_description.description
+; The standard uncertainty (e.s.d.) of _refln.ccp4_SAD_F_meas_plus_au, in
+   arbitrary units fo hkl.
+;
+     _item.name                  '_refln.ccp4_SAD_F_meas_plus_sigma_au'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name  '_refln.ccp4_SAD_F_meas_plus_au'
+     _item_related.function_code  associated_value
+     _item_type.code               float
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_SAD_F_meas_minus_au
+     _item_description.description
+;  The measured value of the structure factor in arbitrary units
+    for -h,-k,-l.
+;
+     _item.name                  '_refln.ccp4_SAD_F_meas_minus_au'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_SAD_F_meas_minus_sigma_au'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_SAD_F_meas_minus_sigma_au
+     _item_description.description
+; The standard uncertainty (e.s.d.) of _refln.ccp4_SAD_F_meas_minus_au,
+ in arbitrary units for -h,-k,-l.
+;
+     _item.name                  '_refln.ccp4_SAD_F_meas_minus_sigma_au'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name  '_refln.ccp4_SAD_F_meas_minus_au'
+     _item_related.function_code  associated_value
+     _item_type.code               float
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_SAD_HL_A_iso
+     _item_description.description
+; The isomorphous Hendrickson-Lattman coefficient A~iso~ for this
+    reflection for this derivative.
+             -2.0 * (Fp~obs~^2^ + Fh~calc~^2^ - Fph~obs~^2^)
+                  *  Fp~obs~ * cos(alphah~calc~)
+   A~iso~ =  -----------------------------------------------
+                                  E2^
+ 
+   E            = (Fph~obs~ - Fp~obs~ - Fh~calc~)2^
+                  for centric reflections
+                = [(Fph~obs~ - Fp~obs~) * 21/2^ - Fh~calc~]^2^
+                  for acentric reflections
+ 
+   Fp~obs~      = the observed structure factor amplitude of the
+                  native
+   Fph~obs~     = the observed structure factor amplitude of the
+                  derivative
+   Fh~calc~     = the calculated structure factor amplitude
+                  from the heavy atom model
+   alphah~calc~ = the calculated phase from the heavy atom model
+;
+     _item.name                  '_refln.ccp4_SAD_HL_A_iso'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_type.code               float
+      save_
+ 
+save__refln.ccp4_SAD_HL_B_iso
+     _item_description.description
+; The isomorphous Hendrickson-Lattman coefficient B~iso~ for this
+   reflection for this derivative.
+             -2.0 * (Fp~obs~^2^ + Fh~calc~^2^ - Fph~obs~^2^)
+                  *  Fp~obs~ * sin(alphah~calc~)
+   B~iso~ =  -----------------------------------------------
+                                  E2^
+ 
+   E            = (Fph~obs~ - Fp~obs~ - Fh~calc~)2^
+                  for centric reflections
+                = [(Fph~obs~ - Fp~obs~) * 21/2^ - Fh~calc~]^2^
+                  for acentric reflections
+ 
+   Fp~obs~      = the observed structure factor amplitude of the
+                  native
+   Fph~obs~     = the observed structure factor amplitude of the
+                  derivative
+   Fh~calc~     = the calculated structure factor amplitude
+                  from the heavy atom model
+   alphah~calc~ = the phase calculated from the heavy atom model
+;
+     _item.name                  '_refln.ccp4_SAD_HL_B_iso'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_type.code               float
+      save_
+ 
+save__refln.ccp4_SAD_HL_C_iso
+     _item_description.description
+; The isomorphous Hendrickson-Lattman coefficient C~iso~ for this
+   reflection for this derivative.
+              -Fp~obs~^2^ * [sin(alphah~calc~)2^
+                          -  cos(alphah~calc~)2^]
+    C~iso~ =  ------------------------------------
+                             E2^
+ 
+    E            = (Fph~obs~ - Fp~obs~ - Fh~calc~)2^
+                   for centric reflections
+                 = [(Fph~obs~ - Fp~obs~) * 21/2^ - Fh~calc~]^2^
+                   for acentric reflections
+ 
+    Fp~obs~      = the observed structure factor amplitude of the
+                   native
+    Fph~obs~     = the observed structure factor amplitude of the
+                   derivative
+    Fh~calc~     = the calculated structure factor amplitude
+                   from the heavy atom model
+    alphah~calc~ = the phase calculated from the heavy atom model
+;
+     _item.name                  '_refln.ccp4_SAD_HL_C_iso'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_type.code               float
+      save_
+ 
+save__refln.ccp4_SAD_HL_D_iso
+     _item_description.description
+; The isomorphous Hendrickson-Lattman coefficient D~iso~ for this
+   reflection for this derivative.
+             -2.0 * Fp~obs~^2^ * sin(alphah~calc~)2^
+                               * cos(alphah~calc~)2^
+   D~iso~ =  ----------------------------------------
+                              E2^
+ 
+   E            = (Fph~obs~ - Fp~obs~ - Fh~calc~)2^
+                  for centric reflections
+                = [(Fph~obs~ - Fp~obs~) * 21/2^ - Fh~calc~]^2^
+                  for acentric reflections
+ 
+   Fp~obs~      = the observed structure factor amplitude of the
+                  native
+   Fph~obs~     = the observed structure factor amplitude of the
+                  derivative
+   Fh~calc~     = the calculated structure factor amplitude
+                  from the heavy atom model
+   alphah~calc~ = the phase calculated from the heavy atom model
+;
+     _item.name                  '_refln.ccp4_SAD_HL_D_iso'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_type.code               float
+      save_
+ 
+#---------------------------------------------------------------------------
+
+save__refln.ccp4_I_plus
+     _item_description.description
+;  The measured value of the intensity in measured units
+    for hkl.
+;
+     _item.name                  '_refln.ccp4_I_plus'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_I_plus_sigma'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_I_plus_sigma
+     _item_description.description
+;  The standard uncertainty (derived from measurement) of the
+    intensity, in the measured units for hkl.
+;
+     _item.name                  '_refln.ccp4_I_plus_sigma'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_I_plus'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_I_minus
+     _item_description.description
+;  The measured value of the intensity in measured units
+    for -h,-k,-l.
+;
+     _item.name                  '_refln.ccp4_I_minus'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_I_minus_sigma'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+ 
+save__refln.ccp4_I_minus_sigma
+     _item_description.description
+;  The standard uncertainty (derived from measurement) of the
+    intensity, in the measured units for -h,-k,-l.
+;
+     _item.name                  '_refln.ccp4_I_minus_sigma'
+     _item.category_id             refln
+     _item.mandatory_code          no
+     _item_related.related_name   '_refln.ccp4_I_minus'
+     _item_related.function_code  associated_esd
+     _item_type.code               float
+     _item_type_conditions.code    esd
+     _item_units.code              arbitrary
+      save_
+  
+### EOF mmcif_ccp4-def-1.dic
+
+
+# 
+loop_
+_pdbx_item_linked_group.category_id 
+_pdbx_item_linked_group.link_group_id 
+_pdbx_item_linked_group.label 
+_pdbx_item_linked_group.context 
+_pdbx_item_linked_group.condition_id 
+ccp4_refine_tls_group 1 ccp4_refine_tls_group:atom_site:1       . . 
+ccp4_refine_tls_group 2 ccp4_refine_tls_group:atom_site:2       . . 
+ccp4_refine_tls_group 3 ccp4_refine_tls_group:ccp4_refine_tls:3 . . 
+# 
+loop_
+_pdbx_item_linked_group_list.child_category_id 
+_pdbx_item_linked_group_list.link_group_id 
+_pdbx_item_linked_group_list.child_name 
+_pdbx_item_linked_group_list.parent_name 
+_pdbx_item_linked_group_list.parent_category_id 
+ccp4_refine_tls_group 1 '_ccp4_refine_tls_group.beg_label_asym_id' '_atom_site.label_asym_id' atom_site       
+ccp4_refine_tls_group 1 '_ccp4_refine_tls_group.beg_label_seq_id'  '_atom_site.label_seq_id'  atom_site       
+ccp4_refine_tls_group 1 '_ccp4_refine_tls_group.beg_auth_seq_id'   '_atom_site.auth_seq_id'   atom_site       
+ccp4_refine_tls_group 2 '_ccp4_refine_tls_group.end_label_asym_id' '_atom_site.label_asym_id' atom_site       
+ccp4_refine_tls_group 2 '_ccp4_refine_tls_group.end_label_seq_id'  '_atom_site.label_seq_id'  atom_site       
+ccp4_refine_tls_group 2 '_ccp4_refine_tls_group.end_auth_seq_id'   '_atom_site.auth_seq_id'   atom_site       
+ccp4_refine_tls_group 3 '_ccp4_refine_tls_group.refine_tls_id'     '_ccp4_refine_tls.id'      ccp4_refine_tls 
+# 
