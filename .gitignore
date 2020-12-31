@@ -3,3 +3,4 @@
 .svn
 ascii.old/*
 schema.old/*
+dictionaries/*.xsd
