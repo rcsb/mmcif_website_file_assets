@@ -1,12 +1,23 @@
+###########################################################################
+#
+# File:  mmcif_img.dic
+# Date:  Tue Jan  5 12:06:04 EST 2021
+#
+# Created from files in CVS module dict-mmcif_img.dic unless noted:
+#        cif_img_1.7.8.dic   
+#        cif_img_1.7.5-ilg.dic   
+#
+###########################################################################
+ 
+ 
           # [IUCr Home Page] [CIF Home Page] [CBF/imgCIF] [CBFlib] #
 
                                 # imgCIF/CBF #
 
                           # Extensions Dictionary #
+data_mmcif_img.dic
 
-data_cif_img.dic
-
-    _datablock.id               cif_img.dic
+    _datablock.id               mmcif_img.dic
     _datablock.description
 ;
 ##############################################################################
@@ -15,8 +26,8 @@ data_cif_img.dic
 #             and Crystallographic Binary File Dictionary (CBF)              #
 #            Extending the Macromolecular CIF Dictionary (mmCIF)             #
 #                                                                            #
-#                             Version 1.7.11                                 #
-#                              of 2018-12-03                                 #
+#                              Version 1.7.8                                 #
+#                              of 2014-02-27                                 #
 #    ###################################################################     #
 #    # *** WARNING *** THIS IS A DRAFT FOR DISCUSSSION *** WARNING *** #     #
 #    #                 SUBJECT TO CHANGE WITHOUT NOTICE                #     #
@@ -87,7 +98,6 @@ data_cif_img.dic
 #
 #                  _array_structure_list.axis_set_id
 #                  _array_structure_list.array_id
-#                  _array_structure_list.array_section_id
 #                  _array_structure_list.dimension
 #                  _array_structure_list.direction
 #                  _array_structure_list.index
@@ -203,15 +213,12 @@ data_cif_img.dic
 #
 #        category  DIFFRN_RADIATION
 #
-#                  _diffrn_radiation.beam_width
-#                  _diffrn_radiation.beam_height
-#                  _diffrn_radiation.beam_flux
 #                  _diffrn_radiation.collimation
 #                  _diffrn_radiation.diffrn_id
 #                  _diffrn_radiation.div_x_source
 #                  _diffrn_radiation.div_y_source
 #                  _diffrn_radiation.div_x_y_source
-#                  _diffrn_radiation.filter_edge
+#                  _diffrn_radiation.filter_edge'
 #                  _diffrn_radiation.inhomogeneity
 #                  _diffrn_radiation.monochromator
 #                  _diffrn_radiation.polarisn_norm
@@ -222,14 +229,6 @@ data_cif_img.dic
 #                  _diffrn_radiation.polarizn_Stokes_Q
 #                  _diffrn_radiation.polarizn_Stokes_U
 #                  _diffrn_radiation.polarizn_Stokes_V
-#                  _diffrn_radiation.polarisn_norm_esd
-#                  _diffrn_radiation.polarisn_ratio_esd
-#                  _diffrn_radiation.polarizn_source_norm_esd
-#                  _diffrn_radiation.polarizn_source_ratio_esd
-#                  _diffrn_radiation.polarizn_Stokes_I_esd
-#                  _diffrn_radiation.polarizn_Stokes_Q_esd
-#                  _diffrn_radiation.polarizn_Stokes_U_esd
-#                  _diffrn_radiation.polarizn_Stokes_V_esd
 #                  _diffrn_radiation.probe
 #                  _diffrn_radiation.type
 #                  _diffrn_radiation.xray_symbol
@@ -270,12 +269,6 @@ data_cif_img.dic
 #                  _diffrn_scan_axis.scan_id
 #                  _diffrn_scan_axis.variant
 #
-#        category  DIFFRN_SCAN_COLLECTION
-#
-#                  _diffrn_scan_collection.scan_id
-#                  _diffrn_scan_collection.type
-#                  _diffrn_scan_collection.translation_width
-#
 #        category  DIFFRN_SCAN_FRAME
 #
 #                  _diffrn_scan_frame.date
@@ -286,10 +279,6 @@ data_cif_img.dic
 #                  _diffrn_scan_frame.polarizn_Stokes_Q
 #                  _diffrn_scan_frame.polarizn_Stokes_U
 #                  _diffrn_scan_frame.polarizn_Stokes_V
-#                  _diffrn_scan_frame.polarizn_Stokes_I_esd
-#                  _diffrn_scan_frame.polarizn_Stokes_Q_esd
-#                  _diffrn_scan_frame.polarizn_Stokes_U_esd
-#                  _diffrn_scan_frame.polarizn_Stokes_V_esd
 #                  _diffrn_scan_frame.scan_id
 #                  _diffrn_scan_frame.time_period
 #                  _diffrn_scan_frame.time_rstrt_incr
@@ -549,11 +538,6 @@ data_cif_img.dic
 |                || +---------------------------------------------------------------------------------------------+ ||
 |                ||-------------------------------------------------------------------------------------------------||
 |                || +---------------------------------------------------------------------------------------------+ ||
-|                || |   | DIFFRN_SCAN_COLLECTION | Data items in the DIFFRN_SCAN_COLLECTION category describe the | ||
-|                || |   |                        | type of collection strategy involved in each scan..            | ||
-|                || +---------------------------------------------------------------------------------------------+ ||
-|                ||-------------------------------------------------------------------------------------------------||
-|                || +---------------------------------------------------------------------------------------------+ ||
 |                || |   | DIFFRN_SCAN_FRAME | Data items in the DIFFRN_SCAN_FRAME category describe the           | ||
 |                || |   |                   | relationships of particular frames to scans.                        | ||
 |                || +---------------------------------------------------------------------------------------------+ ||
@@ -662,9 +646,9 @@ data_cif_img.dic
 ;
 
 
-    _dictionary.title           cif_img.dic
-    _dictionary.version         1.7.11
-    _dictionary.datablock_id    cif_img.dic
+    _dictionary.title           mmcif_img.dic
+    _dictionary.version         1.7.8
+    _dictionary.datablock_id    mmcif_img.dic
 
 
 
@@ -757,16 +741,17 @@ save_array_data
    
     -->
    
-    /entry:NXentry
-     /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
-           /data_ARRAYID_BINARYID -->
-                /entry/data_ARRAYID_BINARYID/data_ARRAYID_BINARYID
+    /CBF_diffrn_scan__SCANID:NXentry
+      /instrument:NXinstrument
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
+          /data_ARRAYID_BINARYID=DATAARRAY
             @CBF_array_id="ARRAYID"
             @CBF_binary_id="BINARYID"
             @CBF_header_contents="HEADER"
             @CBF_header_convention="HEADERCONVENTION"
+      /data:NXdata
+        /data_ARRAYID_BINARYID-->
+          /CBF_diffrn_scan__SCANID/instrument/CBF_diffrn_detector__DETECTORNAME/data_ARRAYID_BINARYID
 ;
      loop_
     _category_key.name             '_array_data.array_id'
@@ -1278,11 +1263,8 @@ save_array_element_size
     -->
    
     /entry:NXentry
-     /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
-          /data_ARRAYID_BINARYID -->
-                /entry/data_ARRAYID_BINARYID/data_ARRAYID_BINARYID
+      /instrument:NXinstrument
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
           /?_pixel_size_ARRAYID=SIZE
             @CBF_array_id="ARRAYID"
     where "?" is "x", "y", "z" for
@@ -1420,9 +1402,13 @@ save_array_intensities
 
     -->
 
-      /entry:NXentry
-        /data_ARRAYID_BINARYID:NXdata
-          /data_ARRAYID_BINARYID
+      /CBF_diffrn_scan__SCANID:NXentry
+        /data:NXdata
+          /data-->
+            /CBF_diffrn_scan__SCANID/instrument/CBF_diffrn_detector__DETECTORNAME/data_ARRAYID_BINARYID
+        /instrument:NXinstrument
+          /CBF_diffrn_detector__DETECTORNAME:NXdetector
+            /data_ARRAYID_BINARYID=DATAARRAY
               @CBF_array_id="ARRAYID"
               @CBF_binary_id="BINARYID"
               @details="DETAILS"
@@ -1436,11 +1422,6 @@ save_array_intensities
               @CBF_array_intensities__pixel_fast_bin_size=[FBINSIZE]
               @CBF_array_intensities__pixel_slow_bin_size=[SBINSIZE]
               @CBF_array_intensities__pixel_binning_method="METHOD"
-       /instrument:NXinstrument
-         /DETECTORNAME:NXdetector_group
-         /DETECTORELEMENTNAME:NXdetector
-           /data_ARRAYID_BINARYID -->
-                /entry/data_ARRAYID_BINARYID/data_ARRAYID_BINARYID
    
     The argument has been made that these attributes are not needed
     because NeXus files are supposed to have "true values" stored.
@@ -1551,7 +1532,7 @@ save__array_intensities.gain
 
 save__array_intensities.gain_esd
     _item_description.description
-;            The estimated standard deviation of detector 'gain'.
+;            The estimated standard deviation in detector 'gain'.
 ;
     _item.name              '_array_intensities.gain_esd'
     _item.category_id          array_intensities
@@ -2084,100 +2065,36 @@ save_array_structure_list
    
     _array_structure_list.axis_set_id AXISSETID
     _array_structure_list.array_id ARRAYID
-    _array_structure_list.array_section_id ARRAYSECTIONID
     _array_structure_list.dimension DIM
     _array_structure_list.direction DIR
     _array_structure_list.index INDEX
     _array_structure_list.precedence PRECEDENCE
-   
-    _array_structure_list_section.array_id ARRAYID -->
-    _array_structure_list_section.id ARRAYSECTIONID -->
-    _array_structure_list_section.index PRECEDENCE-->
-    _array_structure_list_section.end END -->
-    _array_structure_list_section.start START -->
-    _array_structure_list_section.stride STRIDE -->
-
-   
-    loop_
-    _array_structure_list_axis.axis_id
-    _array_structure_list_axis.axis_set_id
-    _array_structure_list_axis.angle
-    _array_structure_list_axis.angle_increment
-    _array_structure_list_axis.displacement
-    _array_structure_list_axis.fract_displacement 
-    _array_structure_list_axis.displacement_increment
-    _array_structure_list_axis.fract_displacement_increment
-    _array_structure_list_axis.angular_pitch 
-    _array_structure_list_axis.reference_angle
+    _array_structure_list_axis.axis_id AXISID
+    _array_structure_list_axis.axis_set_id AXISSETID
+    _array_structure_list_axis.angle ANGLE
+    _array_structure_list_axis.angle_increment ANGLEINC
+    _array_structure_list_axis.displacement DISP
+    _array_structure_list_axis.fract_displacement  FRACTDISP
+    _array_structure_list_axis.displacement_increment DISPINC
+    _array_structure_list_axis.fract_displacement_increment FRACTINC
+    _array_structure_list_axis.angular_pitch  ANGPITCH
+    _array_structure_list_axis.reference_angle REFANG
     _array_structure_list_axis.reference_displacement REFDISP
-    AXISID1 AXISSETID ANGLE1 ANGLEINC1 DISP1 FRACTDISP1
-         DISPINC1 FRACTINC1 ANGPITCH1 REFANG1
-    AXISID2 AXISSETID ANGLE2 ANGLEINC2 DISP2 FRACTDISP2
-         DISPINC2 FRACTINC2 ANGPITCH2 REFANG2
-    AXISID3 AXISSETID ANGLE3 ANGLEINC3 DISP3 FRACTDISP3
-         DISPINC3 FRACTINC3 ANGPITCH3 REFANG3
-   
-    _diffrn_data_frame.array_id ARRAYID
-    _diffrn_data_frame.binary_id BINARYID
-    _diffrn_data_frame.center_fast CENF
-    _diffrn_data_frame.center_slow CENS
-    _diffrn_data_frame.center_units UNITS
-    _diffrn_data_frame.detector_element_id ELEMENTID
-    _diffrn_data_frame.id FRAMEID
-    _diffrn_data_frame.details DETAILS
 
     -->
    
-    ...
-   
-   
-   /entry:NXentry
-     /data_ARRAYID_BINARYID:NXdata
-        @signal="data_ARRAYID_BINARY_ID"
-        /data_ARRAYID_BINARYID[ the data for the array ARRAYID,
-                                binary BINARYID, all sections,
-                                all FRAMES]
-        @axes=[...,AXISID1,...] with AXISID1 inserted at PRECEDENCE-1
-        @AXISID1_indices=[PRECEDENCE-1]
-        @AXISID2_indices=[PRECEDENCE-1]
-        @AXISID3_indices=[PRECEDENCE-1]
-        @AXISID1_origins=[origin1]  (defualt 0)
-        @AXISID2_origins=[origin2]  (defualt 0)
-        @AXISID3_origins=[origin3]  (defualt 0)
-        @AXISID1_sizes=[size1]
-        @AXISID2_sizes=[size2]
-        @AXISID3_sizes=[size3]
-        @AXISID1_strides=[stride1]
-        @AXISID2_strides=[stride2]
-        @AXISID3_strides=[stride3]
-   
-        ...
-        /AXISID1 -->
-            /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID1
-        /AXISID2 -->
-            /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID2
-        /AXISID2 -->
-            /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID3
-        ...
-       
-     /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
-           /data_ARRAYID_BINARYID -->
-                /entry/data_ARRAYID_BINARYID/data_ARRAYID_BINARYID
-           /AXISID1 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID1
-           /AXISID2 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID2
-           /AXISID2 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID3
-           /ARRAYSECTIONID:NXdetector_module
-             /data_origin=[...] -- the 0-based origins indices of ARRAYSECTIONID
-             /data_size=[...] the sizes in pixels of ARRAYSECTIONID
-             /data_stride[...] the strides of ARRAYSECTIONID
-               ..
-           /transformations:NXtransformations
-             /AXISID1=[DISP1,DISP1+DISPINC1,...]   (or using angles where appropriate)
+      /CBF_diffrn_scan__SCANID:NXentry
+        /instrument:NXinstrument
+          /CBF_diffrn_detector__DETECTORNAME:NXdetector
+            /CBF_array_structure_list_axis__AXISSETID=[]
+              @CBF_array_structure_list_axis__id="AXISSETID"
+              @CBF_array__id="ARRAYID"
+              @CBF_array_structure_list__dimension=DIM
+              @CBF_array_structure_list__direction="DIR"
+              @CBF_array_structure_list__index=INDEX
+              @CBF_array_structure_list__precedence=PRECEDENCE
+            /poise:NXpoise
+              /AXISID=[DISP,DISP+DISPINC,...]   (or using angles where appropriate)
                 @depends_on=...   determined from AXIS definitions
                 @equipment="detector"
                 @offset=[...] determined from AXIS definitions
@@ -2185,64 +2102,22 @@ save_array_structure_list
                 @transformation_type="..." from AXIS definitions
                 @units="mm"
                 @vector=[...] determined from AXIS definitions
-                @CBF_array_structure_list_axis__axis_id="AXISID1"
+                @CBF_array_structure_list_axis__axis_id="AXISID"
                 @CBF_array_structure_list_axis__axis_set_id="AXISSETID"
-                @CBF_array_structure_list_axis__angle=ANGLE1
-                @CBF_array_structure_list_axis__angle_increment=ANGLEINC1
-                @CBF_array_structure_list_axis__displacement=DISP1
-                @CBF_array_structure_list_axis__displacement=FRACTDISP1
-                @CBF_array_structure_list_axis__displacement_increment=DISPINC1
-                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC1
-                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH1
-                @CBF_array_structure_list_axis__radial_pitch=RADPITCH1
-                @CBF_array_structure_list_axis__reference_angle=REFANG1
-                @CBF_array_structure_list_axis__reference_displacement=REFDISP1
-             /AXISID2=[DISP2,DISP2+DISPINC2,...]   (or using angles where appropriate)
-                @depends_on=...   determined from AXIS definitions
-                @equipment="detector"
-                @offset=[...] determined from AXIS definitions
-                @offset_units="mm"
-                @transformation_type="..." from AXIS definitions
-                @units="mm"
-                @vector=[...] determined from AXIS definitions
-                @CBF_array_structure_list_axis__axis_id="AXISID2"
-                @CBF_array_structure_list_axis__axis_set_id="AXISSETID"
-                @CBF_array_structure_list_axis__angle=ANGLE2
-                @CBF_array_structure_list_axis__angle_increment=ANGLEINC2
-                @CBF_array_structure_list_axis__displacement=DISP2
-                @CBF_array_structure_list_axis__displacement=FRACTDISP2
-                @CBF_array_structure_list_axis__displacement_increment=DISPINC2
-                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC2
-                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH2
-                @CBF_array_structure_list_axis__radial_pitch=RADPITCH2
-                @CBF_array_structure_list_axis__reference_angle=REFANG2
-                @CBF_array_structure_list_axis__reference_displacement=REFDISP2
-             /AXISID3=[DISP3,DISP3+DISPINC3,...]   (or using angles where appropriate)
-                @depends_on=...   determined from AXIS definitions
-                @equipment="detector"
-                @offset=[...] determined from AXIS definitions
-                @offset_units="mm"
-                @transformation_type="..." from AXIS definitions
-                @units="mm"
-                @vector=[...] determined from AXIS definitions
-                @CBF_array_structure_list_axis__axis_id="AXISID3"
-                @CBF_array_structure_list_axis__axis_set_id="AXISSETID"
-                @CBF_array_structure_list_axis__angle=ANGLE3
-                @CBF_array_structure_list_axis__angle_increment=ANGLEINC3
-                @CBF_array_structure_list_axis__displacement=DISP3
-                @CBF_array_structure_list_axis__displacement=FRACTDISP3
-                @CBF_array_structure_list_axis__displacement_increment=DISPINC3
-                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC3
-                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH3
-                @CBF_array_structure_list_axis__radial_pitch=RADPITCH3
-                @CBF_array_structure_list_axis__reference_angle=REFANG3
-                @CBF_array_structure_list_axis__reference_displacement=REFDISP3
+                @CBF_array_structure_list_axis__angle=ANGLE
+                @CBF_array_structure_list_axis__angle_increment=ANGLEINC
+                @CBF_array_structure_list_axis__displacement=DISP
+                @CBF_array_structure_list_axis__displacement=FRACTDISP
+                @CBF_array_structure_list_axis__displacement_increment=DISPINC
+                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC
+                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH
+                @CBF_array_structure_list_axis__radial_pitch=RADPITCH
+                @CBF_array_structure_list_axis__reference_angle=REFANG
+                @CBF_array_structure_list_axis__reference_displacement=REFDISP
+               
+     with the parent category for the axis set and axis determined by the equipment
+     of the axes.
    
-    Notes: The same axis AXISIDn may appear in multiple axis sets for different
-           values of PRECEDENCE of the data array, in which case the values
-           in AXISIDn_indices with be the sorted list of PRECEDENCE-1 values
-           and the array section nformation will be origanized by the
-           same ordering.
 ;
 
      loop_
@@ -2281,17 +2156,6 @@ save__array_structure_list.array_id
     _item_description.description
 ;             This item is a pointer to _array_structure.id in the
               ARRAY_STRUCTURE category.
-;
-    _item.name                  '_array_structure_list.array_id'
-    _item.category_id             array_structure_list
-    _item.mandatory_code          implicit
-    _item_type.code               code
-save_
-
-save__array_structure_list.array_section_id
-    _item_description.description
-;             This item is a pointer to _array_structure_list_section.id in the
-              ARRAY_STRUCTURE_LIST_SECTION category.
 ;
     _item.name                  '_array_structure_list.array_id'
     _item.category_id             array_structure_list
@@ -2484,20 +2348,13 @@ save_array_structure_list_section
     _array_structure_list_section.start START -->
     _array_structure_list_section.stride STRIDE -->
     /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
-           /data_ARRAYID_BINARYID -->
-                /entry/data_ARRAYID_BINARYID/data_ARRAYID_BINARYID
-           /AXISID1 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID1
-           /AXISID2 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID2
-           /AXISID2 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID3
-           /ARRAYSECTIONID:NXdetector_module
-             /data_origin=[...] -- the 0-based origins indices of ARRAYSECTIONID
-             /data_size=[...] the sizes in pixels of ARRAYSECTIONID
-             /data_stride[...] the strides of ARRAYSECTIONID
+      /CBF_diffrn_detector__DETECTORNAME:NXdetector
+        /CBF_array_structure_list_section__SECTIONID=[]
+          @CBF_array_structure_list_section__index=INDEX
+          @CBF_array_structure_list_section__end=END
+          @CBF_array_structure_list_section__start=START
+          @CBF_array_structure_list_section__stride=STRIDE
+         
 
 ;
 
@@ -2732,9 +2589,6 @@ save_array_structure_list_axis
      direction and one for the radial direction.  This differs from a
      cylindrical scan for which the two axes are not coupled into one
      set.
-   
-     Axes may be specified wither for an entire array or for just a section
-     of an array.
 ;
     _category.id                   array_structure_list_axis
     _category.mandatory_code       no
@@ -2743,100 +2597,36 @@ save_array_structure_list_axis
    
     _array_structure_list.axis_set_id AXISSETID
     _array_structure_list.array_id ARRAYID
-    _array_structure_list.array_section_id ARRAYSECTIONID
     _array_structure_list.dimension DIM
     _array_structure_list.direction DIR
     _array_structure_list.index INDEX
     _array_structure_list.precedence PRECEDENCE
-   
-    _array_structure_list_section.array_id ARRAYID -->
-    _array_structure_list_section.id ARRAYSECTIONID -->
-    _array_structure_list_section.index PRECEDENCE-->
-    _array_structure_list_section.end END -->
-    _array_structure_list_section.start START -->
-    _array_structure_list_section.stride STRIDE -->
-
-   
-    loop_
-    _array_structure_list_axis.axis_id
-    _array_structure_list_axis.axis_set_id
-    _array_structure_list_axis.angle
-    _array_structure_list_axis.angle_increment
-    _array_structure_list_axis.displacement
-    _array_structure_list_axis.fract_displacement 
-    _array_structure_list_axis.displacement_increment
-    _array_structure_list_axis.fract_displacement_increment
-    _array_structure_list_axis.angular_pitch 
-    _array_structure_list_axis.reference_angle
+    _array_structure_list_axis.axis_id AXISID
+    _array_structure_list_axis.axis_set_id AXISSETID
+    _array_structure_list_axis.angle ANGLE
+    _array_structure_list_axis.angle_increment ANGLEINC
+    _array_structure_list_axis.displacement DISP
+    _array_structure_list_axis.fract_displacement  FRACTDISP
+    _array_structure_list_axis.displacement_increment DISPINC
+    _array_structure_list_axis.fract_displacement_increment FRACTINC
+    _array_structure_list_axis.angular_pitch  ANGPITCH
+    _array_structure_list_axis.reference_angle REFANG
     _array_structure_list_axis.reference_displacement REFDISP
-    AXISID1 AXISSETID ANGLE1 ANGLEINC1 DISP1 FRACTDISP1
-         DISPINC1 FRACTINC1 ANGPITCH1 REFANG1
-    AXISID2 AXISSETID ANGLE2 ANGLEINC2 DISP2 FRACTDISP2
-         DISPINC2 FRACTINC2 ANGPITCH2 REFANG2
-    AXISID3 AXISSETID ANGLE3 ANGLEINC3 DISP3 FRACTDISP3
-         DISPINC3 FRACTINC3 ANGPITCH3 REFANG3
-   
-    _diffrn_data_frame.array_id ARRAYID
-    _diffrn_data_frame.binary_id BINARYID
-    _diffrn_data_frame.center_fast CENF
-    _diffrn_data_frame.center_slow CENS
-    _diffrn_data_frame.center_units UNITS
-    _diffrn_data_frame.detector_element_id ELEMENTID
-    _diffrn_data_frame.id FRAMEID
-    _diffrn_data_frame.details DETAILS
 
     -->
    
-    ...
-   
-   
-   /entry:NXentry
-     /data_ARRAYID_BINARYID:NXdata
-        @signal="data_ARRAYID_BINARY_ID"
-        /data_ARRAYID_BINARYID[ the data for the array ARRAYID,
-                                binary BINARYID, all sections,
-                                all FRAMES]
-        @axes=[...,AXISID1,...] with AXISID1 inserted at PRECEDENCE-1
-        @AXISID1_indices=[PRECEDENCE-1]
-        @AXISID2_indices=[PRECEDENCE-1]
-        @AXISID3_indices=[PRECEDENCE-1]
-        @AXISID1_origins=[origin1]  (defualt 0)
-        @AXISID2_origins=[origin2]  (defualt 0)
-        @AXISID3_origins=[origin3]  (defualt 0)
-        @AXISID1_sizes=[size1]
-        @AXISID2_sizes=[size2]
-        @AXISID3_sizes=[size3]
-        @AXISID1_strides=[stride1]
-        @AXISID2_strides=[stride2]
-        @AXISID3_strides=[stride3]
-   
-        ...
-        /AXISID1 -->
-            /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID1
-        /AXISID2 -->
-            /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID2
-        /AXISID2 -->
-            /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID3
-        ...
-       
-     /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
-           /data_ARRAYID_BINARYID -->
-                /entry/data_ARRAYID_BINARYID/data_ARRAYID_BINARYID
-           /AXISID1 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID1
-           /AXISID2 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID2
-           /AXISID2 -->
-                /entry/instrument/DETECTORELEMENTNAME/transformations/AXISID3
-           /ARRAYSECTIONID:NXdetector_module
-             /data_origin=[...] -- the 0-based origins indices of ARRAYSECTIONID
-             /data_size=[...] the sizes in pixels of ARRAYSECTIONID
-             /data_stride[...] the strides of ARRAYSECTIONID
-               ..
-           /transformations:NXtransformations
-             /AXISID1=[DISP1,DISP1+DISPINC1,...]   (or using angles where appropriate)
+      /CBF_diffrn_scan__SCANID:NXentry
+        /instrument:NXinstrument
+          /CBF_diffrn_detector__DETECTORNAME:NXdetector
+            /CBF_array_structure_list_axis__AXISSETID=[]
+              @CBF_array_structure_list_axis__id="AXISSETID"
+              @CBF_array__id="ARRAYID"
+              @CBF_array_structure_list__dimension=DIM
+              @CBF_array_structure_list__direction="DIR"
+              @CBF_array_structure_list__index=INDEX
+              @CBF_array_structure_list__precedence=PRECEDENCE
+            /poise:NXpoise
+              /AXISID=[DISP,DISP+DISPINC,...]   (or using angles where appropriate)
                 @depends_on=...   determined from AXIS definitions
                 @equipment="detector"
                 @offset=[...] determined from AXIS definitions
@@ -2844,64 +2634,21 @@ save_array_structure_list_axis
                 @transformation_type="..." from AXIS definitions
                 @units="mm"
                 @vector=[...] determined from AXIS definitions
-                @CBF_array_structure_list_axis__axis_id="AXISID1"
+                @CBF_array_structure_list_axis__axis_id="AXISID"
                 @CBF_array_structure_list_axis__axis_set_id="AXISSETID"
-                @CBF_array_structure_list_axis__angle=ANGLE1
-                @CBF_array_structure_list_axis__angle_increment=ANGLEINC1
-                @CBF_array_structure_list_axis__displacement=DISP1
-                @CBF_array_structure_list_axis__displacement=FRACTDISP1
-                @CBF_array_structure_list_axis__displacement_increment=DISPINC1
-                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC1
-                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH1
-                @CBF_array_structure_list_axis__radial_pitch=RADPITCH1
-                @CBF_array_structure_list_axis__reference_angle=REFANG1
-                @CBF_array_structure_list_axis__reference_displacement=REFDISP1
-             /AXISID2=[DISP2,DISP2+DISPINC2,...]   (or using angles where appropriate)
-                @depends_on=...   determined from AXIS definitions
-                @equipment="detector"
-                @offset=[...] determined from AXIS definitions
-                @offset_units="mm"
-                @transformation_type="..." from AXIS definitions
-                @units="mm"
-                @vector=[...] determined from AXIS definitions
-                @CBF_array_structure_list_axis__axis_id="AXISID2"
-                @CBF_array_structure_list_axis__axis_set_id="AXISSETID"
-                @CBF_array_structure_list_axis__angle=ANGLE2
-                @CBF_array_structure_list_axis__angle_increment=ANGLEINC2
-                @CBF_array_structure_list_axis__displacement=DISP2
-                @CBF_array_structure_list_axis__displacement=FRACTDISP2
-                @CBF_array_structure_list_axis__displacement_increment=DISPINC2
-                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC2
-                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH2
-                @CBF_array_structure_list_axis__radial_pitch=RADPITCH2
-                @CBF_array_structure_list_axis__reference_angle=REFANG2
-                @CBF_array_structure_list_axis__reference_displacement=REFDISP2
-             /AXISID3=[DISP3,DISP3+DISPINC3,...]   (or using angles where appropriate)
-                @depends_on=...   determined from AXIS definitions
-                @equipment="detector"
-                @offset=[...] determined from AXIS definitions
-                @offset_units="mm"
-                @transformation_type="..." from AXIS definitions
-                @units="mm"
-                @vector=[...] determined from AXIS definitions
-                @CBF_array_structure_list_axis__axis_id="AXISID3"
-                @CBF_array_structure_list_axis__axis_set_id="AXISSETID"
-                @CBF_array_structure_list_axis__angle=ANGLE3
-                @CBF_array_structure_list_axis__angle_increment=ANGLEINC3
-                @CBF_array_structure_list_axis__displacement=DISP3
-                @CBF_array_structure_list_axis__displacement=FRACTDISP3
-                @CBF_array_structure_list_axis__displacement_increment=DISPINC3
-                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC3
-                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH3
-                @CBF_array_structure_list_axis__radial_pitch=RADPITCH3
-                @CBF_array_structure_list_axis__reference_angle=REFANG3
-                @CBF_array_structure_list_axis__reference_displacement=REFDISP3
-   
-    Notes: The same axis AXISIDn may appear in multiple axis sets for different
-           values of PRECEDENCE of the data array, in which case the values
-           in AXISIDn_indices with be the sorted list of PRECEDENCE-1 values
-           and the array section nformation will be origanized by the
-           same ordering.
+                @CBF_array_structure_list_axis__angle=ANGLE
+                @CBF_array_structure_list_axis__angle_increment=ANGLEINC
+                @CBF_array_structure_list_axis__displacement=DISP
+                @CBF_array_structure_list_axis__displacement=FRACTDISP
+                @CBF_array_structure_list_axis__displacement_increment=DISPINC
+                @CBF_array_structure_list_axis__fract_displacement_increment=FRACTINC
+                @CBF_array_structure_list_axis__angular_pitch=ANGPITCH
+                @CBF_array_structure_list_axis__radial_pitch=RADPITCH
+                @CBF_array_structure_list_axis__reference_angle=REFANG
+                @CBF_array_structure_list_axis__reference_displacement=REFDISP
+               
+     with the parent category for the axis set and axis determined by the equipment
+     of the axes.
 ;
 
      loop_
@@ -3342,7 +3089,7 @@ save_axis
        (5)  Of those not directed along a, none is shorter than b.
        (6)  Of those not lying in the ab plane, none is shorter than c.
        (7)  The three angles between the basis vectors a, b and c are
-       either all acute (<90\%) or all obtuse (≥90\%)."
+       either all acute (<90\%) or all obtuse (>=90\%)."
     
      These rules do not produce a unique result that is stable under
      the assumption of experimental errors, and the the resulting cell
@@ -3391,13 +3138,13 @@ save_axis
         cos(\a*) = (cos(\b) cos(\g) - cos(\a))/(sin(\b) sin(\g))
         cos(\b*) = (cos(\a) cos(\g) - cos(\b))/(sin(\a) sin(\g))
         cos(\g*) = (cos(\a) cos(\b) - cos(\g))/(sin(\a) sin(\b))
-        V = abc SQRT(1 - cos(\a)^^2^
-                       - cos(\b)^^2^
-                       - cos(\g)^^2^
+        V = abc SQRT(1 - cos(\a)^2^
+                       - cos(\b)^2^
+                       - cos(\g)^2^
                        + 2 cos(\a) cos(\b) cos(\g) )
     
      In this form the dimensions of the reciprocal lattice are in reciprocal
-     \%Angstroms (\%A^^-1^).  A dimensionless form can be obtained by
+     \%Angstroms (\%A^-1^).  A dimensionless form can be obtained by
      multiplying by the wavelength.  Reflections are commonly indexed against
      this coordinate system as (h, k, l) triples.
     
@@ -3440,16 +3187,17 @@ save_axis
    
     -->
 
-{     /entry:NXentry
+{      /CBF_diffrn_scan__SCANID:NXentry
         /instrument:NXinstrument
-         /DETECTORELEMENTNAME:NXdetector
+         /CBF_diffrn_detector__DETECTORNAME:NXdetector
 for AXISEQUIPMENT=="detector"}
-{     /entry:NXentry
+{     /CBF_diffrn_scan__SCANID:NXentry
         /sample:NXsample
 for AXISEQUIPMENT=="goniometer"}
-{     /entry:NXentry
+{     /CBF_diffrn_scan__SCANID:NXentry
+        /coordinate_system:NXcoordinate_system
 for AXISEQUIPMENT=="general"}
-          /transformations:NXtransformations
+          /poise:NXpoise
             /AXISID=[]
               @units="mm"  if AXISTYPE=="translation"
               or @units="degrees"  if AXISTYPE=="rotation"
@@ -3549,13 +3297,11 @@ for AXISEQUIPMENT=="general"}
     In imgCIF/CBF all the information about all axes other than their
     settings are gathered in one AXIS category.  The closest equivalent
     container in NeXus is the NXinstrument class.  We put the information
-    about detector axes into a
-    detector:NXdetector/tranformations:NXtransformations NeXus class instance,
-    information about the goniometer into a
-    goniometer:NXgoniometer/tranformations:NXtransformations NeXus
+    about detector axes into an detector:NXdetector NeXus class instance,
+    information about the goniometer into an goniometer:NXgoniometer NeXus
     class instance, etc.  Additionally, in view of the general nature of
     some axes, such as the coordinate frame axes and gravity, we add a
-    transformations:NXtransformation NeXus class instance under NXentry with
+    coordinate_system:NXcoordinate_system NeXus class instance with
     axis__gravity, axis__beam and other axes not tied to specific equipment.
 
     We have applied the coordinate frame transformation changing
@@ -5358,10 +5104,9 @@ save_diffrn_data_frame
 
     -->
    
-    /entry:NXentry
+    /CBF_diffrn_scan__SCANID:NXentry
       /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
           /CBF_diffrn_data_frame__section_id=[SECTIONIDARRAY]
           /CBF_diffrn_data_frame__binary_id=[BINARYIDARRAY]
           /CBF_diffrn_data_frame__center_fast_slow=[CENTERARRAY]
@@ -5728,12 +5473,11 @@ save_diffrn_detector
    
     -->
    
-      /entry:NXentry
+      /CBF_diffrn_scan__SCANID:NXentry
         /CBF_scan_id="SCANID"
         /CBF_diffrn_id="DIFFRNID"
           /instrument:NXinstrument
-           /DETECTORNAME:NXdetector_group
-           /DETECTORELEMENTNAME:NXdetector
+            /CBF_diffrn_detector__DETECTORNAME:NXdetector
               /details="DETAILS"
               /type="DETECTOR"
               /deadtime=DTIME
@@ -5994,9 +5738,8 @@ save_diffrn_detector_axis
     _diffrn_detector_axis.axis_id AXISID -->
     _diffrn_detector_axis.detector_id DETECTORNAME -->
         /instrument:NXinstrument
-         /DETECTORNAME:NXdetector_group
-         /DETECTORELEMENTNAME:NXdetector
-            /transformations:NXtransformations
+          /CBF_diffrn_detector__DETECTORNAME:NXdetector
+            /poise:NXpoise
               /AXISID=[]
 
 This information normally will duplicate information obtained from
@@ -6092,12 +5835,11 @@ save_diffrn_detector_element
    
     -->
    
-    /entry:NXentry
+    /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID"
       /CBF_diffrn_id="DIFFRNID"
       /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
           /beam_center_x=[RCS]  (converted from UNITS as needed)
             @units=mm
           /beam_center_y=[RCF]  (converted from UNITS as needed)
@@ -6328,7 +6070,7 @@ save_diffrn_measurement
    
     -->
    
-    /entry:NXentry
+    /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID
       /CBF_diffrn_id="DIFFRNID"
       /instrument:NXinstrument
@@ -6664,11 +6406,11 @@ save_diffrn_measurement_axis
    
     -->
 
-    /entry:NXentry
+    /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID
       /CBF_diffrn_id="DIFFRNID"
       /sample:Nxsample
-        /transformations:NXtransformations     
+        /poise:NXpoise     
           /AXISID=[]     
       /instrument:NXinstrument
         /CBF_diffrn_measurement__GONIOMETER:NXgoniometer
@@ -6785,14 +6527,6 @@ save_diffrn_radiation
     _diffrn_radiation.polarizn_Stokes_Q  SVECQ
     _diffrn_radiation.polarizn_Stokes_U  SVECU
     _diffrn_radiation.polarizn_Stokes_V  SVECV
-    _diffrn_radiation.polarisn_norm_esd  POLNANGESD
-    _diffrn_radiation.polarisn_ratio_esd POLRATESD
-    _diffrn_radiation.polarizn_source_norm_esd   POLSNANGESD
-    _diffrn_radiation.polarizn_source_ratio_esd  POLSRATESD
-    _diffrn_radiation.polarizn_Stokes_I_esd  SVECIESD
-    _diffrn_radiation.polarizn_Stokes_Q_esd  SVECQESD
-    _diffrn_radiation.polarizn_Stokes_U_esd  SVECUESD
-    _diffrn_radiation.polarizn_Stokes_V_esd  SVECVESD
     _diffrn_radiation.probe          RADIATION
     _diffrn_radiation.type           SIEGBAHNTYPE
     _diffrn_radiation.xray_symbol    IUPACXRAYSYMB
@@ -6804,15 +6538,11 @@ save_diffrn_radiation
     _diffrn_scan_frame.polarizn_Stokes_Q STOKESQ
     _diffrn_scan_frame.polarizn_Stokes_U STOKESU
     _diffrn_scan_frame.polarizn_Stokes_V STOKESV
-    _diffrn_scan_frame.polarizn_Stokes_I_esd STOKESIESD
-    _diffrn_scan_frame.polarizn_Stokes_Q_esd STOKESQESD
-    _diffrn_scan_frame.polarizn_Stokes_U_esd STOKESUESD
-    _diffrn_scan_frame.polarizn_Stokes_V_esd STOKESVESD
     _diffrn_scan_frame.frame_number FRAMENO
    
     -->
 
-       /entry:NXentry
+       /CBF_diffrn_scan__SCANID:NXentry
          /CBF_scan_id="SCANID"
          /sample:NXsample
            /beam:NXbeam
@@ -6827,22 +6557,15 @@ save_diffrn_radiation
                @units="A"
              /weight=[WEIGHT]
              /incident_polarisation_stokes_average=[SVECI,SVECQ,SVECU,SVECV]
-             /incident_polarisation_stokes_average_uncertainty=[SVECIESD,SVECQESD,SVECUESD,SVECVESD]
              /incident_polarisation_stokes=[STOKESI,STOKESQ,STOKESU,STOKESV]
-             /incident_polarisation_stokes_uncertainty=[STOKESIESD,STOKESQESD,STOKESUESD,STOKESVESD]
                @units="Watts/meter^2"
              /CBF_diffrn_radiation__polarisn_norm=POLNANG
                @units="deg"
-             /CBF_diffrn_radiation__polarisn_ratio=POLRAT
-             /CBF_diffrn_radiation__polarisn_norm_uncertainty=POLNANGESD
-               @units="deg"
-             /CBF_diffrn_radiation__polarisn_ratio_uncertainty=POLRATESD
+             /CBF_diffrn_radiation__polarisn_ratio=POLRAT   
              /CBF_diffrn_radiation__polarisn_source_norm=POLSNANG
                @units="deg"
              /CBF_diffrn_radiation__polarizn_source_ratio=POLSRAT
-             /CBF_diffrn_radiation__polarisn_source_norm_uncertainty=POLSNANGESD
-               @units="deg"
-             /CBF_diffrn_radiation__polarizn_source_ratio_uncertainty=POLSRATESD
+
              /CBF_diffrn_radiation__filter_edge=ABSEDGE
                 @units="angstroms"
              /CBF_diffrn_radiation__inhomogeneity=HWIDTH
@@ -6891,42 +6614,6 @@ save_diffrn_radiation
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      save_
-
-save__diffrn_radiation.beam_width
-    _item_description.description
-;              Full width at half max of the beam incident on the sample
-               in the plane of polarization (or horizontally if unpolarized)
-;
-    _item.name                  '_diffrn_radiation.beam_width'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-    _item_type.code               float
-    _item_units.code              micrometres
-     save_
-
-save__diffrn_radiation.beam_height
-    _item_description.description
-;              Full width at half max of the beam incident on the sample
-               orthogonal plane of polarization (or vertically  if unpolarized)
-;
-    _item.name                  '_diffrn_radiation.beam_width'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-    _item_type.code               float
-    _item_units.code              micrometres
-     save_
-
-save__diffrn_radiation.beam_flux
-    _item_description.description
-;              The average flux integrated over the beam incident on the sample.
-;
-    _item.name                  '_diffrn_radiation.beam_flux'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-    _item_type.code               float
-    _item_units.code              'photons per second'
-     save_
-
 
 save__diffrn_radiation.collimation
     _item_description.description
@@ -7014,7 +6701,7 @@ save__diffrn_radiation.div_y_source
 
 save__diffrn_radiation.div_x_y_source
     _item_description.description
-;              Beam crossfire correlation degrees^^2^ between the
+;              Beam crossfire correlation degrees^2^ between the
                crossfire laboratory X-axis component and the crossfire
                laboratory Y-axis component (see AXIS category).
 
@@ -7029,9 +6716,9 @@ save__diffrn_radiation.div_x_y_source
                for uncorrelated crossfire.
 
                Note that some synchrotrons, this value is specified in
-               milliradians^^2^, in which case a conversion would be needed.
-               To go from a value in milliradians^^2^ to a value in
-               degrees^^2^, multiply by 0.180^^2^ and divide by \p^^2^.
+               milliradians^2^, in which case a conversion would be needed.
+               To go from a value in milliradians^2^ to a value in
+               degrees^2^, multiply by 0.180^2^ and divide by \p^2^.
 
 ;
     _item.name                  '_diffrn_radiation.div_x_y_source'
@@ -7120,30 +6807,6 @@ save__diffrn_radiation.polarisn_norm
     _item_units.code              degrees
      save_
 
-save__diffrn_radiation.polarisn_norm_esd
-    _item_description.description
-;              The setimated standard deviation of
-                  _diffrn_radiation.polarisn_norm,
-               the angle in degrees, as viewed from the specimen, between the
-               perpendicular component of the polarization and the diffraction
-               plane. See _diffrn_radiation_polarisn_ratio.
-;
-    _item.name                  '_diffrn_radiation.polarisn_norm_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .     0.0
-                                  0.0   0.0
-    _item_type.code               float
-    _item_units.code              degrees
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarisn_norm'
-                                 'associated_value'
-
-     save_
-
 save__diffrn_radiation.polarisn_ratio
     _item_description.description
 ;              Polarization ratio of the diffraction beam incident on the
@@ -7167,27 +6830,6 @@ save__diffrn_radiation.polarisn_ratio
     _item_type.code               float
      save_
 
-save__diffrn_radiation.polarisn_ratio_esd
-    _item_description.description
-;              The setimated standard deviation of
-               _diffrn_radiation.polarisn_ratio,
-               the polarization ratio of the diffraction beam incident on the
-               crystal.
-;
-    _item.name                  '_diffrn_radiation.polarisn_ratio_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-    _item_aliases.alias_name    '_diffrn_radiation_polarisn_ratio_esd'
-     loop_
-    _item_range.maximum
-    _item_range.minimum            .    0.0
-                                  0.0   0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarisn_ratio'
-                                 'associated_value'
-     save_
 
 
 save__diffrn_radiation.polarizn_source_norm
@@ -7224,32 +6866,6 @@ save__diffrn_radiation.polarizn_source_norm
     _item_type.code               float
     _item_units.code              degrees
     _item_default.value           0.0
-     save_
-
-
-save__diffrn_radiation.polarizn_source_norm_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_radiation.polarizn_source_norm,
-               the angle in degrees, as viewed from the specimen, between
-               the normal to the polarization plane and the laboratory Y
-               axis as defined in the AXIS category.
-;
-    _item.name
-        '_diffrn_radiation.polarizn_source_norm_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    _item_units.code              degrees
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarizn_source_norm'
-                                 'associated_value'
-
      save_
 
 
@@ -7305,40 +6921,13 @@ save__diffrn_radiation.polarizn_source_ratio
      save_
 
 
-save__diffrn_radiation.polarizn_source_ratio_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_radiation.polarizn_source_ratio,
-                (Ip-In)/(Ip+In), where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization and In is the intensity (amplitude squared)
-               of the electric vector in the plane of the normal to the
-               plane of polarization.
-;
-    _item.name                  '_diffrn_radiation.polarizn_source_ratio_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarizn_source_ratio'
-                                 'associated_value'
-     save_
-
-
 save__diffrn_radiation.polarizn_Stokes_I
     _item_description.description
 ;
-               Ip+In+Inp, where where Ip is the intensity (amplitude squared)
-               of the electric vector in the plane of polarization,
+               Ip+In, where where Ip is the intensity (amplitude squared)
+               of the electric vector in the plane of polarization and
                In is the intensity (amplitude squared) of the electric vector
-               in the plane of the normal to the plane of polarization,
-               and Inp is the intensity (amplitude squared) of the non-
-               polarized (incoherent) electric vector.
+               in the plane of the normal to the plane of polarization.
    
                This is an average or other representative sample of the
                scan.
@@ -7354,10 +6943,6 @@ save__diffrn_radiation.polarizn_Stokes_I
                dimensionless.  When the absolute intensity is known,
                all 4 Stokes parameters are in units of Watts per
                square meter.
-   
-               Note that, if the polarized intensity Ip+In is required,
-               (Ip+In)^2 is the sum of Q^2+U^2+V^2.
-
 ;
     _item.name                  '_diffrn_radiation.polarizn_Stokes_I'
     _item.category_id             diffrn_radiation
@@ -7369,31 +6954,6 @@ save__diffrn_radiation.polarizn_Stokes_I
                                    .    0.0
                                   0.0   0.0
     _item_type.code               float
-     save_
-
-save__diffrn_radiation.polarizn_Stokes_I_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_radiation.polarizn_Stokes_I,
-               Ip+In+Inp, where where Ip is the intensity (amplitude squared)
-               of the electric vector in the plane of polarization,
-               In is the intensity (amplitude squared) of the electric vector
-               in the plane of the normal to the plane of polarization,
-               and Inp is the intensity (amplitude squared) of the non-
-               polarized (incoherent) electric vector.
-;
-    _item.name                  '_diffrn_radiation.polarizn_Stokes_I_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarizn_Stokes_I'
-                                 'associated_value'
      save_
 
 save__diffrn_radiation.polarizn_Stokes_Q
@@ -7432,34 +6992,6 @@ save__diffrn_radiation.polarizn_Stokes_Q
     _item_type.code               float
      save_
 
-save__diffrn_radiation.polarizn_Stokes_Q_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_radiation.polarizn_Stokes_Q,
-               (Ip-In)*cos(2*theta), where where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization, In is the intensity (amplitude squared) of
-               the electric vector in the plane of the normal to the
-               plane of polarization, and theta is the angle as viewed
-               from the specimen, between the normal to the polarization
-               plane and the laboratory Y axis as defined in the
-               AXIS category.
-;
-    _item.name                  '_diffrn_radiation.polarizn_Stokes_Q_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarizn_Stokes_Q'
-                                 'associated_value'
-     save_
-
-   
 save__diffrn_radiation.polarizn_Stokes_U
     _item_description.description
 ;
@@ -7496,38 +7028,10 @@ save__diffrn_radiation.polarizn_Stokes_U
     _item_type.code               float
      save_
    
-save__diffrn_radiation.polarizn_Stokes_U_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_radiation.polarizn_Stokes_U,
-               (Ip-In)*sin(2*theta), where where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization, In is the intensity (amplitude squared) of
-               the electric vector in the plane of the normal to the
-               plane of polarization, and theta is the angle as viewed
-               from the specimen, between the normal to the polarization
-               plane and the laboratory Y axis as defined in the
-               AXIS category.
-;
-    _item.name                  '_diffrn_radiation.polarizn_Stokes_U_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarizn_Stokes_U'
-                                 'associated_value'
-     save_
-
-   
 save__diffrn_radiation.polarizn_Stokes_V
     _item_description.description
 ;
-               +/-2*sqrt(IpIn), with a + sign for right-handed circular
+               +/-sqrt(IpIn), with a + sign for right-handed circular
                polarization, where where Ip is the intensity
                (amplitude squared) of the electric vector in the plane of
                polarization and In is the intensity (amplitude squared) of
@@ -7560,35 +7064,6 @@ save__diffrn_radiation.polarizn_Stokes_V
      loop_
     _item_type.code               float
      save_
-
-save__diffrn_radiation.polarizn_Stokes_V_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_radiation.polarizn_Stokes_V,
-               +/-2*sqrt(IpIn), with a + sign for right-handed circular
-               polarization, where where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization and In is the intensity (amplitude squared) of
-               the electric vector in the plane of the normal to the
-               plane of polarization, and theta is the angle as viewed
-               from the specimen, between the normal to the polarization
-               plane and the laboratory Y axis as defined in the
-               AXIS category.
-;
-    _item.name                  '_diffrn_radiation.polarizn_Stokes_V_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_radiation.polarizn_Stokes_V'
-                                 'associated_value'
-     save_
-
 
 
 
@@ -7805,7 +7280,7 @@ save_diffrn_scan
    
     -->
    
-        /entry:NXentry
+        /CBF_diffrn_scan__SCANID:NXentry
           /CBF_scan_id="SCANID"
           /end_time=ENDDATETIME
           /start_time=STARTDATETIME
@@ -7816,8 +7291,7 @@ save_diffrn_scan
           /average_frame_restart_time=RSTRTTIME
             @units="sec"
           /instrument:NXinstrument
-           /DETECTORNAME:NXdetector_group
-           /DETECTORELEMENTNAME:NXdetector
+            /CBF_diffrn_detector__DETECTORNAME:NXdetector
               /frame_start_number=FRAMESTARTNO
               /frame_end_number=FRAMEENDNO
    
@@ -8430,13 +7904,11 @@ save__diffrn_scan.id
     _item.mandatory_code
        '_diffrn_scan.id'                 diffrn_scan             yes
        '_diffrn_scan_axis.scan_id'       diffrn_scan_axis        yes
-       '_diffrn_scan_collection.scan_id'       diffrn_scan_collection        implicit
        '_diffrn_scan_frame.scan_id'      diffrn_scan_frame       yes
     _item_type.code               code
      loop_
     _item_linked.child_name
     _item_linked.parent_name
-       '_diffrn_scan_axis.scan_id'          '_diffrn_scan.id'
        '_diffrn_scan_axis.scan_id'          '_diffrn_scan.id'
        '_diffrn_scan_frame.scan_id'         '_diffrn_scan.id'
      save_
@@ -8632,18 +8104,18 @@ save_diffrn_scan_axis
    
     -->
    
-    { /entry:NXentry
+    { /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID"
       /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
     for AXISEQUIPMENT=="detector"}
     {  /CBF_diffrn_scan__SCANID:NXentry
          /sample:NXsample
     for AXISEQUIPMENT=="goniometer"}
     {  /CBF_diffrn_scan__SCANID:NXentry
+         /coordinate_system:NXcoordinate_system
     for AXISEQUIPMENT=="general"}
-         /transformations:NXtransformations
+         /poise:NXpoise
            /AXISID=[]
              @diffrn_scan_axis__angle_start=ANGSTART
              @diffrn_scan_axis__angle_range=ANGRANGE
@@ -8934,97 +8406,6 @@ save__diffrn_scan_axis.variant
 
 
 
-##########################
-# DIFFRN_SCAN_COLLECTION #
-##########################
-
-save_diffrn_scan_collection
-    _category.description
-;           Data items in the DIFFRN_SCAN_COLLECTION category describe
-            the collection strategy for each scan.
-
-            This category is a preliminary version being developed as synchrotron and xfel
-            collection strategies evolve.
-;
-    _category.id                   diffrn_scan_collection
-    _category.mandatory_code       no
-    _category.NX_mapping_details
-;
-   
-    _diffrn_scan_collection.type  COLLECTIONTYPE
-    _diffrn_scan_collection.translation_width TRANSLATION_WIDTH
-   
-    -->
-   
-    /entry:NXentry
-      /CBF_cbf:NXpdb
-        /image1:NXpdb
-          @NXpdb="CBF_cbfdb"
-          /diffrn_scan_collection:NXpdb
-            @NXpdb="CBF_cbfcat"
-              /type=["COLLECTIONTYP"]
-              /translation_width=["TRANSLATION_WIDTH"]
-
-;
-     loop_
-    _category_key.name
-                                  '_diffrn_scan_collection.scan_id'
-     loop_
-    _category_group.id            'inclusive_group'
-                                  'diffrn_group'
-     save_
-
-
-save__diffrn_scan_collection.scan_id
-    _item_description.description
-;             The value of _diffrn_scan_collection.scan_id identifies the scan
-              containing this frame.
-
-              This item is a pointer to _diffrn_scan.id in the
-              DIFFRN_SCAN category.
-
-              In the case of a single scan dataset, the value is implicit.
-;
-    _item.name             '_diffrn_scan_collection.scan_id'
-    _item.category_id        diffrn_scan_collection
-    _item.mandatory_code     implicit
-    _item_type.code          code
-     save_
-    
-save__diffrn_scan_collection.type
-    _item_description.description
-;             The value of _diffrn_scan_collection.type identifies
-              strategy used in this scan, e.g. `rotation', 'raster', 'vector', 'still', etc.
-
-              The default is 'rotation'.
-;
-    _item.name                  '_diffrn_scan_collection.type'
-    _item.category_id             diffrn_scan_collection
-    _item.mandatory_code          implicit
-    _item_default.value           'rotation'
-    _item_type.code               text
-     save_
-
-save__diffrn_scan_collection.translation_width
-    _item_description.description
-;             The value of _diffrn_scan_collection.translation_width
-              gives the average single step translation in micrometres in collection strategies
-              for which this information is appropriate, e.g. 'vector'.
-             
-;
-    _item.name                  '_diffrn_scan_collection.type'
-    _item.category_id             diffrn_scan_collection
-    _item.mandatory_code          no
-    _item_default.value           0.0
-    _item_type.code               float
-    _item_units.code              micrometres
-
-     save_
-
-
-
-
-
 #####################
 # DIFFRN_SCAN_FRAME #
 #####################
@@ -9053,11 +8434,10 @@ save_diffrn_scan_frame
    
     -->
    
-    /entry:NXentry
+    /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID"
       /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
           /CBF_diffrn_scan_frame__date=["DATETIME"]
           /CBF_diffrn_scan_frame__frame_id=["ID"]
           /count_time=[COUNTIME]
@@ -9150,12 +8530,10 @@ save__diffrn_scan_frame.integration_time
 save__diffrn_scan_frame.polarizn_Stokes_I
     _item_description.description
 ;
-               Ip+In+Inp, where where Ip is the intensity (amplitude squared)
-               of the electric vector in the plane of polarization,
+               Ip+In, where where Ip is the intensity (amplitude squared)
+               of the electric vector in the plane of polarization and
                In is the intensity (amplitude squared) of the electric vector
-               in the plane of the normal to the plane of polarization,
-               and Inp is the intensity (amplitude squared) of the non-
-               polarized (incoherent) electric vector.
+               in the plane of the normal to the plane of polarization.
    
                This is an average or other representative sample of the
                frame.
@@ -9171,11 +8549,6 @@ save__diffrn_scan_frame.polarizn_Stokes_I
                dimensionless.  When the absolute intensity is known,
                all 4 Stokes parameters are in units of Watts per
                square meter.
-   
-               Note that, if the polarized intensity Ip+In is required,
-               (Ip+In)^2 is the sum of Q^2+U^2+V^2.
-   
-
 ;
     _item.name                  '_diffrn_scan_frame.polarizn_Stokes_I'
     _item.category_id             diffrn_scan_frame
@@ -9188,33 +8561,7 @@ save__diffrn_scan_frame.polarizn_Stokes_I
                                   0.0   0.0
     _item_type.code               float
      save_
-   
-save__diffrn_scan_frame.polarizn_Stokes_I_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_scan_frame.polarizn_Stokes_I,
-               Ip+In+Inp, where where Ip is the intensity (amplitude squared)
-               of the electric vector in the plane of polarization,
-               In is the intensity (amplitude squared) of the electric vector
-               in the plane of the normal to the plane of polarization,
-               and Inp is the intensity (amplitude squared) of the non-
-               polarized (incoherent) electric vector.
-;
-    _item.name                  '_diffrn_scan_frame.polarizn_Stokes_I_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_scan_frame.polarizn_Stokes_I'
-                                 'associated_value'
-     save_
 
-   
 save__diffrn_scan_frame.polarizn_Stokes_Q
     _item_description.description
 ;
@@ -9251,34 +8598,6 @@ save__diffrn_scan_frame.polarizn_Stokes_Q
     _item_type.code               float
      save_
 
-save__diffrn_scan_frame.polarizn_Stokes_Q_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_scan_frame.polarizn_Stokes_Q,
-               (Ip-In)*cos(2*theta), where where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization, In is the intensity (amplitude squared) of
-               the electric vector in the plane of the normal to the
-               plane of polarization, and theta is the angle as viewed
-               from the specimen, between the normal to the polarization
-               plane and the laboratory Y axis as defined in the
-               AXIS category
-;
-    _item.name                  '_diffrn_scan_frame.polarizn_Stokes_Q_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_scan_frame.polarizn_Stokes_Q'
-                                 'associated_value'
-     save_
-
-   
 save__diffrn_scan_frame.polarizn_Stokes_U
     _item_description.description
 ;
@@ -9314,39 +8633,11 @@ save__diffrn_scan_frame.polarizn_Stokes_U
      loop_
     _item_type.code               float
      save_
-
-save__diffrn_scan_frame.polarizn_Stokes_U_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_scan_frame.polarizn_Stokes_U,
-               (Ip-In)*sin(2*theta), where where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization, In is the intensity (amplitude squared) of
-               the electric vector in the plane of the normal to the
-               plane of polarization, and theta is the angle as viewed
-               from the specimen, between the normal to the polarization
-               plane and the laboratory Y axis as defined in the
-               AXIS category.
-;
-    _item.name                  '_diffrn_scan_frame.polarizn_Stokes_U_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_scan_frame.polarizn_Stokes_U'
-                                 'associated_value'
-     save_
-
-
+   
 save__diffrn_scan_frame.polarizn_Stokes_V
     _item_description.description
 ;
-               +/-2*sqrt(IpIn), with a + sign for right-handed circular
+               +/-sqrt(IpIn), with a + sign for right-handed circular
                polarization, where where Ip is the intensity
                (amplitude squared) of the electric vector in the plane of
                polarization and In is the intensity (amplitude squared) of
@@ -9380,34 +8671,7 @@ save__diffrn_scan_frame.polarizn_Stokes_V
     _item_type.code               float
      save_
 
-save__diffrn_scan_frame.polarizn_Stokes_V_esd
-    _item_description.description
-;              The setimated standard deviation of
-                   _diffrn_scan_frame.polarizn_Stokes_V,
-               +/-2*sqrt(IpIn), with a + sign for right-handed circular
-               polarization, where where Ip is the intensity
-               (amplitude squared) of the electric vector in the plane of
-               polarization and In is the intensity (amplitude squared) of
-               the electric vector in the plane of the normal to the
-               plane of polarization, and theta is the angle as viewed
-               from the specimen, between the normal to the polarization
-               plane and the laboratory Y axis as defined in the
-               AXIS category.
 
-;
-    _item.name                  '_diffrn_scan_frame.polarizn_Stokes_V_esd'
-    _item.category_id             diffrn_radiation
-    _item.mandatory_code          no
-     loop_
-    _item_range.maximum
-    _item_range.minimum           .      0.0
-                                  0.0    0.0
-    _item_type.code               float
-    loop_
-    _item_related.related_name
-    _item_related.function_code  '_diffrn_scan_frame.polarizn_Stokes_V'
-                                 'associated_value'
-     save_
 
 
 save__diffrn_scan_frame.scan_id
@@ -9519,18 +8783,18 @@ save_diffrn_scan_frame_axis
     _diffrn_scan_frame_axis.reference_displacement REFDISP
 
    
-    { /entry:NXentry
+    { /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID"
       /instrument:NXinstrument
-       /DETECTORNAME:NXdetector_group
-       /DETECTORELEMENTNAME:NXdetector
+        /CBF_diffrn_detector__DETECTORNAME:NXdetector
     for AXISEQUIPMENT=="detector"}
-    {  /entry:NXentry
+    {  /CBF_diffrn_scan__SCANID:NXentry
          /sample:NXsample
     for AXISEQUIPMENT=="goniometer"}
-    {  /entry:NXentry
+    {  /CBF_diffrn_scan__SCANID:NXentry
+         /coordinate_system:NXcoordinate_system
     for AXISEQUIPMENT=="general"}
-         /transformations:NXtransformations
+         /poise:NXpoise
            /AXISID=[]
              @diffrn_scan_frame_axis__angle_start=[ANGSTART]
              @diffrn_scan_frame_axis__angle_range=[ANGRANGE]
@@ -9818,7 +9082,7 @@ save_diffrn_scan_frame_monitor
    
     -->
    
-    /entry:NXentry
+    /CBF_diffrn_scan__SCANID:NXentry
       /CBF_scan_id="SCANID"
         /instrument:NXinstrument
           /CBF_diffrn_scan_frame_monitor__DETECTORNAME_MONID:NXmonitor
@@ -10387,18 +9651,7 @@ save__map_segment.mask_binary_id
     _item_type.code               int
      save_
 
-save__map_segment.mask_array_section_id
-    _item_description.description
-;             This item is a pointer to _array_structure_list_section.id
-    in the a href="#array_structure_list_section">"ARRAY_STRUCTURE_LIST_SECTION category.
-;
-    _item.name                  '_map_segment.mask_array_section_id'
-    _item.category_id             map_segment
-    _item.mandatory_code          yes
-    _item_type.code               code
-    save_
 
-   
 save__map_segment.id
     _item_description.description
 ;             The value of _map_segment.id must uniquely
@@ -11098,35 +10351,34 @@ save__diffrn_frame_data.details
     _item_units_list.detail
 #
      'metres'                 'metres'
-     'centimetres'            'centimetres (metres * 10^^( -2)^)'
-     'millimetres'            'millimetres (metres * 10^^( -3)^)'
-     'micrometres'            'micrometres (metres * 10^^( -6)^)'
-     'nanometres'             'nanometres  (metres * 10^^( -9)^)'
-     'angstroms'              '\%Angstroms   (metres * 10^^(-10)^)'
-     'picometres'             'picometres  (metres * 10^^(-12)^)'
-     'femtometres'            'femtometres (metres * 10^^(-15)^)'
+     'centimetres'            'centimetres (metres * 10^( -2)^)'
+     'millimetres'            'millimetres (metres * 10^( -3)^)'
+     'nanometres'             'nanometres  (metres * 10^( -9)^)'
+     'angstroms'              '\%Angstroms   (metres * 10^(-10)^)'
+     'picometres'             'picometres  (metres * 10^(-12)^)'
+     'femtometres'            'femtometres (metres * 10^(-15)^)'
 #
-     'reciprocal_metres'      'reciprocal metres (metres^^(-1)^)'
+     'reciprocal_metres'      'reciprocal metres (metres^(-1)^)'
      'reciprocal_centimetres'
-        'reciprocal centimetres ((metres * 10^^( -2)^)^^(-1)^)'
+        'reciprocal centimetres ((metres * 10^( -2)^)^(-1)^)'
      'reciprocal_millimetres'
-        'reciprocal millimetres ((metres * 10^^( -3)^)^^(-1)^)'
+        'reciprocal millimetres ((metres * 10^( -3)^)^(-1)^)'
      'reciprocal_nanometres'
-        'reciprocal nanometres  ((metres * 10^^( -9)^)^^(-1)^)'
+        'reciprocal nanometres  ((metres * 10^( -9)^)^(-1)^)'
      'reciprocal_angstroms'
-        'reciprocal \%Angstroms   ((metres * 10^^(-10)^)^^(-1)^)'
+        'reciprocal \%Angstroms   ((metres * 10^(-10)^)^(-1)^)'
      'reciprocal_picometres'
-        'reciprocal picometres  ((metres * 10^^(-12)^)^^(-1)^)'
+        'reciprocal picometres  ((metres * 10^(-12)^)^(-1)^)'
 #
-     'nanometres_squared'     'nanometres squared (metres * 10^^( -9)^)^^2^'
-     'angstroms_squared'      '\%Angstroms squared  (metres * 10^^(-10)^)^^2^'
+     'nanometres_squared'     'nanometres squared (metres * 10^( -9)^)^2^'
+     'angstroms_squared'      '\%Angstroms squared  (metres * 10^(-10)^)^2^'
      '8pi2_angstroms_squared'
-       '8\p^^2^ * \%Angstroms squared (metres * 10^^(-10)^)^^2^'
-     'picometres_squared'     'picometres squared (metres * 10^^(-12)^)^^2^'
+       '8\p^2^ * \%Angstroms squared (metres * 10^(-10)^)^2^'
+     'picometres_squared'     'picometres squared (metres * 10^(-12)^)^2^'
 #
-     'nanometres_cubed'       'nanometres cubed (metres * 10^^( -9)^)^^3^'
-     'angstroms_cubed'        '\%Angstroms cubed  (metres * 10^^(-10)^)^^3^'
-     'picometres_cubed'       'picometres cubed (metres * 10^^(-12)^)^^3^'
+     'nanometres_cubed'       'nanometres cubed (metres * 10^( -9)^)^3^'
+     'angstroms_cubed'        '\%Angstroms cubed  (metres * 10^(-10)^)^3^'
+     'picometres_cubed'       'picometres cubed (metres * 10^(-12)^)^3^'
 #
      'kilopascals'            'kilopascals'
      'gigapascals'            'gigapascals'
@@ -11152,13 +10404,13 @@ save__diffrn_frame_data.details
      'electrons_squared'      'electrons squared'
 #
      'electrons_per_nanometres_cubed'
-; electrons per nanometres cubed (electrons/(metres * 10^^( -9)^)^^(-3)^)
+; electrons per nanometres cubed (electrons/(metres * 10^( -9)^)^(-3)^)
 ;
      'electrons_per_angstroms_cubed'
-; electrons per \%Angstroms cubed (electrons/(metres * 10^^(-10)^)^^(-3)^)
+; electrons per \%Angstroms cubed (electrons/(metres * 10^(-10)^)^(-3)^)
 ;
      'electrons_per_picometres_cubed'
-; electrons per picometres cubed (electrons/(metres * 10^^(-12)^)^^(-3)^)
+; electrons per picometres cubed (electrons/(metres * 10^(-12)^)^(-3)^)
 ;
      'kilowatts'              'kilowatts'
      'milliamperes'           'milliamperes'
@@ -11322,67 +10574,6 @@ save__diffrn_frame_data.details
     _dictionary_history.version
     _dictionary_history.update
     _dictionary_history.revision
-   
-    1.7.11   2018-12-03
-   
-;   Changes for CBFlib 0.9.6 release (HJB)
-   
-    + Remove _array_structure_list.array_section_id
-    + Revisions to _category.NX_mapping_details in most categories for
-    array sections.
-    + Change to uniform use of entry:NXentry
-    + Change to uniform use of identification of NXdetector by detector
-    element
-    + Change to uniform use of data_ARRAYID_BINARYID
-    + Add _array_structure_list.array_section_id
-    + Add _map_segment.mask_array_section_id
-    + Add _diffrn_scan_collection.scan_id
-    + Add _diffrn_scan_collection.type
-    + Add _diffrn_scan_collection.translation_width
-    + Add _diffrn_radiation.beam_width
-    + Add _diffrn_radiation.beam_heigth
-    + Add _diffrn_radiation.beam_flux
-   
-;
-
-
-    1.7.10   2014-04-25
-   
-;  Additions of esd's to polarization tags.  Change to NeXus mapping to use
-   NXtransformations instead of NXpoise (HJB)
-   
-    + Add _diffrn_radiation.polarisn_norm_esd,
-    _diffrn_radiation.polarisn_ratio_esd,
-    _diffrn_radiation.polarizn_source_norm_esd,
-    _diffrn_radiation.polarizn_source_ratio_esd,
-    _diffrn_radiation.polarizn_Stokes_I_esd,
-    _diffrn_radiation.polarizn_Stokes_Q_esd,
-    _diffrn_radiation.polarizn_Stokes_U_esd,
-    _diffrn_radiation.polarizn_Stokes_V_esd,
-    _diffrn_scan_frame.polarizn_Stokes_I_esd,
-    _diffrn_scan_frame.polarizn_Stokes_Q_esd,
-    _diffrn_scan_frame.polarizn_Stokes_U_esd,
-    _diffrn_scan_frame.polarizn_Stokes_V_esd.
-    + Change NeXus mapping for ARRAY_STRUCTURE_LIST
-    ARRAY_STRUCTURE_LIST_AXIS, AXIS,
-    DIFFRN_DETECTOR_AXIS, DIFFRN_MEASUREMENT_AXIS,
-    DIFFRN_SCAN_FRAME_AXIS.
-   
-;
-   
-    1.7.9   2014-04-05
-   
-;  Corrections to Stokes parameter description. (HJB)
-   
-    + Clarify the meaning of _diffrn_radiation.polarizn_Stokes_I
-    and _diffrn_scan_frame.polarizn_Stokes_I to explicitly include non-polarized
-        component.
-
-    + Provide missing factor of 2 in _diffrn_radiation.polarizn_Stokes_V
-    description and _diffrn_scan_frame.polarizn_Stokes_V description.
-   
-;
-
    
     1.7.8   2014-02-22
    
@@ -12003,3 +11194,125 @@ save__diffrn_frame_data.details
 
 
 #-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof-eof
+# 
+loop_
+_pdbx_item_linked_group.category_id 
+_pdbx_item_linked_group.link_group_id 
+_pdbx_item_linked_group.label 
+_pdbx_item_linked_group.context 
+_pdbx_item_linked_group.condition_id 
+array_data                   1 array_data:array_structure:1                        . . 
+array_data                   2 array_data:variant:2                                . . 
+array_element_size           1 array_element_size:array_structure_list:1           . . 
+array_element_size           2 array_element_size:variant:2                        . . 
+array_intensities            1 array_intensities:array_data:1                      . . 
+array_intensities            2 array_intensities:array_structure:2                 . . 
+array_intensities            3 array_intensities:variant:3                         . . 
+array_structure              1 array_structure:variant:1                           . . 
+array_structure_list         1 array_structure_list:array_structure:1              . . 
+array_structure_list         2 array_structure_list:variant:2                      . . 
+array_structure_list_axis    1 array_structure_list_axis:array_structure_list:1    . . 
+array_structure_list_axis    2 array_structure_list_axis:axis:2                    . . 
+array_structure_list_axis    3 array_structure_list_axis:variant:3                 . . 
+array_structure_list_section 1 array_structure_list_section:array_structure:1      . . 
+array_structure_list_section 2 array_structure_list_section:array_structure_list:2 . . 
+axis                         1 axis:axis:1                                         . . 
+axis                         2 axis:variant:2                                      . . 
+diffrn_data_frame            1 diffrn_data_frame:array_data:1                      . . 
+diffrn_data_frame            2 diffrn_data_frame:array_structure:2                 . . 
+diffrn_data_frame            3 diffrn_data_frame:array_structure_list_section:3    . . 
+diffrn_data_frame            4 diffrn_data_frame:diffrn_detector_element:4         . . 
+diffrn_data_frame            5 diffrn_data_frame:variant:5                         . . 
+diffrn_detector              1 diffrn_detector:variant:1                           . . 
+diffrn_detector_axis         1 diffrn_detector_axis:axis:1                         . . 
+diffrn_detector_axis         2 diffrn_detector_axis:diffrn_detector:2              . . 
+diffrn_detector_axis         3 diffrn_detector_axis:variant:3                      . . 
+diffrn_detector_element      1 diffrn_detector_element:variant:1                   . . 
+diffrn_measurement           1 diffrn_measurement:variant:1                        . . 
+diffrn_measurement_axis      1 diffrn_measurement_axis:axis:1                      . . 
+diffrn_measurement_axis      2 diffrn_measurement_axis:diffrn_measurement:2        . . 
+diffrn_measurement_axis      3 diffrn_measurement_axis:variant:3                   . . 
+diffrn_radiation             1 diffrn_radiation:variant:1                          . . 
+diffrn_refln                 1 diffrn_refln:diffrn_data_frame:1                    . . 
+diffrn_refln                 2 diffrn_refln:variant:2                              . . 
+diffrn_scan                  1 diffrn_scan:diffrn_data_frame:1                     . . 
+diffrn_scan                  2 diffrn_scan:diffrn_data_frame:2                     . . 
+diffrn_scan                  3 diffrn_scan:variant:3                               . . 
+diffrn_scan_axis             1 diffrn_scan_axis:axis:1                             . . 
+diffrn_scan_axis             2 diffrn_scan_axis:diffrn_scan:2                      . . 
+diffrn_scan_axis             3 diffrn_scan_axis:variant:3                          . . 
+diffrn_scan_frame            1 diffrn_scan_frame:diffrn_data_frame:1               . . 
+diffrn_scan_frame            2 diffrn_scan_frame:diffrn_scan:2                     . . 
+diffrn_scan_frame            3 diffrn_scan_frame:variant:3                         . . 
+diffrn_scan_frame_axis       1 diffrn_scan_frame_axis:axis:1                       . . 
+diffrn_scan_frame_axis       2 diffrn_scan_frame_axis:diffrn_data_frame:2          . . 
+diffrn_scan_frame_axis       3 diffrn_scan_frame_axis:variant:3                    . . 
+diffrn_scan_frame_monitor    1 diffrn_scan_frame_monitor:diffrn_data_frame:1       . . 
+diffrn_scan_frame_monitor    2 diffrn_scan_frame_monitor:diffrn_detector:2         . . 
+diffrn_scan_frame_monitor    3 diffrn_scan_frame_monitor:variant:3                 . . 
+map                          1 map:variant:1                                       . . 
+map_segment                  1 map_segment:array_structure_list_section:1          . . 
+map_segment                  2 map_segment:map:2                                   . . 
+map_segment                  3 map_segment:variant:3                               . . 
+# 
+loop_
+_pdbx_item_linked_group_list.child_category_id 
+_pdbx_item_linked_group_list.link_group_id 
+_pdbx_item_linked_group_list.child_name 
+_pdbx_item_linked_group_list.parent_name 
+_pdbx_item_linked_group_list.parent_category_id 
+array_data                   1 '_array_data.array_id'                        '_array_structure.id'               array_structure              
+array_data                   2 '_array_data.variant'                         '_variant.variant'                  variant                      
+array_element_size           1 '_array_element_size.index'                   '_array_structure_list.index'       array_structure_list         
+array_element_size           2 '_array_element_size.variant'                 '_variant.variant'                  variant                      
+array_intensities            1 '_array_intensities.binary_id'                '_array_data.binary_id'             array_data                   
+array_intensities            2 '_array_intensities.array_id'                 '_array_structure.id'               array_structure              
+array_intensities            3 '_array_intensities.variant'                  '_variant.variant'                  variant                      
+array_structure              1 '_array_structure.variant'                    '_variant.variant'                  variant                      
+array_structure_list         1 '_array_structure_list.array_id'              '_array_structure.id'               array_structure              
+array_structure_list         2 '_array_structure_list.variant'               '_variant.variant'                  variant                      
+array_structure_list_axis    1 '_array_structure_list_axis.axis_set_id'      '_array_structure_list.axis_set_id' array_structure_list         
+array_structure_list_axis    2 '_array_structure_list_axis.axis_id'          '_axis.id'                          axis                         
+array_structure_list_axis    3 '_array_structure_list_axis.variant'          '_variant.variant'                  variant                      
+array_structure_list_section 1 '_array_structure_list_section.array_id'      '_array_structure.id'               array_structure              
+array_structure_list_section 2 '_array_structure_list_section.index'         '_array_structure_list.index'       array_structure_list         
+axis                         1 '_axis.depends_on'                            '_axis.id'                          axis                         
+axis                         2 '_axis.variant'                               '_variant.variant'                  variant                      
+diffrn_data_frame            1 '_diffrn_data_frame.binary_id'                '_array_data.binary_id'             array_data                   
+diffrn_data_frame            2 '_diffrn_data_frame.array_id'                 '_array_structure.id'               array_structure              
+diffrn_data_frame            3 '_diffrn_data_frame.array_section_id'         '_array_structure_list_section.id'  array_structure_list_section 
+diffrn_data_frame            4 '_diffrn_data_frame.detector_element_id'      '_diffrn_detector_element.id'       diffrn_detector_element      
+diffrn_data_frame            5 '_diffrn_data_frame.variant'                  '_variant.variant'                  variant                      
+diffrn_detector              1 '_diffrn_detector.variant'                    '_variant.variant'                  variant                      
+diffrn_detector_axis         1 '_diffrn_detector_axis.axis_id'               '_axis.id'                          axis                         
+diffrn_detector_axis         2 '_diffrn_detector_axis.detector_id'           '_diffrn_detector.id'               diffrn_detector              
+diffrn_detector_axis         3 '_diffrn_detector_axis.variant'               '_variant.variant'                  variant                      
+diffrn_detector_element      1 '_diffrn_detector_element.variant'            '_variant.variant'                  variant                      
+diffrn_measurement           1 '_diffrn_measurement.variant'                 '_variant.variant'                  variant                      
+diffrn_measurement_axis      1 '_diffrn_measurement_axis.axis_id'            '_axis.id'                          axis                         
+diffrn_measurement_axis      2 '_diffrn_measurement_axis.measurement_device' '_diffrn_measurement.device'        diffrn_measurement           
+diffrn_measurement_axis      2 '_diffrn_measurement_axis.measurement_id'     '_diffrn_measurement.id'            diffrn_measurement           
+diffrn_measurement_axis      3 '_diffrn_measurement_axis.variant'            '_variant.variant'                  variant                      
+diffrn_radiation             1 '_diffrn_radiation.variant'                   '_variant.variant'                  variant                      
+diffrn_refln                 1 '_diffrn_refln.frame_id'                      '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_refln                 2 '_diffrn_refln.variant'                       '_variant.variant'                  variant                      
+diffrn_scan                  1 '_diffrn_scan.frame_id_start'                 '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan                  2 '_diffrn_scan.frame_id_end'                   '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan                  3 '_diffrn_scan.variant'                        '_variant.variant'                  variant                      
+diffrn_scan_axis             1 '_diffrn_scan_axis.axis_id'                   '_axis.id'                          axis                         
+diffrn_scan_axis             2 '_diffrn_scan_axis.scan_id'                   '_diffrn_scan.id'                   diffrn_scan                  
+diffrn_scan_axis             3 '_diffrn_scan_axis.variant'                   '_variant.variant'                  variant                      
+diffrn_scan_frame            1 '_diffrn_scan_frame.frame_id'                 '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan_frame            2 '_diffrn_scan_frame.scan_id'                  '_diffrn_scan.id'                   diffrn_scan                  
+diffrn_scan_frame            3 '_diffrn_scan_frame.variant'                  '_variant.variant'                  variant                      
+diffrn_scan_frame_axis       1 '_diffrn_scan_frame_axis.axis_id'             '_axis.id'                          axis                         
+diffrn_scan_frame_axis       2 '_diffrn_scan_frame_axis.frame_id'            '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan_frame_axis       3 '_diffrn_scan_frame_axis.variant'             '_variant.variant'                  variant                      
+diffrn_scan_frame_monitor    1 '_diffrn_scan_frame_monitor.frame_id'         '_diffrn_data_frame.id'             diffrn_data_frame            
+diffrn_scan_frame_monitor    2 '_diffrn_scan_frame_monitor.detector_id'      '_diffrn_detector.id'               diffrn_detector              
+diffrn_scan_frame_monitor    3 '_diffrn_scan_frame_monitor.variant'          '_variant.variant'                  variant                      
+map                          1 '_map.variant'                                '_variant.variant'                  variant                      
+map_segment                  1 '_map_segment.array_section_id'               '_array_structure_list_section.id'  array_structure_list_section 
+map_segment                  2 '_map_segment.id'                             '_map.id'                           map                          
+map_segment                  3 '_map_segment.variant'                        '_variant.variant'                  variant                      
+# 
