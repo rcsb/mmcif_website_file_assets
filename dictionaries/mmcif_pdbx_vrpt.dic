@@ -10505,7 +10505,7 @@ save_pdbx_vrpt_em_details
    _category.description     "   This category provides details specific to EM."
    _category.mandatory_code  no
    #
-   _category_key.name  "_pdbx_vrpt_em_2d_graph_data.ordinal"
+   _category_key.name  "_pdbx_vrpt_em_details.ordinal"
    #
    loop_
    _category_group.id
