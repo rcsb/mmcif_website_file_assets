@@ -90,36 +90,42 @@ _pdbx_item_linked_group.link_group_id
 _pdbx_item_linked_group.label
 _pdbx_item_linked_group.context
 _pdbx_item_linked_group.condition_id
-pdbx_vrpt_asym                             1  pdbx_vrpt_asym:pdbx_vrpt_entity:1                                     .  .  
-pdbx_vrpt_instance_clashes                 1  pdbx_vrpt_instance_clashes:pdbx_vrpt_model_instance:1                 .  .  
-pdbx_vrpt_instance_intra_angle_outliers    1  pdbx_vrpt_instance_intra_angle_outliers:pdbx_vrpt_model_instance:1    .  .  
-pdbx_vrpt_instance_intra_bond_outliers     1  pdbx_vrpt_instance_intra_bond_outliers:pdbx_vrpt_model_instance:1     .  .  
-pdbx_vrpt_instance_intra_plane_outliers    1  pdbx_vrpt_instance_intra_plane_outliers:pdbx_vrpt_model_instance:1    .  .  
-pdbx_vrpt_instance_mogul_bond_outliers     1  pdbx_vrpt_instance_mogul_bond_outliers:pdbx_vrpt_model_instance:1     .  .  
-pdbx_vrpt_instance_mogul_angle_outliers    1  pdbx_vrpt_instance_mogul_angle_outliers:pdbx_vrpt_model_instance:1    .  .  
-pdbx_vrpt_instance_mogul_ring_outliers     1  pdbx_vrpt_instance_mogul_ring_outliers:pdbx_vrpt_model_instance:1     .  .  
-pdbx_vrpt_instance_mogul_torsion_outliers  1  pdbx_vrpt_instance_mogul_torsion_outliers:pdbx_vrpt_model_instance:1  .  .  
-pdbx_vrpt_instance_symm_clashes            1  pdbx_vrpt_instance_symm_clashes:pdbx_vrpt_model_instance:1            .  .  
-pdbx_vrpt_instance_stereo_outliers         1  pdbx_vrpt_instance_stereo_outliers:pdbx_vrpt_model_instance:1         .  .  
-pdbx_vrpt_model_instance                   1  pdbx_vrpt_model_instance:pdbx_vrpt_entity:1                           .  .  
-pdbx_vrpt_model_instance_geometry          1  pdbx_vrpt_model_instance_geometry:pdbx_vrpt_model_instance:1          .  .  
-pdbx_vrpt_model_instance_density           1  pdbx_vrpt_model_instance_density:pdbx_vrpt_model_instance:1           .  .  
-pdbx_vrpt_percentile_conditions            1  pdbx_vrpt_percentile_conditions:pdbx_vrpt_percentile_list:1           .  .  
-pdbx_vrpt_percentile_conditions            2  pdbx_vrpt_percentile_conditions:pdbx_vrpt_percentile_type:2           .  .  
-pdbx_vrpt_percentile_entity_view           1  pdbx_vrpt_percentile_entity_view:pdbx_vrpt_percentile_conditions:1    .  .  
-pdbx_vrpt_percentile_entity_view           2  pdbx_vrpt_percentile_entity_view:pdbx_vrpt_percentile_type:2          .  .  
-pdbx_vrpt_percentile_entity_view           3  pdbx_vrpt_percentile_entity_view:pdbx_vrpt_entity:3                   .  .  
-pdbx_vrpt_em_2d_graph_data                 1  pdbx_vrpt_em_2d_graph_data:pdbx_vrpt_em_2d_graph_info:1               .  .  
-pdbx_vrpt_em_graph_atom_inclusion          1  pdbx_vrpt_em_graph_atom_inclusion:pdbx_vrpt_em_2d_graph_info:1        .  .  
-pdbx_vrpt_em_graph_fsc_curve               1  pdbx_vrpt_em_graph_fsc_curve:pdbx_vrpt_em_2d_graph_info:1             .  .  
-pdbx_vrpt_em_graph_fsc_indicator_curve     1  pdbx_vrpt_em_graph_fsc_indicator_curve:pdbx_vrpt_em_2d_graph_info:1   .  .  
-pdbx_vrpt_summary_entity_geometry          1  pdbx_vrpt_summary_entity_geometry:pdbx_vrpt_entity:1                  .  .  
-pdbx_vrpt_violated_dihedral_restraints     1  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:1     .  .  
-pdbx_vrpt_violated_dihedral_restraints     2  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:2     .  .  
-pdbx_vrpt_violated_dihedral_restraints     3  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:3     .  .  
-pdbx_vrpt_violated_dihedral_restraints     4  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:4     .  .  
-pdbx_vrpt_violated_distance_restraints     1  pdbx_vrpt_violated_distance_restraints:pdbx_vrpt_model_instance:1     .  .  
-pdbx_vrpt_violated_distance_restraints     2  pdbx_vrpt_violated_distance_restraints:pdbx_vrpt_model_instance:2     .  .  
+pdbx_vrpt_asym                                    1  pdbx_vrpt_asym:pdbx_vrpt_entity:1                                       .  .  
+pdbx_vrpt_instance_clashes                        1  pdbx_vrpt_instance_clashes:pdbx_vrpt_model_instance:1                   .  .  
+pdbx_vrpt_instance_intra_angle_outliers           1  pdbx_vrpt_instance_intra_angle_outliers:pdbx_vrpt_model_instance:1      .  .  
+pdbx_vrpt_instance_intra_bond_outliers            1  pdbx_vrpt_instance_intra_bond_outliers:pdbx_vrpt_model_instance:1       .  .  
+pdbx_vrpt_instance_intra_plane_outliers           1  pdbx_vrpt_instance_intra_plane_outliers:pdbx_vrpt_model_instance:1      .  .  
+pdbx_vrpt_instance_mogul_bond_outliers            1  pdbx_vrpt_instance_mogul_bond_outliers:pdbx_vrpt_model_instance:1       .  .  
+pdbx_vrpt_instance_mogul_angle_outliers           1  pdbx_vrpt_instance_mogul_angle_outliers:pdbx_vrpt_model_instance:1      .  .  
+pdbx_vrpt_instance_mogul_ring_outliers            1  pdbx_vrpt_instance_mogul_ring_outliers:pdbx_vrpt_model_instance:1       .  .  
+pdbx_vrpt_instance_mogul_torsion_outliers         1  pdbx_vrpt_instance_mogul_torsion_outliers:pdbx_vrpt_model_instance:1    .  .  
+pdbx_vrpt_instance_symm_clashes                   1  pdbx_vrpt_instance_symm_clashes:pdbx_vrpt_model_instance:1              .  .  
+pdbx_vrpt_instance_stereo_outliers                1  pdbx_vrpt_instance_stereo_outliers:pdbx_vrpt_model_instance:1           .  .  
+pdbx_vrpt_model_instance                          1  pdbx_vrpt_model_instance:pdbx_vrpt_asym:1                               .  .  
+pdbx_vrpt_model_instance_geometry                 1  pdbx_vrpt_model_instance_geometry:pdbx_vrpt_model_instance:1            .  .  
+pdbx_vrpt_model_instance_density                  1  pdbx_vrpt_model_instance_density:pdbx_vrpt_model_instance:1             .  .  
+pdbx_vrpt_most_violated_dihedralangle_restraints  1  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:1"    .  .  
+pdbx_vrpt_most_violated_dihedralangle_restraints  2  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:2"    .  .  
+pdbx_vrpt_most_violated_dihedralangle_restraints  3  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:3"    .  .  
+pdbx_vrpt_most_violated_dihedralangle_restraints  4  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:4"    .  .  
+pdbx_vrpt_most_violated_distance_restraints       1  "_pdbx_vrpt_most_violated_distance_restraints:pdbx_vrpt_asym:1"         .  .  
+pdbx_vrpt_most_violated_distance_restraints       2  "_pdbx_vrpt_most_violated_distance_restraints:pdbx_vrpt_asym:2"         .  .  
+pdbx_vrpt_percentile_conditions                   1  pdbx_vrpt_percentile_conditions:pdbx_vrpt_percentile_list:1             .  .  
+pdbx_vrpt_percentile_conditions                   2  pdbx_vrpt_percentile_conditions:pdbx_vrpt_percentile_type:2             .  .  
+pdbx_vrpt_percentile_entity_view                  1  pdbx_vrpt_percentile_entity_view:pdbx_vrpt_percentile_conditions:1      .  .  
+pdbx_vrpt_percentile_entity_view                  2  pdbx_vrpt_percentile_entity_view:pdbx_vrpt_percentile_type:2            .  .  
+pdbx_vrpt_percentile_entity_view                  3  pdbx_vrpt_percentile_entity_view:pdbx_vrpt_entity:3                     .  .  
+pdbx_vrpt_em_2d_graph_data                        1  pdbx_vrpt_em_2d_graph_data:pdbx_vrpt_em_2d_graph_info:1                 .  .  
+pdbx_vrpt_em_graph_atom_inclusion                 1  pdbx_vrpt_em_graph_atom_inclusion:pdbx_vrpt_em_2d_graph_info:1          .  .  
+pdbx_vrpt_em_graph_fsc_curve                      1  pdbx_vrpt_em_graph_fsc_curve:pdbx_vrpt_em_2d_graph_info:1               .  .  
+pdbx_vrpt_em_graph_fsc_indicator_curve            1  pdbx_vrpt_em_graph_fsc_indicator_curve:pdbx_vrpt_em_2d_graph_info:1     .  .  
+pdbx_vrpt_summary_entity_geometry                 1  pdbx_vrpt_summary_entity_geometry:pdbx_vrpt_asym:1                      .  .  
+pdbx_vrpt_violated_dihedral_restraints            1  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:1       .  .  
+pdbx_vrpt_violated_dihedral_restraints            2  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:2       .  .  
+pdbx_vrpt_violated_dihedral_restraints            3  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:3       .  .  
+pdbx_vrpt_violated_dihedral_restraints            4  pdbx_vrpt_violated_dihedral_restraints:pdbx_vrpt_model_instance:4       .  .  
+pdbx_vrpt_violated_distance_restraints            1  pdbx_vrpt_violated_distance_restraints:pdbx_vrpt_model_instance:1       .  .  
+pdbx_vrpt_violated_distance_restraints            2  pdbx_vrpt_violated_distance_restraints:pdbx_vrpt_model_instance:2       .  .  
 #
 loop_
 _pdbx_item_linked_group_list.child_category_id
@@ -127,36 +133,51 @@ _pdbx_item_linked_group_list.link_group_id
 _pdbx_item_linked_group_list.child_name
 _pdbx_item_linked_group_list.parent_name
 _pdbx_item_linked_group_list.parent_category_id
-pdbx_vrpt_asym                             1  "_pdbx_vrpt_asym.entity_id"                               "_pdbx_vrpt_entity.id"                       pdbx_vrpt_entity                 
-pdbx_vrpt_instance_clashes                 1  "_pdbx_vrpt_instance_clashes.instance_id"                 "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_mogul_bond_outliers     1  "_pdbx_vrpt_instance_mogul_bond_outliers.instance_id"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_mogul_angle_outliers    1  "_pdbx_vrpt_instance_mogul_angle_outliers.instance_id"    "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_mogul_ring_outliers     1  "_pdbx_vrpt_instance_mogul_ring_outliers.instance_id"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_mogul_torsion_outliers  1  "_pdbx_vrpt_instance_mogul_torsion_outliers.instance_id"  "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_intra_angle_outliers    1  "_pdbx_vrpt_instance_intra_angle_outliers.instance_id"    "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_intra_bond_outliers     1  "_pdbx_vrpt_instance_intra_bond_outliers.instance_id"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_intra_plane_outliers    1  "_pdbx_vrpt_instance_intra_plane_outliers.instance_id"    "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_stereo_outliers         1  "_pdbx_vrpt_instance_stereo_outliers.instance_id"         "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_instance_symm_clashes            1  "_pdbx_vrpt_instance_symm_clashes.instance_id"            "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_model_instance                   1  "_pdbx_vrpt_model_instance.entity_id"                     "_pdbx_vrpt_entity.id"                       pdbx_vrpt_entity                 
-pdbx_vrpt_model_instance_geometry          1  "_pdbx_vrpt_model_instance_geometry.instance_id"          "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_model_instance_density           1  "_pdbx_vrpt_model_instance_density.instance_id"           "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_percentile_conditions            1  "_pdbx_vrpt_percentile_conditions.percentile_list_id"     "_pdbx_vrpt_percentile_list.id"              pdbx_vrpt_percentile_list        
-pdbx_vrpt_percentile_conditions            2  "_pdbx_vrpt_percentile_conditions.type_id"                "_pdbx_vrpt_percentile_type.id"              pdbx_vrpt_percentile_type        
-pdbx_vrpt_percentile_entity_view           1  "_pdbx_vrpt_percentile_entity_view.conditions_id"         "_pdbx_vrpt_percentile_conditions.id"        pdbx_vrpt_percentile_conditions  
-pdbx_vrpt_percentile_entity_view           2  "_pdbx_vrpt_percentile_entity_view.type_id"               "_pdbx_vrpt_percentile_type.id"              pdbx_vrpt_percentile_type        
-pdbx_vrpt_percentile_entity_view           3  "_pdbx_vrpt_percentile_entity_view.entity_id"             "_pdbx_vrpt_entity.id"                       pdbx_vrpt_entity                 
-pdbx_vrpt_em_2d_graph_data                 1  "_pdbx_vrpt_em_2d_graph_data.graph_data_id"               "_pdbx_vrpt_em_2d_graph_info.graph_data_id"  pdbx_vrpt_em_2d_graph_info       
-pdbx_vrpt_em_graph_atom_inclusion          1  "_pdbx_vrpt_em_graph_atom_inclusion.graph_id"             "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
-pdbx_vrpt_em_graph_fsc_curve               1  "_pdbx_vrpt_em_graph_fsc_curve.graph_id"                  "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
-pdbx_vrpt_em_graph_fsc_indicator_curve     1  "_pdbx_vrpt_em_graph_fsc_indicator_curve.graph_id"        "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
-pdbx_vrpt_summary_entity_geometry          1  "_pdbx_vrpt_summary_entity_geometry.entity_id"            "_pdbx_vrpt_entity.id"                       pdbx_vrpt_entity                 
-pdbx_vrpt_violated_dihedral_restraints     1  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_1"   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_violated_dihedral_restraints     2  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_2"   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_violated_dihedral_restraints     3  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_3"   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_violated_dihedral_restraints     4  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_4"   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_violated_distance_restraints     1  "_pdbx_vrpt_violated_distance_restraints.instance_id_1"   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
-pdbx_vrpt_violated_distance_restraints     2  "_pdbx_vrpt_violated_distance_restraints.instance_id_2"   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_asym                                    1  "_pdbx_vrpt_asym.entity_id"                                 "_pdbx_vrpt_entity.id"                       pdbx_vrpt_entity                 
+pdbx_vrpt_instance_clashes                        1  "_pdbx_vrpt_instance_clashes.instance_id"                   "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_mogul_bond_outliers            1  "_pdbx_vrpt_instance_mogul_bond_outliers.instance_id"       "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_mogul_angle_outliers           1  "_pdbx_vrpt_instance_mogul_angle_outliers.instance_id"      "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_mogul_ring_outliers            1  "_pdbx_vrpt_instance_mogul_ring_outliers.instance_id"       "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_mogul_torsion_outliers         1  "_pdbx_vrpt_instance_mogul_torsion_outliers.instance_id"    "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_intra_angle_outliers           1  "_pdbx_vrpt_instance_intra_angle_outliers.instance_id"      "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_intra_bond_outliers            1  "_pdbx_vrpt_instance_intra_bond_outliers.instance_id"       "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_intra_plane_outliers           1  "_pdbx_vrpt_instance_intra_plane_outliers.instance_id"      "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_stereo_outliers                1  "_pdbx_vrpt_instance_stereo_outliers.instance_id"           "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_instance_symm_clashes                   1  "_pdbx_vrpt_instance_symm_clashes.instance_id"              "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_model_instance                          1  "_pdbx_vrpt_model_instance.entity_id"                       "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_model_instance                          1  "_pdbx_vrpt_model_instance.label_asym_id"                   "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_model_instance_geometry                 1  "_pdbx_vrpt_model_instance_geometry.instance_id"            "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_model_instance_density                  1  "_pdbx_vrpt_model_instance_density.instance_id"             "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_most_violated_dihedralangle_restraints  1  "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_1"  "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  1  "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_1"   "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  2  "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_2"  "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  2  "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_2"   "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  3  "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_3"  "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  3  "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_3"   "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  4  "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_4"  "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_dihedralangle_restraints  4  "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_4"   "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_distance_restraints       1  "_pdbx_vrpt_most_violated_distance_restraints.said_1"       "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_distance_restraints       1  "_pdbx_vrpt_most_violated_distance_restraints.ent_1"        "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_distance_restraints       2  "_pdbx_vrpt_most_violated_distance_restraints.said_2"       "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_most_violated_distance_restraints       2  "_pdbx_vrpt_most_violated_distance_restraints.ent_2"        "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_percentile_conditions                   1  "_pdbx_vrpt_percentile_conditions.percentile_list_id"       "_pdbx_vrpt_percentile_list.id"              pdbx_vrpt_percentile_list        
+pdbx_vrpt_percentile_conditions                   2  "_pdbx_vrpt_percentile_conditions.type_id"                  "_pdbx_vrpt_percentile_type.id"              pdbx_vrpt_percentile_type        
+pdbx_vrpt_percentile_entity_view                  1  "_pdbx_vrpt_percentile_entity_view.conditions_id"           "_pdbx_vrpt_percentile_conditions.id"        pdbx_vrpt_percentile_conditions  
+pdbx_vrpt_percentile_entity_view                  2  "_pdbx_vrpt_percentile_entity_view.type_id"                 "_pdbx_vrpt_percentile_type.id"              pdbx_vrpt_percentile_type        
+pdbx_vrpt_percentile_entity_view                  3  "_pdbx_vrpt_percentile_entity_view.entity_id"               "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_percentile_entity_view                  3  "_pdbx_vrpt_percentile_entity_view.label_asym_id"           "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_em_2d_graph_data                        1  "_pdbx_vrpt_em_2d_graph_data.graph_data_id"                 "_pdbx_vrpt_em_2d_graph_info.graph_data_id"  pdbx_vrpt_em_2d_graph_info       
+pdbx_vrpt_em_graph_atom_inclusion                 1  "_pdbx_vrpt_em_graph_atom_inclusion.graph_id"               "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
+pdbx_vrpt_em_graph_fsc_curve                      1  "_pdbx_vrpt_em_graph_fsc_curve.graph_id"                    "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
+pdbx_vrpt_em_graph_fsc_indicator_curve            1  "_pdbx_vrpt_em_graph_fsc_indicator_curve.graph_id"          "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
+pdbx_vrpt_summary_entity_geometry                 1  "_pdbx_vrpt_summary_entity_geometry.entity_id"              "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_summary_entity_geometry                 1  "_pdbx_vrpt_summary_entity_geometry.label_asym_id"          "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_violated_dihedral_restraints            1  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_1"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_violated_dihedral_restraints            2  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_2"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_violated_dihedral_restraints            3  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_3"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_violated_dihedral_restraints            4  "_pdbx_vrpt_violated_dihedral_restraints.instance_id_4"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_violated_distance_restraints            1  "_pdbx_vrpt_violated_distance_restraints.instance_id_1"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_violated_distance_restraints            2  "_pdbx_vrpt_violated_distance_restraints.instance_id_2"     "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
 ##
 save_pdbx_vrpt_summary
    _category.id              pdbx_vrpt_summary
@@ -639,7 +660,7 @@ save__pdbx_vrpt_model_instance.entity_id
    _item_aliases.version     V6.00
    #
    _item_linked.child_name   "_pdbx_vrpt_model_instance.entity_id"
-   _item_linked.parent_name  "_pdbx_vrpt_entity.id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
    #
 save_
 #
@@ -655,6 +676,9 @@ save__pdbx_vrpt_model_instance.label_asym_id
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_model_instance.label_asym_id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
    #
    _item_aliases.alias_name  "_ModelledSubgroup.said"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -1066,7 +1090,7 @@ save__pdbx_vrpt_summary_entity_geometry.entity_id
    _item_aliases.version     V6.00
    #
    _item_linked.child_name   "_pdbx_vrpt_summary_entity_geometry.entity_id"
-   _item_linked.parent_name  "_pdbx_vrpt_entity.id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
    #
 save_
 #
@@ -1082,6 +1106,9 @@ save__pdbx_vrpt_summary_entity_geometry.label_asym_id
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_summary_entity_geometry.label_asym_id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
    #
    _item_aliases.alias_name  "_ModelledEntityInstance.said"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -6207,6 +6234,9 @@ save__pdbx_vrpt_most_violated_distance_restraints.ent_1
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_distance_restraints.ent_1"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
+   #
    _item_aliases.alias_name  "_most_violated_distance_restraint.ent_1"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -6225,6 +6255,9 @@ save__pdbx_vrpt_most_violated_distance_restraints.said_1
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_distance_restraints.said_1"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
    #
    _item_aliases.alias_name  "_most_violated_distance_restraint.said_1"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -6381,6 +6414,9 @@ save__pdbx_vrpt_most_violated_distance_restraints.said_2
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_distance_restraints.said_2"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
+   #
    _item_aliases.alias_name  "_most_violated_distance_restraint.said_2"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -6399,6 +6435,9 @@ save__pdbx_vrpt_most_violated_distance_restraints.ent_2
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_distance_restraints.ent_2"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
    #
    _item_aliases.alias_name  "_most_violated_distance_restraint.ent_2"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -6807,6 +6846,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.ent_1
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_1"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
+   #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.ent_1"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -6825,6 +6867,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.said_1
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_1"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
    #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.said_1"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -6980,6 +7025,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.said_2
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_2"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
+   #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.said_2"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -6998,6 +7046,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.ent_2
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_2"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
    #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.ent_2"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -7199,6 +7250,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.ent_3
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_3"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
+   #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.ent_3"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -7217,6 +7271,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.said_3
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_3"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
    #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.said_3"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -7372,6 +7429,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.ent_4
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_4"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
+   #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.ent_4"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -7390,6 +7450,9 @@ save__pdbx_vrpt_most_violated_dihedralangle_restraints.said_4
    _item.mandatory_code  no
    #
    _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_4"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
    #
    _item_aliases.alias_name  "_most_violated_dihedralangle_restraint.said_4"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
@@ -9978,6 +10041,9 @@ save__pdbx_vrpt_percentile_entity_view.label_asym_id
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_percentile_entity_view.label_asym_id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
+   #
    _item_aliases.alias_name  "_PercentileEntityView.said"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
@@ -10017,12 +10083,12 @@ save__pdbx_vrpt_percentile_entity_view.entity_id
    #
    _item_type.code  code
    #
+   _item_linked.child_name   "_pdbx_vrpt_percentile_entity_view.entity_id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
+   #
    _item_aliases.alias_name  "_PercentileEntityView.ent"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
-   #
-   _item_linked.child_name   "_pdbx_vrpt_percentile_entity_view.entity_id"
-   _item_linked.parent_name  "_pdbx_vrpt_entity.id"
    #
 save_
 #
