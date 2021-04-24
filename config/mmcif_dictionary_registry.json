@@ -11,7 +11,8 @@
             "mmcif_biosync",
             "mmcif_sym",
             "mmcif_nef",
-            "mmcif_ndb_ntc"
+            "mmcif_ndb_ntc",
+            "mmcif_pdbx_vrpt"
         ],
         "internalDictionaryNameList": [
             "mmcif_rcsb_xray",
@@ -188,6 +189,13 @@
                 "developers": "Model Archive developers",
                 "maintainers": "Model Archive developers",
                 "schema": "null"
+            },
+            "mmcif_pdbx_vrpt": {
+                "title": "wwPDB Validation Report Dictionary",
+                "description": "wwPDB validation report data in PDBx/mmCIF format",
+                "maintainers": "wwPDB",
+                "developers": "wwPDB",
+                "schema": "pdbx-v50"
             }
         }
     }
