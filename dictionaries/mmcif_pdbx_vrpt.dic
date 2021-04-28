@@ -5,7 +5,7 @@ _datablock.description  "wwPDB Validation Report extension dictionary"
 #
 _dictionary.title         mmcif_pdbx_vrpt.dic
 _dictionary.datablock_id  mmcif_pdbx_vrpt.dic
-_dictionary.version       0.061
+_dictionary.version       0.062
 #
 loop_
 _dictionary_history.version
@@ -15,6 +15,13 @@ _dictionary_history.revision
 0.061  2021-04-20  
 ; Changes (ep):
   + Cleanup descriptions and types of many categories and attributes
+;
+  
+0.062  2021-04-28  
+; Changes (ep):
+  + Extend enumerations for _pdbx_vrpt_dihedralangle_violation_model.ang_rest_type,
+    _pdbx_vrpt_dihedralangle_ensemble_violation.ang_rest_type,
+    _pdbx_vrpt_dihedralangle_violations_summary.restraint_type
 ;
   
 #
@@ -5542,6 +5549,9 @@ save__pdbx_vrpt_dihedralangle_violations_summary.restraint_type
    _item_enumeration.detail
      PHI    .  
      PSI    .  
+     CHI1   .  
+     CHI2   .  
+     CHI21  .  
      Total  .  
    #
    _item_aliases.alias_name  "_dihedralangle_violation_summary.restraint_type"
@@ -5856,6 +5866,9 @@ save__pdbx_vrpt_dihedralangle_violation_model.ang_rest_type
    _item_enumeration.detail
      PHI    .  
      PSI    .  
+     CHI1   .  
+     CHI2   .  
+     CHI21  .  
      Total  .  
    #
    _item_aliases.alias_name  "_ang_rest_types.ang_rest_type"
@@ -5992,6 +6005,9 @@ save__pdbx_vrpt_dihedralangle_ensemble_violation.ang_rest_type
    _item_enumeration.detail
      PHI    .  
      PSI    .  
+     CHI1   .  
+     CHI2   .  
+     CHI21  .  
      Total  .  
    #
    _item_aliases.alias_name  "_ang_rest_types.ang_rest_type"
