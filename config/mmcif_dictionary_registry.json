@@ -76,7 +76,7 @@
                 "description": "An early version of the PDB exchange data dictionary frozen at version 1.0524",
                 "developers": "wwPDB",
                 "maintainers": "wwPDB",
-                "schema": "null"
+                "schema": null
             },
             "mmcif_std": {
                 "title": "mmCIF Dictionary",
@@ -160,42 +160,42 @@
                 "description": "Data dictionary used by RCSB PDB for internal data processing and annotation operations",
                 "developers": "RCSB PDB",
                 "maintainers": "RCSB PDB",
-                "schema": "null"
+                "schema": null
             },
             "mmcif_rcsb_xray": {
                 "title": "RCSB PDB X-Ray Internal Data Dictionary",
                 "description": "Data dictionary used by RCSB PDB for internal data processing and annotation operations",
                 "developers": "RCSB PDB",
                 "maintainers": "RCSB PDB",
-                "schema": "null"
+                "schema": null
             },
             "mmcif_ihm": {
                 "title": "Integrative/Hybrid (I/H) methods extension dictionary",
                 "description": "The I/H methods dictionary is an extension of the PDBx/mmCIF dictionary. This dictionary is actively developed and maintained in a github repository available at https://github.com/ihmwg/IHM-dictionary. I/H structural models that are compliant to this extension dictionary can be deposited to the PDB-Dev prototype deposition and archiving system (https://pdb-dev.wwpdb.org).",
                 "developers": "wwPDB I/H methods task force members",
                 "maintainers": "wwPDB I/H methods task force members",
-                "schema": "null"
+                "schema": null
             },
             "mmcif_ndb_ntc": {
                 "title": "NDB NTC Dictionary",
                 "description": "The NDB NTC dictionary is an extension of the PDBx/mmCIF dictionary for DNATCO conformer analysis of nucleic acids.",
                 "developers": "Brinda Vallat, Cathy Lawson, Bohdan Schneider, and Jiri Cerny",
                 "maintainers": "Brinda Vallat",
-                "schema": "null"
+                "schema": null
             },
             "mmcif_ma": {
                 "title": "Model Archive Extension Dictionary",
                 "description": "The Model Archive dictionary is an extension of the PDBx/mmCIF dictionary. This resource is actively developed and maintained in a GitHub repository available at the <a href=\"https://github.com/ihmwg/MA-dictionary\">Model Archive GitHub repository</a>.  Structural models that are compliant to this extension dictionary can be deposited to the Model Archive at https://www.modelarchive.org.",
                 "developers": "Model Archive developers",
                 "maintainers": "Model Archive developers",
-                "schema": "null"
+                "schema": null
             },
             "mmcif_pdbx_vrpt": {
                 "title": "wwPDB Validation Report Dictionary",
                 "description": "wwPDB validation report data in PDBx/mmCIF format",
                 "maintainers": "wwPDB",
                 "developers": "wwPDB",
-                "schema": "pdbx-v50"
+                "schema": null
             }
         }
     }
