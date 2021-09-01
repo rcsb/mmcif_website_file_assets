@@ -1,7 +1,7 @@
 ###########################################################################
 #
 # File:  mmcif_rcsb_nmr.dic
-# Date:  Tue Aug  3 13:22:09 EDT 2021
+# Date:  Mon Aug 16 07:18:26 EDT 2021
 #
 # Created from files in CVS module dict-mmcif_rcsb_nmr.dic unless noted:
 #        mmcif_rcsb_nmr-header.dic   
@@ -13,10 +13,10 @@
 #        mmcif_rcsb_nmr-def-3.dic   
 #        mmcif_rcsb_nmr-def-4.dic   
 #        ../dict-mmcif_rcsb_xray/mmcif_rcsb_xray-def-11.dic   
-#        ../dict-mmcif_pdbx_v40/mmcif_pdbx-def-5.dic   
-#        ../dict-mmcif_pdbx_v40/mmcif_pdbx-def-12.dic   
-#        ../dict-mmcif_pdbx_v40/mmcif_pdbx-def-16.dic   
-#        ../dict-mmcif_pdbx_v40/chem_comp_atom_feature.dic   
+#        ../common/mmcif_pdbx-def-5.dic   
+#        ../common/mmcif_pdbx-def-12.dic   
+#        ../common/mmcif_pdbx-def-16.dic   
+#        ../common/chem_comp_atom_feature.dic   
 #        ../dict-mmcif_rcsb_xray/prd-extension-v4-alt.dic   
 #        mmcif_rcsb_nmr-def-ilg.dic   
 #
