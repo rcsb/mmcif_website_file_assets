@@ -2,7 +2,7 @@
 ## MODELING EXTENSION DICTIONARY ##
 ###################################
 
-# Version 1.2.6 17th September 2021
+# Version 1.3.2 27th October 2021
 
 data_mmcif_ma.dic
 
@@ -19,7 +19,7 @@ data_mmcif_ma.dic
 
     _dictionary.title           mmcif_ma.dic
     _dictionary.datablock_id    mmcif_ma.dic
-    _dictionary.version         1.2.6
+    _dictionary.version         1.3.2
 #
      loop_
     _dictionary_history.version
@@ -119,6 +119,43 @@ data_mmcif_ma.dic
   + Changed _ma_qa_metric_global.value to _ma_qa_metric_global.metric_value
   + Changed _ma_qa_metric_local.value to _ma_qa_metric_local.metric_value
 ;
+  1.2.7   2021-10-18
+;
+  Changes (bv)
+  + Added _entry.ma_collection_id, _ma_target_ref_db_details.ncbi_taxonomy_id, _ma_target_ref_db_details.organism_scientific, ma_qa_metric_local_pairwise
+  + Updated _item.mandatory_code for _ma_protocol_step.input_data_group_id, _ma_protocol_step.output_data_group_id, _ma_protocol_step.software_group_id
+  + Updated enumerations for _ma_target_ref_db_details.db_name, _ma_qa_metric.type
+  + Changed _ma_protocol_step.method_type_other_details to _ma_protocol_step.details
+  + Updated _category_key.name for ma_target_ref_db_details
+;
+  1.2.8   2021-10-20
+;
+  Changes (bv)
+  + Updated enumerations for _ma_target_ref_db_details.db_name
+;
+  1.2.9   2021-10-21
+;
+  Changes (bv)
+  + Updated enumerations for _ma_qa_metric.mode
+;
+  1.3.0   2021-10-22
+;
+  Changes (bv)
+  + Added ma_entry_associated_files
+;
+
+  1.3.1   2021-10-25
+;
+  Changes (bv)
+  + Added ma_associated_archive_file_details
+;
+
+  1.3.2   2021-10-27
+;
+  Changes (bv)
+  + Updated _item.mandatory_code for _ma_qa_metric.software_group_id
+  + Fixed typos
+;
 
 #########################
 ## CATEGORY_GROUP_LIST ##
@@ -200,6 +237,20 @@ data_mmcif_ma.dic
     _item_units_list.detail
      'angstroms'              'Angstroms   (metres * 10^(-10)^)'
      '8pi2_angstroms_squared' '8pi^2^ * Angstroms squared (metres * 10^(-10)^)^2^'
+
+###########
+## ENTRY ##
+###########
+
+save__entry.ma_collection_id
+    _item_description.description
+;    An identifier for the model collection associated with the entry. 
+;
+    _item.name                  '_entry.ma_collection_id'
+    _item.category_id             entry
+    _item.mandatory_code          no
+    _item_type.code               code
+     save_
 
 ###################
 ## MA_MODEL_LIST ##
@@ -1398,7 +1449,9 @@ save_ma_target_ref_db_details
 ;
     _category.id                  ma_target_ref_db_details
     _category.mandatory_code      no
+    loop_
     _category_key.name            '_ma_target_ref_db_details.target_entity_id'
+                                  '_ma_target_ref_db_details.db_name'
     loop_
     _category_group.id            'inclusive_group'
                                   'ma_group'
@@ -1454,6 +1507,9 @@ save__ma_target_ref_db_details.db_name
     _item_enumeration.detail
       'UNP'     'UniProtKB'
       'GB'      'Genbank'
+      'OrthoDB' 'OrthoDB'
+      'NCBI'    'NCBI'
+      'JGI'     'JGI'
       'Other'   'Other'
      save_
 
@@ -1538,6 +1594,32 @@ save__ma_target_ref_db_details.seq_db_align_end
     _item_type.code               code
      loop_
     _item_examples.case         '105' '245'
+     save_
+
+save__ma_target_ref_db_details.ncbi_taxonomy_id
+    _item_description.description
+;    Taxonomy identifier provided by NCBI. 
+;
+    _item.name                  '_ma_target_ref_db_details.ncbi_taxonomy_id'
+    _item.category_id             ma_target_ref_db_details
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_examples.case         
+    '1294385'
+     save_
+
+save__ma_target_ref_db_details.organism_scientific
+    _item_description.description
+;    Scientific name of the organism. 
+;
+    _item.name                  '_ma_target_ref_db_details.organism_scientific'
+    _item.category_id             ma_target_ref_db_details
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_examples.case         
+    'Saccharomyces cerevisiae YJM1573'
      save_
 
 #####################################
@@ -1670,14 +1752,14 @@ save_ma_struct_assembly
     _ma_struct_assembly.seq_id_begin
     _ma_struct_assembly.seq_id_end
 
-         1   0   1  A  1   726 
-         2   0   2  B  1   744 
-         3   0   3  C  1  1037 
-         4   0   4  D  1  1157 
-         5   1   1  A  1   726
-         6   2   2  B  1   744
-         7   3   3  C  1  1037
-         8   4   4  D  1  1157 
+         1   1   1  A  1   726 
+         2   1   2  B  1   744 
+         3   1   3  C  1  1037 
+         4   1   4  D  1  1157 
+         5   2   1  A  1   726
+         6   3   2  B  1   744
+         7   4   3  C  1  1037
+         8   5   4  D  1  1157 
          #...abbreviated...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2575,9 +2657,9 @@ save_ma_data
         _ma_data.id
         _ma_data.name
         _ma_data.content_type
-        0 "NMR NOE Distances" "spatial restraints" 
-        1 "Target Template Alignment" "target-template alignment"
-        2 "Coevolution Data" "coevolution MSA"
+        1 "NMR NOE Distances" "spatial restraints" 
+        2 "Target Template Alignment" "target-template alignment"
+        3 "Coevolution Data" "coevolution MSA"
          # ...  abbreviated ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -2670,12 +2752,12 @@ save_ma_data_group
         _ma_data_group.ordinal_id
         _ma_data_group.group_id
         _ma_data_group.data_id
-        0 1 2
-        1 1 3
-        2 1 4
-        3 2 3 
-        4 2 4
-        5 2 5 
+        1 1 2
+        2 1 3
+        3 1 4
+        4 2 3 
+        5 2 4
+        6 2 5 
        # ...  abbreviated ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -4369,12 +4451,12 @@ save_ma_restraints_group
         _ma_restraints_group.ordinal_id
         _ma_restraints_group.group_id
         _ma_restraints_group.restraint_id
-        0 1 2
-        1 1 3
-        2 1 4
-        3 2 3 
-        4 2 4
-        5 2 5 
+        1 1 2
+        2 1 3
+        3 1 4
+        4 2 3 
+        5 2 4
+        6 2 5 
        # ...  abbreviated ...
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -4452,16 +4534,16 @@ save_ma_protocol_step
   _ma_protocol_step.input_data_group_id
   _ma_protocol_step.output_data_group_id
 
-   0 0 0 "template search" . 2   1  5
-   1 0 1 "template search" . 2   2  6
-   2 0 2 "template search" . 2   3  7
-   3 0 3 "template search" . 2   4  8
-   4 1 0 "template selection" . 2  5  9
-   5 1 1 "template selection" . 2  6 10
-   6 1 2 "template selection" . 2  7 11
-   7 1 3 "template selection" . 2  8 12
-   8 2 0 "modeling" . 2   13   14
-   9 3 0 "model selection" . 2   14  15
+   1 1 1 "template search" . 2   1  5
+   2 1 2 "template search" . 2   2  6
+   3 1 3 "template search" . 2   3  7
+   4 1 4 "template search" . 2   4  8
+   5 2 1 "template selection" . 2  5  9
+   6 2 2 "template selection" . 2  6 10
+   7 2 3 "template selection" . 2  7 11
+   8 2 4 "template selection" . 2  8 12
+   9 3 1 "modeling" . 2   13   14
+  10 4 1 "model selection" . 2   14  15
   # ... abbreviated ... #
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -4520,11 +4602,11 @@ save__ma_protocol_step.method_type
     'other'
      save_
 
-save__ma_protocol_step.method_type_other_details
+save__ma_protocol_step.details
     _item_description.description
-;   Details for other method type.
+;   Details of the protocol step.
 ;
-    _item.name                  '_ma_protocol_step.method_type_other_details'
+    _item.name                  '_ma_protocol_step.details'
     _item.category_id             ma_protocol_step
     _item.mandatory_code          no
     _item_type.code               text
@@ -4548,7 +4630,7 @@ save__ma_protocol_step.software_group_id
 ;
     _item.name                  '_ma_protocol_step.software_group_id'
     _item.category_id             ma_protocol_step
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               int
     _item_linked.child_name       '_ma_protocol_step.software_group_id'
     _item_linked.parent_name      '_ma_software_group.group_id'
@@ -4562,7 +4644,7 @@ save__ma_protocol_step.input_data_group_id
 ;
     _item.name                  '_ma_protocol_step.input_data_group_id'
     _item.category_id             ma_protocol_step
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               int
     _item_linked.child_name       '_ma_protocol_step.input_data_group_id'
     _item_linked.parent_name      '_ma_data_group.group_id'
@@ -4576,7 +4658,7 @@ save__ma_protocol_step.output_data_group_id
 ;
     _item.name                  '_ma_protocol_step.output_data_group_id'
     _item.category_id             ma_protocol_step
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               int
     _item_linked.child_name       '_ma_protocol_step.output_data_group_id'
     _item_linked.parent_name      '_ma_data_group.group_id'
@@ -5215,6 +5297,9 @@ save__ma_qa_metric.type
     'energy'    'the lower the energy, the better the quality'
     'distance'  'the lower the distance, the better the quality'
     'normalized score'  'normalized score ranging from 0 to 1'
+    'pLDDT' 'per-residue confidence score based on the Local Distance Difference Test'
+    'PAE'   'predicted aligned error'
+    'contact probability'   'the contact probability of a pairwise interaction'
     'other'     'other type of QA metric'
      save_
 
@@ -5241,6 +5326,7 @@ save__ma_qa_metric.mode
     _item_enumeration.detail
     'local'    'QA metric is calculated per-residue'
     'global'   'QA metric is calculated per-model'
+    'local-pairwise'    'QA metric is calculated per-residue-pair'
      save_
 
 save__ma_qa_metric.software_group_id
@@ -5251,7 +5337,7 @@ save__ma_qa_metric.software_group_id
 ;
     _item.name                  '_ma_qa_metric.software_group_id'
     _item.category_id             ma_qa_metric
-    _item.mandatory_code          yes
+    _item.mandatory_code          no
     _item_type.code               int
     _item_linked.child_name       '_ma_qa_metric.software_group_id'
     _item_linked.parent_name      '_ma_software_group.group_id'
@@ -5288,7 +5374,7 @@ save_ma_qa_metric_global
     _ma_qa_metric_global.metric_id
     _ma_qa_metric_global.metric_value
     1 1 1 -0.32
-    1 1 2 -4.69
+    2 1 2 -4.69
    # ...  abbreviated ... 
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -5378,7 +5464,7 @@ save_ma_qa_metric_local
     _ma_qa_metric_local.metric_id
     _ma_qa_metric_local.metric_value
     1 1 A 20 LEU 1 -0.85
-    1 1 A 21 ARG 2 -2.71
+    2 1 A 21 ARG 2 -2.71
    # ...  abbreviated ... 
 ;
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -5479,6 +5565,190 @@ save__ma_qa_metric_local.metric_value
     _item_type.code               float
      save_
 
+#################################
+## MA_QA_METRIC_LOCAL_PAIRWISE ##
+#################################
+
+save_ma_qa_metric_local_pairwise
+    _category.description
+;              Data items in the MA_QA_METRIC_LOCAL_PAIRWISE category captures the
+               details of the local QA metrics, calculated at the pairwise residue level. 
+;
+    _category.id                  ma_qa_metric_local_pairwise
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_ma_qa_metric_local_pairwise.ordinal_id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'ma_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    loop_
+    _ma_qa_metric_local_pairwise.ordinal_id
+    _ma_qa_metric_local_pairwise.model_id
+    _ma_qa_metric_local_pairwise.label_asym_id_1
+    _ma_qa_metric_local_pairwise.label_seq_id_1
+    _ma_qa_metric_local_pairwise.label_comp_id_1
+    _ma_qa_metric_local_pairwise.label_asym_id_2
+    _ma_qa_metric_local_pairwise.label_seq_id_2
+    _ma_qa_metric_local_pairwise.label_comp_id_2
+    _ma_qa_metric_local_pairwise.metric_id
+    _ma_qa_metric_local_pairwise.metric_value
+    1 1 A 20 LEU B 82 ILE 1 30.84
+    2 1 A 20 LEU B 82 ILE 2  0.40
+   # ...  abbreviated ... 
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  ma_qa_metric_local_pairwise
+     save_
+
+save__ma_qa_metric_local_pairwise.ordinal_id
+    _item_description.description
+;     A unique identifier for the category. 
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.ordinal_id'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__ma_qa_metric_local_pairwise.model_id
+    _item_description.description
+;     The identifier for the structural model, for which local QA metric is provided.
+      This data item is a pointer to _ma_model_list.model_id
+      in the MA_MODEL_LIST category.  
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.model_id'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.model_id'
+    _item_linked.parent_name    '_ma_model_list.model_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.label_asym_id_1
+    _item_description.description
+;     The identifier for the asym id of the first residue in the 
+      pair, for which local QA metric is provided.
+      This data item is a pointer to _atom_site.label_asym_id
+      in the ATOM_SITE category.
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.label_asym_id_1'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.label_asym_id_1'
+    _item_linked.parent_name    '_atom_site.label_asym_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.label_seq_id_1
+    _item_description.description
+;     The identifier for the sequence index of the first residue 
+      in the pair, for which local QA metric is provided.
+      This data item is a pointer to _atom_site.label_seq_id
+      in the ATOM_SITE category.
+;     
+    _item.name                  '_ma_qa_metric_local_pairwise.label_seq_id_1'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.label_seq_id_1'
+    _item_linked.parent_name    '_atom_site.label_seq_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.label_comp_id_1
+    _item_description.description
+;     The component identifier for the first residue in the 
+      pair, for which local QA metric is provided.
+      This data item is a pointer to _atom_site.label_comp_id
+      in the ATOM_SITE category.
+;     
+    _item.name                  '_ma_qa_metric_local_pairwise.label_comp_id_1'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.label_comp_id_1'
+    _item_linked.parent_name    '_atom_site.label_comp_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.label_asym_id_2
+    _item_description.description
+;     The identifier for the asym id of the second residue in the
+      pair, for which local QA metric is provided.
+      This data item is a pointer to _atom_site.label_asym_id
+      in the ATOM_SITE category.
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.label_asym_id_2'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.label_asym_id_2'
+    _item_linked.parent_name    '_atom_site.label_asym_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.label_seq_id_2
+    _item_description.description
+;     The identifier for the sequence index of the second residue
+      in the pair, for which local QA metric is provided.
+      This data item is a pointer to _atom_site.label_seq_id
+      in the ATOM_SITE category.
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.label_seq_id_2'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.label_seq_id_2'
+    _item_linked.parent_name    '_atom_site.label_seq_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.label_comp_id_2
+    _item_description.description
+;     The component identifier for the second residue in the
+      pair, for which local QA metric is provided.
+      This data item is a pointer to _atom_site.label_comp_id
+      in the ATOM_SITE category.
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.label_comp_id_2'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.label_comp_id_2'
+    _item_linked.parent_name    '_atom_site.label_comp_id'
+     save_
+
+save__ma_qa_metric_local_pairwise.metric_id
+    _item_description.description
+;     The identifier for the QA metric.
+      This data item is a pointer to _ma_qa_metric.id in the
+      MA_QA_METRIC category. 
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.metric_id'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_ma_qa_metric_local_pairwise.metric_id'
+    _item_linked.parent_name    '_ma_qa_metric.id'
+     save_
+
+save__ma_qa_metric_local_pairwise.metric_value
+    _item_description.description
+;     The value of the local QA metric. 
+;
+    _item.name                  '_ma_qa_metric_local_pairwise.metric_value'
+    _item.category_id             ma_qa_metric_local_pairwise
+    _item.mandatory_code          yes
+    _item_type.code               float
+     save_
+
+
 #########################
 ## PDBX_ENTITY_NONPOLY ##
 #########################
@@ -5496,5 +5766,283 @@ save__pdbx_entity_nonpoly.ma_model_mode
     _item_enumeration.value
     'explicit'
     'implicit'
+     save_
+
+###############################
+## MA_ENTRY_ASSOCIATED_FILES ##
+###############################
+
+save_ma_entry_associated_files
+    _category.description
+;              Data items in the MA_ENTRY_ASSOCIATED_FILES category record the
+               details of additional files associated with the entry. These may
+               be multiple sequence alignment files, restraint data files, files
+               containing quality assessment scores, or validation reports. The
+               files may be listed separately or as an archive file (zip/gzip). 
+;
+    _category.id                  ma_entry_associated_files
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_ma_entry_associated_files.id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'ma_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    loop_
+    _ma_entry_associated_files.id
+    _ma_entry_associated_files.entry_id
+    _ma_entry_associated_files.file_url
+    _ma_entry_associated_files.file_type
+    _ma_entry_associated_files.file_format
+    _ma_entry_associated_files.file_content
+    _ma_entry_associated_files.details
+    1 ma-jisol https://www.modelarchive.org/ma-jisol.zip archive zip 'archive with multiple files' ?
+    2 ma-jisol https://www.modelarchive.org/ma-jisol.a3m file a3m 'multiple sequence alignment' ?
+   # ...  abbreviated ... 
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  ma_entry_associated_files
+     save_
+
+save__ma_entry_associated_files.id
+    _item_description.description
+;     An identifier for the associated file. 
+;
+    _item.name                  '_ma_entry_associated_files.id'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__ma_entry_associated_files.entry_id
+    _item_description.description
+;     An identifier for the entry.
+      This data item is a pointer to _entry.id
+      in the ENTRY category.
+;
+    _item.name                  '_ma_entry_associated_files.entry_id'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name     '_ma_entry_associated_files.entry_id'
+    _item_linked.parent_name    '_entry.id'
+     save_
+
+save__ma_entry_associated_files.file_type
+    _item_description.description
+;     Type of file. 
+;
+    _item.name                  '_ma_entry_associated_files.file_type'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'archive'
+    'file'
+    'other'
+     save_
+
+save__ma_entry_associated_files.file_url
+    _item_description.description
+;     URL for the file.
+;
+    _item.name                  '_ma_entry_associated_files.file_url'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__ma_entry_associated_files.file_format
+    _item_description.description
+;     The format of the file. 
+;
+    _item.name                  '_ma_entry_associated_files.file_format'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'zip'
+    'gzip'
+    'txt'
+    'cif'
+    'fasta'
+    'clustalw'
+    'pir/nbrf'
+    'a2m'
+    'a3m'
+    'csv'
+    'tsv'
+    'pdf'
+    'other'
+     save_
+
+save__ma_entry_associated_files.details
+    _item_description.description
+;     Additional details about the file. 
+;
+    _item.name                  '_ma_entry_associated_files.details'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__ma_entry_associated_files.file_content
+    _item_description.description
+;     Content of the file.
+;
+    _item.name                  '_ma_entry_associated_files.file_content'
+    _item.category_id             ma_entry_associated_files
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+    'archive with multiple files'
+    'multiple sequence alignments'    
+    'input restraints'   
+    'local pairwise QA scores'
+    'validation report'
+    'other'    
+     save_
+
+########################################
+## MA_ASSOCIATED_ARCHIVE_FILE_DETAILS ##
+########################################
+
+save_ma_associated_archive_file_details
+    _category.description
+;              Data items in the MA_ASSOCIATED_ARCHIVE_FILE_DETAILS category record the
+               details of files within an associated archive file (zip/gzip). These may
+               be multiple sequence alignment files, restraint data files, files
+               containing quality assessment scores, or validation reports.
+;
+    _category.id                  ma_associated_archive_file_details
+    _category.mandatory_code      no
+     loop_
+    _category_key.name          '_ma_associated_archive_file_details.id'
+
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'ma_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 -
+;
+;
+    loop_
+    _ma_associated_archive_file_details.id
+    _ma_associated_archive_file_details.archive_file_id
+    _ma_associated_archive_file_details.file_path
+    _ma_associated_archive_file_details.file_format
+    _ma_associated_archive_file_details.file_content
+    _ma_associated_archive_file_details.description
+    1 1 ma-jisol-qa.cif cif 'local pairwise QA scores' ?
+    2 1 ma-jisol.a3m a3m 'multiple sequence alignments' ?
+   # ...  abbreviated ... 
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         CONTRIBUTED
+   _pdbx_category_context.category_id  ma_associated_archive_file_details
+     save_
+
+save__ma_associated_archive_file_details.id
+    _item_description.description
+;     A unique identifier for the category.
+;
+    _item.name                  '_ma_associated_archive_file_details.id'
+    _item.category_id             ma_associated_archive_file_details
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__ma_associated_archive_file_details.archive_file_id
+    _item_description.description
+;     An identifier for the archive file.
+      This data item is a pointer to _ma_entry_associated_files.id
+      in the MA_ENTRY_ASSOCIATED_FILES category.
+;
+    _item.name                  '_ma_associated_archive_file_details.archive_file_id'
+    _item.category_id             ma_associated_archive_file_details
+    _item.mandatory_code          yes
+    _item_type.code               int
+    _item_linked.child_name     '_ma_associated_archive_file_details.archive_file_id'
+    _item_linked.parent_name    '_ma_entry_associated_files.id'
+     save_
+
+save__ma_associated_archive_file_details.file_path
+    _item_description.description
+;     Path to the file.
+;
+    _item.name                  '_ma_associated_archive_file_details.file_path'
+    _item.category_id             ma_associated_archive_file_details
+    _item.mandatory_code          yes
+    _item_type.code               line
+    loop_
+    _item_examples.case
+    'ma-jisol-qa.cif'
+    'ma-jisol.a3m'
+     save_
+
+save__ma_associated_archive_file_details.file_format
+    _item_description.description
+;     The format of the file.
+;
+    _item.name                  '_ma_associated_archive_file_details.file_format'
+    _item.category_id             ma_associated_archive_file_details
+    _item.mandatory_code          no
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    'txt'
+    'cif'
+    'fasta'
+    'clustalw'
+    'pir/nbrf'
+    'a2m'
+    'a3m'
+    'csv'
+    'tsv'
+    'pdf'
+    'other'
+     save_
+
+save__ma_associated_archive_file_details.file_content
+    _item_description.description
+;     Content of the file.
+;
+    _item.name                  '_ma_associated_archive_file_details.file_content'
+    _item.category_id             ma_associated_archive_file_details
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+    'multiple sequence alignments'
+    'input restraints'
+    'local pairwise QA scores'
+    'validation report'
+    'other'
+     save_
+
+save__ma_associated_archive_file_details.description
+    _item_description.description
+;     Textual description about the file.
+;
+    _item.name                  '_ma_associated_archive_file_details.description'
+    _item.category_id             ma_associated_archive_file_details
+    _item.mandatory_code          no
+    _item_type.code               text
      save_
 
