@@ -2,9 +2,23 @@
 # ---
 cd /var/www
 echo "# Cloning static content for mmCIF website"
-git clone https://github.com/rcsb/mmcif_website.git
+if [ -e mmcif_website ]; then
+    cd mmcif_website
+    git pull
+    cd ..
+else
+    git clone https://github.com/rcsb/mmcif_website.git
+fi
+
 echo "# Cloning file assets for mmCIF website"
-git clone https://github.com/rcsb/mmcif_website_file_assets.git
+if [ -e mmcif_website_file_assets ]; then
+    cd mmcif_website_file_assets
+    git pull
+    cd ..
+else
+    git clone https://github.com/rcsb/mmcif_website_file_assets.git
+fi
+
 # ---
 chown -R www-data:www-data /var/www/mmcif_website /var/www/mmcif_website_file_assets
 # ---
