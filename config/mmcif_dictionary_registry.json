@@ -184,11 +184,11 @@
                 "schema": null
             },
             "mmcif_ma": {
-                "title": "Model Archive Extension Dictionary",
-                "description": "The Model Archive dictionary is an extension of the PDBx/mmCIF dictionary. This resource is actively developed and maintained in a GitHub repository available at the <a href=\"https://github.com/ihmwg/MA-dictionary\">Model Archive GitHub repository</a>.  Structural models that are compliant to this extension dictionary can be deposited to the Model Archive at https://www.modelarchive.org.",
-                "developers": "Model Archive developers",
-                "maintainers": "Model Archive developers",
-                "schema": null
+                "title": "ModelCIF Extension Dictionary",
+                "description": "ModelCIF is an extension of the PDBx/mmCIF dictionary. This resource is actively developed and maintained at the ModelCIF GitHub respository available at https://github.com/ihmwg/ModelCIF.",
+                "developers": "ModelCIF developers",
+                "maintainers": "ModelCIF Working Group (https://wwpdb.org/task/modelcif)",
+                "schema": "null"
             },
             "mmcif_pdbx_vrpt": {
                 "title": "wwPDB Validation Report Dictionary",
