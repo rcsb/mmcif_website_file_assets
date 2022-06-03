@@ -5,7 +5,7 @@ _datablock.description  "wwPDB Validation Report extension dictionary"
 #
 _dictionary.title         mmcif_pdbx_vrpt.dic
 _dictionary.datablock_id  mmcif_pdbx_vrpt.dic
-_dictionary.version       0.062
+_dictionary.version       0.063
 #
 loop_
 _dictionary_history.version
@@ -22,6 +22,12 @@ _dictionary_history.revision
   + Extend enumerations for _pdbx_vrpt_dihedralangle_violation_model.ang_rest_type,
     _pdbx_vrpt_dihedralangle_ensemble_violation.ang_rest_type,
     _pdbx_vrpt_dihedralangle_violations_summary.restraint_type
+;
+  
+0.063  2021-06-03  
+; Changes (ep):
+  + Add "DisulfideBond" and "HydrogenBond" to
+     _pdbx_vrpt_distance_violation_summary enumeration
 ;
   
 #
@@ -4788,11 +4794,13 @@ save__pdbx_vrpt_distance_violation_summary.restraint_type
    loop_
    _item_enumeration.value
    _item_enumeration.detail
+     DisulfideBond  .  
+     HydrogenBond   .  
+     InterChain     .  
      Intra-residue  .  
-     Sequential     .  
      MediumRange    .  
      LongRange      .  
-     InterChain     .  
+     Sequential     .  
      Total          .  
    #
    _item_aliases.alias_name  "_distance_violation_summary.restraint_type"
