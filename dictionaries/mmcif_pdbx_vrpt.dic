@@ -5,7 +5,7 @@ _datablock.description  "wwPDB Validation Report extension dictionary"
 #
 _dictionary.title         mmcif_pdbx_vrpt.dic
 _dictionary.datablock_id  mmcif_pdbx_vrpt.dic
-_dictionary.version       0.063
+_dictionary.version       0.064
 #
 loop_
 _dictionary_history.version
@@ -28,6 +28,20 @@ _dictionary_history.revision
 ; Changes (ep):
   + Add "DisulfideBond" and "HydrogenBond" to
      _pdbx_vrpt_distance_violation_summary enumeration
+;
+  
+0.064  2022-07-20  
+; Changes (ep):
+  + Addition of Q-score data
+    Add _pdbx_vrpt_summary_em.Q_score
+    Add pdbx_vrpt_summary_entity_fit_to_map category
+    Mark _pdbx_vrpt_summary_entity_geometry.average_residue_inclusion as deprecated
+      and replaced by _pdbx_vrpt_summary_entity_fit_to_map.average_residue_inclusion
+    Add pdbx_vrpt_model_instance_map_fitting category
+    Mark pdbx_vrpt_model_instance_density as deprecated and replaced
+      by pdbx_vrpt_model_instance_map_fitting
+    Mark _pdbx_vrpt_model_instance_geometry.residue_inclusion deprecated and replaced by
+      _pdbx_vrpt_model_instance_map_fitting.residue_inclusion
 ;
   
 #
@@ -117,6 +131,7 @@ pdbx_vrpt_instance_stereo_outliers                1  pdbx_vrpt_instance_stereo_o
 pdbx_vrpt_model_instance                          1  pdbx_vrpt_model_instance:pdbx_vrpt_asym:1                                 .  .  
 pdbx_vrpt_model_instance_geometry                 1  pdbx_vrpt_model_instance_geometry:pdbx_vrpt_model_instance:1              .  .  
 pdbx_vrpt_model_instance_density                  1  pdbx_vrpt_model_instance_density:pdbx_vrpt_model_instance:1               .  .  
+pdbx_vrpt_model_instance_map_fitting              1  pdbx_vrpt_model_instance_map_fitting:pdbx_vrpt_model_instance:1           .  .  
 pdbx_vrpt_most_violated_dihedralangle_restraints  1  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:1"      .  .  
 pdbx_vrpt_most_violated_dihedralangle_restraints  2  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:2"      .  .  
 pdbx_vrpt_most_violated_dihedralangle_restraints  3  "_pdbx_vrpt_most_violated_dihedralangle_restraints:pdbx_vrpt_asym:3"      .  .  
@@ -133,6 +148,7 @@ pdbx_vrpt_em_graph_atom_inclusion                 1  pdbx_vrpt_em_graph_atom_inc
 pdbx_vrpt_em_graph_fsc_curve                      1  pdbx_vrpt_em_graph_fsc_curve:pdbx_vrpt_em_2d_graph_info:1                 .  .  
 pdbx_vrpt_em_graph_fsc_indicator_curve            1  pdbx_vrpt_em_graph_fsc_indicator_curve:pdbx_vrpt_em_2d_graph_info:1       .  .  
 pdbx_vrpt_summary_entity_geometry                 1  pdbx_vrpt_summary_entity_geometry:pdbx_vrpt_asym:1                        .  .  
+pdbx_vrpt_summary_entity_fit_to_map               1  pdbx_vrpt_summary_entity_fit_to_map:pdbx_vrpt_asym:1                      .  .  
 pdbx_vrpt_violated_dihedralangle_restraints       1  pdbx_vrpt_violated_dihedralangle_restraints:pdbx_vrpt_model_instance:1    .  .  
 pdbx_vrpt_violated_dihedralangle_restraints       2  pdbx_vrpt_violated_dihedralangle_restraints:pdbx_vrpt_model_instance:2    .  .  
 pdbx_vrpt_violated_dihedralangle_restraints       3  pdbx_vrpt_violated_dihedralangle_restraints:pdbx_vrpt_model_instance:3    .  .  
@@ -161,6 +177,7 @@ pdbx_vrpt_model_instance                          1  "_pdbx_vrpt_model_instance.
 pdbx_vrpt_model_instance                          1  "_pdbx_vrpt_model_instance.label_asym_id"                     "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
 pdbx_vrpt_model_instance_geometry                 1  "_pdbx_vrpt_model_instance_geometry.instance_id"              "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
 pdbx_vrpt_model_instance_density                  1  "_pdbx_vrpt_model_instance_density.instance_id"               "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
+pdbx_vrpt_model_instance_map_fitting              1  "_pdbx_vrpt_model_instance_map_fitting.instance_id"           "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
 pdbx_vrpt_most_violated_dihedralangle_restraints  1  "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_1"    "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
 pdbx_vrpt_most_violated_dihedralangle_restraints  1  "_pdbx_vrpt_most_violated_dihedralangle_restraints.ent_1"     "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
 pdbx_vrpt_most_violated_dihedralangle_restraints  2  "_pdbx_vrpt_most_violated_dihedralangle_restraints.said_2"    "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
@@ -185,6 +202,8 @@ pdbx_vrpt_em_graph_fsc_curve                      1  "_pdbx_vrpt_em_graph_fsc_cu
 pdbx_vrpt_em_graph_fsc_indicator_curve            1  "_pdbx_vrpt_em_graph_fsc_indicator_curve.graph_id"            "_pdbx_vrpt_em_2d_graph_info.graph_id"       pdbx_vrpt_em_2d_graph_info       
 pdbx_vrpt_summary_entity_geometry                 1  "_pdbx_vrpt_summary_entity_geometry.entity_id"                "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
 pdbx_vrpt_summary_entity_geometry                 1  "_pdbx_vrpt_summary_entity_geometry.label_asym_id"            "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
+pdbx_vrpt_summary_entity_fit_to_map               1  "_pdbx_vrpt_summary_entity_fit_to_map.entity_id"              "_pdbx_vrpt_asym.entity_id"                  pdbx_vrpt_asym                   
+pdbx_vrpt_summary_entity_fit_to_map               1  "_pdbx_vrpt_summary_entity_fit_to_map.label_asym_id"          "_pdbx_vrpt_asym.label_asym_id"              pdbx_vrpt_asym                   
 pdbx_vrpt_violated_dihedralangle_restraints       1  "_pdbx_vrpt_violated_dihedralangle_restraints.instance_id_1"  "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
 pdbx_vrpt_violated_dihedralangle_restraints       2  "_pdbx_vrpt_violated_dihedralangle_restraints.instance_id_2"  "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
 pdbx_vrpt_violated_dihedralangle_restraints       3  "_pdbx_vrpt_violated_dihedralangle_restraints.instance_id_3"  "_pdbx_vrpt_model_instance.id"               pdbx_vrpt_model_instance         
@@ -1037,6 +1056,138 @@ save__pdbx_vrpt_cyrange_domain.residue_string
    #
 save_
 #
+save_pdbx_vrpt_summary_entity_fit_to_map
+   _category.id              pdbx_vrpt_summary_entity_fit_to_map
+   _category.description     
+;
+            This category provides summary of the fit of each entity within each auth_asym_id and each model to a map
+;
+
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_pdbx_vrpt_summary_entity_fit_to_map.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group          
+     validation_report_group  
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.ordinal
+   _item_description.description  "Uniquely identifies each instance of this summary."
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.ordinal"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.PDB_model_num
+   _item_description.description  
+;
+            The unique model number from _atom_site.pdbx_PDB_model_num.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.PDB_model_num"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.entity_id
+   _item_description.description  
+;
+            The entity id for the residue or chain.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.entity_id"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_summary_entity_fit_to_map.entity_id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.entity_id"
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.label_asym_id
+   _item_description.description  
+;
+            The _atom_site.label_asym_id label for the residue.  Normally this is the same as the chain.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.label_asym_id"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_summary_entity_fit_to_map.label_asym_id"
+   _item_linked.parent_name  "_pdbx_vrpt_asym.label_asym_id"
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.auth_asym_id
+   _item_description.description  
+;
+            The _atom_site.auth_asym_id identifier for the instance.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.auth_asym_id"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.Q_score
+   _item_description.description  
+;
+            The calculated average Q-score.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.Q_score"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__pdbx_vrpt_summary_entity_fit_to_map.average_residue_inclusion
+   _item_description.description  
+;
+            The average of the residue inclusions for all residues in this instance
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_entity_fit_to_map.average_residue_inclusion"
+   _item.category_id     pdbx_vrpt_summary_entity_fit_to_map
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_aliases.alias_name  "_ModelledEntityInstance.average_residue_inclusion"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   _item_related.related_name   "_pdbx_vrpt_summary_entity_geometry.average_residue_inclusion"
+   _item_related.function_code  replaces
+   #
+save_
+#
 save_pdbx_vrpt_summary_entity_geometry
    _category.id              pdbx_vrpt_summary_entity_geometry
    _category.description     
@@ -1246,6 +1397,9 @@ save__pdbx_vrpt_summary_entity_geometry.average_residue_inclusion
    _item_aliases.alias_name  "_ModelledEntityInstance.average_residue_inclusion"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
+   #
+   _pdbx_item_context.type       WWPDB_DEPRECATED
+   _pdbx_item_context.item_name  "_pdbx_vrpt_summary_entity_geometry.average_residue_inclusion"
    #
 save_
 #
@@ -7633,6 +7787,9 @@ save__pdbx_vrpt_model_instance_geometry.residue_inclusion
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
    #
+   _pdbx_item_context.type       WWPDB_DEPRECATED
+   _pdbx_item_context.item_name  "_pdbx_vrpt_model_instance_geometry.residue_inclusion"
+   #
 save_
 #
 save__pdbx_vrpt_model_instance_geometry.num_H_reduce
@@ -8101,7 +8258,7 @@ save_
 #
 save_pdbx_vrpt_model_instance_density
    _category.id              pdbx_vrpt_model_instance_density
-   _category.description     "            This category provides information on X-ray density analysis of a residue"
+   _category.description     "            This category provides information on X-ray density analysis of a residue. It is not DEPRECATED"
    _category.mandatory_code  no
    #
    _category_key.name  "_pdbx_vrpt_model_instance_density.ordinal"
@@ -8110,6 +8267,9 @@ save_pdbx_vrpt_model_instance_density
    _category_group.id
      inclusive_group          
      validation_report_group  
+   #
+   _pdbx_category_context.type         WWPDB_DEPRECATED
+   _pdbx_category_context.category_id  pdbx_vrpt_model_instance_density
    #
 save_
 #
@@ -8241,6 +8401,206 @@ save__pdbx_vrpt_model_instance_density.ordinal
    #
    _item.name            "_pdbx_vrpt_model_instance_density.ordinal"
    _item.category_id     pdbx_vrpt_model_instance_density
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+save_
+#
+save_pdbx_vrpt_model_instance_map_fitting
+   _category.id              pdbx_vrpt_model_instance_map_fitting
+   _category.description     "            This category provides information on per residue map fitting analysis"
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_pdbx_vrpt_model_instance_map_fitting.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group          
+     validation_report_group  
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.natoms_eds
+   _item_description.description  
+;
+            The number of atoms in the residue returned by the EDS software.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.natoms_eds"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_aliases.alias_name  "_ModelledSubgroup.NatomsEDS"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   _item_related.related_name   "_pdbx_vrpt_model_instance_density.natoms_eds"
+   _item_related.function_code  replaces
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.RSRCC
+   _item_description.description  
+;
+            The real space correlation coefficient for the instance. This is an alternative to RSR for assessing how well
+            the residue's calculated electron density map matches the EDS electron density map calculated from the
+            experimental diffraction data. A value above 0.95 normally indicates a very
+            good fit. RSCC around 0.90 are generally OK. A poor fit results in a value around or below 0.80.
+            X-ray specific produced by the EDS step.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.RSRCC"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_aliases.alias_name  "_ModelledSubgroup.rscc"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   _item_related.related_name   "_pdbx_vrpt_model_instance_density.RSRCC"
+   _item_related.function_code  replaces
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.RSR
+   _item_description.description  
+;
+            Real Space R-value (RSR) for the residue from the EDS generated map.
+            X-ray specific produced by the EDS step.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.RSR"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_aliases.alias_name  "_ModelledSubgroup.rsr"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   _item_related.related_name   "_pdbx_vrpt_model_instance_density.RSR"
+   _item_related.function_code  replaces
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.RSRZ
+   _item_description.description  
+;
+            RSR Z-score (RSRZ) is a normalisation of RSR specific to a residue type and a resolution bin. 
+            RSRZ is calculated only for standard amino acids and nucleotides in protein, DNA and RNA chains. 
+            A residue is considered an RSRZ outlier if its RSRZ value is greater than 2.
+            X-ray specific produced by the EDS step.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.RSRZ"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_aliases.alias_name  "_ModelledSubgroup.rsrz"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   _item_related.related_name   "_pdbx_vrpt_model_instance_density.RSRZ"
+   _item_related.function_code  replaces
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.ligand_density_outlier
+   _item_description.description  
+;
+            A flag indicating an outlier in the electron density map for a ligand.
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.ligand_density_outlier"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  code
+   #
+   _item_aliases.alias_name  "_ModelledSubgroup.ligand_density_outlier"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail
+     Y  .  
+     N  .  
+   #
+   _item_related.related_name   "_pdbx_vrpt_model_instance_density.ligand_density_outlier"
+   _item_related.function_code  replaces
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.residue_inclusion
+   _item_description.description  
+;
+            The proportion of all atoms of the residue in density
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.residue_inclusion"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+   _item_aliases.alias_name  "_ModelledSubgroup.residue_inclusion"
+   _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
+   _item_aliases.version     V6.00
+   #
+   _item_related.related_name   "_pdbx_vrpt_model_instance_geometry.residue_inclusion"
+   _item_related.function_code  replaces
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.Q_score
+   _item_description.description  
+;
+            The Q-score for the residue in the map
+;
+
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.Q_score"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.instance_id
+   _item_description.description  "A pointer to pdbx_vrpt_model_instance.id."
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.instance_id"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_linked.child_name   "_pdbx_vrpt_model_instance_map_fitting.instance_id"
+   _item_linked.parent_name  "_pdbx_vrpt_model_instance.id"
+   #
+save_
+#
+save__pdbx_vrpt_model_instance_map_fitting.ordinal
+   _item_description.description  "Uniquely identifies each instance of this category."
+   #
+   _item.name            "_pdbx_vrpt_model_instance_map_fitting.ordinal"
+   _item.category_id     pdbx_vrpt_model_instance_map_fitting
    _item.mandatory_code  yes
    #
    _item_type.code  int
@@ -8934,6 +9294,22 @@ save__pdbx_vrpt_summary_diffraction.ordinal
    _item.mandatory_code  yes
    #
    _item_type.code  int
+   #
+save_
+#
+save__pdbx_vrpt_summary_diffraction.Q_score
+   _item_description.description  
+;
+            The overall Q-score of the fit of coordinates to the electron map.
+            The Q-score is defined in Pintilie, GH. et al., Nature Methods, 17, 328-334 (2020)
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_diffraction.Q_score"
+   _item.category_id     pdbx_vrpt_summary_diffraction
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
    #
 save_
 #
@@ -9806,6 +10182,22 @@ save__pdbx_vrpt_summary_em.EMDB_resolution
    _item_aliases.alias_name  "_Entry.EMDB-resolution"
    _item_aliases.dictionary  http://wwpdb.org/validation/schema/wwpdb_validation_v6.00.xsd
    _item_aliases.version     V6.00
+   #
+save_
+#
+save__pdbx_vrpt_summary_em.Q_score
+   _item_description.description  
+;
+            The overall Q-score of the fit of coordinates to the electron map.
+            The Q-score is defined in Pintilie, GH. et al., Nature Methods, 17, 328-334 (2020)
+;
+
+   #
+   _item.name            "_pdbx_vrpt_summary_em.Q_score"
+   _item.category_id     pdbx_vrpt_summary_em
+   _item.mandatory_code  no
+   #
+   _item_type.code  float
    #
 save_
 #
