@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!-- XSD type schema generated on 2023-07-24 -->
+<!-- XSD type schema generated on 2023-08-16 -->
 <!-- Schema file: http://pdbml.pdb.org/schema/pdbx-v32-v1.0697.xsd -->
 <!-- Please direct questions or comments to John Westbrook (jwest@rcsb.rutgers.edu) -->
 
@@ -59022,7 +59022,7 @@ symmetry operator.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix11" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix11" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [1][1] element of the 3x3 matrix component of a
@@ -59030,7 +59030,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix12" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix12" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [1][2] element of the 3x3 matrix component of a
@@ -59038,7 +59038,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix13" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix13" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [1][3] element of the 3x3 matrix component of a
@@ -59046,7 +59046,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix21" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix21" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [2][1] element of the 3x3 matrix component of a
@@ -59054,7 +59054,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix22" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix22" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [2][2] element of the 3x3 matrix component of a
@@ -59062,7 +59062,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix23" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix23" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [2][3] element of the 3x3 matrix component of a
@@ -59070,7 +59070,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix31" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix31" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [3][1] element of the 3x3 matrix component of a
@@ -59078,7 +59078,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix32" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix32" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [3][2] element of the 3x3 matrix component of a
@@ -59086,7 +59086,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="matrix33" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="matrix33" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [3][3] element of the 3x3 matrix component of a
@@ -59094,7 +59094,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="vector1" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="vector1" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [1] element of the three-element vector component of a
@@ -59102,7 +59102,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="vector2" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="vector2" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [2] element of the three-element vector component of a
@@ -59110,7 +59110,7 @@ noncrystallographic symmetry operation.
                         </xsd:documentation>
                      </xsd:annotation>
                   </xsd:element>
-                  <xsd:element name="vector3" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:decimal">
+                  <xsd:element name="vector3" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:float">
                      <xsd:annotation>
                         <xsd:documentation xml:lang="en">
 The [3] element of the three-element vector component of a
