@@ -1,7 +1,7 @@
 {
     "mmcif_dictionary_registry": {
         "otherDictionaryNameList": [
-            "mmcif_ihm",
+            "mmcif_ihm_ext",
             "mmcif_em",
             "mmcif_nmr-star",
             "mmcif_img",
@@ -169,11 +169,11 @@
                 "maintainers": "RCSB PDB",
                 "schema": null
             },
-            "mmcif_ihm": {
-                "title": "Integrative/Hybrid (I/H) methods extension dictionary",
-                "description": "The I/H methods dictionary is an extension of the PDBx/mmCIF dictionary. This dictionary is actively developed and maintained in a github repository available at https://github.com/ihmwg/IHM-dictionary. I/H structural models that are compliant to this extension dictionary can be deposited to the PDB-Dev prototype deposition and archiving system (https://pdb-dev.wwpdb.org).",
-                "developers": "wwPDB I/H methods task force members",
-                "maintainers": "wwPDB I/H methods task force members",
+            "mmcif_ihm_ext": {
+                "title": "IHMCIF extension dictionary",
+                "description": "The IHMCIF dictionary is an extension of the PDBx/mmCIF dictionary. This dictionary is actively developed and maintained in a github repository available at https://github.com/ihmwg/IHMCIF. Integrative structures that are compliant to this extension dictionary can be deposited to the PDB-Dev prototype deposition and archiving system (https://pdb-dev.wwpdb.org).",
+                "developers": "wwPDB integrative/hybrid methods task force members",
+                "maintainers": "wwPDB integrative/hybrid methods task force members",
                 "schema": null
             },
             "mmcif_ndb_ntc": {
