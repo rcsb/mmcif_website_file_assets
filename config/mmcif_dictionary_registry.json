@@ -177,7 +177,7 @@
                 "maintainers": "wwPDB integrative/hybrid methods task force members",
                 "schema": null
             },
-            "mmcif_ihm_flr": {
+            "mmcif_ihm_flr_ext": {
                 "title": "flrCIF extension dictionary",
                 "description": "The flrCIF dictionary is an extension of the PDBx/mmCIF and IHMCIF dictionaries. This dictionary is actively developed and maintained in a github repository available at https://github.com/ihmwg/flrCIF. flrCIF provides the data representation for capturing the details of Fluorescence / FRET experiments. The restraints derived from these experiments can be combined with spatial restraints from other experiments to determine the structures of macromolecular assemblies using integrative modeling methods. The integrative structures are archived in the PDB-Dev prototype system (https://pdb-dev.wwpdb.org).",
                 "developers": "wwPDB integrative/hybrid methods task force members",
