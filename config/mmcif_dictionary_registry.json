@@ -12,8 +12,7 @@
             "mmcif_biosync",
             "mmcif_sym",
             "mmcif_nef",
-            "mmcif_ndb_ntc",
-            "mmcif_pdbx_vrpt"
+            "mmcif_ndb_ntc"
         ],
         "internalDictionaryNameList": [
             "mmcif_rcsb_xray",
@@ -26,6 +25,7 @@
             "mmcif_pdbx_v50",
             "mmcif_ddl",
             "mmcif_pdbx_v5_next",
+            "mmcif_pdbx_vrpt",
             "mmcif_pdbx_v40"
         ],
         "dictionaryInfo": {
@@ -199,8 +199,8 @@
                 "schema": "null"
             },
             "mmcif_pdbx_vrpt": {
-                "title": "wwPDB Validation Report Dictionary",
-                "description": "wwPDB validation report data in PDBx/mmCIF format",
+                "title": "wwPDB Validation Report Dictionary (PDBx/mmCIF)",
+                "description": "The wwPDB validation report dictionary is an extension of the PDBx/mmCIF dictionary to support the public validation reports.",
                 "maintainers": "wwPDB",
                 "developers": "wwPDB",
                 "schema": null
