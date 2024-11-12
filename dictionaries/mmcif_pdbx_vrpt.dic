@@ -5,7 +5,7 @@ _datablock.description  "wwPDB Validation Report extension dictionary"
 #
 _dictionary.title         mmcif_pdbx_vrpt.dic
 _dictionary.datablock_id  mmcif_pdbx_vrpt.dic
-_dictionary.version       0.066
+_dictionary.version       0.067
 #
 loop_
 _dictionary_history.version
@@ -53,6 +53,11 @@ _dictionary_history.revision
 0.066  2024-07-23  
 ; Changes (ep):
   + _pdbx_vrpt_summary_diffraction.CCP4_version
+;
+  
+0.067  2024-11-12  
+; Changes (ep):
+  + Add _pdbx_vrpt_summary_diffraction.EDS_R_warning
 ;
   
 #
@@ -9391,6 +9396,17 @@ save__pdbx_vrpt_summary_diffraction.servalcat_version
    _item_description.description  "The version of Servalcat program used in the analysis."
    #
    _item.name            "_pdbx_vrpt_summary_diffraction.servalcat_version"
+   _item.category_id     pdbx_vrpt_summary_diffraction
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+save_
+#
+save__pdbx_vrpt_summary_diffraction.EDS_R_warning
+   _item_description.description  "Warning message when EDS calculated R vs reported R is higher than a threshold"
+   #
+   _item.name            "_pdbx_vrpt_summary_diffraction.EDS_R_warning"
    _item.category_id     pdbx_vrpt_summary_diffraction
    _item.mandatory_code  no
    #
