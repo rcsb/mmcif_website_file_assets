@@ -12,7 +12,7 @@ _datablock.description
 #
 _dictionary.title         mmcif_ihm_flr_ext.dic
 _dictionary.datablock_id  mmcif_ihm_flr_ext.dic
-_dictionary.version       0.01
+_dictionary.version       0.02
 #
 loop_
 _dictionary_history.version
@@ -91,6 +91,12 @@ _dictionary_history.revision
   + Reorganize dictionary files
 ;
   
+ 0.02  2024-11-27  
+;
+  Changes (bv)
+  + Update PDBx/mmCIF and IHMCIF parent dictionaries
+;
+  
 #
 loop_
 _pdbx_dictionary_component.datablock_id
@@ -99,7 +105,7 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 mmcif_ihm_flr-data.dic  mmcif_ihm_flr-data.dic  "flrCIF dictionary: mmcif_ihm_flr-data"    1.0  
 entity_poly_seq.dic     entity_poly_seq.dic     "entity_poly_seq for IHMCIF"             0.001  
-mmcif_ihm-core.dic      mmcif_ihm-core.dic      "IHMCIF dictionary: mmcif_ihm-core"       1.26  
+mmcif_ihm-core.dic      mmcif_ihm-core.dic      "IHMCIF dictionary: mmcif_ihm-core"       1.27  
 mmcif_ihm_flr-core.dic  mmcif_ihm_flr-core.dic  "flrCIF dictionary: mmcif_ihm_flr-core"   0.01  
 #
 loop_
@@ -744,6 +750,11 @@ mmcif_ihm-core.dic       1.26  2024-07-11
   + Update enumerations for _ihm_cross_link_list.linker_type
   + Update _item_type.code for _ihm_dataset_related_db_reference.accession_code and _ihm_ensemble_info.ensemble_clustering_method
   + Add "ProteomeXchange" to the enumeration list of _ihm_dataset_related_db_reference.db_name
+;
+  
+mmcif_ihm-core.dic       1.27  2024-11-25  
+;
+  + Added BMRbig to the enumeration list in ihm_dataset_related_db_reference.db_name
 ;
   
 mmcif_ihm_flr-core.dic  0.000  2018-05-25  
@@ -6388,6 +6399,7 @@ save__ihm_dataset_related_db_reference.db_name
      iProX  
      AlphaFoldDB  
      ProteomeXchange  
+     BMRbig  
      Other  
    #
 save_
