@@ -12,7 +12,7 @@ _datablock.description
 #
 _dictionary.title         mmcif_ihm_flr_ext.dic
 _dictionary.datablock_id  mmcif_ihm_flr_ext.dic
-_dictionary.version       0.02
+_dictionary.version       0.03
 #
 loop_
 _dictionary_history.version
@@ -97,6 +97,12 @@ _dictionary_history.revision
   + Update PDBx/mmCIF and IHMCIF parent dictionaries
 ;
   
+ 0.03  2025-03-24  
+;
+  Changes (bv)
+  + Update PDBx/mmCIF(v5.403) and IHMCIF(v1.28) parent dictionaries
+;
+  
 #
 loop_
 _pdbx_dictionary_component.datablock_id
@@ -105,7 +111,7 @@ _pdbx_dictionary_component.title
 _pdbx_dictionary_component.version
 mmcif_ihm_flr-data.dic  mmcif_ihm_flr-data.dic  "flrCIF dictionary: mmcif_ihm_flr-data"    1.0  
 entity_poly_seq.dic     entity_poly_seq.dic     "entity_poly_seq for IHMCIF"             0.001  
-mmcif_ihm-core.dic      mmcif_ihm-core.dic      "IHMCIF dictionary: mmcif_ihm-core"       1.27  
+mmcif_ihm-core.dic      mmcif_ihm-core.dic      "IHMCIF dictionary: mmcif_ihm-core"       1.28  
 mmcif_ihm_flr-core.dic  mmcif_ihm_flr-core.dic  "flrCIF dictionary: mmcif_ihm_flr-core"   0.01  
 #
 loop_
@@ -755,6 +761,12 @@ mmcif_ihm-core.dic       1.26  2024-07-11
 mmcif_ihm-core.dic       1.27  2024-11-25  
 ;
   + Added BMRbig to the enumeration list in ihm_dataset_related_db_reference.db_name
+;
+  
+mmcif_ihm-core.dic       1.28  2025-03-24  
+;
+  + Add _ihm_cross_link_result.model_group_id
+  + Update _item.mandatory_code for _ihm_cross_link_result.ensemble_id and _ihm_cross_link_result.num_models
 ;
   
 mmcif_ihm_flr-core.dic  0.000  2018-05-25  
@@ -9852,7 +9864,7 @@ save__ihm_cross_link_result.ensemble_id
    #
    _item.name            "_ihm_cross_link_result.ensemble_id"
    _item.category_id     ihm_cross_link_result
-   _item.mandatory_code  yes
+   _item.mandatory_code  no
    #
    _item_type.code  int
    #
@@ -9870,9 +9882,28 @@ save__ihm_cross_link_result.num_models
    #
    _item.name            "_ihm_cross_link_result.num_models"
    _item.category_id     ihm_cross_link_result
-   _item.mandatory_code  yes
+   _item.mandatory_code  no
    #
    _item_type.code  int
+   #
+save_
+#
+save__ihm_cross_link_result.model_group_id
+   _item_description.description  
+;     An identifier for the group of structure models whose results are described.
+      This data item is a pointer to _ihm_model_group.id in the
+      IHM_MODEL_GROUP category.
+;
+
+   #
+   _item.name            "_ihm_cross_link_result.model_group_id"
+   _item.category_id     ihm_cross_link_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  int
+   #
+   _item_linked.child_name   "_ihm_cross_link_result.model_group_id"
+   _item_linked.parent_name  "_ihm_model_group.id"
    #
 save_
 #
