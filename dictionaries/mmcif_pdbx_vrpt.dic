@@ -5,7 +5,7 @@ _datablock.description  "wwPDB Validation Report extension dictionary"
 #
 _dictionary.title         mmcif_pdbx_vrpt.dic
 _dictionary.datablock_id  mmcif_pdbx_vrpt.dic
-_dictionary.version       0.070
+_dictionary.version       0.071
 #
 loop_
 _dictionary_history.version
@@ -84,6 +84,11 @@ _dictionary_history.revision
   + Add _struct_asym.pdbx_modified, _struct_asym.pdbx_blank_PDB_chainid_flag,
     _struct_asym_details
   + Add ec-type data type.
+;
+  
+0.071  2025-07-28  
+; Changes (ep):
+  + Add q_relative to _pdbx_vrpt_percentile_type.type enumeration
 ;
   
 #
@@ -10977,6 +10982,7 @@ save__pdbx_vrpt_percentile_type.type
    _item_enumeration.value
    _item_enumeration.detail
      all_atom_clashscore           .  
+     q_relative                    .  
      Ramachandran_outlier_percent  .  
      rotamer_outliers_percent      .  
      R_value_R_free                .  
