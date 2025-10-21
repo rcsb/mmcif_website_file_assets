@@ -7,8 +7,9 @@
 
 
 <!--##
-    # File:     pdbx-v50-ext.xsd  
+    # File:     pdbx-v50-ext.xsd
     # Updated:  28-March-2016 ep
+    # Updated:  21-December-2023 ep - support for extended CCD id length
     ##
 -->
 
@@ -26,7 +27,7 @@
     <xsd:simpleType name="atom_record_formatType">
         <xsd:restriction base="xsd:string">
 
-            <xsd:pattern value="\p{Zs}*(ATOM|HETATM)\p{Zs}+(\d)+\p{Zs}+([A-Za-z0-9.?]+)\p{Zs}+([A-Za-z0-9.?]+|[\-])\p{Zs}+([0-9]+|\.)\p{Zs}+([\-]?[0-9]+[A-Za-z]?[&apos;]?)\p{Zs}+([A-Za-z0-9]|\.|\?|&apos;)\p{Zs}+(.+|\.|\?)\p{Zs}+([A-Za-z0-9]{1,3}|[+]?[ATGCUatgcu]|\.|\?)\p{Zs}+([A-Za-z0-9]{1,3}|[+]?[ATGCUatgcu]|\.|\?)\p{Zs}+([A-Za-z0-9]{1,3}|\.|\?)\p{Zs}+([A-Za-z0-9_\*&apos;&quot;,&#32;+]+|\.|\?)\p{Zs}+([A-Za-z0-9_\*&apos;&quot;,&#32;+\-]+|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([A-Za-z0-9]+|\.|\?)\p{Zs}+([+\-]?[0-9]+|\.|\?)\p{Zs}*"/>
+            <xsd:pattern value="\p{Zs}*(ATOM|HETATM)\p{Zs}+(\d)+\p{Zs}+([A-Za-z0-9.?]+)\p{Zs}+([A-Za-z0-9.?]+|[\-])\p{Zs}+([0-9]+|\.)\p{Zs}+([\-]?[0-9]+[A-Za-z]?[&apos;]?)\p{Zs}+([A-Za-z0-9]|\.|\?|&apos;)\p{Zs}+(.+|\.|\?)\p{Zs}+([A-Za-z0-9]{1,5}|[+]?[ATGCUatgcu]|\.|\?)\p{Zs}+([A-Za-z0-9]{1,5}|[+]?[ATGCUatgcu]|\.|\?)\p{Zs}+([A-Za-z0-9]{1,5}|\.|\?)\p{Zs}+([A-Za-z0-9_\*&apos;&quot;,&#32;+]+|\.|\?)\p{Zs}+([A-Za-z0-9_\*&apos;&quot;,&#32;+\-]+|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)\p{Zs}+([A-Za-z0-9]+|\.|\?)\p{Zs}+([+\-]?[0-9]+|\.|\?)\p{Zs}*"/>
 
 <!--
     *** regular expressions of atom_record ***  
@@ -42,9 +43,9 @@
     ([\-]?[0-9]+[A-Za-z]?[&apos;]?)                      - auth_seq_id
     ([A-Za-z0-9]|\.|\?|&apos;)                          - pdbx_PDB_ins_code
     (.+|\.|\?)                                          - label_alt_id
-    ([A-Za-z0-9]{1,3}|[+]?[ATGCUatgcu]|\.|\?)           - label_comp_id
-    ([A-Za-z0-9]{1,3}|[+]?[ATGCUatgcu]|\.|\?)           - auth_comp_id
-    ([A-Za-z0-9]{1,3}|\.|\?)                            - type_symbol
+    ([A-Za-z0-9]{1,5}|[+]?[ATGCUatgcu]|\.|\?)           - label_comp_id
+    ([A-Za-z0-9]{1,5}|[+]?[ATGCUatgcu]|\.|\?)           - auth_comp_id
+    ([A-Za-z0-9]{1,5}|\.|\?)                            - type_symbol
     ([A-Za-z0-9_\*&apos;&quot;,&#32;+]+|\.|\?)          - label_atom_id
     ([A-Za-z0-9_\*&apos;&quot;,&#32;+\-]+|\.|\?)        - auth_atom_id
     ([+\-]?[0-9]+(\.?[0-9]+)?|\.|\?)          - CartnX,CartnY,CartnZ,Occupancy,Bfactor
