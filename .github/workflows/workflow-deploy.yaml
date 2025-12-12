@@ -1,0 +1,39 @@
+name: CD workflow for website changes
+
+# Triggers restart of production services - which will checkout changes
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+ # update-deployment:
+ #   name: update production services
+ #   uses: rcsb/mmcif-website-service/.github/workflows/restart-k8s-deployment.yaml@master
+  restart-mmcif:
+    name: Restart mmcif deployment on both sites
+    uses: rcsb/devops-cicd-github-actions/.github/workflows/restart_k8s_deployment.yaml@master
+    strategy:
+      matrix:
+        coast: [ 'east', 'west' ]
+    with:
+      namespace: wwpdb
+      region: ${{ matrix.coast }}
+      deployment_name: mmcif-website
+      timeout: '30m'
+
+  restart-pdnml:
+    name: Restart mmcif/pdbml deployment on both sites
+    needs: restart-mmcif
+    uses: rcsb/devops-cicd-github-actions/.github/workflows/restart_k8s_deployment.yaml@master
+    strategy:
+      matrix:
+        coast: [ 'east', 'west' ]
+    with:
+      namespace: wwpdb
+      region: ${{ matrix.coast }}
+      deployment_name: mmcif-website-pdbml
+      timeout: '30m'
+ 
