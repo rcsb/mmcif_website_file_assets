@@ -11,7 +11,7 @@
     # Updated:  28-Mar-2016 ep
     # Updated:  21-Dec-2023 ep - support for extended CCD id length
     # Updated:  08-May-2024 ep - support atom B factor with no digits past decimal place
-    # Updated:  08-Dec-2925 ep - support for extended PDB identifier datablock
+    # Updated:  08-Dec-2025 ep - support for extended PDB identifier datablock
     ##
 -->
 
