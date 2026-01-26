@@ -11,7 +11,7 @@ _datablock.description
 #
 _dictionary.title         mmcif_investigation.dic
 _dictionary.datablock_id  mmcif_investigation.dic
-_dictionary.version       1.0.6
+_dictionary.version       1.0.6.1
 #
 loop_
 _dictionary_history.version
@@ -254,6 +254,34 @@ Changes (GE)
       = entity_id
 ;
   
+1.0.6.1  2026-01-18  
+;
+  Changes (ge):
+  + added value to _pdbx_ligscreen_investigation_campaign.proc_pipeline enumeration list:
+   - value: XCE-XCA 
+   - detail: "XChem Explorer and XChem Align"
+  + added enumeration list _pdbx_ligscreen_investigation_screening_exp.data_deposited:
+   - values: N, Y
+   - detail: "No. Data is NOT deposited.", "Yes. Data is deposited"
+  + _pdbx_ligscreen_investigation_screening_exp.data_deposited was updated from 'line' to 'code' (aka no space)
+  + _pdbx_ligscreen_investigation_lib_component:
+   - inchi_descriptor was update from 'text' to 'inchi'
+   - inchikey was update from 'text' to 'inchikey'
+  + for _pdbx_investigation_entity_nonpoly:
+   - inchi_descriptor was update from 'text' to 'inchi'
+   - inchikey was update from 'text' to 'inchikey'
+  + for _pdbx_ligscreen_investigation_screening_result added: 
+   - item reflns_res_high reports the high resolution cut-off used in data processing.
+  + added new category _pdbx_ligscreen_investigation_audit_conform with the following items:
+   - dict_name, dict_version, dict_location
+  + added new category _pdbx_ligscreen_investigation_revision with the following items:
+   - investigation_id, revision_ordinal, revision_date, revision_type, major_revision, minor_revision, revision_description
+  + added new category _pdbx_ligscreen_investigation_revision_details with the following items:
+   - ordinal, revision_ordinal, revision_category, revision_item
+  + added new category _pdbx_ligscreen_investigation_software with the following items:
+   - ordinal, name, version, version_year, contact_author, contact_author_email, location, language, mods, description, reference_DOI
+;
+  
 #
 loop_
 _category_group_list.id
@@ -294,7 +322,7 @@ float                     numb   -?(([0-9]+)[.]?|([0-9]*[.][0-9]+))([(][0-9]+[)]
 positive_int              numb   "[1-9][0-9]*"  "Positive integers (1,2,3,...)"  
 int-range                 numb   "[+-]?[0-9]+-[+-]?[0-9]+"  "Integer ranges"  
 float-range               numb   -?(([0-9]+)[.]?|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?(--?(([0-9]+)[.]?|([0-9]*[.][0-9]+))([(][0-9]+[)])?([eE][+-]?[0-9]+)?)?  "Floating point ranges"  
-name                      uchar  "_[_A-Za-z0-9]+[.][][_A-Za-z0-9\<\>%/-]+"  "mmCIF data item names"  
+name                      uchar  "_[_A-Za-z0-9]+[.][_A-Za-z0-9\<\>%/-]+"  "mmCIF data item names"  
 idname                    uchar  "[_A-Za-z0-9]+"  "Simple identifiers"  
 asym_id                   char   "[A-Za-z0-9]+"  "Chain or asymmetric unit identifiers"  
 pdb_id                    char   ([1-9][A-Z0-9]{3}|PDB_[A-Z0-9]{8})  "PDB entry codes"  
@@ -529,31 +557,20 @@ electrons_per_angstroms_cubed   electrons_per_picometres_cubed  *  1.0E+06
 electrons_per_picometres_cubed  electrons_per_nanometres_cubed  *  1.0E-09  
 electrons_per_picometres_cubed  electrons_per_angstroms_cubed   *  1.0E-06  
 #
-loop_
-_pdbx_dictionary_component.datablock_id
-_pdbx_dictionary_component.dictionary_component_id
-_pdbx_dictionary_component.title
-_pdbx_dictionary_component.version
-mmcif_investigation.dic  mmcif_investigation_ligscreen.dic     "ligscreen extension"     1.0.6  
-mmcif_investigation.dic  mmcif_investigation_timeresolved.dic  "timeresolved extension"  .      
+_pdbx_dictionary_component.datablock_id             mmcif_investigation.dic
+_pdbx_dictionary_component.dictionary_component_id  mmcif_investigation_ligscreen.dic
+_pdbx_dictionary_component.title                    "ligscreen extension"
+_pdbx_dictionary_component.version                  1.0.6.1
 #
-loop_
-_pdbx_dictionary_component_history.dictionary_component_id
-_pdbx_dictionary_component_history.version
-_pdbx_dictionary_component_history.update
-_pdbx_dictionary_component_history.revision
-mmcif_investigation_ligscreen.dic     1.0.6  2025-09-17  
+_pdbx_dictionary_component_history.dictionary_component_id  mmcif_investigation_ligscreen.dic
+_pdbx_dictionary_component_history.version                  1.0.6.1
+_pdbx_dictionary_component_history.update                   2025-09-17
+_pdbx_dictionary_component_history.revision                 
 ;
 Changes (TBD):
   + To be added
 ;
-  
-mmcif_investigation_timeresolved.dic  .      2025-09-17  
-;
-Changes (TBD):
-  + To be added
-;
-  
+
 #
 loop_
 _pdbx_item_linked_group.category_id
@@ -561,14 +578,31 @@ _pdbx_item_linked_group.link_group_id
 _pdbx_item_linked_group.label
 _pdbx_item_linked_group.context
 _pdbx_item_linked_group.condition_id
-pdbx_investigation_archived_data     1  pdbx_investigation_archived_data:pdbx_investigation:1                    .  .  
-pdbx_investigation_focus             1  pdbx_investigation_focus:pdbx_investigation:1                            .  .  
-pdbx_investigation_nonpoly_descript  1  pdbx_investigation_nonpoly_descript:pdbx_investigation_entity_nonpoly:1  .  .  
-pdbx_investigation_poly_descript     1  pdbx_investigation_poly_descript:pdbx_investigation_entity_poly:1        .  .  
-pdbx_investigation_sample            1  pdbx_investigation_sample:pdbx_investigation:1                           .  .  
-pdbx_investigation_sample            2  pdbx_investigation_sample:pdbx_investigation_poly_descript:2             .  .  
-pdbx_investigation_sample            3  pdbx_investigation_sample:pdbx_investigation_nonpoly_descript:3          .  .  
-pdbx_investigation_sample            4  pdbx_investigation_sample:pdbx_investigation_descript:4                  .  .  
+pdbx_investigation_archived_data                1  pdbx_investigation_archived_data:pdbx_investigation:1                                        .  .  
+pdbx_investigation_focus                        1  pdbx_investigation_focus:pdbx_investigation:1                                                .  .  
+pdbx_ligscreen_investigation_author             1  pdbx_ligscreen_investigation_author:pdbx_investigation:1                                     .  .  
+pdbx_ligscreen_investigation_author             2  pdbx_ligscreen_investigation_author:pdbx_ligscreen_investigation_campaign:2                  .  .  
+pdbx_ligscreen_investigation_campaign           1  pdbx_ligscreen_investigation_campaign:pdbx_investigation:1                                   .  .  
+pdbx_ligscreen_investigation_series             1  pdbx_ligscreen_investigation_series:pdbx_investigation:1                                     .  .  
+pdbx_ligscreen_investigation_series             2  pdbx_ligscreen_investigation_series:pdbx_ligscreen_investigation_campaign:2                  .  .  
+pdbx_ligscreen_investigation_screening_exp      1  pdbx_ligscreen_investigation_screening_exp:pdbx_investigation:1                              .  .  
+pdbx_ligscreen_investigation_screening_exp      2  pdbx_ligscreen_investigation_screening_exp:pdbx_ligscreen_investigation_campaign:2           .  .  
+pdbx_ligscreen_investigation_screening_exp      3  pdbx_ligscreen_investigation_screening_exp:pdbx_ligscreen_investigation_series:3             .  .  
+pdbx_ligscreen_investigation_screening_exp      4  pdbx_ligscreen_investigation_screening_exp:pdbx_investigation_sample:4                       .  .  
+pdbx_ligscreen_investigation_screening_exp      5  pdbx_ligscreen_investigation_screening_exp:pdbx_ligscreen_investigation_lib_component_mix:5  .  .  
+pdbx_ligscreen_investigation_screening_exp      6  pdbx_ligscreen_investigation_screening_exp:pdbx_investigation_archived_data:6                .  .  
+pdbx_ligscreen_investigation_screening_result   1  pdbx_ligscreen_investigation_screening_result:pdbx_ligscreen_investigation_screening_exp:1   .  .  
+pdbx_ligscreen_investigation_screening_result   2  pdbx_ligscreen_investigation_screening_result:pdbx_ligscreen_investigation_lib_component:2   .  .  
+pdbx_ligscreen_investigation_lib_component_mix  1  pdbx_ligscreen_investigation_lib_component_mix:pdbx_ligscreen_investigation_lib_component:1  .  .  
+pdbx_investigation_poly_descript                1  pdbx_investigation_poly_descript:pdbx_investigation_entity_poly:1                            .  .  
+pdbx_investigation_nonpoly_descript             1  pdbx_investigation_nonpoly_descript:pdbx_investigation_entity_nonpoly:1                      .  .  
+pdbx_investigation_descript                     1  pdbx_investigation_descript:pdbx_investigation_entity:1                                      .  .  
+pdbx_investigation_entity                       1  pdbx_investigation_entity:pdbx_investigation_entity_poly:1                                   .  .  
+pdbx_investigation_sample                       1  pdbx_investigation_sample:pdbx_investigation:1                                               .  .  
+pdbx_investigation_sample                       2  pdbx_investigation_sample:pdbx_investigation_poly_descript:2                                 .  .  
+pdbx_investigation_sample                       3  pdbx_investigation_sample:pdbx_investigation_nonpoly_descript:3                              .  .  
+pdbx_investigation_sample                       4  pdbx_investigation_sample:pdbx_investigation_descript:4                                      .  .  
+pdbx_ligscreen_investigation_revision_details   1  pdbx_ligscreen_investigation_revision_details:pdbx_ligscreen_investigation_revision:1        .  .  
 #
 loop_
 _pdbx_item_linked_group_list.child_category_id
@@ -576,15 +610,32 @@ _pdbx_item_linked_group_list.link_group_id
 _pdbx_item_linked_group_list.child_name
 _pdbx_item_linked_group_list.parent_name
 _pdbx_item_linked_group_list.parent_category_id
-pdbx_investigation_archived_data     1  "_pdbx_investigation_archived_data.investigation_id"      "_pdbx_investigation.id"                                pdbx_investigation                   
-pdbx_investigation_focus             1  "_pdbx_investigation_focus.investigation_id"              "_pdbx_investigation.id"                                pdbx_investigation                   
-pdbx_investigation_nonpoly_descript  1  "_pdbx_investigation_nonpoly_descript.nonpoly_entity_id"  "_pdbx_investigation_entity_nonpoly.nonpoly_entity_id"  pdbx_investigation_entity_nonpoly    
-pdbx_investigation_poly_descript     1  "_pdbx_investigation_poly_descript.poly_entity_id"        "_pdbx_investigation_entity_poly.poly_entity_id"        pdbx_investigation_entity_poly       
-pdbx_investigation_sample            1  "_pdbx_investigation_sample.investigation_id"             "_pdbx_investigation.id"                                pdbx_investigation                   
-pdbx_investigation_sample            2  "_pdbx_investigation_sample.poly_descript_id"             "_pdbx_investigation_poly_descript.id"                  pdbx_investigation_poly_descript     
-pdbx_investigation_sample            3  "_pdbx_investigation_sample.nonpoly_descript_id"          "_pdbx_investigation_nonpoly_descript.id"               pdbx_investigation_nonpoly_descript  
-pdbx_investigation_sample            4  "_pdbx_investigation_sample.descript_id"                  "_pdbx_investigation_descript.id"                       pdbx_investigation_descript          
-#
+pdbx_investigation_archived_data                1  "_pdbx_investigation_archived_data.investigation_id"                "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_investigation_focus                        1  "_pdbx_investigation_focus.investigation_id"                        "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_ligscreen_investigation_author             1  "_pdbx_ligscreen_investigation_author.investigation_id"             "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_ligscreen_investigation_author             2  "_pdbx_ligscreen_investigation_author.campaign_id"                  "_pdbx_ligscreen_investigation_campaign.campaign_id"            pdbx_ligscreen_investigation_campaign           
+pdbx_ligscreen_investigation_campaign           1  "_pdbx_ligscreen_investigation_campaign.investigation_id"           "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_ligscreen_investigation_series             1  "_pdbx_ligscreen_investigation_series.investigation_id"             "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_ligscreen_investigation_series             2  "_pdbx_ligscreen_investigation_series.campaign_id"                  "_pdbx_ligscreen_investigation_campaign.campaign_id"            pdbx_ligscreen_investigation_campaign           
+pdbx_ligscreen_investigation_screening_exp      1  "_pdbx_ligscreen_investigation_screening_exp.investigation_id"      "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_ligscreen_investigation_screening_exp      2  "_pdbx_ligscreen_investigation_screening_exp.campaign_id"           "_pdbx_ligscreen_investigation_campaign.campaign_id"            pdbx_ligscreen_investigation_campaign           
+pdbx_ligscreen_investigation_screening_exp      3  "_pdbx_ligscreen_investigation_screening_exp.series_id"             "_pdbx_ligscreen_investigation_series.series_id"                pdbx_ligscreen_investigation_series             
+pdbx_ligscreen_investigation_screening_exp      4  "_pdbx_ligscreen_investigation_screening_exp.sample_id"             "_pdbx_investigation_sample.sample_id"                          pdbx_investigation_sample                       
+pdbx_ligscreen_investigation_screening_exp      5  "_pdbx_ligscreen_investigation_screening_exp.lib_component_mix_id"  "_pdbx_ligscreen_investigation_lib_component_mix.id"            pdbx_ligscreen_investigation_lib_component_mix  
+pdbx_ligscreen_investigation_screening_exp      6  "_pdbx_ligscreen_investigation_screening_exp.archived_data_id"      "_pdbx_investigation_archived_data.id"                          pdbx_investigation_archived_data                
+pdbx_ligscreen_investigation_screening_result   1  "_pdbx_ligscreen_investigation_screening_result.screening_exp_id"   "_pdbx_ligscreen_investigation_screening_exp.screening_exp_id"  pdbx_ligscreen_investigation_screening_exp      
+pdbx_ligscreen_investigation_screening_result   2  "_pdbx_ligscreen_investigation_screening_result.lib_component_id"   "_pdbx_ligscreen_investigation_lib_component.id"                pdbx_ligscreen_investigation_lib_component      
+pdbx_ligscreen_investigation_lib_component_mix  1  "_pdbx_ligscreen_investigation_lib_component_mix.lib_component_id"  "_pdbx_ligscreen_investigation_lib_component.id"                pdbx_ligscreen_investigation_lib_component      
+pdbx_investigation_poly_descript                1  "_pdbx_investigation_poly_descript.poly_entity_id"                  "_pdbx_investigation_entity_poly.poly_entity_id"                pdbx_investigation_entity_poly                  
+pdbx_investigation_nonpoly_descript             1  "_pdbx_investigation_nonpoly_descript.nonpoly_entity_id"            "_pdbx_investigation_entity_nonpoly.nonpoly_entity_id"          pdbx_investigation_entity_nonpoly               
+pdbx_investigation_descript                     1  "_pdbx_investigation_descript.entity_id"                            "_pdbx_investigation_entity.entity_id"                          pdbx_investigation_entity                       
+pdbx_investigation_entity                       1  "_pdbx_investigation_entity.poly_entity_id"                         "_pdbx_investigation_entity_poly.poly_entity_id"                pdbx_investigation_entity_poly                  
+pdbx_investigation_sample                       1  "_pdbx_investigation_sample.investigation_id"                       "_pdbx_investigation.id"                                        pdbx_investigation                              
+pdbx_investigation_sample                       2  "_pdbx_investigation_sample.poly_descript_id"                       "_pdbx_investigation_poly_descript.id"                          pdbx_investigation_poly_descript                
+pdbx_investigation_sample                       3  "_pdbx_investigation_sample.nonpoly_descript_id"                    "_pdbx_investigation_nonpoly_descript.id"                       pdbx_investigation_nonpoly_descript             
+pdbx_investigation_sample                       4  "_pdbx_investigation_sample.descript_id"                            "_pdbx_investigation_descript.id"                               pdbx_investigation_descript                     
+pdbx_ligscreen_investigation_revision_details   1  "_pdbx_ligscreen_investigation_revision_details.revision_ordinal"   "_pdbx_ligscreen_investigation_revision.revision_ordinal"       pdbx_ligscreen_investigation_revision           
+##
 save_pdbx_ligscreen_investigation_author
    _category.description     
 ;              Data items in the PDBX_LIGSCREEN_INVESTIGATION_AUTHOR category record details about the authors associated
@@ -650,6 +701,11 @@ save__pdbx_ligscreen_investigation_author.campaign_id
    _item.category_id     pdbx_ligscreen_investigation_author
    _item.mandatory_code  yes
    #
+   _item_linked.parent_name  "_pdbx_ligscreen_investigation_campaign.campaign_id"
+   _item_linked.child_name   "_pdbx_ligscreen_investigation_author.campaign_id"
+   #
+   _item_type.code  code
+   #
 save_
 #
 save__pdbx_ligscreen_investigation_author.investigation_id
@@ -658,6 +714,11 @@ save__pdbx_ligscreen_investigation_author.investigation_id
    _item.name            "_pdbx_ligscreen_investigation_author.investigation_id"
    _item.category_id     pdbx_ligscreen_investigation_author
    _item.mandatory_code  yes
+   #
+   _item_linked.parent_name  "_pdbx_investigation.id"
+   _item_linked.child_name   "_pdbx_ligscreen_investigation_author.investigation_id"
+   #
+   _item_type.code  code
    #
 save_
 #
@@ -1073,8 +1134,8 @@ save__pdbx_ligscreen_investigation_campaign.investigation_id
    _item.category_id     pdbx_ligscreen_investigation_campaign
    _item.mandatory_code  yes
    #
-   _item_linked.child_name   "_pdbx_ligscreen_investigation_campaign.investigation_id"
    _item_linked.parent_name  "_pdbx_investigation.id"
+   _item_linked.child_name   "_pdbx_ligscreen_investigation_campaign.investigation_id"
    #
    _item_type.code  code
    #
@@ -1093,10 +1154,11 @@ save__pdbx_ligscreen_investigation_campaign.proc_pipeline
    _item_enumeration.name
    _item_enumeration.value
    _item_enumeration.detail
-     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  CRIMS  "Crystallographic Information Management System"  
-     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  XCE    "XChem Explorer"  
-     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  FMA    FragMaxApp  
-     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  OTHER  Other  
+     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  CRIMS    "Crystallographic Information Management System"  
+     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  XCE      "XChem Explorer"  
+     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  XCE-XCA  "XChem Explorer and XChem Align"  
+     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  FMA      FragMaxApp  
+     "_pdbx_ligscreen_investigation_campaign.proc_pipeline"  OTHER    Other  
    #
 save_
 #
@@ -1455,15 +1517,15 @@ _pdbx_ligscreen_investigation_screening_exp.exp_external_url
 _pdbx_ligscreen_investigation_screening_exp.data_deposited
 _pdbx_ligscreen_investigation_screening_exp.instance_id
 _pdbx_ligscreen_investigation_screening_exp.archived_data_id
-exp1   1 1   FH123   1 1   FH123/exp1   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/1    n  1    ?   
-exp2   1 1   FH123   1 2   FH123/exp2   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/2    y  1    1   
-exp3   1 1   FH123   1 3   FH123/exp3   'ELECTRON MICROSCOPY' ? http://www.fraghub.org/fh123456/3    y  1    2   
-exp3   1 1   FH123   1 3   FH123/exp3   'ELECTRON MICROSCOPY' ? http://www.fraghub.org/fh123456/3    y  2    3   
-exp4   1 1   FH123   1 4   FH123/exp4   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/4    n  1    ?   
-exp5   1 1   FH123   2 5   FH123/exp5   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/5    n  1    ?   
-exp6   1 1   FH123   2 6   FH123/exp6   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/6    n  1    ?   
-exp7   1 1   FH123   2 7   FH123/exp7   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/7    n  1    ?   
-exp8   1 1   FH123   2 8   FH123/exp8   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/8    n  1    ?
+exp1   1 1   FH123   1 1   FH123/exp1   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/1    N  1    ?   
+exp2   1 1   FH123   1 2   FH123/exp2   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/2    Y  1    1   
+exp3   1 1   FH123   1 3   FH123/exp3   'ELECTRON MICROSCOPY' ? http://www.fraghub.org/fh123456/3    Y  1    2   
+exp3   1 1   FH123   1 3   FH123/exp3   'ELECTRON MICROSCOPY' ? http://www.fraghub.org/fh123456/3    Y  2    3   
+exp4   1 1   FH123   1 4   FH123/exp4   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/4    N  1    ?   
+exp5   1 1   FH123   2 5   FH123/exp5   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/5    N  1    ?   
+exp6   1 1   FH123   2 6   FH123/exp6   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/6    N  1    ?   
+exp7   1 1   FH123   2 7   FH123/exp7   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/7    N  1    ?   
+exp8   1 1   FH123   2 8   FH123/exp8   'X-RAY DIFFRACTION'   ? http://www.fraghub.org/fh123456/8    N  1    ?
 ;
 
    #
@@ -1650,7 +1712,14 @@ save__pdbx_ligscreen_investigation_screening_exp.data_deposited
    _item.category_id     pdbx_ligscreen_investigation_screening_exp
    _item.mandatory_code  no
    #
-   _item_type.code  line
+   _item_type.code  code
+   #
+   loop_
+   _item_enumeration.name
+   _item_enumeration.value
+   _item_enumeration.detail
+     "_pdbx_ligscreen_investigation_screening_exp.data_deposited"  N  "No. Data is NOT deposited."  
+     "_pdbx_ligscreen_investigation_screening_exp.data_deposited"  Y  "Yes. Data is deposited."  
    #
 save_
 #
@@ -1705,15 +1774,16 @@ _pdbx_ligscreen_investigation_screening_result.lib_component_id
 _pdbx_ligscreen_investigation_screening_result.outcome_assessment
 _pdbx_ligscreen_investigation_screening_result.outcome_description
 _pdbx_ligscreen_investigation_screening_result.outcome_details
-exp1  1        miss           ?   automatic   Unknown                     ? 
-exp2  1        partial-hit    2   automatic   "Off-site binding"          ? 
-exp3  1        hit            3   manual      "On-site binding"           ? 
-exp3  2        partial-hit    3   manual      "Off-site binding"          ? 
-exp4  1        partial-hit    4   refined     "On-site binding"           ? 
-exp5  1        hit            5   refined     "Highest affinity hit"      ? 
-exp6  1        miss           ?   manual      "No diffraction"            ? 
-exp7  1        miss           ?   manual      "No diffraction"            ? 
-exp8  1        miss           ?   manual      "Fragment unobserved"       ?
+_pdbx_ligscreen_investigation_screening_result.reflns_res_high
+exp1  1        miss           ?   automatic   Unknown                     ?   ?    
+exp2  1        partial-hit    2   automatic   "Off-site binding"          ?   2.18 
+exp3  1        hit            3   manual      "On-site binding"           ?   2.22 
+exp3  2        partial-hit    3   manual      "Off-site binding"          ?   2.22 
+exp4  1        partial-hit    4   refined     "On-site binding"           ?   1.90 
+exp5  1        hit            5   refined     "Highest affinity hit"      ?   2.45 
+exp6  1        miss           ?   manual      "No diffraction"            ?   ? 
+exp7  1        miss           ?   manual      "No diffraction"            ?   ? 
+exp8  1        miss           ?   manual      "Fragment unobserved"       ?   1.80
 ;
 
    #
@@ -1743,7 +1813,7 @@ save_
 save__pdbx_ligscreen_investigation_screening_result.result_id
    _item_description.description  
 ;              This value of _pdbx_ligscreen_investigation_screening_exp.result_id identifiers a specific data result record, 
-               for a given experiment, in the pdbx_ligscreen_investigation_screening_exp category.
+               for a given experiment, in the PDBX_LIGSCREEN_INVESTIGATION_SCREENING_EXP category.
                For example if a fragment is observed in the same experiment / structure to have binding in different places 
                ('On-site binding') and partial-hit ('Off-site binding') there would be a result_id = 1 and result_id = 2.
 ;
@@ -1843,6 +1913,22 @@ save__pdbx_ligscreen_investigation_screening_result.outcome_details
    _item_description.description  "Further details about the chemical library or series ligand-binding result."
    #
    _item.name            "_pdbx_ligscreen_investigation_screening_result.outcome_details"
+   _item.category_id     pdbx_ligscreen_investigation_screening_result
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_screening_result.reflns_res_high
+   _item_description.description  
+;              The high resolution limit used for data processing in angstroms. For data archived to wwPDB, the coordinates deposited 
+               should have the same number in the _reflns.d_resolution_high item. The criteria used to determine data resolution is 
+               captured in other items in REFLNS category.  Resolution impacts on the certainity of a ligands position and/or identity.
+;
+
+   #
+   _item.name            "_pdbx_ligscreen_investigation_screening_result.reflns_res_high"
    _item.category_id     pdbx_ligscreen_investigation_screening_result
    _item.mandatory_code  no
    #
@@ -2120,9 +2206,9 @@ save__pdbx_ligscreen_investigation_lib_component.inchi_descriptor
    #
    _item.name            "_pdbx_ligscreen_investigation_lib_component.inchi_descriptor"
    _item.category_id     pdbx_ligscreen_investigation_lib_component
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
-   _item_type.code  text
+   _item_type.code  inchi
    #
 save_
 #
@@ -2174,7 +2260,7 @@ save__pdbx_ligscreen_investigation_lib_component.inchikey
    _item.category_id     pdbx_ligscreen_investigation_lib_component
    _item.mandatory_code  yes
    #
-   _item_type.code  text
+   _item_type.code  inchikey
    #
 save_
 #
@@ -2185,7 +2271,7 @@ save__pdbx_ligscreen_investigation_lib_component.inchikey_software
 ;
 
    #
-   _item.name            "_pdbx_ligscreen_investigation_lib_component.inchi_software"
+   _item.name            "_pdbx_ligscreen_investigation_lib_component.inchikey_software"
    _item.category_id     pdbx_ligscreen_investigation_lib_component
    _item.mandatory_code  no
    #
@@ -2211,7 +2297,7 @@ save__pdbx_ligscreen_investigation_lib_component.inchikey_software_version
 ;
 
    #
-   _item.name            "_pdbx_ligscreen_investigation_lib_component.inchi_software_version"
+   _item.name            "_pdbx_ligscreen_investigation_lib_component.inchikey_software_version"
    _item.category_id     pdbx_ligscreen_investigation_lib_component
    _item.mandatory_code  no
    #
@@ -2555,7 +2641,7 @@ save__pdbx_investigation_sample.descript_id
    _item.category_id     pdbx_investigation_sample
    _item.mandatory_code  no
    #
-   _item_linked.parent_name  "_pdbx_investigation_entity.descipt.id"
+   _item_linked.parent_name  "_pdbx_investigation_descript.id"
    _item_linked.child_name   "_pdbx_investigation_sample.descript_id"
    #
    _item_type.code  int
@@ -3326,9 +3412,9 @@ save__pdbx_investigation_entity_nonpoly.inchi_descriptor
    #
    _item.name            "_pdbx_investigation_entity_nonpoly.inchi_descriptor"
    _item.category_id     pdbx_investigation_entity_nonpoly
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
-   _item_type.code  text
+   _item_type.code  inchi
    #
 save_
 #
@@ -3380,7 +3466,7 @@ save__pdbx_investigation_entity_nonpoly.inchikey
    _item.category_id     pdbx_investigation_entity_nonpoly
    _item.mandatory_code  yes
    #
-   _item_type.code  text
+   _item_type.code  inchikey
    #
 save_
 #
@@ -3490,6 +3576,585 @@ save__pdbx_investigation_entity_nonpoly.cas_identifier
    _item.mandatory_code  no
    #
    _item_type.code  text
+   #
+save_
+#
+save_pdbx_ligscreen_investigation_audit_conform
+   _category.description     
+;              Data items in the PDBX_LIGSCREEN_INVESTIGATON_AUDIT_CONFORM category describe the
+               dictionary version against which the data in the current data block are conformant.
+;
+
+   _category.id              pdbx_ligscreen_investigation_audit_conform
+   _category.mandatory_code  no
+   #
+   loop_
+   _category_key.name
+     "_pdbx_ligscreen_investigation_audit_conform.dict_name"  
+     "_pdbx_ligscreen_investigation_audit_conform.dict_version"  
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     ligscreen_group  
+   #
+   _category_examples.detail  
+;
+    Example 1 - investigation file conforming to the current mmCIF investigation dictionary.
+;
+
+   _category_examples.case    
+;
+    _pdbx_ligscreen_investigation_audit_conform.dict_name         mmcif_investigation.dic
+    _pdbx_ligscreen_investigation_audit_conform.dict_version      1.0.6.1
+    _pdbx_ligscreen_investigation_audit_conform.dict_location     https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_investigation.dic
+;
+
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_audit_conform.dict_location
+   _item_description.description  "A file name or uniform resource locator (URL) for the dictionary to which the data block conforms."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_audit_conform.dict_location"
+   _item.category_id     pdbx_ligscreen_investigation_audit_conform
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_audit_conform.dict_name
+   _item_description.description  "The highest-level dictionary defining the categories and items used in this file."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_audit_conform.dict_name"
+   _item.category_id     pdbx_ligscreen_investigation_audit_conform
+   _item.mandatory_code  yes
+   #
+   _item_type.code  text
+   #
+   _item_enumeration.name    "_pdbx_ligscreen_investigation_audit_conform.dict_name"
+   _item_enumeration.value   mmcif_investigation.dic
+   _item_enumeration.detail  "mmCIF investigation dictionary"
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_audit_conform.dict_version
+   _item_description.description  "The version number of the dictionary to which the data block conforms."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_audit_conform.dict_version"
+   _item.category_id     pdbx_ligscreen_investigation_audit_conform
+   _item.mandatory_code  yes
+   #
+   _item_type.code  text
+   #
+save_
+#
+save_pdbx_ligscreen_investigation_revision
+   _category.description     "Data items in the PDBX_LIGSCREEN_INVESTIGATION_REVISION category record the revision history."
+   _category.id              pdbx_ligscreen_investigation_revision
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_pdbx_ligscreen_investigation_revision.revision_ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     ligscreen_group  
+   #
+   _category_examples.detail  
+;
+     Example 1 - initial release
+;
+
+   _category_examples.case    
+;
+     _pdbx_ligscreen_investigation_revision.investigation_id              FH123
+     _pdbx_ligscreen_investigation_revision.revision_ordinal              0
+     _pdbx_ligscreen_investigation_revision.revision_date                 '2026-01-20'
+     _pdbx_ligscreen_investigation_revision.revision_type                 'Initial release'
+     _pdbx_ligscreen_investigation_revision.major_revision                0
+     _pdbx_ligscreen_investigation_revision.minor_revision                0000
+;
+
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.revision_ordinal
+   _item_description.description  "A unique identifier for the PDBX_LIGSCREEN_INVESTIGATION_REVISION record."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.revision_ordinal"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.investigation_id
+   _item_description.description  "This data item is a pointer to _pdbx_investigation.id in the PDBX_INVESTIGATION category."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.investigation_id"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  FH123
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.revision_date
+   _item_description.description  "A date for the current version or revision. The date format is yyyy-mm-dd."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.revision_date"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  yes
+   #
+   _item_type.code  yyyy-mm-dd
+   #
+   _item_examples.case  2006-07-12
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.revision_type
+   _item_description.description  "A type classification of the revision"
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.revision_type"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_enumeration.value
+     "Initial release"  
+     "Coordinate replacement"  
+     Obsolete  
+     Remediation  
+     "Data added"  
+     "Data removed"  
+     "Data updated"  
+   #
+   _item_examples.case  "Initial release"
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.major_version
+   _item_description.description  "Major version number for this datablock."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.major_version"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.minor_version
+   _item_description.description  
+;              Minor version identifier for this datablock:
+
+               The minor version is incremented for each datablock revision.
+;
+
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.minor_version"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  0004
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision.revision_description
+   _item_description.description  "A text description of any special details of the current version."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision.revision_description"
+   _item.category_id     pdbx_ligscreen_investigation_revision
+   _item.mandatory_code  no
+   #
+   _item_type.code  text
+   #
+   _item_examples.case  "Weekly release update of CCD information."
+   #
+save_
+#
+save_pdbx_ligscreen_investigation_revision_details
+   _category.description     
+;
+               Data items in the PDBX_LIGSCREEN_INVESTIGATION_REVISION_DETAILS category
+               report details associated with a PDBX_LIGSCREEN_INVESTIGATION_REVISION record.
+;
+
+   _category.id              pdbx_ligscreen_investigation_revision_details
+   _category.mandatory_code  no
+   #
+   loop_
+   _category_key.name
+     "_pdbx_ligscreen_investigation_revision_details.ordinal"  
+     "_pdbx_ligscreen_investigation_revision_details.revision_ordinal"  
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     ligscreen_group  
+   #
+   _category_examples.detail  
+;
+     Example - revision_ordinal 0 - initial release (no contents should be in this category) 
+             - revision_ordinal 1 - new CCD id corresponding to fragment screen compound
+             - revision_ordinal 2 - adding new links to other databases
+;
+
+   _category_examples.case    
+;
+     loop_
+     _pdbx_audit_revision_category.ordinal
+     _pdbx_audit_revision_category.revision_ordinal
+     _pdbx_audit_revision_category.revision_category
+     _pdbx_audit_revision_category.revision_item
+      1   1   pdbx_ligscreen_investigation_lib_component   '_pdbx_ligscreen_investigation_lib_component.chem_comp_id'
+      1   2   pdbx_investigation_archived_data             '_pdbx_investigation_archived_data.id'
+      2   2   pdbx_investigation_archived_data             '_pdbx_investigation_archived_data.archive_db_name'
+      3   2   pdbx_investigation_archived_data             '_pdbx_investigation_archived_data.archive_db_acc'
+      4   2   pdbx_investigation_archived_data             '_pdbx_investigation_archived_data.investigation_id'
+      5   2   pdbx_investigation_archived_data             '_pdbx_investigation_archived_data.archived_data_doi'
+      6   2   pdbx_investigation_archived_data             '_pdbx_investigation_archived_dataarchived_data_url'
+      7   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.screening_exp_id'
+      8   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.series_id'
+      9   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.campaign_id'
+     10   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.investigation_id'
+     11   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.sample_id'
+     12   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.lib_component_mix_id'
+     13   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.exp_acc'
+     14   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.exp_method'
+     15   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.exp_details'
+     16   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.exp_external_url'
+     17   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.data_deposited'
+     18   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.instance_id'
+     19   2   pdbx_ligscreen_investigation_screening_exp   '_pdbx_ligscreen_investigation_screening_exp.archived_data_id'
+;
+
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision_details.ordinal
+   _item_description.description  "A unique identifier for the PDBX_LIGSCREEN_INVESTIGATION_REVISION_DETAILS record."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision_details.ordinal"
+   _item.category_id     pdbx_ligscreen_investigation_revision_details
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision_details.revision_ordinal
+   _item_description.description  "A pointer to _pdbx_ligscreen_investigation_revision.revision_ordinal."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision_details.revision_ordinal"
+   _item.category_id     pdbx_ligscreen_investigation_revision_details
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   _item_examples.case  1
+   #
+   _item_linked.parent_name  "_pdbx_ligscreen_investigation_revision.revision_ordinal"
+   _item_linked.child_name   "_pdbx_ligscreen_investigation_revision_details.revision_ordinal"
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision_details.revision_category
+   _item_description.description  "The category changed in the revision indicated PDBX_LIGSCREEN_INVESTIGATION_REVISION record."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision_details.revision_category"
+   _item.category_id     pdbx_ligscreen_investigation_revision_details
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   loop_
+   _item_examples.case
+     pdbx_ligscreen_investigation_lib_component  
+     pdbx_investigation_archived_data            
+     pdbx_ligscreen_investigation_screening_exp  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_revision_details.revision_item
+   _item_description.description  "The item changed in the revision indicated PDBX_LIGSCREEN_INVESTIGATION_REVISION record."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_revision_details.revision_item"
+   _item.category_id     pdbx_ligscreen_investigation_revision_details
+   _item.mandatory_code  yes
+   #
+   _item_type.code  code
+   #
+   _item_examples.case  "_pdbx_ligscreen_investigation_lib_component.chem_comp_id"
+   #
+save_
+#
+save_pdbx_ligscreen_investigation_software
+   _category.description     
+;              Data items in the PDBX_LIGSCREEN_INVESTIGATION_SOFTWARE category record details about
+               the software used to generate the investigation file.
+;
+
+   _category.id              pdbx_ligscreen_investigation_software
+   _category.mandatory_code  no
+   #
+   _category_key.name  "_pdbx_ligscreen_investigation_software.ordinal"
+   #
+   loop_
+   _category_group.id
+     inclusive_group  
+     ligscreen_group  
+   #
+   _category_examples.detail  
+;
+    Below example is based on the software first utilized to generate Investigation files.
+;
+
+   _category_examples.case    
+;
+    loop_
+    _pdbx_ligscreen_investigation_software.ordinal
+    _pdbx_ligscreen_investigation_software.name
+    _pdbx_ligscreen_investigation_software.version
+    _pdbx_ligscreen_investigation_software.version_year
+    _pdbx_ligscreen_investigation_software.contact_author
+    _pdbx_ligscreen_investigation_software.contact_author_email
+    _pdbx_ligscreen_investigation_software.location
+    _pdbx_ligscreen_investigation_software.language
+    _pdbx_ligscreen_investigation_software.mods
+    _pdbx_ligscreen_investigation_software.description
+    _pdbx_ligscreen_investigation_software.reference_DOI
+    1   mmcif-gen  v1.1.0   2025   'Ahsan Tanweer'  ?   'https://github.com/PDBeurope/mmcif-gen'   Python   ?   'Generates mmCIF Investigation files.'   ? 
+    2   gemmi      0.7.3    2025   'Marcin Wojdyr'  ?   'https://github.com/project-gemmi/gemmi'   Python   ?   'Reads and writes mmCIF files.'          ?
+;
+
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.ordinal
+   _item_description.description  "An ordinal index for this category."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.ordinal"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  yes
+   #
+   _item_type.code  int
+   #
+   loop_
+   _item_examples.case
+     1  
+     2  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.name
+   _item_description.description  "The name of software used to generate the investigation file."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.name"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  yes
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  mmcif-gen
+   #
+   _pdbx_item.name            "_pdbx_ligscreen_investigation_software.name"
+   _pdbx_item.mandatory_code  yes
+   #
+   _pdbx_item_description.name         "_pdbx_ligscreen_investigation_software.name"
+   _pdbx_item_description.description  "Select the appropriate software used in generating the investigation file."
+   #
+   loop_
+   _pdbx_item_enumeration.name
+   _pdbx_item_enumeration.value
+   _pdbx_item_enumeration.detail
+     "_pdbx_ligscreen_investigation_software.name"  gemmi      "data extraction"  
+     "_pdbx_ligscreen_investigation_software.name"  mmcif-gen  "data extraction"  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.version
+   _item_description.description  "The version of the software."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.version"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+     v1.0     
+     beta     
+     3.1-2    
+     unknown  
+   #
+   _pdbx_item_description.description  "The version of the refinement software."
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.version_year
+   _item_description.description  "The year the software version was released."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.version_year"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  yyyy
+   #
+   loop_
+   _item_examples.case
+     2024  
+     2025  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.contact_author
+   _item_description.description  
+;              The recognized contact author of the software. This could be
+               the original author, someone who has modified the code or
+               someone who maintains the code.
+;
+
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.contact_author"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+     "A. Tanweer"  
+     "Ahsan Tanweer"  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.contact_author_email
+   _item_description.description  
+;              The e-mail address of the person specified in
+               pdbx_investigation_software.contact_author.
+;
+
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.contact_author_email"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  email
+   #
+   _item_examples.case  bourne@sdsc.edu
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.location
+   _item_description.description  "The URL an Internet address at which details of the software can be found."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.location"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   loop_
+   _item_examples.case
+     http://rosebud.sdsc.edu/projects/pb/IUCr/software.html  
+     ftp://ftp.sdsc.edu/pub/sdsc/biology/                    
+     https://github.com/PDBeurope/mmcif-gen                  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.language
+   _item_description.description  "The major computing language in which the software is coded."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.language"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  uline
+   #
+   loop_
+   _item_enumeration.value
+     Ada  
+     assembler  
+     Awk  
+     Basic  
+     C++  
+     C/C++  
+     C  
+     csh  
+     Fortran  
+     Fortran_77  
+     "Fortran 77"  
+     "Fortran 90"  
+     Java  
+     "Java & Fortran"  
+     ksh  
+     Pascal  
+     Perl  
+     Python  
+     Python/C++  
+     sh  
+     Tcl  
+     Other  
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.mods
+   _item_description.description  "Any noteworthy modifications to the base software, if applicable."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.mods"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  "Added support for generating Time-resolved X-ray Crystallography Investigation files."
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.description
+   _item_description.description  "Description of the software."
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.description"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  line
+   #
+   _item_examples.case  "Generates mmCIF Investigation files for Ligand Screening."
+   #
+save_
+#
+save__pdbx_ligscreen_investigation_software.reference_DOI
+   _item_description.description  
+;              Document Object Identifier used by doi.org to uniquely
+               identify software being used.
+;
+
+   #
+   _item.name            "_pdbx_ligscreen_investigation_software.reference_DOI"
+   _item.category_id     pdbx_ligscreen_investigation_software
+   _item.mandatory_code  no
+   #
+   _item_type.code  citation_doi
+   #
+   _item_examples.case  10.2345/S1384107697000225
    #
 save_
 #
