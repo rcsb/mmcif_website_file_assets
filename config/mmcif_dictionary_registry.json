@@ -13,7 +13,7 @@
             "mmcif_sym",
             "mmcif_nef",
             "mmcif_ndb_ntc",
-            "mmcif_investigation_fraghub"
+            "mmcif_investigation_ligscreen"
         ],
         "internalDictionaryNameList": [
             "mmcif_rcsb_xray",
@@ -206,7 +206,7 @@
                 "developers": "wwPDB",
                 "schema": null
             },
-            "mmcif_investigation_fraghub": {
+            "mmcif_investigation_ligscreen": {
 		"title": "InvestigationCIF",
 		"description": "The InvestigationCIF dictionary is an extension of the PDBx/mmCIF dictionary. This dictionary is actively developed and maintained in a github repository available at https://github.com/PDBeurope/InvestigationCIF. It captures the relationship between related structures that are part of the same project.",
 		"maintainers": "wwPDB members: Genevieve L. Evans, Ahsan, Ezra Peisach",
