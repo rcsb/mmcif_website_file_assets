@@ -1,10 +1,10 @@
 ###########################################################################
 #
 # File:  mmcif_nef.dic
-# Date:  Mon Feb 15 17:15:45 EST 2021
+# Date:  Thu Jun 16 10:26:14 EDT 2022
 #
 # Created from files in CVS module dict-mmcif_nef.dic unless noted:
-#        mmcif_nef_v1.dic   
+#        mmcif_nef_v1_1.dic   
 #
 ###########################################################################
  
@@ -12,7 +12,7 @@
 ###########################################################################
 #
 # File:  mmcif_nef.dic
-# Date:  Mon Feb  1 19:39:56 EST 2016
+# Date:  November 2020
 #
 # Created from files in CVS module dict-mmcif_nef.dic unless noted:
 #        mmcif_nef-header.dic   
@@ -44,7 +44,7 @@ data_mmcif_nef.dic
 
     _dictionary.title           mmcif_nef.dic
     _dictionary.datablock_id    mmcif_nef.dic
-    _dictionary.version         1.0
+    _dictionary.version         1.1
 #
      loop_
     _dictionary_history.version
@@ -60,7 +60,7 @@ data_mmcif_nef.dic
 ;
   .101   2016-02-23
 ; Rasmus Fogh
-- Entered mising data
+- Entered missing data
 - Reordered to match display ordered
 - Added new tag _category.parent_category_id to show saveframe location of loops
 - Added new data types
@@ -78,6 +78,13 @@ data_mmcif_nef.dic
 - Changed examples to reflect new semantics
 - 
 ;
+  1.1    2020-11-25
+; Eliza Ploskon
+- Updated to reflect suggestions from WWPDB
+- Updated _item_description.description in restraints origin for consistency
+- Updated to reflect Commented_Example_v1_1.nef 
+;
+
 ##
 
 ###########################################################################
@@ -248,11 +255,11 @@ data_mmcif_nef.dic
 # NEF additions:
                multiline    char
                '[][ \n()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
-;              All printable ascii characters (includind space) plus linebreak
+;              All printable ascii characters (including space) plus linebreak
 ;
                singleline    char
                '[][ ()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
-;              All printable ascii characters (includind space). Equivalent to atcode, but renamed to avoid confusion
+;              All printable ascii characters (including space). Equivalent to atcode, but renamed to avoid confusion
 ;
                word    char
                '[][()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
@@ -269,18 +276,18 @@ data_mmcif_nef.dic
 ;              enumeration for Boolean true/false values ...
 ;
                timestamp      char
-               .
+               '[][()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              ISO 8601 time stamp, without time zone information. E.g. '2013-02-29T13:12:03.521773'
 ;
                uuid      char
-               .
+               '[][()_,.;:"&<>/\{}'`~!@#$%?+=*A-Za-z0-9|^-]*'
 ;              Unique data set identifier, combined from a program name string, a timestamp, and a random integer.
 E.g. 'CYANA-2013-02-29T13:12:04.521773-1172436'
 ;
                potential_type      char
                'undefined|log-harmonic|parabolic|square-well-parabolic|square-well-parabolic-linear|upper-bound-parabolic|lower-bound-parabolic|upper-bound-parabolic-linear|lower-bound-parabolic-linear'
-;              enumeration for Restraint list potential types
-Potential types are defined aS follows::
+;              enumeration for restraint list potential types
+Potential types are defined as follows::
 
 - log-harmonic:
 Parameters: target_value, target_value_error
@@ -328,7 +335,7 @@ save_nef_nmr_meta_data
    #
 
    _category.description     "The data items in the NEF_NMR_META_DATA category records the format version and creator program details."
-   _category.id              nef_nmr_meta_data
+   _category.id                   nef_nmr_meta_data
    _category.mandatory_code  yes
    #
    _category_group.id  nef_group
@@ -508,15 +515,16 @@ save_nef_related_entries
    #
    _category_examples.detail  "Example 1"
    _category_examples.case    
-;  _nef_related_entries.database_name
+;   loop_
+  _nef_related_entries.database_name
   _nef_related_entries.database_accession_code
     BMRB   12345
     BMRB   22277
     PDB    2k5v
     PDB    2hhx
     PDB    1aap
-   stop_
 ;
+
    #
 save_
 #
@@ -563,7 +571,6 @@ save_nef_program_script
    loop_
    _category_key.name
      "_nef_program_script.program_name"  
-     "_nef_program_script.script_name"  
    #
    _category_examples.detail  "Example 1"
    _category_examples.case    
@@ -1012,7 +1019,7 @@ save__nef_sequence.residue_variant
    _item_description.description  
 ;Residue varinats default to the pH 7 forms, specifically protonated LYS, ARG, HIS, and N-terminus
 and deprotonated ASP, GLU, CYS, and C-terminus. 'deprotonated' CYS is generally assumed to be the 
-disulfide form. Where given teh RCSB variant code is used. Ther is no decision on what to use where 
+disulfide form. Where given the RCSB variant code is used. There is no decision on what to use where 
 these codes are not defined.
 ;
    #
@@ -1450,7 +1457,7 @@ save__nef_chemical_shift.element
    #
    _item.name            "_nef_chemical_shift.element"
    _item.category_id     nef_chemical_shift
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  word
    #
@@ -1466,7 +1473,7 @@ save__nef_chemical_shift.isotope_number
    #
    _item.name            "_nef_chemical_shift.isotope_number"
    _item.category_id     nef_chemical_shift
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  int
    #
@@ -1513,7 +1520,7 @@ save__nef_distance_restraint_list.sf_category
    _item.category_id     nef_distance_restraint_list
    _item.mandatory_code  yes
    #
-   _item_type.code  int
+   _item_type.code nef_framecode
    #
    _item_examples.case  1
    #
@@ -1528,7 +1535,7 @@ save__nef_distance_restraint_list.sf_framecode
    _item.category_id     nef_distance_restraint_list
    _item.mandatory_code  yes
    #
-   _item_type.code  int
+   _item_type.code      nef_framecode
    #
    _item_examples.case  1
    #
@@ -1546,14 +1553,14 @@ save__nef_distance_restraint_list.potential_type
    #
    _item_type.code  potential_type
    #
-   _item_examples.case  unknown
+   _item_examples.case  undefined
    #
 save_
 #
 save__nef_distance_restraint_list.restraint_origin
    #
 
-   _item_description.description  "The source of the restraints (e.g. 'noe', 'hbond', 'measured'."
+   _item_description.description  "The source of the restraints (e.g. 'noe', 'hbond', 'mutation', 'shift_perturbation', ...)"
 
    #
    _item.name            "_nef_distance_restraint_list.restraint_origin"
@@ -1924,7 +1931,7 @@ save_nef_dihedral_restraint_list
    _category_examples.case    
 ;   _nef_dihedral_restraint_list.sf_category     nef_dihedral_restraint_list
    _nef_dihedral_restraint_list.sf_framecode    dihedral_constraint_list
-   _nef_dihedral_restraint_list.potential_type  unknown
+   _nef_dihedral_restraint_list.potential_type  undefined
 ;
 
    #
@@ -1979,7 +1986,7 @@ save_
 save__nef_dihedral_restraint_list.restraint_origin
    #
 
-   _item_description.description  "The source of the restraints (e.g. 'noe', 'hbond', 'measured'."
+   _item_description.description  "The source of the restraints (e.g. 'chemical_shift', 'jcoupling', ...)"
 
    #
    _item.name            "_nef_dihedral_restraint_list.restraint_origin"
@@ -1988,7 +1995,7 @@ save__nef_dihedral_restraint_list.restraint_origin
    #
    _item_type.code  singleline
    #
-   _item_examples.case  TALOS
+   _item_examples.case  chemical_shift
    #
 save_
 #
@@ -2531,14 +2538,14 @@ save__nef_rdc_restraint_list.potential_type
    #
    _item_type.code  potential_type
    #
-   _item_examples.case  unknown
+   _item_examples.case  undefined
    #
 save_
 #
 save__nef_rdc_restraint_list.restraint_origin
    #
 
-   _item_description.description  "The source of the restraints (e.g. 'noe', 'hbond', 'measured'."
+   _item_description.description  "The source of the restraints (e.g. 'measured', ...)"
 
    #
    _item.name            "_nef_rdc_restraint_list.restraint_origin"
@@ -3043,7 +3050,7 @@ save__nef_nmr_spectrum.num_dimensions
    #
    _item.name            "_nef_nmr_spectrum.num_dimensions"
    _item.category_id     nef_nmr_spectrum
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code  int
    #
@@ -3058,7 +3065,7 @@ save__nef_nmr_spectrum.chemical_shift_list
    #
    _item.name            "_nef_nmr_spectrum.chemical_shift_list"
    _item.category_id     nef_nmr_spectrum
-   _item.mandatory_code  no
+   _item.mandatory_code  yes
    #
    _item_type.code nef_framecode
    #
@@ -3286,7 +3293,7 @@ save_nef_spectrum_dimension_transfer
    _category.description          "The data items in the NEF_SPECTRUM_DIMENSION_TRANSFER category describe the magnetisation transfer between dimensions."
    _category.id                   nef_spectrum_dimension_transfer
    _category.parent_category_id   nef_nmr_spectrum
-   _category.mandatory_code       true
+   _category.mandatory_code       yes
    #
    _category_group.id             nef_group
    #   #

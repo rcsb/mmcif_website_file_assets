@@ -1,0 +1,3639 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- XSD type schema generated on 2021-04-20 -->
+<!-- Schema file: http://pdbml.pdb.org/schema/mmcif_ddl-v2.3.0.xsd -->
+<!-- Please direct questions or comments to John Westbrook (jwest@rcsb.rutgers.edu) -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:mmcif_ddl="http://pdbml.pdb.org/schema/mmcif_ddl.xsd"
+   targetNamespace="http://pdbml.pdb.org/schema/mmcif_ddl.xsd"
+   elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+   <xsd:complexType name="categoryType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes defining the functionality for the entire category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="category" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="NX_mapping_details" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Records data correspondences between the items in this data category and
+and related data items in Nexus data dictionary.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Text description of a category.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="implicit_key" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+An identifier that may be used to distinguish the contents of
+like categories between data blocks.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="mandatory_code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Whether the category must be specified in a dictionary.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identity of the data category. Data items may only be looped
+with items of the same category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="category_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Example applications and descriptions of data items in this category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="category_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of an example attribute case in category category_examples 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A case of examples involving items in this category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="category_groupType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Provides a list of category groups to which the base category
+belongs.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="category_group" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of a category  ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of a category group ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="category_group_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category provides the definition of each category group.
+A category group is a collection of related categories.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="category_group_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Text description of a category group...
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="parent_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The name of the optional parent category group.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of a category group ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="category_keyType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds a list of the item names that uniquely
+identify the elements of the category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="category_key" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identifier of the category (eg. a component of  the primary key).
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of a data item that serves as a key identifier for the
+category (eg. a component of  the primary key).
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="category_methodsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes specifying the association between categories and methods.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="category_methods" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the category
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="method_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the method
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="datablockType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes defining the characteristics of a data block.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="datablock" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Text description of the data block.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identity of the data block.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="datablock_methodsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes specifying the association between data blocks and methods.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="datablock_methods" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="datablock_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Identifier of data block.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="method_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Unique method identifier associated with a data block.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="dictionaryType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying the dictionary title, version and
+data block identifier.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="dictionary" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="title" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Title identification of the dictionary.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="version" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A unique version identifier for the dictionary.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="datablock_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identifier for the data block containing the dictionary.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="dictionary_historyType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying the revision history of the dictionary.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="dictionary_history" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="revision" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Text description of the dictionary revision.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="update" minOccurs="1" maxOccurs="1" type="xsd:date">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The date that the last dictionary revision took place.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="version" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A unique version identifier for the dictionary revision.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="itemType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which describe the characteristics of a data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="category_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+This is category id of the item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="mandatory_code" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Signals if the defined item is mandatory for the proper description
+of its category.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="yes" />
+                           <xsd:enumeration value="no" />
+                           <xsd:enumeration value="implicit" />
+                           <xsd:enumeration value="implicit-ordinal" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Data name of the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_aliasesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds a list of possible alias names or synonyms for
+each data item.  Each alias name is identified by the name and
+version of the dictionary to which it belongs.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_aliases" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name for the data item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="alias_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alias name for the data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="dictionary" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The dictionary in which the alias name is defined.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="version" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The version of the dictionary in which the alias name is defined.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_defaultType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes specifying the default value for a data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_default" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="value" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The default value for the defined item if it is not specified
+explicitly. If a data value is not declared, the default is
+assumed to be the most likely or natural value.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of item for which the default value is defined
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_dependentType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which identify other data items that must be specified
+for the defined data item to be valid.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_dependent" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="dependent_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Data name of a dependent item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Item name of a dependent item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_descriptionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds the descriptions of each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_description" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="description" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Text description of the defined data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Tne name of data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_enumerationType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which specify the permitted enumeration of the items.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_enumeration" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of a permissible value for the defined item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="rcsb_detail_brief" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A brief description of a permissible value for the defined item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="rcsb_type_units_code" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Where the enumeration refers to a type, the code for the units of expression for this type.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="value" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A permissible value, character or number, for the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for describing application examples of the data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of an example specified in attribute case in category item_example 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+An example application of the defined data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item for the example.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_linkedType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which describe how equivalent data items are linked
+within categories and across different categories.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_linked" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="child_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of the child data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="parent_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of the parent data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_methodsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes specifying the association between data items and methods.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_methods" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="method_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the item method
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_rangeType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+The range of permissible values of a data item.  When multiple
+ranges are specified they are interpreted sequentially
+using a logical OR.  To specify that an item value may be
+equal to a boundary value,  specify an item range where the
+maximum and minimum values equal the boundary value.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_range" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="maximum" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Maximum permissible value of a data item or the upper bound
+of a permissible range.  ( maximum value &gt;  data value)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="minimum" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Minimum permissible value of a data item or the lower bound
+of a permissible range.  ( minimum value &lt;  data value)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of data item ...
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="ordinal" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of data item ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_relatedType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which specify recognized relationships between data items.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_related" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="function_code" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The code for the type of relationship of the item identified by
+attribute name in category item_related and the defined item.
+ 
+ALTERNATE  indicates that the item identified in
+attribute related_name in category item_related is an alternative expression in terms
+ of its application and attributes to the item in this definition.
+
+ALTERNATE_EXCLUSIVE indicates that the item identified in
+attribute related_name in category item_related is an alternative expression in terms
+ of its application and attributes to the item in this definition.
+Only one of the alternative forms may be specified.
+
+CONVENTION  indicates that the item identified in
+attribute related_name in category item_related differs from the defined item only
+ in terms of a convention in its expression.
+
+CONVERSION_CONSTANT indicates that the item identified in
+attribute related_name in category item_related differs from the defined item only
+ by a known constant.
+
+CONVERSION_ARBITRARY indicates that the item identified in
+attribute related_name in category item_related differs from the defined item only
+ by a arbitrary constant.
+
+REPLACES  indicates that the defined item replaces the item identified
+in attribute related_name.
+ in category item_related 
+REPLACEDBY  indicates that the defined item is replaced by the
+item identified in attribute related_name.
+ in category item_related 
+ASSOCIATED_VALUE indicates that the item identified in
+attribute related_name in category item_related is meaningful when associated with the
+ defined item.
+
+ASSOCIATED_ESD indicates that the item identified in
+attribute related_name in category item_related is the estimated standard deviation of
+ of the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="alternate" />
+                        <xsd:enumeration value="alternate_exclusive" />
+                        <xsd:enumeration value="convention" />
+                        <xsd:enumeration value="conversion_constant" />
+                        <xsd:enumeration value="conversion_arbitrary" />
+                        <xsd:enumeration value="replaces" />
+                        <xsd:enumeration value="replacedby" />
+                        <xsd:enumeration value="associated_value" />
+                        <xsd:enumeration value="associated_esd" />
+                        <xsd:enumeration value="associated_error" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Identifies a defined data item ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="related_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Identifies a data item by name which is closely related to the
+defined data item by the manner described by attribute function_code in category item_related 
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_structureType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds the association between data items and
+named vector/matrix declarations.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_structure" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Provides an indirect reference into the list of structure
+type definition in category item_structure_list.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="organization" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Identifies if the struct is defined in column or row major order.
+Only the unique elements of symmetric matrices are specified.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="columnwise" />
+                           <xsd:enumeration value="rowwise" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_structure_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds a description for each structure type.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_structure_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="dimension" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Identifies the length of this row/column of the structure.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                           <xsd:minInclusive value="1" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="code" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the matrix/vector structure declaration.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="index" use="required">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Identifies the one based index of a row/column of the structure.
+                     </xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:simpleType>
+                     <xsd:restriction base="xsd:integer">
+                        <xsd:minInclusive value="1" />
+                     </xsd:restriction>
+                  </xsd:simpleType>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_sub_categoryType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category assigns data items to subcategories.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_sub_category" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="pdbx_label" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+An optional label for an instance of a subcategory within a category
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identifier of subcategory
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_typeType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying the data type code for each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_type" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Data type of defined data item
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_type_conditionsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying additional conditions associated with
+the data type of the item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_type_conditions" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Codes defining conditions on the attribute code in category item_type specification.
+ 
+&apos;esd&apos; permits a number string to contain an appended standard
+deviation number enclosed within parentheses. E.g. 4.37(5)
+
+&apos;seq&apos; permits data to be declared as a sequence of values
+separated by a comma &lt;,&gt; or a colon &lt;:&gt;.
+* The sequence v1,v2,v3,. signals that v1, v2, v3, etc.
+are alternative values or the data item.
+* The sequence v1:v2 signals that v1 and v2 are the boundary
+values of a continuous range of values. This mechanism
+was used to specify permitted ranges of an item in
+previous DDL versions.
+Combinations of alternate and range sequences are permitted.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="none" />
+                           <xsd:enumeration value="esd" />
+                           <xsd:enumeration value="seq" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_type_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which define each type code.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_type_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="construct" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+When a data value can be defined as a pre-determined sequence of
+characters, or optional characters, or data names (for which the
+definition is also available), it is specified as a construction.
+The rules of construction conform to the the regular expression
+(REGEX) specifications detailed in the IEEE document P1003.2
+Draft 11.2 Sept 1991 (ftp file &apos;/doc/POSIX/1003.2/p121-140&apos;).
+Resolved data names for which attribute construct
+ in category item_type_list specifications exist are replaced by these constructions,
+otherwise the data name string is not replaced.
+typical construction for _date
+{_year}-{_month}-{_day}
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+An optional description of the data type
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="primitive_code" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The codes specifying the primitive type of the data value.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="numb" />
+                           <xsd:enumeration value="char" />
+                           <xsd:enumeration value="uchar" />
+                           <xsd:enumeration value="null" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="code" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The codes specifying the nature of the data value.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_unitsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Specifies the physical units in which data items are expressed.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_units" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The identifier of unit in which the data item is expressed.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_units_conversionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Conversion factors between the various units of measure defined
+in the item_units_list category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_units_conversion" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="factor" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The arithmetic operation required to convert between the
+unit systems:
+&lt;to_code&gt; =  &lt;from_code&gt; &lt;operator&gt; &lt;factor&gt;
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="operator" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The arithmetic operator required to convert between the
+unit systems:
+&lt;to_code&gt; =  &lt;from_code&gt; &lt;operator&gt; &lt;factor&gt;
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="+" />
+                           <xsd:enumeration value="-" />
+                           <xsd:enumeration value="*" />
+                           <xsd:enumeration value="/" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="from_code" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The unit system on which the conversion operation is applied
+to produce the unit system specified in attribute to_code.
+ in category item_units_conversion 
+&lt;to_code&gt; =  &lt;from_code&gt; &lt;operator&gt; &lt;factor&gt;
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="to_code" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The unit system produced after an operation is applied to the unit
+system specified by attribute from_code.
+ in category item_units_conversion 
+&lt;to_code&gt; =  &lt;from_code&gt; &lt;operator&gt; &lt;factor&gt;
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="item_units_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which describe the physical units of measure
+in which data items may be expressed.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="item_units_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of the unit of measure.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="code" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The code specifying the name of the unit of measure.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="method_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes specifying the list of methods applicable to data items,
+sub-categories, and categories.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="method_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A code that describes the function of the method.
+method to calculate the item 
+calculation
+method to verify the data item 
+verification
+method to provide cast conversion 
+cast
+method to define item + item 
+addition
+method to define item / item 
+division
+method to define item * item 
+multiplication
+method to define item = item 
+equivalence
+miscellaneous method 
+other
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Description of application method in attribute id in category method_list 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="implementation" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A language specific reference to the implementation of the method.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="implementation_source" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A code that describes the source of the method implementation.
+inline method implementation
+inline
+reference to an external method implementation
+reference
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="inline" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Inline text of the method implementation.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="language" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Implementation language in which the method is expressed.
+C
+C++
+Python
+Ruby
+Java
+Javascript
+other
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Identity of method in the list referenced by attribute id in category method 
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_category_descriptionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Alternate description of data items in this category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_category_description" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="description" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate text description of a category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_category_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Alternate example applications and descriptions of data items in this
+category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_category_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate description of an example attribute case in category category_examples 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate case of examples involving items in this category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_itemType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying an alternate mandatory  code for each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_item" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="mandatory_code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate mandatory code for defined data item
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_item_descriptionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds the alternate descriptions of each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_item_description" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="description" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate text description of the defined data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Data name of the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_item_enumerationType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which specify the permitted enumeration of the items.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_item_enumeration" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of a permissible value for the defined item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="value" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A permissible value, character or number, for the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_item_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for describing application examples of the data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_item_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate description of an example specified in attribute case in category ndb_item_example 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate example application of the defined data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_item_rangeType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+An alternative set of permissible range values of a data item.
+When multiple ranges are specified they are interpreted sequentially
+using a logical OR.  To specify that an item value may be
+equal to a boundary value,  specify an item range where the
+maximum and minimum values equal the boundary value.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_item_range" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="maximum" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate maximum permissible value of a data item or the upper bound
+of a permissible range.  ( maximum value &gt;  data value)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="minimum" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate minimum permissible value of a data item or the lower bound
+of a permissible range.  ( minimum value &lt;  data value)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of data item ...
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="ordinal" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of data item ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="ndb_item_typeType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying an alternate data type code for each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="ndb_item_type" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate data type of defined data item
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_category_contextType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Category definition context describing the scope of usage and
+distribution for the category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_category_context" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="type" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Category context type
+An category used internally by the wwPDB and not distributed in archival entries
+WWPDB_LOCAL
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_category_descriptionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Alternate description of data items in this category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_category_description" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="description" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate text description of a category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_category_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Alternate example applications and descriptions of data items in this
+category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_category_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate description of an example attribute case in category category_examples 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate case of examples involving items in this category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_comparison_operator_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Specifies the operators available for value condition comparisons.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_comparison_operator_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Description of the comparison operator.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="code" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A code for the comparison operator.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_dictionary_componentType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying a component dictionary title, version and
+data block identifier.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_dictionary_component" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="title" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Title identification of the dictionary component.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="version" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A unique version identifier for the dictionary component version.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="datablock_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identifier for the data block containing the dictionary component.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="dictionary_component_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identifier for the dictionary component.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_dictionary_component_historyType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying the revision history for a dictionary component.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_dictionary_component_history" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="revision" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Text description of the dictionary component revision.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="update" minOccurs="1" maxOccurs="1" type="xsd:date">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The date that the last dictionary component revision took place.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="dictionary_component_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A unique dictionary component identifier for the dictionary component.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="version" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A unique version identifier for the dictionary component revision.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_include_categoryType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Category describing the details of dictionary composition achieved through
+category-level content inclusion from external dictionary sources.
+
+Inclusion directives in this category take precedence over any
+dictionary-level include directives in category PDBX_INCLUDE_DICTIONARY.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_include_category" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="include_as_category_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The identifier for the target category within the destination dictionary.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="include_mode" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The action undertaken to resolve category name conflicts subject to the
+current category-level include directive.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="replace" />
+                           <xsd:enumeration value="extend" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Unique identifier for a source category within the included dictionary.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="dictionary_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Unique identifier for the included dictionary.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_include_dictionaryType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Category describing the details of dictionary composition achieved through
+dictionary-level content inclusion from external sources.
+
+Inclusion directives in this category may be used to include the
+contents of complete dictionary text files.  A finer level of
+control may be obtained by combining dictionary as well as category
+item-level include directives in categories PDBX_INCLUDE_CATEGORY
+and PDBX_INCLUDE_ITEM.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_include_dictionary" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="dictionary_locator" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Network accessible locator for the included dictionary text.
+URL linking to the PDBx/mmCIF dictionary
+http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v40.dic
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dictionary_namespace_prefix" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The namespace prefix used in the included source dictionary.
+Namespace prefix used by the wwPDB in the PDBx/mmCIF dictionary
+pdbx_
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dictionary_namespace_prefix_replace" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+Replacement namespace prefix.
+lcl_
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="include_mode" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Item definition describing the action undertaken to resolve name category name conflicts on including dictionary content.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="replace" />
+                           <xsd:enumeration value="extend" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="datablock_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Identifier of data block.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="dictionary_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Unique identifier for the included dictionary or dictionary component.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_include_itemType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Category describing the details of dictionary composition achieved through
+item-level content inclusion from external sources.
+
+Item inclusion directives in this category take precedence over any
+category-level include directives in category PDBX_INCLUDE_CATEGORY.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_include_item" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="include_as_item_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The identifier for the target item within the destination dictionary.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="include_mode" minOccurs="1" maxOccurs="1">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The action of taken to resolve item name conflicts subject to the current item-level include directive.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="replace" />
+                           <xsd:enumeration value="extend" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="dictionary_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Unique identifier for included dictionary.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="item_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Unique identifier for a target item within the included dictionary.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_itemType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying an alternate mandatory  code for each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="category_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+This is category id of the item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="mandatory_code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate mandatory code for defined data item
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_contextType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Item definition context describing the scope of usage and
+distribution for the category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_context" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="type" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Item definition context type
+An item used internally by the wwPDB and not distributed in archival entries
+WWPDB_LOCAL
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="item_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_descriptionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+This category holds the alternate descriptions of each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_description" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="description" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate text description of the defined data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Data name of the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_enumerationType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which specify the permitted enumeration of the items.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_enumeration" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of a permissible value for the defined item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="value" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A permissible value, character or number, for the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_enumeration_detailsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes describing the additional details about the enumeration of the data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_enumeration_details" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="closed_flag" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A flag to indicate that this item may assume values outside of its specified enumeration list at deposition.
+An item which may assume values outside of defined enumeration values at deposition
+no
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="no" />
+                           <xsd:enumeration value="yes" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Data name of the defined item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for describing application examples of the data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate description of an example specified in attribute case in category pdbx_item_example 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Alternate example application of the defined data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_linkedType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which describe how equivalent data items are linked
+within categories and across different categories subject to
+value conditions within the child data category.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_linked" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="child_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of the child data item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="condition_child_cmp_op" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The comparison operation for the child value condition
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="condition_child_log_op" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The logical conjunction for combining multiple conditions.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="and" />
+                           <xsd:enumeration value="or" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="condition_child_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of the child data item subject to the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="condition_child_target_name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of the data item which is the target of the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="condition_child_value" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The data value for the child value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="condition_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:integer">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+An identifier for each value condition. A condition may span multiple
+item and value pairs.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="parent_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of the parent data item.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+A unique identifier for each record.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_linked_groupType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes describing logical groups among item link relationships.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_linked_group" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="condition_id" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="context" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="label" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The category containing the item link group.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="link_group_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The unique identifier for the link group within the category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_linked_group_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Enumeration of item link membership within each item linked group.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_linked_group_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="child_category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The child category containing the item link group.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="child_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The item name of the child item in the item linked relationship.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="link_group_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The unique identifier for the link group within the category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="parent_category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The parent category containing the target of the item link relationship.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="parent_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The item name of the parent item in the item linked relationship.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_rangeType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+An alternative set of permissible range values of a data item.
+When multiple ranges are specified they are interpreted sequentially
+using a logical OR.  To specify that an item value may be
+equal to a boundary value,  specify an item range where the
+maximum and minimum values equal the boundary value.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_range" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="maximum" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate maximum permissible value of a data item or the upper bound
+of a permissible range.  ( maximum value &gt;  data value)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="minimum" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate minimum permissible value of a data item or the lower bound
+of a permissible range.  ( minimum value &lt;  data value)
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="name" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of data item ...
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="ordinal" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of data item ...
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_typeType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes for specifying an alternate data type code for each data item.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_type" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="code" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Alternate data type of defined data item
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of data item
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_value_conditionType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which describe those items sharing conditional dependency relationship
+where the value of a target item depends on the values of its dependent partner items.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_value_condition" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="dependent_item_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of a dependent data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="item_name" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+Name of the target data item.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="pdbx_item_value_condition_listType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes which define value conditions among dependent items.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="pdbx_item_value_condition_list" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="dependent_item_cmp_op" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Comparison operation for the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dependent_item_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of the dependent data item for the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="dependent_item_value" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Value of the dependent data item for the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="log_op" minOccurs="0" maxOccurs="1" nillable="true">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+The logical conjunction for combining multiple conditions.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                     <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                           <xsd:enumeration value="and" />
+                           <xsd:enumeration value="or" />
+                        </xsd:restriction>
+                     </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="target_item_name" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Name of the target data item for the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element name="target_item_value" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Value of the dependent data item for the value condition.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="cond_id" use="required" type="xsd:integer">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The unique identifier for each value condition.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sub_categoryType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+The purpose of a sub-category is to define an association between
+data items within a category and optionally provide a method to
+validate the collection of items.   The sub-category named
+&apos;cartesian&apos; might be applied to the data items for the coordinates
+x,  y, and z.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sub_category" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="description" minOccurs="1" maxOccurs="1" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+Description of the sub-category.
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The identity of the sub-category.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sub_category_examplesType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Example applications and descriptions of data items in this subcategory.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sub_category_examples" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:all>
+                  <xsd:element name="detail" minOccurs="0" maxOccurs="1" nillable="true" type="xsd:string">
+                     <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+
+A description of an example attribute case in category sub_category_examples 
+                        </xsd:documentation>
+                     </xsd:annotation>
+                  </xsd:element>
+               </xsd:all>
+               <xsd:attribute name="case" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+An example involving items in this subcategory.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name for the subcategory.
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="sub_category_methodsType">
+      <xsd:annotation>
+         <xsd:documentation xml:lang="en">
+
+Attributes specifying the association between subcategories and methods.
+
+         </xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+         <xsd:element name="sub_category_methods" minOccurs="0" maxOccurs="unbounded">
+            <xsd:complexType>
+               <xsd:attribute name="method_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the method
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+               <xsd:attribute name="sub_category_id" use="required" type="xsd:string">
+                  <xsd:annotation>
+                     <xsd:documentation xml:lang="en">
+
+The name of the subcategory
+                     </xsd:documentation>
+                  </xsd:annotation>
+               </xsd:attribute>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+   </xsd:complexType>
+
+   <xsd:complexType name="datablockType">
+      <xsd:all>
+         <xsd:element name="categoryCategory" type="mmcif_ddl:categoryType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="category_examplesCategory" type="mmcif_ddl:category_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="category_groupCategory" type="mmcif_ddl:category_groupType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="category_group_listCategory" type="mmcif_ddl:category_group_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="category_keyCategory" type="mmcif_ddl:category_keyType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="category_methodsCategory" type="mmcif_ddl:category_methodsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="datablockCategory" type="mmcif_ddl:datablockType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="datablock_methodsCategory" type="mmcif_ddl:datablock_methodsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="dictionaryCategory" type="mmcif_ddl:dictionaryType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="dictionary_historyCategory" type="mmcif_ddl:dictionary_historyType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="itemCategory" type="mmcif_ddl:itemType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_aliasesCategory" type="mmcif_ddl:item_aliasesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_defaultCategory" type="mmcif_ddl:item_defaultType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_dependentCategory" type="mmcif_ddl:item_dependentType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_descriptionCategory" type="mmcif_ddl:item_descriptionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_enumerationCategory" type="mmcif_ddl:item_enumerationType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_examplesCategory" type="mmcif_ddl:item_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_linkedCategory" type="mmcif_ddl:item_linkedType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_methodsCategory" type="mmcif_ddl:item_methodsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_rangeCategory" type="mmcif_ddl:item_rangeType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_relatedCategory" type="mmcif_ddl:item_relatedType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_structureCategory" type="mmcif_ddl:item_structureType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_structure_listCategory" type="mmcif_ddl:item_structure_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_sub_categoryCategory" type="mmcif_ddl:item_sub_categoryType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_typeCategory" type="mmcif_ddl:item_typeType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_type_conditionsCategory" type="mmcif_ddl:item_type_conditionsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_type_listCategory" type="mmcif_ddl:item_type_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_unitsCategory" type="mmcif_ddl:item_unitsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_units_conversionCategory" type="mmcif_ddl:item_units_conversionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="item_units_listCategory" type="mmcif_ddl:item_units_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="method_listCategory" type="mmcif_ddl:method_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_category_descriptionCategory" type="mmcif_ddl:ndb_category_descriptionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_category_examplesCategory" type="mmcif_ddl:ndb_category_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_itemCategory" type="mmcif_ddl:ndb_itemType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_item_descriptionCategory" type="mmcif_ddl:ndb_item_descriptionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_item_enumerationCategory" type="mmcif_ddl:ndb_item_enumerationType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_item_examplesCategory" type="mmcif_ddl:ndb_item_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_item_rangeCategory" type="mmcif_ddl:ndb_item_rangeType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="ndb_item_typeCategory" type="mmcif_ddl:ndb_item_typeType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_category_contextCategory" type="mmcif_ddl:pdbx_category_contextType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_category_descriptionCategory" type="mmcif_ddl:pdbx_category_descriptionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_category_examplesCategory" type="mmcif_ddl:pdbx_category_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_comparison_operator_listCategory" type="mmcif_ddl:pdbx_comparison_operator_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_dictionary_componentCategory" type="mmcif_ddl:pdbx_dictionary_componentType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_dictionary_component_historyCategory" type="mmcif_ddl:pdbx_dictionary_component_historyType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_include_categoryCategory" type="mmcif_ddl:pdbx_include_categoryType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_include_dictionaryCategory" type="mmcif_ddl:pdbx_include_dictionaryType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_include_itemCategory" type="mmcif_ddl:pdbx_include_itemType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_itemCategory" type="mmcif_ddl:pdbx_itemType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_contextCategory" type="mmcif_ddl:pdbx_item_contextType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_descriptionCategory" type="mmcif_ddl:pdbx_item_descriptionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_enumerationCategory" type="mmcif_ddl:pdbx_item_enumerationType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_enumeration_detailsCategory" type="mmcif_ddl:pdbx_item_enumeration_detailsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_examplesCategory" type="mmcif_ddl:pdbx_item_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_linkedCategory" type="mmcif_ddl:pdbx_item_linkedType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_linked_groupCategory" type="mmcif_ddl:pdbx_item_linked_groupType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_linked_group_listCategory" type="mmcif_ddl:pdbx_item_linked_group_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_rangeCategory" type="mmcif_ddl:pdbx_item_rangeType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_typeCategory" type="mmcif_ddl:pdbx_item_typeType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_value_conditionCategory" type="mmcif_ddl:pdbx_item_value_conditionType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="pdbx_item_value_condition_listCategory" type="mmcif_ddl:pdbx_item_value_condition_listType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sub_categoryCategory" type="mmcif_ddl:sub_categoryType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sub_category_examplesCategory" type="mmcif_ddl:sub_category_examplesType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+         <xsd:element name="sub_category_methodsCategory" type="mmcif_ddl:sub_category_methodsType" minOccurs="0" maxOccurs="1">
+         </xsd:element>
+      </xsd:all>
+      <xsd:attribute name="datablockName" type="xsd:string" use="optional" />
+   </xsd:complexType>
+   <xsd:element name="datablock" type="mmcif_ddl:datablockType">
+      <xsd:key name="categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:categoryCategory/mmcif_ddl:category" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="categoryKeyref_0_0_0_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_examplesCategory/mmcif_ddl:category_examples" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_1_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_groupCategory/mmcif_ddl:category_group" />
+         <xsd:field xpath="@category_id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_2_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_keyCategory/mmcif_ddl:category_key" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_3_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_methodsCategory/mmcif_ddl:category_methods" />
+         <xsd:field xpath="@category_id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_4_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_category_descriptionCategory/mmcif_ddl:ndb_category_description" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_5_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_category_examplesCategory/mmcif_ddl:ndb_category_examples" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_6_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_category_contextCategory/mmcif_ddl:pdbx_category_context" />
+         <xsd:field xpath="@category_id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_7_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_category_descriptionCategory/mmcif_ddl:pdbx_category_description" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_8_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_category_examplesCategory/mmcif_ddl:pdbx_category_examples" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="categoryKeyref_0_0_9_0" refer="mmcif_ddl:categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_linked_groupCategory/mmcif_ddl:pdbx_item_linked_group" />
+         <xsd:field xpath="@category_id" />
+      </xsd:keyref>
+      <xsd:key name="category_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_examplesCategory/mmcif_ddl:category_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="category_groupKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_groupCategory/mmcif_ddl:category_group" />
+         <xsd:field xpath="@category_id" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="category_group_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_group_listCategory/mmcif_ddl:category_group_list" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="category_group_listKeyref_0_0_0_0" refer="mmcif_ddl:category_group_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_groupCategory/mmcif_ddl:category_group" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:key name="category_keyKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_keyCategory/mmcif_ddl:category_key" />
+         <xsd:field xpath="@id" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="category_methodsKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_methodsCategory/mmcif_ddl:category_methods" />
+         <xsd:field xpath="@category_id" />
+         <xsd:field xpath="@method_id" />
+      </xsd:key>
+      <xsd:key name="datablockKey_0">
+         <xsd:selector xpath="mmcif_ddl:datablockCategory/mmcif_ddl:datablock" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="datablockKeyref_0_0_0_0" refer="mmcif_ddl:datablockKey_0">
+         <xsd:selector xpath="mmcif_ddl:datablock_methodsCategory/mmcif_ddl:datablock_methods" />
+         <xsd:field xpath="@datablock_id" />
+      </xsd:keyref>
+      <xsd:keyref name="datablockKeyref_0_0_1_0" refer="mmcif_ddl:datablockKey_0">
+         <xsd:selector xpath="mmcif_ddl:dictionaryCategory/mmcif_ddl:dictionary" />
+         <xsd:field xpath="@datablock_id" />
+      </xsd:keyref>
+      <xsd:key name="datablock_methodsKey_0">
+         <xsd:selector xpath="mmcif_ddl:datablock_methodsCategory/mmcif_ddl:datablock_methods" />
+         <xsd:field xpath="@datablock_id" />
+         <xsd:field xpath="@method_id" />
+      </xsd:key>
+      <xsd:key name="dictionaryKey_0">
+         <xsd:selector xpath="mmcif_ddl:dictionaryCategory/mmcif_ddl:dictionary" />
+         <xsd:field xpath="@datablock_id" />
+      </xsd:key>
+      <xsd:key name="dictionary_historyKey_0">
+         <xsd:selector xpath="mmcif_ddl:dictionary_historyCategory/mmcif_ddl:dictionary_history" />
+         <xsd:field xpath="@version" />
+      </xsd:key>
+      <xsd:keyref name="dictionary_historyKeyref_0_0_0_0" refer="mmcif_ddl:dictionary_historyKey_0">
+         <xsd:selector xpath="mmcif_ddl:dictionaryCategory/mmcif_ddl:dictionary" />
+         <xsd:field xpath="mmcif_ddl:version" />
+      </xsd:keyref>
+      <xsd:key name="itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:itemCategory/mmcif_ddl:item" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:keyref name="itemKeyref_0_0_0_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_keyCategory/mmcif_ddl:category_key" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_1_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_defaultCategory/mmcif_ddl:item_default" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_2_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_dependentCategory/mmcif_ddl:item_dependent" />
+         <xsd:field xpath="@dependent_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_2_1" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_dependentCategory/mmcif_ddl:item_dependent" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_3_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_descriptionCategory/mmcif_ddl:item_description" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_4_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_enumerationCategory/mmcif_ddl:item_enumeration" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_5_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_examplesCategory/mmcif_ddl:item_examples" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_6_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_linkedCategory/mmcif_ddl:item_linked" />
+         <xsd:field xpath="@child_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_6_1" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_linkedCategory/mmcif_ddl:item_linked" />
+         <xsd:field xpath="@parent_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_7_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_methodsCategory/mmcif_ddl:item_methods" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_8_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_relatedCategory/mmcif_ddl:item_related" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_8_1" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_relatedCategory/mmcif_ddl:item_related" />
+         <xsd:field xpath="@related_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_9_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_structureCategory/mmcif_ddl:item_structure" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_10_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_sub_categoryCategory/mmcif_ddl:item_sub_category" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_11_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_typeCategory/mmcif_ddl:item_type" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_12_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_type_conditionsCategory/mmcif_ddl:item_type_conditions" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_13_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_unitsCategory/mmcif_ddl:item_units" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_14_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_itemCategory/mmcif_ddl:ndb_item" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_15_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_descriptionCategory/mmcif_ddl:ndb_item_description" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_16_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_enumerationCategory/mmcif_ddl:ndb_item_enumeration" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_17_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_examplesCategory/mmcif_ddl:ndb_item_examples" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_18_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_typeCategory/mmcif_ddl:ndb_item_type" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_19_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_itemCategory/mmcif_ddl:pdbx_item" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_20_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_contextCategory/mmcif_ddl:pdbx_item_context" />
+         <xsd:field xpath="@item_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_21_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_descriptionCategory/mmcif_ddl:pdbx_item_description" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_22_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_enumerationCategory/mmcif_ddl:pdbx_item_enumeration" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_23_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_enumeration_detailsCategory/mmcif_ddl:pdbx_item_enumeration_details" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_24_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_examplesCategory/mmcif_ddl:pdbx_item_examples" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_25_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_linkedCategory/mmcif_ddl:pdbx_item_linked" />
+         <xsd:field xpath="mmcif_ddl:child_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_25_1" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_linkedCategory/mmcif_ddl:pdbx_item_linked" />
+         <xsd:field xpath="mmcif_ddl:parent_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_26_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_typeCategory/mmcif_ddl:pdbx_item_type" />
+         <xsd:field xpath="@name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_27_0" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_value_condition_listCategory/mmcif_ddl:pdbx_item_value_condition_list" />
+         <xsd:field xpath="mmcif_ddl:dependent_item_name" />
+      </xsd:keyref>
+      <xsd:keyref name="itemKeyref_0_0_27_1" refer="mmcif_ddl:itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_value_condition_listCategory/mmcif_ddl:pdbx_item_value_condition_list" />
+         <xsd:field xpath="mmcif_ddl:target_item_name" />
+      </xsd:keyref>
+      <xsd:key name="item_aliasesKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_aliasesCategory/mmcif_ddl:item_aliases" />
+         <xsd:field xpath="@alias_name" />
+         <xsd:field xpath="@dictionary" />
+         <xsd:field xpath="@version" />
+      </xsd:key>
+      <xsd:key name="item_defaultKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_defaultCategory/mmcif_ddl:item_default" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_dependentKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_dependentCategory/mmcif_ddl:item_dependent" />
+         <xsd:field xpath="@dependent_name" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_descriptionKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_descriptionCategory/mmcif_ddl:item_description" />
+         <xsd:field xpath="@description" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_enumerationKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_enumerationCategory/mmcif_ddl:item_enumeration" />
+         <xsd:field xpath="@name" />
+         <xsd:field xpath="@value" />
+      </xsd:key>
+      <xsd:key name="item_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_examplesCategory/mmcif_ddl:item_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_linkedKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_linkedCategory/mmcif_ddl:item_linked" />
+         <xsd:field xpath="@child_name" />
+         <xsd:field xpath="@parent_name" />
+      </xsd:key>
+      <xsd:key name="item_methodsKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_methodsCategory/mmcif_ddl:item_methods" />
+         <xsd:field xpath="@method_id" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_rangeKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_rangeCategory/mmcif_ddl:item_range" />
+         <xsd:field xpath="@ordinal" />
+      </xsd:key>
+      <xsd:key name="item_relatedKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_relatedCategory/mmcif_ddl:item_related" />
+         <xsd:field xpath="@function_code" />
+         <xsd:field xpath="@name" />
+         <xsd:field xpath="@related_name" />
+      </xsd:key>
+      <xsd:key name="item_structureKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_structureCategory/mmcif_ddl:item_structure" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_structure_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_structure_listCategory/mmcif_ddl:item_structure_list" />
+         <xsd:field xpath="@code" />
+         <xsd:field xpath="@index" />
+      </xsd:key>
+      <xsd:key name="item_sub_categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_sub_categoryCategory/mmcif_ddl:item_sub_category" />
+         <xsd:field xpath="@id" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_typeKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_typeCategory/mmcif_ddl:item_type" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_type_conditionsKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_type_conditionsCategory/mmcif_ddl:item_type_conditions" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_type_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_type_listCategory/mmcif_ddl:item_type_list" />
+         <xsd:field xpath="@code" />
+      </xsd:key>
+      <xsd:keyref name="item_type_listKeyref_0_0_0_0" refer="mmcif_ddl:item_type_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_typeCategory/mmcif_ddl:item_type" />
+         <xsd:field xpath="mmcif_ddl:code" />
+      </xsd:keyref>
+      <xsd:key name="item_unitsKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_unitsCategory/mmcif_ddl:item_units" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="item_units_conversionKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_units_conversionCategory/mmcif_ddl:item_units_conversion" />
+         <xsd:field xpath="@from_code" />
+         <xsd:field xpath="@to_code" />
+      </xsd:key>
+      <xsd:key name="item_units_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_units_listCategory/mmcif_ddl:item_units_list" />
+         <xsd:field xpath="@code" />
+      </xsd:key>
+      <xsd:keyref name="item_units_listKeyref_0_0_0_0" refer="mmcif_ddl:item_units_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_unitsCategory/mmcif_ddl:item_units" />
+         <xsd:field xpath="mmcif_ddl:code" />
+      </xsd:keyref>
+      <xsd:keyref name="item_units_listKeyref_0_0_1_0" refer="mmcif_ddl:item_units_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_units_conversionCategory/mmcif_ddl:item_units_conversion" />
+         <xsd:field xpath="@from_code" />
+      </xsd:keyref>
+      <xsd:keyref name="item_units_listKeyref_0_0_1_1" refer="mmcif_ddl:item_units_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_units_conversionCategory/mmcif_ddl:item_units_conversion" />
+         <xsd:field xpath="@to_code" />
+      </xsd:keyref>
+      <xsd:key name="method_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:method_listCategory/mmcif_ddl:method_list" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="method_listKeyref_0_0_0_0" refer="mmcif_ddl:method_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:category_methodsCategory/mmcif_ddl:category_methods" />
+         <xsd:field xpath="@method_id" />
+      </xsd:keyref>
+      <xsd:keyref name="method_listKeyref_0_0_1_0" refer="mmcif_ddl:method_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:datablock_methodsCategory/mmcif_ddl:datablock_methods" />
+         <xsd:field xpath="@method_id" />
+      </xsd:keyref>
+      <xsd:keyref name="method_listKeyref_0_0_2_0" refer="mmcif_ddl:method_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_methodsCategory/mmcif_ddl:item_methods" />
+         <xsd:field xpath="@method_id" />
+      </xsd:keyref>
+      <xsd:keyref name="method_listKeyref_0_0_3_0" refer="mmcif_ddl:method_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:sub_category_methodsCategory/mmcif_ddl:sub_category_methods" />
+         <xsd:field xpath="@method_id" />
+      </xsd:keyref>
+      <xsd:key name="ndb_category_descriptionKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_category_descriptionCategory/mmcif_ddl:ndb_category_description" />
+         <xsd:field xpath="@description" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="ndb_category_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_category_examplesCategory/mmcif_ddl:ndb_category_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="ndb_itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_itemCategory/mmcif_ddl:ndb_item" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="ndb_item_descriptionKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_descriptionCategory/mmcif_ddl:ndb_item_description" />
+         <xsd:field xpath="@description" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="ndb_item_enumerationKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_enumerationCategory/mmcif_ddl:ndb_item_enumeration" />
+         <xsd:field xpath="@name" />
+         <xsd:field xpath="@value" />
+      </xsd:key>
+      <xsd:key name="ndb_item_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_examplesCategory/mmcif_ddl:ndb_item_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="ndb_item_rangeKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_rangeCategory/mmcif_ddl:ndb_item_range" />
+         <xsd:field xpath="@ordinal" />
+      </xsd:key>
+      <xsd:key name="ndb_item_typeKey_0">
+         <xsd:selector xpath="mmcif_ddl:ndb_item_typeCategory/mmcif_ddl:ndb_item_type" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="pdbx_category_contextKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_category_contextCategory/mmcif_ddl:pdbx_category_context" />
+         <xsd:field xpath="@category_id" />
+      </xsd:key>
+      <xsd:key name="pdbx_category_descriptionKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_category_descriptionCategory/mmcif_ddl:pdbx_category_description" />
+         <xsd:field xpath="@description" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="pdbx_category_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_category_examplesCategory/mmcif_ddl:pdbx_category_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="pdbx_comparison_operator_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_comparison_operator_listCategory/mmcif_ddl:pdbx_comparison_operator_list" />
+         <xsd:field xpath="@code" />
+      </xsd:key>
+      <xsd:keyref name="pdbx_comparison_operator_listKeyref_0_0_0_0" refer="mmcif_ddl:pdbx_comparison_operator_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_value_condition_listCategory/mmcif_ddl:pdbx_item_value_condition_list" />
+         <xsd:field xpath="mmcif_ddl:dependent_item_cmp_op" />
+      </xsd:keyref>
+      <xsd:key name="pdbx_dictionary_componentKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_dictionary_componentCategory/mmcif_ddl:pdbx_dictionary_component" />
+         <xsd:field xpath="@datablock_id" />
+         <xsd:field xpath="@dictionary_component_id" />
+      </xsd:key>
+      <xsd:key name="pdbx_dictionary_component_historyKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_dictionary_component_historyCategory/mmcif_ddl:pdbx_dictionary_component_history" />
+         <xsd:field xpath="@dictionary_component_id" />
+         <xsd:field xpath="@version" />
+      </xsd:key>
+      <xsd:key name="pdbx_include_categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_include_categoryCategory/mmcif_ddl:pdbx_include_category" />
+         <xsd:field xpath="@category_id" />
+         <xsd:field xpath="@dictionary_id" />
+      </xsd:key>
+      <xsd:key name="pdbx_include_dictionaryKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_include_dictionaryCategory/mmcif_ddl:pdbx_include_dictionary" />
+         <xsd:field xpath="@datablock_id" />
+         <xsd:field xpath="@dictionary_id" />
+      </xsd:key>
+      <xsd:key name="pdbx_include_itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_include_itemCategory/mmcif_ddl:pdbx_include_item" />
+         <xsd:field xpath="@dictionary_id" />
+         <xsd:field xpath="@item_name" />
+      </xsd:key>
+      <xsd:key name="pdbx_itemKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_itemCategory/mmcif_ddl:pdbx_item" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_contextKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_contextCategory/mmcif_ddl:pdbx_item_context" />
+         <xsd:field xpath="@item_name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_descriptionKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_descriptionCategory/mmcif_ddl:pdbx_item_description" />
+         <xsd:field xpath="@description" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_enumerationKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_enumerationCategory/mmcif_ddl:pdbx_item_enumeration" />
+         <xsd:field xpath="@name" />
+         <xsd:field xpath="@value" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_enumeration_detailsKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_enumeration_detailsCategory/mmcif_ddl:pdbx_item_enumeration_details" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_examplesCategory/mmcif_ddl:pdbx_item_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_linkedKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_linkedCategory/mmcif_ddl:pdbx_item_linked" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_linked_groupKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_linked_groupCategory/mmcif_ddl:pdbx_item_linked_group" />
+         <xsd:field xpath="@category_id" />
+         <xsd:field xpath="@link_group_id" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_linked_group_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_linked_group_listCategory/mmcif_ddl:pdbx_item_linked_group_list" />
+         <xsd:field xpath="@child_category_id" />
+         <xsd:field xpath="@child_name" />
+         <xsd:field xpath="@link_group_id" />
+         <xsd:field xpath="@parent_category_id" />
+         <xsd:field xpath="@parent_name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_rangeKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_rangeCategory/mmcif_ddl:pdbx_item_range" />
+         <xsd:field xpath="@ordinal" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_typeKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_typeCategory/mmcif_ddl:pdbx_item_type" />
+         <xsd:field xpath="@name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_value_conditionKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_value_conditionCategory/mmcif_ddl:pdbx_item_value_condition" />
+         <xsd:field xpath="@dependent_item_name" />
+         <xsd:field xpath="@item_name" />
+      </xsd:key>
+      <xsd:key name="pdbx_item_value_condition_listKey_0">
+         <xsd:selector xpath="mmcif_ddl:pdbx_item_value_condition_listCategory/mmcif_ddl:pdbx_item_value_condition_list" />
+         <xsd:field xpath="@cond_id" />
+      </xsd:key>
+      <xsd:key name="sub_categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:sub_categoryCategory/mmcif_ddl:sub_category" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:keyref name="sub_categoryKeyref_0_0_0_0" refer="mmcif_ddl:sub_categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:item_sub_categoryCategory/mmcif_ddl:item_sub_category" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="sub_categoryKeyref_0_0_1_0" refer="mmcif_ddl:sub_categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:sub_category_examplesCategory/mmcif_ddl:sub_category_examples" />
+         <xsd:field xpath="@id" />
+      </xsd:keyref>
+      <xsd:keyref name="sub_categoryKeyref_0_0_2_0" refer="mmcif_ddl:sub_categoryKey_0">
+         <xsd:selector xpath="mmcif_ddl:sub_category_methodsCategory/mmcif_ddl:sub_category_methods" />
+         <xsd:field xpath="@sub_category_id" />
+      </xsd:keyref>
+      <xsd:key name="sub_category_examplesKey_0">
+         <xsd:selector xpath="mmcif_ddl:sub_category_examplesCategory/mmcif_ddl:sub_category_examples" />
+         <xsd:field xpath="@case" />
+         <xsd:field xpath="@id" />
+      </xsd:key>
+      <xsd:key name="sub_category_methodsKey_0">
+         <xsd:selector xpath="mmcif_ddl:sub_category_methodsCategory/mmcif_ddl:sub_category_methods" />
+         <xsd:field xpath="@method_id" />
+         <xsd:field xpath="@sub_category_id" />
+      </xsd:key>
+   </xsd:element>
+</xsd:schema>

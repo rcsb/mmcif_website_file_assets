@@ -1,19 +1,19 @@
 ###########################################################################
 #
 # File:  mmcif_pdbx_v40.dic
-# Date:  Mon Feb 15 17:15:45 EST 2021
+# Date:  Mon Aug  2 17:20:18 EDT 2021
 #
 # Created from files in CVS module dict-mmcif_pdbx_v40.dic unless noted:
 #        mmcif_pdbx-header.dic   
 #        mmcif_pdbx-data.dic   
 #        mmcif_pdbx-def-1.dic   
-#        ../dict-mmcif_std/mmcif_std-def-2.dic   
+#        ../parts/mmcif_std-def-2.dic   
 #        mmcif_pdbx-def-2.dic   
 #        mmcif_pdbx-def-3.dic   
 #        mmcif_pdbx-def-4.dic   
 #        mmcif_pdbx-def-5.dic   
 #        mmcif_pdbx-def-6.dic   
-#        ../dict-mmcif_iims/mmcif_iims-def-2.dic   
+#        ../parts/mmcif_iims-def-2.dic   
 #        mmcif_pdbx-def-9.dic   
 #        mmcif_pdbx-def-10.dic   
 #        mmcif_pdbx-def-11.dic   
